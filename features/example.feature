@@ -1,4 +1,4 @@
-Feature: example feature
+eature: example feature
 
 Scenario: example scenario
 	When I do nothing
