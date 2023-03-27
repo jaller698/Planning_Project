@@ -6,9 +6,7 @@ Description: A worker registers hours spent on project
 	Background:
 		Given a worker 1 is registered
 		And worker 1 is signed in
-
-	Background:
-		Given project "Javis" exists
+		And project "Javis" exists
 
 	Scenario: A worker registers hours spent on activity
 		Given project "Javis" has an activity "TileCreation" registered

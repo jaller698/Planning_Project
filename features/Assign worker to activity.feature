@@ -19,3 +19,4 @@ Description: Project leader assigns worker to activity
 		When project leader 1 assignes worker 2 to activity "Game Night" under projekt "MinesweeperBattleRoyale"
 		Then worker 1 has no assigned activities
 		And the message "Unable to find activity 'Game Night'" is returned
+		
