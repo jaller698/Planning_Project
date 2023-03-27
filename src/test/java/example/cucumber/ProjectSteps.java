@@ -14,49 +14,25 @@ public class ProjectSteps {
 	private String errorMessage;
 	
 	@Given("project {string} exists")
-	public void projectExists(String string) {
+	public void project_exists(String string) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 	
-	@Given("project {string} does not exist")
-	public void projectDoesNotExist(String string) {
+	@Given("project {string} has an activity {string} registered")
+	public void project_has_an_activity_registered(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 	
-	@When("an admin creates activiy with title {string}")
-	public void anAdminCreatesActiviyWithTitle(String string) {
+	@When("the worker {int} adds {int} hours to activity {string} under project {string}")
+	public void the_worker_adds_hours_to_activity_under_project(Integer int1, Integer int2, String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
 	
-	@When("the project leader creates activiy with title {string}")
-	public void theProjectLeaderCreatesActiviyWithTitle(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@When("activity number {int}")
-	public void activityNumber(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@When("allocates {int} hours to the activity")
-	public void allocatesHoursToTheActivity(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@Then("the activity {string} with the activity number {int}, expected hours {int} is added to the project {string} and the message {string} is returned")
-	public void theActivityWithTheActivityNumberExpectedHoursIsAddedToTheProjectAndTheMessageIsReturned(String string, String string2, String string3, String string4, String string5) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@Then("the error message {string} is returned.")
-	public void theErrorMessageIsReturned(String string) {
+	@Then("{int} hours is registered under worker {int} in activity {string}")
+	public void hours_is_registered_under_worker_in_activity(Integer int1, Integer int2, String string) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
