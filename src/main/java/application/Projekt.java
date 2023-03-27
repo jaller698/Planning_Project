@@ -7,14 +7,16 @@ public class Projekt {
 	ArrayList<Aktivitet> aktiviter = new ArrayList<Aktivitet>();
 	int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
+	Medarbejder leder;
 
+public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
+	
+}
 
-
+public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder, int estTid) {
+	
 }
 
 
 
-
-
-
- 
+}
