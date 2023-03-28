@@ -10,8 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import FXML.ProjektViewController;
 
 public class StartController {
 
@@ -20,6 +25,8 @@ public class StartController {
 
 	@FXML
 	private Button begin;
+	@FXML
+	private Button refresh;
 	@FXML
 	private Label label;
 	@FXML
@@ -40,15 +47,23 @@ public class StartController {
 	@FXML 
 	public Button signup;
 
+	
+	public int loginIndex;
+	
+	
 
 	public void go(ActionEvent e) throws IOException {
 		boolean checkSuccesful = false;
 		if ((loginUsername.getText() != null && loginPassword.getText() != null)) {
 			System.out.println(
 					loginUsername.getText() + " " + loginPassword.getText() + ", " + "thank you for your comment!");
-			for (Medarbejder M : alleMedarbejdere) {
-				if (M.navn.equals(loginUsername.getText()) && M.password.equals(loginPassword.getText())) {
+			for (int i = 0; i < alleMedarbejdere.size(); i++) {
+				System.out.println(alleMedarbejdere.get(i).navn);
+				if (alleMedarbejdere.get(i).navn.equals(loginUsername.getText()) == true && alleMedarbejdere.get(i).password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
+					//loginIndex = alleMedarbejdere.indexOf();
+					loginIndex = i;
+					System.out.println(loginIndex);
 				}
 			}
 		}
@@ -56,13 +71,17 @@ public class StartController {
 			System.out.println("You fucked it");
 		} else {
 			System.out.println("well done");
+
+			HelloFX.setRoot("projektview2", ProjektViewController.class);
+
 		}
+
 	}
 	public void goToLogin(ActionEvent e) throws IOException {
-		HelloFX.setRoot("Loginpage");
+		HelloFX.setRoot("Loginpage",StartController.class);
 	}
 	public void goToSignup(ActionEvent e) throws IOException {
-		HelloFX.setRoot("Signuppage");
+		HelloFX.setRoot("Signuppage", StartController.class);
 	}
 	public void addUser(ActionEvent e) throws IOException{
 		System.out.println("gabriel er irriterende");
@@ -70,7 +89,7 @@ public class StartController {
 			
 			alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
 			System.out.println(alleMedarbejdere.get(alleMedarbejdere.size()-1));
-			HelloFX.setRoot("Mainmenu");
+			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
 		}
@@ -82,12 +101,20 @@ public class StartController {
 	private void handleButtonAction(ActionEvent event) throws IOException {
 		System.out.println("You clicked me!");
 		label.setText("Hello World!");
-		HelloFX.setRoot("Loginpage");
+		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
-	@FXML
-	public void startGame(ActionEvent e) throws IOException {
-		HelloFX.setRoot("Loginpage");
+	
+	public void initialize() {
+		
+		Medarbejder h = new Medarbejder("Hans","heste123");
+		Medarbejder l = new Medarbejder("Erik","fisk123");
+		Medarbejder p = new Medarbejder("Peter","næbdyr123");
+		alleMedarbejdere.add(h);
+		alleMedarbejdere.add(l);
+		alleMedarbejdere.add(p);
+
+
 	}
 
 }

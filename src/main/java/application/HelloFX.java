@@ -26,7 +26,7 @@ public class HelloFX extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		System.out.println("heya");
-		scene = new Scene(loadFXML("Frontpage"));
+		scene = new Scene(loadFXML("Frontpage", StartController.class));
 		cStage = stage;
 		stage.setTitle("MENU");
 		stage.setScene(scene);
@@ -35,19 +35,22 @@ public class HelloFX extends Application {
 	}
 	
 	public static void main(String[] args) {
+
 		launch(args);
 	}
 	
-	public static void setRoot(String fxml) throws IOException {
-		scene.setRoot(loadFXML(fxml));
+	public static <T> void setRoot(String fxml, Class<T> c) throws IOException {
+		scene.setRoot(loadFXML(fxml,c));
 		cStage.sizeToScene();
 	}
 	
-	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(StartController.class.getResource(fxml + ".fxml"));
+	private static <T> Parent loadFXML(String fxml, Class<T> c) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(c.getResource(fxml + ".fxml"));
 		Parent p = fxmlLoader.load();
 		return p;
 	}
+	
+	
 	
 
 	

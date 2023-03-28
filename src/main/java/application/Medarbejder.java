@@ -3,8 +3,8 @@ package application;
 import java.util.ArrayList;
 
 public class Medarbejder {
-	public static String navn;
-	public static String password;
+	public  String navn;
+	public  String password;
 	int arbejdsTimer;
 
 	ArrayList<Projekt> p = new ArrayList<Projekt>();

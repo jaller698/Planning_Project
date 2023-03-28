@@ -9,13 +9,22 @@ public class Projekt {
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	ProjektLeder leder;
 	
+	public Projekt(String navn) {
+		this.navn=navn;
+	}
 
 	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
-	
+		this.navn=navn;
+		this.medarbejdere=medarbejdere;
+		//tilføj lederen på et tidspunkt
 	}
 
 	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder, int estTid) {
 	
+	}
+	
+	public String toString() {
+		return this.navn;
 	}
 	
 	public void addAktivitet(Aktivitet A) {
