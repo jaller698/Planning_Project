@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import FXML.StartController;
+import application.Medarbejder;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,26 +15,46 @@ import io.cucumber.java.en.When;
 public class UserSteps {
 	@Given("a worker {int} is registered")
 	public void aWorkerIsRegistered(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Medarbejder newWorker = new Medarbejder(
+		"Cucumber" + Integer.toString(int1), // User name
+		"Cumcumber" + Integer.toString(int1) // Password
+		);
+		
+	    StartController.alleMedarbejdere.add(newWorker); // add user to user register
+	    
+	    throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	
 	@Given("a worker {int} is registered under the name {string}")
 	public void aWorkerIsRegisteredUnderTheName(Integer int1, String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Medarbejder newWorker = new Medarbejder(
+		string, // User name
+		"Cumcumber" + Integer.toString(int1) // Password
+		);
+		
+	    StartController.alleMedarbejdere.add(newWorker); // add user to user register
+	    
+	    throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	
 	@Given("a worker {int} is registered under the name {string} with the password {string}")
 	public void aWorkerIsRegisteredUnderTheNameWithThePassword(Integer int1, String string, String string2) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		Medarbejder newWorker = new Medarbejder(
+		string, // User name
+		string2 // Password
+		);
+		
+	    StartController.alleMedarbejdere.add(newWorker); // add user to user register
+	    
+	    throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	
 	@Given("worker {int} is signed in")
 	public void workerIsSignedIn(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		
+		// StartController.loginIndex = StartController.alleMedarbejdere.indexOf(M);
+		
+		throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	
 	@Given("worker {int} is signed off")
