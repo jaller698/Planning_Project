@@ -10,16 +10,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.File;
+import FXML.*;
 
 
 import java.io.IOException;
 
 
 public class HelloFX extends Application {
-
 	@FXML
-	public Button begin;
-	
+	private Button begin;
 	private static Scene scene;
 	public static Stage cStage;
 
@@ -27,7 +26,7 @@ public class HelloFX extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		System.out.println("heya");
-		scene = new Scene(loadFXML("Start"));
+		scene = new Scene(loadFXML("Frontpage"));
 		cStage = stage;
 		stage.setTitle("MENU");
 		stage.setScene(scene);
@@ -45,10 +44,11 @@ public class HelloFX extends Application {
 	}
 	
 	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(HelloFX.class.getResource(fxml + ".fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(StartController.class.getResource(fxml + ".fxml"));
 		Parent p = fxmlLoader.load();
 		return p;
 	}
+	
 
 	
 	

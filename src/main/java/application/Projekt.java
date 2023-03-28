@@ -30,6 +30,6 @@ public class Projekt {
 
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
-		this.leder = new ProjektLeder();
+		this.leder = new ProjektLeder(navn, navn);
 	}
 }
