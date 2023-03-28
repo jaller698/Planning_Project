@@ -3,18 +3,21 @@ package application;
 import java.util.ArrayList;
 
 public class Medarbejder {
-	String navn;
+	static String navn;
 	int arbejdsTimer;
 
 	ArrayList<Projekt> p = new ArrayList<Projekt>();
 	ArrayList<Aktivitet> a = new ArrayList<Aktivitet>();
 
+	
 	public boolean tjekLogin() {
 		return true;
 	}
 
-	public void addProjektleader(Projekt p) {
-
+	public void appointProjektleader(Projekt p, Medarbejder m) {
+		
+		
+		p.addProjektLeder(this);
 	}
 
 	public ArrayList<Projekt> getProjekts() {
@@ -28,6 +31,10 @@ public class Medarbejder {
 
 	public void addWorkHours(int hours) {
 
+	}
+	public void addAktivitet(Aktivitet A) {
+		//fantastiske navne. Slet ikke forvirrende.
+		this.a.add(A);
 	}
 
 }
