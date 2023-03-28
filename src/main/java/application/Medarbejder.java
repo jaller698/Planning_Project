@@ -7,8 +7,8 @@ public class Medarbejder {
 	public  String password;
 	int arbejdsTimer;
 
-	ArrayList<Projekt> p = new ArrayList<Projekt>();
-	ArrayList<Aktivitet> a = new ArrayList<Aktivitet>();
+	public ArrayList<Projekt> p = new ArrayList<Projekt>();
+	public ArrayList<Aktivitet> a = new ArrayList<Aktivitet>();
 	
 	public Medarbejder(String navn, String password) {
 		this.navn = navn;
@@ -20,7 +20,7 @@ public class Medarbejder {
 	}
 
 	public String toString() {
-		return navn+" "+password;
+		return navn + " " + password;
 	}
 	
 	
@@ -46,7 +46,10 @@ public class Medarbejder {
 		//fantastiske navne. Slet ikke forvirrende.
 		this.a.add(A);
 	}
-
+	public void addProjekt(Projekt P) {
+		//fantastiske navne. Slet ikke forvirrende.
+		this.p.add(P);
+	}
 }
 
 class ProjektLeder extends Medarbejder {

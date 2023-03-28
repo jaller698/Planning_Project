@@ -20,8 +20,8 @@ import FXML.ProjektViewController;
 
 public class StartController {
 
-	ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
-	ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
+	public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
+	public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
 
 	@FXML
 	private Button begin;
@@ -46,11 +46,16 @@ public class StartController {
 	TextField signupRepeatPassword = new TextField();
 	@FXML 
 	public Button signup;
+	public Button viewProjects;
 
 	
-	public int loginIndex;
+	public static int loginIndex;
 	
+
 	
+	public void viewProjects() throws IOException {
+		HelloFX.setRoot("projektview2", ProjektViewController.class);
+	}
 
 	public void go(ActionEvent e) throws IOException {
 		boolean checkSuccesful = false;
@@ -72,7 +77,7 @@ public class StartController {
 		} else {
 			System.out.println("well done");
 
-			HelloFX.setRoot("projektview2", ProjektViewController.class);
+			HelloFX.setRoot("Mainmenu", StartController.class);
 
 		}
 
@@ -89,6 +94,7 @@ public class StartController {
 			
 			alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
 			System.out.println(alleMedarbejdere.get(alleMedarbejdere.size()-1));
+			loginIndex = alleMedarbejdere.size()-1;
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
@@ -113,8 +119,15 @@ public class StartController {
 		alleMedarbejdere.add(h);
 		alleMedarbejdere.add(l);
 		alleMedarbejdere.add(p);
+		h.p.add(new Projekt("1h"));
+		h.p.add(new Projekt("2h"));
+		h.p.add(new Projekt("3h"));
+		l.p.add(new Projekt("1l"));
+		l.p.add(new Projekt("2l"));
+		l.p.add(new Projekt("3l"));
 
 
 	}
+
 
 }

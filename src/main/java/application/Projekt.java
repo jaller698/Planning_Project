@@ -26,7 +26,6 @@ public class Projekt {
 	public String toString() {
 		return this.navn;
 	}
-	
 	public void addAktivitet(Aktivitet A) {
 		this.aktiviteter.add(A);
 	}
@@ -35,8 +34,6 @@ public class Projekt {
 			System.out.println(a.navn);	
 		}
 	}
-
-
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
 		this.leder = new ProjektLeder(navn, navn);
