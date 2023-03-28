@@ -44,7 +44,7 @@ public class ProjectSteps {
 	}
 	
 	@When("project leader {int} creates activity {string} with {int} hours given in project {string}")
-	public void workerCreatesActivityWithHoursGivenInProject(Integer int1, String string, Integer int2, String string2) {
+	public void projectLeaderCreatesActivityWithHoursGivenInProject(Integer int1, String string, Integer int2, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
