@@ -1,7 +1,7 @@
 Feature: Register hours
 
-Actor: Worker
-Description: A worker registers hours spent on project
+# Actor: Worker
+# Description: A worker registers hours spent on project
 
 	Background:
 		Given a worker 1 is registered
@@ -16,7 +16,7 @@ Description: A worker registers hours spent on project
 
 	Scenario: A worker registers hours spent on activity not created
 		When the worker 1 adds 10 hours to activity "TileCreation" under project "Javis"
-		Then the message "Unable to find activity 'TileCreation'" is returned
+		Then the message "Unable to find activity 'TileCreation' under 'Javis'" is returned
 		
 	Scenario: A worker registers hours spent on activity under a non-existet project
 		When the worker 1 adds 10 hours to activity "TileCreation" under project "Bob9000"
