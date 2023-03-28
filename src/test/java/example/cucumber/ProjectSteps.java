@@ -25,8 +25,26 @@ public class ProjectSteps {
 	    throw new io.cucumber.java.PendingException();
 	}
 	
+	@Given("a worker {int} is a project leader for project {string}")
+	public void aWorkerIsAProjectLeaderForProject(Integer int1, String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
 	@When("the worker {int} adds {int} hours to activity {string} under project {string}")
 	public void the_worker_adds_hours_to_activity_under_project(Integer int1, Integer int2, String string, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@When("project leader {int} assigns worker {int} to activity {string} under project {string}")
+	public void projectLeaderAssignsWorkerToActivityUnderProject(Integer int1, Integer int2, String string, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@When("worker {int} creates activity {string} with {int} hours given in project {string}")
+	public void workerCreatesActivityWithHoursGivenInProject(Integer int1, String string, Integer int2, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
@@ -39,6 +57,12 @@ public class ProjectSteps {
 	
 	@Then("the message {string} is returned")
 	public void the_message_is_returned(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@Then("the activity {string} with hours {int} allocated is added to the project {string}")
+	public void theActivityWithHoursAllocatedIsAddedToTheProject(String string, Integer int1, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}

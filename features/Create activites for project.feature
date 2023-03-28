@@ -17,8 +17,8 @@ Description: Admin or project leader creates activity for project
 	Scenario: Project leader creates activity for project
 		Given project "5D Chess" exists
 		And a worker 1 is a project leader for project "5D Chess"
-		When worker 1 creates activity "elucidate geometry" with 5 hours given in project "5D Chess"
-		Then the activity "Tesseract creation" with hours 5 allocated is added to the project "5D Chess" 
+		When worker 1 creates activity "Elucidate geometry" with 5 hours given in project "5D Chess"
+		Then the activity "Elucidate geometry" with hours 5 allocated is added to the project "5D Chess" 
 		And the message "Success" is returned
 		
 	Scenario: Worker creates an activity to a project

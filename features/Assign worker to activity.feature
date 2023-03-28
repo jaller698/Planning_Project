@@ -7,7 +7,7 @@ Description: Project leader assigns worker to activity
 		Given a worker 1 is registered
 		And worker 1 is signed in
 		And project "MinesweeperBattleRoyale" exists
-		And worker 1 is project leader in project "MinesweeperBattleRoyale"
+		And a worker 1 is a project leader for project "MinesweeperBattleRoyale"
 		
 	Scenario: Project leader assigns worker to activity
 		Given project "MinesweeperBattleRoyale" has an activity "TileCreation" registered
@@ -16,7 +16,7 @@ Description: Project leader assigns worker to activity
 		And the message "Success" is returned
 		
 	Scenario: Project leader assigns worker to non-existing activity
-		When project leader 1 assignes worker 2 to activity "Game Night" under projekt "MinesweeperBattleRoyale"
+		When project leader 1 assignes worker 2 to activity "Game Night" under project "MinesweeperBattleRoyale"
 		Then worker 1 has no assigned activities
 		And the message "Unable to find activity 'Game Night'" is returned
 		

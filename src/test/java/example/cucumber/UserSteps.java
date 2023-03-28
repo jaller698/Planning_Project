@@ -19,8 +19,26 @@ public class UserSteps {
 	    throw new io.cucumber.java.PendingException();
 	}
 	
+	@Given("worker {int} is registered as an admin")
+	public void workerIsRegisteredAsAnAdmin(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
 	@Given("worker {int} is signed in")
 	public void worker_is_signed_in(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@Then("worker {int} is assigned to activity {string}")
+	public void workerIsAssignedToActivity(Integer int1, String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@Then("worker {int} has no assigned activities")
+	public void workerHasNoAssignedActivities(Integer int1) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
