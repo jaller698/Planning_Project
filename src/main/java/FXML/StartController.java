@@ -47,12 +47,30 @@ public class StartController {
 	@FXML 
 	public Button signup;
 	public Button viewProjects;
-
+	public Button logOut;
+	@FXML 
+	public TextField projektNavn = new TextField();
 	
 	public static int loginIndex;
 	
-
+	public void createProjekt() throws IOException {
+		alleProjekter.add(new Projekt(projektNavn.getText()));
+		alleMedarbejdere.get(loginIndex).addProjekt(alleProjekter.get(alleProjekter.size()-1));
+		HelloFX.setRoot("Mainmenu", StartController.class);
+	}
+	public void logOut() throws IOException {
+		//sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et tjek for det. Det er mest bare så der ikke sker noget
+		//fucky wucky shit, men det burde egentlig aldrig blive et problem siden man ikke kan komme nogen stedet fra login page/signup page uden at logge ind
+		//og dermed skifte index. Bare extra safety. 
+		StartController.loginIndex = -1;
+		HelloFX.setRoot("Loginpage", StartController.class);			
+	}
 	
+	
+	public void toProjektCreater() throws IOException {
+		HelloFX.setRoot("ProjektCreater", StartController.class);
+
+	}
 	public void viewProjects() throws IOException {
 		HelloFX.setRoot("projektview2", ProjektViewController.class);
 	}
@@ -60,14 +78,19 @@ public class StartController {
 	public void go(ActionEvent e) throws IOException {
 		boolean checkSuccesful = false;
 		if ((loginUsername.getText() != null && loginPassword.getText() != null)) {
-			System.out.println(
-					loginUsername.getText() + " " + loginPassword.getText() + ", " + "thank you for your comment!");
-			for (int i = 0; i < alleMedarbejdere.size(); i++) {
-				System.out.println(alleMedarbejdere.get(i).navn);
-				if (alleMedarbejdere.get(i).navn.equals(loginUsername.getText()) == true && alleMedarbejdere.get(i).password.equals(loginPassword.getText()) == true) {
+//			
+//			for (int i = 0; i < alleMedarbejdere.size(); i++) {
+//				if (alleMedarbejdere.get(i).navn.equals(loginUsername.getText()) == true && alleMedarbejdere.get(i).password.equals(loginPassword.getText()) == true) {
+//					checkSuccesful = true;
+//					//loginIndex = alleMedarbejdere.indexOf();
+//					loginIndex = i;
+//					System.out.println(loginIndex);
+//				}
+//			}
+			for (Medarbejder M : alleMedarbejdere) {
+				if (M.navn.equals(loginUsername.getText()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					//loginIndex = alleMedarbejdere.indexOf();
-					loginIndex = i;
+					loginIndex = alleMedarbejdere.indexOf(M);
 					System.out.println(loginIndex);
 				}
 			}

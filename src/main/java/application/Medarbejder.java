@@ -49,6 +49,8 @@ public class Medarbejder {
 	public void addProjekt(Projekt P) {
 		//fantastiske navne. Slet ikke forvirrende.
 		this.p.add(P);
+		System.out.println(P.toString() + "added to " + this.navn);
+		
 	}
 }
 

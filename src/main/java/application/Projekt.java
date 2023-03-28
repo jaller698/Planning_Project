@@ -12,7 +12,8 @@ public class Projekt {
 	public Projekt(String navn) {
 		this.navn=navn;
 	}
-
+	
+	
 	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
 		this.navn=navn;
 		this.medarbejdere=medarbejdere;
