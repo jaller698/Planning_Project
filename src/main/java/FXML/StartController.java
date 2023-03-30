@@ -37,7 +37,9 @@ public class StartController {
 	public Button toLogin;
 	@FXML
 	public Button toSignup;
-	
+
+
+
 	@FXML
 	TextField signupUsername = new TextField();
 	@FXML
@@ -52,6 +54,7 @@ public class StartController {
 	public TextField projektNavn = new TextField();
 	
 	public static int loginIndex;
+	public static Medarbejder currentMedarbejder;
 	
 	public void createProjekt() throws IOException {
 		alleProjekter.add(new Projekt(projektNavn.getText()));
@@ -63,6 +66,7 @@ public class StartController {
 		//fucky wucky shit, men det burde egentlig aldrig blive et problem siden man ikke kan komme nogen stedet fra login page/signup page uden at logge ind
 		//og dermed skifte index. Bare extra safety. 
 		StartController.loginIndex = -1;
+		currentMedarbejder = null;
 		HelloFX.setRoot("Loginpage", StartController.class);			
 	}
 	
@@ -91,6 +95,7 @@ public class StartController {
 				if (M.navn.equals(loginUsername.getText()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
 					loginIndex = alleMedarbejdere.indexOf(M);
+					currentMedarbejder = M;
 					System.out.println(loginIndex);
 				}
 			}
@@ -118,6 +123,7 @@ public class StartController {
 			alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
 			System.out.println(alleMedarbejdere.get(alleMedarbejdere.size()-1));
 			loginIndex = alleMedarbejdere.size()-1;
+			currentMedarbejder = alleMedarbejdere.get(loginIndex);
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
@@ -132,22 +138,20 @@ public class StartController {
 		label.setText("Hello World!");
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
-
+	
 	
 	public void initialize() {
-		
-		Medarbejder h = new Medarbejder("Hans","heste123");
-		Medarbejder l = new Medarbejder("Erik","fisk123");
-		Medarbejder p = new Medarbejder("Peter","næbdyr123");
-		alleMedarbejdere.add(h);
-		alleMedarbejdere.add(l);
-		alleMedarbejdere.add(p);
-		h.p.add(new Projekt("1h"));
-		h.p.add(new Projekt("2h"));
-		h.p.add(new Projekt("3h"));
-		l.p.add(new Projekt("1l"));
-		l.p.add(new Projekt("2l"));
-		l.p.add(new Projekt("3l"));
+
+
+//		alleMedarbejdere.add(h);
+//		alleMedarbejdere.add(l);
+//		alleMedarbejdere.add(p);
+//		h.p.add(new Projekt("1h"));
+//		h.p.add(new Projekt("2h"));
+//		h.p.add(new Projekt("3h"));
+//		l.p.add(new Projekt("1l"));
+//		l.p.add(new Projekt("2l"));
+//		l.p.add(new Projekt("3l"));
 
 
 	}

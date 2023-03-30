@@ -2,6 +2,8 @@ package application;
 
 import java.util.ArrayList;
 
+import FXML.StartController;
+
 public class Medarbejder {
 	public  String navn;
 	public  String password;
@@ -13,6 +15,7 @@ public class Medarbejder {
 	public Medarbejder(String navn, String password) {
 		this.navn = navn;
 		this.password = password;
+		StartController.alleMedarbejdere.add(this);
 	}
 	
 	public boolean tjekLogin() {
