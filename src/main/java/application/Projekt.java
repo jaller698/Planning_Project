@@ -47,4 +47,5 @@ public class Projekt {
 		StringProperty ProjectName = new SimpleStringProperty(navn);
 		return ProjectName;
 	}
+
 }
