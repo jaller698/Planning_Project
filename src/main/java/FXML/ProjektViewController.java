@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class ProjektViewController {
 	@FXML
@@ -21,7 +23,10 @@ public class ProjektViewController {
 	@FXML
 	public Label welcome = new Label();
 	@FXML
-	public ListView<Projekt> projektList = new ListView<Projekt>();
+    private TableView<Projekt> projektTable;
+	@FXML
+    private TableColumn<Projekt, String> NameColumn;
+	//we can add multiple columns to out tableview, like estimated hours, estimated time of completion, percentage of progression.
 
 	ObservableList<Projekt> data = convertToOL(StartController.alleMedarbejdere.get(StartController.loginIndex).p);
 
@@ -34,7 +39,8 @@ public class ProjektViewController {
 	
 	@FXML
 	public void refresh(ActionEvent e) throws IOException {
-		projektList.setItems(data);
+		//projektTable.setItems(data);
+		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
 	}
 	public void logOut() throws IOException {
 		//sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et tjek for det. Det er mest bare så der ikke sker noget
@@ -46,7 +52,8 @@ public class ProjektViewController {
 	}
 	public void initialize() {
 		welcome.setText("hej " + StartController.alleMedarbejdere.get(StartController.loginIndex).navn);
-		projektList.setItems(data);
+		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
+		projektTable.setItems(data);
 	}
 	
 

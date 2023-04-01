@@ -2,6 +2,9 @@ package application;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Projekt {
 	String navn;
 	ArrayList<Aktivitet> aktiviteter = new ArrayList<Aktivitet>();
@@ -38,5 +41,10 @@ public class Projekt {
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
 		this.leder = new ProjektLeder(navn, navn);
+	}
+	
+	public StringProperty getName() {
+		StringProperty ProjectName = new SimpleStringProperty(navn);
+		return ProjectName;
 	}
 }

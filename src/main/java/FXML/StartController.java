@@ -72,7 +72,7 @@ public class StartController {
 
 	}
 	public void viewProjects() throws IOException {
-		HelloFX.setRoot("projektview2", ProjektViewController.class);
+		HelloFX.setRoot("projektview", ProjektViewController.class);
 	}
 
 	public void go(ActionEvent e) throws IOException {
@@ -88,7 +88,7 @@ public class StartController {
 //				}
 //			}
 			for (Medarbejder M : alleMedarbejdere) {
-				if (M.navn.equals(loginUsername.getText()) == true && M.password.equals(loginPassword.getText()) == true) {
+				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
 					loginIndex = alleMedarbejdere.indexOf(M);
 					System.out.println(loginIndex);
