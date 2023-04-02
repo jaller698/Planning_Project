@@ -44,7 +44,7 @@ public class ProjektViewController {
 	@FXML
 	private TableColumn<Aktivitet, String> activityColumn;
 	@FXML
-	private TableColumn<Aktivitet, String> estHourColumn;
+	private TableColumn<Aktivitet, Integer> estHourColumn;
 	@FXML
 	private TableView<Medarbejder> assignedEmplTable;
 	@FXML

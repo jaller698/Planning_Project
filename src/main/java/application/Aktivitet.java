@@ -2,8 +2,10 @@ package application;
 
 import java.util.ArrayList;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 
 public class Aktivitet {
 	public Projekt p;
@@ -74,9 +76,8 @@ public class Aktivitet {
 	}
 
 	// UI method
-	public StringProperty getUIEstHours() {
-		String s = "" + estTime;
-		StringProperty estHours = new SimpleStringProperty(s);
+	public ObservableValue<Integer> getUIEstHours() {
+		ObservableValue<Integer> estHours = new SimpleIntegerProperty(estTime).asObject();
 		return estHours;
 	}
 }
