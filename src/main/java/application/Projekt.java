@@ -43,9 +43,13 @@ public class Projekt {
 		this.leder = new ProjektLeder(navn, navn);
 	}
 	
-	public StringProperty getName() {
+	//UI method
+	public StringProperty getUIName() {
 		StringProperty ProjectName = new SimpleStringProperty(navn);
 		return ProjectName;
+	}
+	public ArrayList<Aktivitet> getActivityList(){
+		return aktiviteter;
 	}
 
 }

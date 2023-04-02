@@ -43,7 +43,7 @@
                               <TableView fx:id="activityTable" layoutX="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="activityColumn" prefWidth="75.0" text="Activites" />
-                                  <TableColumn prefWidth="75.0" text="Est. hours" />
+                                  <TableColumn fx:id="estHourColumn" prefWidth="75.0" text="Est. hours" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -71,13 +71,13 @@
                                 </rowConstraints>
                                  <children>
                                     <Label text="Name" />
-                                    <Label text="Label" GridPane.columnIndex="1" />
+                                    <Label fx:id="activityLabel" text="Label" GridPane.columnIndex="1" />
                                     <Label text="Activity number" GridPane.rowIndex="1" />
                                     <Label text="Estimated hours" GridPane.rowIndex="2" />
                                     <Label text="Completed hours" GridPane.rowIndex="3" />
-                                    <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="activityNumber" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="estHoursLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="comHoursLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <TableView fx:id="assignedEmplTable" layoutX="-10.0" layoutY="120.0" prefHeight="151.0" prefWidth="204.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="155.0">

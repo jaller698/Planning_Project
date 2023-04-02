@@ -19,79 +19,141 @@ import javafx.scene.control.TableView;
 public class ProjektViewController {
 	@FXML
 	public Button refresh;
-	@FXML 
+	@FXML
 	Button logout;
 	@FXML
 	public Label welcome = new Label();
 	@FXML
 	private Label NameLabel;
 	@FXML
-    private TableView<Projekt> projectTable;
+	private Label activityLabel;
 	@FXML
-    private TableColumn<Projekt, String> NameColumn;
-	//we can add multiple columns to out tableview, like estimated hours, estimated time of completion, percentage of progression.
+	private Label activityNumber;
 	@FXML
-    private TableView<Aktivitet> activityTable;
+	private Label estHoursLabel;
 	@FXML
-    private TableColumn<Aktivitet, String> activityColumn;
+	private Label comHoursLabel;
 	@FXML
-    private TableView<Medarbejder> assignedEmplTable;
+	private TableView<Projekt> projectTable;
 	@FXML
-    private TableColumn<Medarbejder, String> assignedEmplColumn;
-	
-	ObservableList<Projekt> data = convertToOL(StartController.alleMedarbejdere.get(StartController.loginIndex).p);
-	static String currentProject;
-	
+	private TableColumn<Projekt, String> NameColumn;
+	// we can add multiple columns to out tableview, like estimated hours, estimated
+	// time of completion, percentage of progression.
+	@FXML
+	private TableView<Aktivitet> activityTable;
+	@FXML
+	private TableColumn<Aktivitet, String> activityColumn;
+	@FXML
+	private TableColumn<Aktivitet, String> estHourColumn;
+	@FXML
+	private TableView<Medarbejder> assignedEmplTable;
+	@FXML
+	private TableColumn<Medarbejder, String> assignedEmplColumn;
+
+	static ObservableList<Projekt> data = convertToOL(
+			StartController.alleMedarbejdere.get(StartController.loginIndex).p);
+	static ObservableList<Aktivitet> projectActivities;
+	static Projekt currentProject = data.get(0);
+	static Aktivitet currentActivity = null;
+
 	public Button backToMain;
+
 	public void backToMain() throws IOException {
 		HelloFX.setRoot("Mainmenu", StartController.class);
 
 	}
-	
-	
+
 	@FXML
 	public void refresh(ActionEvent e) throws IOException {
-		//projektTable.setItems(data);
-		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
-		//activityColumn.setCellValueFactory(cellData -> cellData.getValue().getName(pid));
-		//assignedEmplColumn.setCellValueFactory(cellData -> cellData.getValue().getName(aid));
+		// projektTable.setItems(data);
+		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
+		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
+		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());
+		assignedEmplColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 
 	}
+
 	public void logOut() throws IOException {
-		//sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et tjek for det. Det er mest bare så der ikke sker noget
-		//fucky wucky shit, men det burde egentlig aldrig blive et problem siden man ikke kan komme nogen stedet fra login page/signup page uden at logge ind
-		//og dermed skifte index. Bare extra safety. 
+		// sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et
+		// tjek for det. Det er mest bare så der ikke sker noget
+		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
+		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
+		// og dermed skifte index. Bare extra safety.
 		StartController.loginIndex = -1;
 		HelloFX.setRoot("Loginpage", StartController.class);
-		
-	}
-	public void initialize() {
-		projectTable.setItems(data);
-		welcome.setText("hej " + StartController.alleMedarbejdere.get(StartController.loginIndex).navn);
-		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
-		//activityColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
-		//assignedEmplColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
-	    showProjectDetails(null);
-		projectTable.getSelectionModel().selectedItemProperty().addListener(
-	           (observable, oldValue, newValue) -> showProjectDetails(newValue));
-	}
-	
 
-	public ObservableList<Projekt> convertToOL(ArrayList<Projekt> a) {
+	}
+
+	public void initialize() {
+		System.out.println(data);
+		projectTable.setItems(data);
+		activityTable.setItems(projectActivities);
+		welcome.setText("hej " + StartController.alleMedarbejdere.get(StartController.loginIndex).navn);
+		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
+		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
+		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());
+		assignedEmplColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
+		showProjectDetails(currentProject);
+		showActivityDetails(currentActivity);
+		projectTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showProjectDetails(newValue));
+		activityTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showActivityDetails(newValue));
+	}
+
+	public static ObservableList<Projekt> convertToOL(ArrayList<Projekt> a) {
 		ObservableList<Projekt> o = FXCollections.observableArrayList();
-		for(Projekt P : a) {
+		for (Projekt P : a) {
 			o.add(P);
 		}
 		return o;
 	}
-	private void showProjectDetails(Projekt p) {
-	    if (p != null) {
-	        NameLabel.setText(p.toString());
-	        currentProject = p.toString();
 
-	    } else {
-	        NameLabel.setText("Project Name");
-	        currentProject = null;
-	    }
+	public static ObservableList<Aktivitet> projectActivities(ArrayList<Aktivitet> a) {
+		ObservableList<Aktivitet> o = FXCollections.observableArrayList();
+		for (Aktivitet A : a) {
+			o.add(A);
+		}
+		return o;
+	}
+
+	private void showProjectDetails(Projekt p) {
+		if (p != null) {
+			NameLabel.setText(p.toString());
+			currentProject = p;
+			projectActivities = projectActivities(p.getActivityList());
+			System.out.print(p.getActivityList().toString());
+			activityTable.setItems(projectActivities);
+			if (!projectActivities.isEmpty()) {
+				currentActivity = projectActivities.get(0);
+			} else {
+				currentActivity = null;
+			}
+				showActivityDetails(currentActivity);
+
+			
+
+		} else {
+			NameLabel.setText("Project Name");
+			currentProject = null;
+			projectActivities = null;
+			activityTable.setItems(projectActivities);
+
+		}
+	}
+
+	private void showActivityDetails(Aktivitet a) {
+		if (a != null) {
+			activityLabel.setText(a.toString());
+			activityNumber.setText("117");
+			estHoursLabel.setText("" + a.getEstHours());
+			comHoursLabel.setText("");
+
+		} else {
+			activityLabel.setText("");
+			activityNumber.setText("");
+			estHoursLabel.setText("");
+			comHoursLabel.setText("");
+		}
 	}
 }
