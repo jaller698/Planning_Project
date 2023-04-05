@@ -51,8 +51,10 @@ public class StartController {
 	public static int loginIndex;
 	
 	public void createProjekt() throws IOException {
-		app.alleProjekter.add(new Projekt(projektNavn.getText()));
-		app.alleMedarbejdere.get(loginIndex).addProjekt(app.alleProjekter.get(app.alleProjekter.size()-1));
+		Projekt p = new Projekt(projektNavn.getText());
+		Application.alleProjekter.add(p);
+		System.out.println(app.getMedarbejder());
+		app.getMedarbejder().addProjekt(p);
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 	public void logOut() throws IOException {
@@ -88,7 +90,8 @@ public class StartController {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
 					loginIndex = app.alleMedarbejdere.indexOf(M);
-					System.out.println(loginIndex);
+					Application.setMedarbejder(M);
+					System.out.println(app.getMedarbejder());
 				}
 			}
 		}
@@ -96,7 +99,7 @@ public class StartController {
 			System.out.println("You fucked it");
 		} else {
 			System.out.println("well done");
-
+			
 			HelloFX.setRoot("Mainmenu", StartController.class);
 
 		}
