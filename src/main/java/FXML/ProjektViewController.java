@@ -53,7 +53,7 @@ public class ProjektViewController {
 	static ObservableList<Projekt> data = convertToOL(
 			StartController.alleMedarbejdere.get(StartController.loginIndex).p);
 	static ObservableList<Aktivitet> projectActivities;
-	static Projekt currentProject = data.get(0);
+	static Projekt currentProject = null;
 	static Aktivitet currentActivity = null;
 
 	public Button backToMain;
@@ -85,6 +85,8 @@ public class ProjektViewController {
 	}
 
 	public void initialize() {
+		if(!data.isEmpty())
+			currentProject = data.get(0);
 		System.out.println(data);
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
