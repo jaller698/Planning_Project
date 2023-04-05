@@ -19,10 +19,7 @@ import javafx.collections.ObservableList;
 import FXML.ProjektViewController;
 
 public class StartController {
-
-	public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
-	public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
-
+	Application app = new Application();
 	@FXML
 	private Button begin;
 	@FXML
@@ -34,9 +31,9 @@ public class StartController {
 	@FXML
 	TextField loginPassword = new TextField();
 	@FXML 
-	public Button toLogin;
+	private Button toLogin;
 	@FXML
-	public Button toSignup;
+	private Button toSignup;
 	
 	@FXML
 	TextField signupUsername = new TextField();
@@ -45,17 +42,17 @@ public class StartController {
 	@FXML
 	TextField signupRepeatPassword = new TextField();
 	@FXML 
-	public Button signup;
-	public Button viewProjects;
-	public Button logOut;
+	private Button signup;
+	private Button viewProjects;
+	private Button logOut;
 	@FXML 
 	public TextField projektNavn = new TextField();
 	
 	public static int loginIndex;
 	
 	public void createProjekt() throws IOException {
-		alleProjekter.add(new Projekt(projektNavn.getText()));
-		alleMedarbejdere.get(loginIndex).addProjekt(alleProjekter.get(alleProjekter.size()-1));
+		app.alleProjekter.add(new Projekt(projektNavn.getText()));
+		app.alleMedarbejdere.get(loginIndex).addProjekt(app.alleProjekter.get(app.alleProjekter.size()-1));
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 	public void logOut() throws IOException {
@@ -87,10 +84,10 @@ public class StartController {
 //					System.out.println(loginIndex);
 //				}
 //			}
-			for (Medarbejder M : alleMedarbejdere) {
+			for (Medarbejder M : app.alleMedarbejdere) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					loginIndex = alleMedarbejdere.indexOf(M);
+					loginIndex = app.alleMedarbejdere.indexOf(M);
 					System.out.println(loginIndex);
 				}
 			}
@@ -115,9 +112,9 @@ public class StartController {
 		System.out.println("gabriel er irriterende");
 		if(signupPassword.getText().equals(signupRepeatPassword.getText())) {
 			
-			alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
-			System.out.println(alleMedarbejdere.get(alleMedarbejdere.size()-1));
-			loginIndex = alleMedarbejdere.size()-1;
+			app.alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
+			System.out.println(app.alleMedarbejdere.get(app.alleMedarbejdere.size()-1));
+			loginIndex = app.alleMedarbejdere.size()-1;
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
@@ -139,9 +136,9 @@ public class StartController {
 		Medarbejder h = new Medarbejder("Hans","heste123");
 		Medarbejder l = new Medarbejder("Erik","fisk123");
 		Medarbejder p = new Medarbejder("Peter","næbdyr123");
-		alleMedarbejdere.add(h);
-		alleMedarbejdere.add(l);
-		alleMedarbejdere.add(p);
+		app.alleMedarbejdere.add(h);
+		app.alleMedarbejdere.add(l);
+		app.alleMedarbejdere.add(p);
 		h.p.add(new Projekt("1h"));
 		h.p.add(new Projekt("2h"));
 		h.p.add(new Projekt("3h"));

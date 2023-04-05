@@ -2,7 +2,7 @@ package FXML;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import application.Application;
 import application.Aktivitet;
 import application.HelloFX;
 import application.Medarbejder;
@@ -17,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class ProjektViewController {
+	Application app = new Application();
 	@FXML
 	public Button refresh;
 	@FXML
@@ -51,7 +52,7 @@ public class ProjektViewController {
 	private TableColumn<Medarbejder, String> assignedEmplColumn;
 
 	static ObservableList<Projekt> data = convertToOL(
-			StartController.alleMedarbejdere.get(StartController.loginIndex).p);
+			Application.alleMedarbejdere.get(StartController.loginIndex).p);
 	static ObservableList<Aktivitet> projectActivities;
 	static Projekt currentProject = null;
 	static Aktivitet currentActivity = null;
@@ -89,11 +90,11 @@ public class ProjektViewController {
 			currentProject = data.get(0);
 		if(data != null)
 			data = convertToOL(
-					StartController.alleMedarbejdere.get(StartController.loginIndex).p);
+					app.alleMedarbejdere.get(StartController.loginIndex).p);
 		System.out.println(data);
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
-		welcome.setText("hej " + StartController.alleMedarbejdere.get(StartController.loginIndex).navn);
+		welcome.setText("hej " + app.alleMedarbejdere.get(StartController.loginIndex).navn);
 		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());

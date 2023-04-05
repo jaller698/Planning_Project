@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import FXML.StartController;
+import application.Application;
 import application.Medarbejder;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,7 +21,7 @@ public class UserSteps {
 		"Cumcumber" + Integer.toString(int1) // Password
 		);
 		
-	    StartController.alleMedarbejdere.add(newWorker); // add user to user register
+	    Application.alleMedarbejdere.add(newWorker); // add user to user register
 	    
 	    throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
@@ -32,7 +33,8 @@ public class UserSteps {
 		"Cumcumber" + Integer.toString(int1) // Password
 		);
 		
-	    StartController.alleMedarbejdere.add(newWorker); // add user to user register
+
+	    Application.alleMedarbejdere.add(newWorker); // add user to user register
 	    
 	    throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
@@ -44,7 +46,8 @@ public class UserSteps {
 		string2 // Password
 		);
 		
-	    StartController.alleMedarbejdere.add(newWorker); // add user to user register
+
+	    Application.alleMedarbejdere.add(newWorker); // add user to user register
 	    
 	    throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
