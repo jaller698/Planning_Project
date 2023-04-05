@@ -87,6 +87,9 @@ public class ProjektViewController {
 	public void initialize() {
 		if(!data.isEmpty())
 			currentProject = data.get(0);
+		if(data != null)
+			data = convertToOL(
+					StartController.alleMedarbejdere.get(StartController.loginIndex).p);
 		System.out.println(data);
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
