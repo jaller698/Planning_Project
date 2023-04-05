@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.function.BooleanSupplier;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -9,6 +10,7 @@ public class Medarbejder {
 	public String navn;
 	public String password;
 	int arbejdsTimer;
+	private boolean admin;
 
 	public ArrayList<Projekt> p = new ArrayList<Projekt>();
 	public ArrayList<Aktivitet> a = new ArrayList<Aktivitet>();
@@ -16,6 +18,7 @@ public class Medarbejder {
 	public Medarbejder(String navn, String password) {
 		this.navn = navn;
 		this.password = password;
+		Application.alleMedarbejdere.add(this);
 	}
 
 	public boolean tjekLogin() {
@@ -60,6 +63,13 @@ public class Medarbejder {
 	public StringProperty getUIName() {
 		StringProperty EmployeeName = new SimpleStringProperty(navn);
 		return EmployeeName;
+	}
+
+	public Boolean isAdmin() {
+		return admin;
+	}
+	public void setAdmin(Boolean b) {
+		admin = b;
 	}
 }
 

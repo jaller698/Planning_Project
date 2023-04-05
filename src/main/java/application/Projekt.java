@@ -10,10 +10,15 @@ public class Projekt {
 	ArrayList<Aktivitet> aktiviteter = new ArrayList<Aktivitet>();
 	int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
-	ProjektLeder leder;
+	Medarbejder leder;
+	private int projID;
 	
 	public Projekt(String navn) {
 		this.navn=navn;
+		Application.alleProjekter.add(this);
+		setID();
+		leder = Application.getMedarbejder();
+		Application.setCreationMSG("Successfully created project '"+navn+"'("+projID+")");
 	}
 	
 	
@@ -50,6 +55,24 @@ public class Projekt {
 	}
 	public ArrayList<Aktivitet> getActivityList(){
 		return aktiviteter;
+	}
+	public int getID() {
+		return projID;
+	}
+	private void setID() {
+		String id = ""+ Application.alleProjekter.size();
+		switch (id.length()){
+			case 1:
+				id= "00" + id;
+				break;
+			case 2: 
+				id="0"+id;
+				break;
+		}
+		projID = Integer.parseInt("" + Application.getYear() + id );
+	}
+	public Medarbejder getProjLeder() {
+		return leder;
 	}
 
 }

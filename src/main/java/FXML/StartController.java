@@ -52,7 +52,7 @@ public class StartController {
 	
 	public void createProjekt() throws IOException {
 		Projekt p = new Projekt(projektNavn.getText());
-		Application.alleProjekter.add(p);
+		//Application.alleProjekter.add(p);
 		System.out.println(app.getMedarbejder());
 		app.getMedarbejder().addProjekt(p);
 		HelloFX.setRoot("Mainmenu", StartController.class);
