@@ -4,60 +4,53 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import application.Application;
+import application.Medarbejder;
+import application.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
 public class ProjectSteps {
-	private String errorMessage;
+	private Application app = new Application();
 	
-	@Given("project {string} exists")
-	public void projectExists(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("loggedin worker creates a project with the name {string}")
+	public void workerCreatesAProjectWithTheName(String projectName) {
+		app.getMedarbejder().addProjekt(new Projekt(projectName));
 	}
-	
-	@Given("project {string} does not exist")
-	public void projectDoesNotExist(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+
+	@Then("the project {string} with {int}-digit serial no. from year and project number is created")
+	public void theProjectWithDigitSerialNoFromYearAndProjectNumberIsCreated(String projName, int length) {
+		Projekt p = app.alleProjekter.get(app.alleProjekter.size()-1);
+		assertTrue(p.toString().equals(projName));
+		String len = "" + p.getID();
+		assertTrue(len.length() == length);
 	}
-	
-	@When("an admin creates activiy with title {string}")
-	public void anAdminCreatesActiviyWithTitle(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("a worker {string} is a project leader for project {string}")
+	public void aWorkerIsAProjectLeaderForProject(String name, String projName) {
+		Projekt p = null;
+		Medarbejder m = null;
+		for (int i = 0; i < app.alleMedarbejdere.size();i++) {
+			if(app.alleMedarbejdere.get(i).navn.equals(name))
+				m = app.alleMedarbejdere.get(i);
+		}
+		for (int i = 0; i < m.getProjekts().size();i++){
+			if(m.getProjekts().get(i).toString().equals(projName))
+				p = m.getProjekts().get(i);
+		}
+		assertTrue(p != null);
+		assertTrue(m != null);
+		
 	}
-	
-	@When("the project leader creates activiy with title {string}")
-	public void theProjectLeaderCreatesActiviyWithTitle(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the message {string} is returned")
+	public void theMessageIsReturned(String string) {
+	    String msg = app.getCreationmsg();
+	    System.out.println(msg);
+	    assertTrue(string.equals(msg));
 	}
-	
-	@When("activity number {int}")
-	public void activityNumber(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@When("allocates {int} hours to the activity")
-	public void allocatesHoursToTheActivity(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@Then("the activity {string} with the activity number {int}, expected hours {int} is added to the project {string} and the message {string} is returned")
-	public void theActivityWithTheActivityNumberExpectedHoursIsAddedToTheProjectAndTheMessageIsReturned(String string, String string2, String string3, String string4, String string5) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@Then("the error message {string} is returned.")
-	public void theErrorMessageIsReturned(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("the administrator creates project with project name {string}")
+	public void theAdministratorCreatesProjectWithProjectName(String projName) {
+		new Projekt(projName);
 	}
 }

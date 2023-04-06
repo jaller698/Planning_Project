@@ -4,14 +4,20 @@ Actor: Worker
 Description: A worker registers hours spent on project
 
 	Background:
-		Given a worker is registered
-		And worker is signed in
+		Given a worker 1 is registered
+		And worker 1 is signed in
+		And project "Javis" exists
 
-	Scenario: A worker registers hours spent on project
-		Given project "Project" exists
-		When the worker adds 10 hours
-		Then 10 hours is added to the project and the message "Success" is returned
+	Scenario: A worker registers hours spent on activity
+		Given project "Javis" has an activity "TileCreation" registered
+		When the worker 1 adds 10 hours to activity "TileCreation" under project "Javis"
+		Then 10 hours is registered under worker 1 in activity "TileCreation" 
+		And the message "Success" is returned
 
-	Scenario: A worker registers hours spent on project not created
-		Given project "Project" does not exist
-		Then the error message "Unable to find projekt 'Project'" is returned. 
+	Scenario: A worker registers hours spent on activity not created
+		When the worker 1 adds 10 hours to activity "TileCreation" under project "Javis"
+		Then the message "Unable to find activity 'TileCreation'" is returned
+		
+	Scenario: A worker registers hours spent on activity under a non-existet project
+		When the worker 1 adds 10 hours to activity "TileCreation" under project "Bob9000"
+		Then the message "Unable to find project 'Bob9000'" is returned

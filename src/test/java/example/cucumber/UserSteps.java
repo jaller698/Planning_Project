@@ -1,51 +1,56 @@
 package example.cucumber;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import FXML.StartController;
+import application.Application;
+import application.Medarbejder;
+import application.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
 public class UserSteps {
-	private String errorMessage;
+	Application app = new Application();
 	
-	@Given("a worker is registered")
-	public void aWorkerIsRegistered() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("a worker {string} is registered")
+	public void aWorkerIsRegistered(String s) throws Exception {
+		Medarbejder newWorker = new Medarbejder(
+		s, // User name
+		"Cucumber123" // Password
+		);
+		assertTrue(Application.alleMedarbejdere.get(0).navn.equals(newWorker.navn));
+		app.setMedarbejder(newWorker);
+	    //throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	
-	@Given("worker is signed in")
-	public void workerIsSignedIn() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("worker {string} is signed in")
+	public void workerIsSignedIn(String employee) {
+	    assertTrue(app.getMedarbejder().navn.equals(employee));
 	}
-	
-	@Given("an admin is logged in")
-	public void anAdminIsLoggedIn() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("worker {string} is registered as an admin")
+	public void workerIsRegisteredAsAnAdmin(String employee) {
+		Medarbejder m = null;
+		for (int i = 0; i < app.alleMedarbejdere.size();i++) {
+			if(app.alleMedarbejdere.get(i).navn.equals(employee))
+				m = app.alleMedarbejdere.get(i);
+		}
+		m.setAdmin(true);
+		assertTrue(m.isAdmin());
 	}
-	
-	@Given("a worker is project leader for project {string}")
-	public void aWorkerIsProjectLeaderForProject(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("the project {string} has no project leader")
+	public void theProjectHasNoProjectLeader(String projname) {
+		Projekt p = null;
+		for(int i = 0; i < app.alleProjekter.size(); i++) {
+			if(projname.equals(app.alleProjekter.get(i).toString()))
+				p = app.alleProjekter.get(i);
+		}
+		p.getProjLeder();
 	}
-	
-	@When("the worker adds {int} hours")
-	public void the_worker_adds_hours(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	
-	@Then("{int} hours is added to the project and the message {string} is returned")
-	public void hours_is_added_to_the_project_and_the_message_is_returned(String string, String string2) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
+
 }
