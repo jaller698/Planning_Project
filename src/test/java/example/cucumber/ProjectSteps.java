@@ -45,7 +45,7 @@ public class ProjectSteps {
 	}
 	@Then("the message {string} is returned")
 	public void theMessageIsReturned(String string) {
-	    String msg = app.getCreationmsg();
+	    String msg = app.getConfirmationMSG();
 	    System.out.println(msg);
 	    assertTrue(string.equals(msg));
 	}

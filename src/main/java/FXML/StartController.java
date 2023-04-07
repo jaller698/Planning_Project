@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
+import javafx.scene.control.Alert;
 import application.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,10 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import FXML.ProjektViewController;
 
 public class StartController {
@@ -48,14 +48,21 @@ public class StartController {
 	@FXML 
 	public TextField projektNavn = new TextField();
 	
+	@FXML
+	private static Alert alert = new Alert(AlertType.NONE);
+	
 	public static int loginIndex;
 	
 	public void createProjekt() throws IOException {
 		Projekt p = new Projekt(projektNavn.getText());
 		//Application.alleProjekter.add(p);
-		System.out.println(app.getMedarbejder());
 		app.getMedarbejder().addProjekt(p);
 		HelloFX.setRoot("Mainmenu", StartController.class);
+		System.out.println("Projekt tilføjet!");
+		System.out.println(app.getConfirmationMSG());
+		if(app.getConfirmationMSG() != null) {
+			confirmMSGPopup(null);
+		}
 	}
 	public void logOut() throws IOException {
 		//sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et tjek for det. Det er mest bare så der ikke sker noget
@@ -64,7 +71,12 @@ public class StartController {
 		StartController.loginIndex = -1;
 		HelloFX.setRoot("Loginpage", StartController.class);			
 	}
-	
+	public static void confirmMSGPopup(ActionEvent e) {
+		alert.setAlertType(AlertType.INFORMATION);
+		alert.setHeaderText(Application.getConfirmationMSG());
+		alert.show();
+	}
+
 	
 	public void toProjektCreater() throws IOException {
 		HelloFX.setRoot("ProjektCreater", StartController.class);
@@ -142,6 +154,7 @@ public class StartController {
 		app.alleMedarbejdere.add(h);
 		app.alleMedarbejdere.add(l);
 		app.alleMedarbejdere.add(p);
+		/*
 		h.p.add(new Projekt("1h"));
 		h.p.add(new Projekt("2h"));
 		h.p.add(new Projekt("3h"));
@@ -158,6 +171,7 @@ public class StartController {
 		l.p.add(new Projekt("1l"));
 		l.p.add(new Projekt("2l"));
 		l.p.add(new Projekt("3l"));
+		*/
 
 
 	}
