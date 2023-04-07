@@ -30,11 +30,7 @@ public class ProjectSteps {
 	@Then("a worker {string} is a project leader for project {string}")
 	public void aWorkerIsAProjectLeaderForProject(String name, String projName) {
 		Projekt p = null;
-		Medarbejder m = null;
-		for (int i = 0; i < app.alleMedarbejdere.size();i++) {
-			if(app.alleMedarbejdere.get(i).navn.equals(name))
-				m = app.alleMedarbejdere.get(i);
-		}
+		Medarbejder m = app.findEmployee(name);
 		for (int i = 0; i < m.getProjekts().size();i++){
 			if(m.getProjekts().get(i).toString().equals(projName))
 				p = m.getProjekts().get(i);

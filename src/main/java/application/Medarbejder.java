@@ -11,7 +11,7 @@ public class Medarbejder {
 	public String password;
 	int arbejdsTimer;
 	private boolean admin;
-
+	private boolean projectLeader;
 	public ArrayList<Projekt> p = new ArrayList<Projekt>();
 	public ArrayList<Aktivitet> a = new ArrayList<Aktivitet>();
 
@@ -70,6 +70,12 @@ public class Medarbejder {
 	}
 	public void setAdmin(Boolean b) {
 		admin = b;
+	}
+	public Boolean isProjectleader() {
+		return projectLeader;
+	}
+	public void setProjectLeader(Boolean b) {
+		projectLeader = b;
 	}
 }
 

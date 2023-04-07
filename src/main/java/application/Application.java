@@ -11,7 +11,7 @@ public class Application {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		setConfirmationMSG("");
 	}
 	
 	public static Medarbejder getMedarbejder() {
@@ -33,5 +33,21 @@ public class Application {
 	public static void setConfirmationMSG(String msg){
 		ConfirmationMSG = msg;
 	}
+	public Medarbejder findEmployee(String employeeName){
+		Medarbejder m = null;
+		for (int i = 0; i < alleMedarbejdere.size();i++) {
+			if(alleMedarbejdere.get(i).navn.equals(employeeName))
+				m = alleMedarbejdere.get(i);
+		}
+		return m;
+	}
 	
+	public Projekt findProject(String projName) {
+		Projekt p = null;
+		for(int i = 0; i < alleProjekter.size(); i++) {
+			if(projName.equals(alleProjekter.get(i).toString()))
+				p = alleProjekter.get(i);
+		}
+		return p;
+	}
 }

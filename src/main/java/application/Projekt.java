@@ -43,9 +43,16 @@ public class Projekt {
 			System.out.println(a.navn);	
 		}
 	}
+	public Aktivitet getAktivitet(String actName) {
+		for(Aktivitet a : this.aktiviteter) {
+			if(a.navn.equals(actName))
+				return a;
+		}
+		return null;
+	}
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
-		this.leder = new ProjektLeder(navn, navn);
+		this.leder = m;
 	}
 	
 	//UI method
