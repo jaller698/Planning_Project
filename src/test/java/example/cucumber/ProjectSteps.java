@@ -22,7 +22,7 @@ public class ProjectSteps {
 
 	@Then("the project {string} with {int}-digit serial no. from year and project number is created")
 	public void theProjectWithDigitSerialNoFromYearAndProjectNumberIsCreated(String projName, int length) {
-		Projekt p = app.alleProjekter.get(app.alleProjekter.size()-1);
+		Projekt p = app.projects.getProject(projName);
 		assertTrue(p.toString().equals(projName));
 		String len = "" + p.getID();
 		assertTrue(len.length() == length);

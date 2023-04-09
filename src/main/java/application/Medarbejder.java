@@ -18,7 +18,7 @@ public class Medarbejder {
 	public Medarbejder(String navn, String password) {
 		this.navn = navn;
 		this.password = password;
-		Application.alleMedarbejdere.add(this);
+		Application.workers.addUser(this);
 	}
 
 	public boolean tjekLogin() {

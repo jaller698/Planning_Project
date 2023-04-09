@@ -24,12 +24,7 @@ public class UserSteps {
 		s, // User name
 		"Cucumber123" // Password
 		);
-		Medarbejder m = null;
-		for (int i = 0; i < app.alleMedarbejdere.size();i++) {
-			if(app.alleMedarbejdere.get(i).navn.equals(s))
-				m = app.alleMedarbejdere.get(i);
-		}
-		assertTrue(m.navn.equals(newWorker.navn));
+		assertTrue(app.workers.getUser(s).navn.equals(newWorker.navn));
 	    //throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	

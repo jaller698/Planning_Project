@@ -98,10 +98,10 @@ public class StartController {
 //					System.out.println(loginIndex);
 //				}
 //			}
-			for (Medarbejder M : app.alleMedarbejdere) {
+			for (Medarbejder M : app.workers.getAllUsers()) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					loginIndex = app.alleMedarbejdere.indexOf(M);
+					loginIndex = app.workers.getUserID(M);
 					Application.setMedarbejder(M);
 					System.out.println(app.getMedarbejder());
 				}
@@ -127,9 +127,9 @@ public class StartController {
 		System.out.println("gabriel er irriterende");
 		if(signupPassword.getText().equals(signupRepeatPassword.getText())) {
 			
-			app.alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
-			System.out.println(app.alleMedarbejdere.get(app.alleMedarbejdere.size()-1));
-			loginIndex = app.alleMedarbejdere.size()-1;
+			app.workers.addUser(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
+			System.out.println(app.workers.getUser(app.workers.getAllUsers().length-1));
+			loginIndex = app.workers.getAllUsers().length-1;
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
@@ -151,9 +151,9 @@ public class StartController {
 		Medarbejder h = new Medarbejder("Hans","heste123");
 		Medarbejder l = new Medarbejder("Erik","fisk123");
 		Medarbejder p = new Medarbejder("Peter","næbdyr123");
-		app.alleMedarbejdere.add(h);
-		app.alleMedarbejdere.add(l);
-		app.alleMedarbejdere.add(p);
+		app.workers.addUser(h);
+		app.workers.addUser(l);
+		app.workers.addUser(p);
 		/*
 		h.p.add(new Projekt("1h"));
 		h.p.add(new Projekt("2h"));
