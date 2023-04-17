@@ -91,7 +91,7 @@ public class Medarbejder {
 
 	public void changePassword(String currentPWD, String newPWD) {
 		if (this.password.equals(currentPWD)) {
-			this.password = newPWD;
+			password = newPWD;
 			Application.setConfirmationMSG("Successfully changed password");
 		}
 	}

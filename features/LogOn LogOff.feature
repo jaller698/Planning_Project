@@ -4,6 +4,7 @@ Feature: LogOn LogOff
 # Description: the ability to log on and off the system and registering new workers
 
 	Background:
+		Given a clean slate
 		Given a worker 1 is registered under the name "Steve" with the password "SuperSquare9000"
 
 	Scenario: A worker logs in to the system
@@ -35,19 +36,18 @@ Feature: LogOn LogOff
 		And worker 1 is registered as an admin
 		And a worker 2 is registered under the name "Bob" with the password "MySup3rAws0m3Passw0rd"
 		When admin 1 changes worker 2 password from "MySup3rAws0m3Passw0rd" to "c29P@Yuj24x"
-		Then worker 2 has the password "u290@yuj24"
+		Then worker 2 has the password "c29P@Yuj24x"
 #		And the message "Successfully changed 2(Bob)'s password" is returned	
 	
-# TODO password rules
 	
 	Scenario: An admin registers a new worker
 		Given worker 1 is signed in
 		And worker 1 is registered as an admin
-		When admin 1 registeres new worker 2 under the name "Bob" with the password "MySup3rAws0m3Passw0rd"
-		Then worker 2 exists
-		And worker 2 has the name "Bob"
-		And worker 2 has the password "MySup3rAws0m3Passw0rd"
-#		And the message "Successfully created 2(Bob)" is returned
+		When admin 1 registeres new worker 3 under the name "Bob" with the password "MySup3rAws0m3Passw0rd"
+		Then worker 3 exists
+		And worker 3 has the name "Bob"
+		And worker 3 has the password "MySup3rAws0m3Passw0rd"
+#		And the message "Successfully created 3(Bob)" is returned
 		
 		
 # TODO registering new admins
