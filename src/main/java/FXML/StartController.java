@@ -23,6 +23,10 @@ public class StartController {
 	@FXML
 	private Button begin;
 	@FXML
+	private Button leave;
+	@FXML
+	private Button cancel;
+	@FXML
 	private Button refresh;
 	@FXML
 	private Label label;
@@ -117,6 +121,11 @@ public class StartController {
 		}
 
 	}
+	
+	public void goMain(ActionEvent e) throws IOException {
+		HelloFX.setRoot("Mainmenu",StartController.class);
+	}
+	
 	public void goToLogin(ActionEvent e) throws IOException {
 		HelloFX.setRoot("Loginpage",StartController.class);
 	}
