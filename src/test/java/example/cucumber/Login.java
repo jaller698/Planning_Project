@@ -10,7 +10,6 @@ import io.cucumber.java.en.*;
 
 public class Login {
 	int i = 0;
-	Medarbejder newWorker;
 	@Given("a worker {int} is registered under the name {string} with the password {string}")
 	public void aWorkerIsRegisteredUnderTheNameWithThePassword(Integer id, String name, String PWD) {
 		Medarbejder newWorker = new Medarbejder(name,PWD);
