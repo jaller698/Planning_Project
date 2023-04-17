@@ -77,7 +77,7 @@ public class StartController {
 		data.getMedarbejder().addProjekt(p);
 
 		
-		
+		data.addProject(p);
 
 		
 		HelloFX.setRoot("Mainmenu", StartController.class);

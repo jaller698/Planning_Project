@@ -35,7 +35,7 @@ public class ProjektViewController {
 	@FXML
 	private Label cumHoursLabel;
 	@FXML
-	private Label projektLeder;
+	private Label projectLeader;
 	@FXML
 	private TableView<Projekt> projectTable;
 	@FXML
@@ -127,7 +127,7 @@ public class ProjektViewController {
 
 	private void showProjectDetails(Projekt p) {
 		if (p != null) {
-			projektLeder.setText(p.leder.toString());
+			projectLeader.setText(p.leder.toString());
 
 			NameLabel.setText(p.toString());
 			currentProject = p;
