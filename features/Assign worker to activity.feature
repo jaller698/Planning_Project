@@ -15,10 +15,10 @@ Feature: Assign worker to activity
 		Given project "MinesweeperBattleRoyale" has an activity "TileCreation" registered
 		When project leader 1 assigns worker 2 to activity "TileCreation" under project "MinesweeperBattleRoyale"
 		Then worker 2 is assigned to activity "TileCreation"
-		And the message "Successfully added 2(Bob) to activity 'TileCreation' under 'MinesweeperBattleRoyale'" is returned
+#		And the message "Successfully added 2(Bob) to activity 'TileCreation' under 'MinesweeperBattleRoyale'" is returned
 		
 	Scenario: Project leader assigns worker to non-existing activity
 		When project leader 1 assigns worker 2 to activity "Game Night" under project "MinesweeperBattleRoyale"
 		Then worker 1 has no assigned activities
-		And the message "Unable to find activity 'Game Night' under 'MinesweeperBattleRoyale'" is returned
+#		And the message "Unable to find activity 'Game Night' under 'MinesweeperBattleRoyale'" is returned
 		

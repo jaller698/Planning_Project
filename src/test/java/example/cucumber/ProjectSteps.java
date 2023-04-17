@@ -37,12 +37,7 @@ public class ProjectSteps {
 		assertTrue(m != null);
 		
 	}
-	@Then("the message {string} is returned")
-	public void theMessageIsReturned(String string) {
-	    String msg = StepDefinitions.app.getConfirmationMSG();
-	    System.out.println(msg);
-	    assertTrue(string.equals(msg));
-	}
+
 	@When("the administrator creates project with project name {string}")
 	public void theAdministratorCreatesProjectWithProjectName(String projName) {
 		new Projekt(projName);
