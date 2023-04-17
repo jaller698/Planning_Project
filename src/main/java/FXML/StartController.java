@@ -58,8 +58,9 @@ public class StartController {
 	public TextField projektNavn = new TextField();
 	
 	@FXML
-	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(FXCollections.observableArrayList(data.getWorkers()));
-	
+	//public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(FXCollections.observableArrayList(data.getWorkers()));
+	public ChoiceBox<String> leaderPick = new ChoiceBox<String>(FXCollections.observableArrayList("hej","med","dig","!"));
+
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
@@ -94,8 +95,10 @@ public class StartController {
 
 	
 	public void toProjektCreater() throws IOException {
+		leaderPick.setItems(FXCollections.observableArrayList("hej","med","dig","!"));
+
 		HelloFX.setRoot("ProjektCreater", StartController.class);
-		leaderPick.getItems().addAll(data.getWorkers());
+		leaderPick.setItems(FXCollections.observableArrayList("hej","med","dig","!"));
 
 	}
 	public void viewProjects() throws IOException {
@@ -175,6 +178,8 @@ public class StartController {
 		app.workers.addUser(h);
 		app.workers.addUser(l);
 		app.workers.addUser(p);
+		leaderPick.setItems(FXCollections.observableArrayList("hej","med","dig","!"));
+
 		/*
 		h.p.add(new Projekt("1h"));
 		h.p.add(new Projekt("2h"));
