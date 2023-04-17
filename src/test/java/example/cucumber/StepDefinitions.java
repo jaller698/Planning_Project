@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import application.Application;
+import database.SessionManager;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class StepDefinitions {
 	public static Application app = new Application();
+	public static SessionManager sm = new SessionManager();
 	// TODO
 	
 	/*@ParameterType("red|blue|yellow")  // regexp
@@ -28,5 +30,6 @@ public class StepDefinitions {
 	@Given("a clean slate")
 	public void aCleanSlate() {
 		app = new Application();
+		sm = new SessionManager();
 	}
 }
