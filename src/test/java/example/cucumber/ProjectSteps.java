@@ -22,7 +22,7 @@ public class ProjectSteps {
 
 	@Then("the project {string} with {int}-digit serial no. from year and project number is created")
 	public void theProjectWithDigitSerialNoFromYearAndProjectNumberIsCreated(String projName, int length) {
-		Projekt p = app.alleProjekter.get(app.alleProjekter.size()-1);
+		Projekt p = app.projects.getProject(projName);
 		assertTrue(p.toString().equals(projName));
 		String len = "" + p.getID();
 		assertTrue(len.length() == length);
@@ -30,11 +30,7 @@ public class ProjectSteps {
 	@Then("a worker {string} is a project leader for project {string}")
 	public void aWorkerIsAProjectLeaderForProject(String name, String projName) {
 		Projekt p = null;
-		Medarbejder m = null;
-		for (int i = 0; i < app.alleMedarbejdere.size();i++) {
-			if(app.alleMedarbejdere.get(i).navn.equals(name))
-				m = app.alleMedarbejdere.get(i);
-		}
+		Medarbejder m = app.findEmployee(name);
 		for (int i = 0; i < m.getProjekts().size();i++){
 			if(m.getProjekts().get(i).toString().equals(projName))
 				p = m.getProjekts().get(i);
@@ -45,7 +41,7 @@ public class ProjectSteps {
 	}
 	@Then("the message {string} is returned")
 	public void theMessageIsReturned(String string) {
-	    String msg = app.getCreationmsg();
+	    String msg = app.getConfirmationMSG();
 	    System.out.println(msg);
 	    assertTrue(string.equals(msg));
 	}

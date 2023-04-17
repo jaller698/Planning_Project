@@ -2,16 +2,24 @@ package application;
 
 import java.util.ArrayList;
 
+import database.IProjectRegister;
+import database.IUserRegister;
+import database.dataPersistence;
+
 public class Application {
 
-	public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
-	public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
+	//public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
+	//public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
 	private static Medarbejder currentEmployee;
-	private static String CreationMSG;
+	private static String ConfirmationMSG;
+	
+	private static dataPersistence database = new dataPersistence();
+	public static IProjectRegister projects = database;
+	public static IUserRegister workers = database;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		setConfirmationMSG("");
 	}
 	
 	public static Medarbejder getMedarbejder() {
@@ -26,13 +34,18 @@ public class Application {
 		return 23;
 	}
 
-	public String getCreationmsg() {
-		
-		return CreationMSG;
+	public static String getConfirmationMSG() {
+		return ConfirmationMSG;
 	}
 	
-	public static void setCreationMSG(String msg){
-		CreationMSG = msg;
+	public static void setConfirmationMSG(String msg){
+		ConfirmationMSG = msg;
+	}
+	public Medarbejder findEmployee(String employeeName){
+		return workers.getUser(employeeName);
 	}
 	
+	public Projekt findProject(String projName) {
+		return projects.getProject(projName);
+	}
 }

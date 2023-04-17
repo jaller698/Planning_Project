@@ -18,10 +18,15 @@ public class Aktivitet {
 	// project...
 	// can i do that in the constructor?
 	public Aktivitet(String navn, int estTime, Projekt p) {
+		if(!p.getProjLeder().equals(Application.getMedarbejder())) {
+			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");
+			return;
+		}
 		this.navn = navn;
 		this.p = p;
 		addToProject(this.p);
 		this.estTime = estTime;
+		Application.setConfirmationMSG("Successfully created activity '"+ navn+"' with "+estTime +" hours under '"+p.navn +"'");
 		/*
 		 * Format for at add medarbejdere for et projekt? like jeg gætter på at vi har
 		 * et stort, samlet array med alle medarbejdere i firmaet men hvordan vælger man

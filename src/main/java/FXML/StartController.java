@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
+import javafx.scene.control.Alert;
 import application.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,16 +12,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import FXML.ProjektViewController;
 
 public class StartController {
 	Application app = new Application();
 	@FXML
 	private Button begin;
+	@FXML
+	private Button Leabe;
+	@FXML
+	private Button cancel;
 	@FXML
 	private Button refresh;
 	@FXML
@@ -48,14 +52,21 @@ public class StartController {
 	@FXML 
 	public TextField projektNavn = new TextField();
 	
+	@FXML
+	private static Alert alert = new Alert(AlertType.NONE);
+	
 	public static int loginIndex;
 	
 	public void createProjekt() throws IOException {
 		Projekt p = new Projekt(projektNavn.getText());
 		//Application.alleProjekter.add(p);
-		System.out.println(app.getMedarbejder());
 		app.getMedarbejder().addProjekt(p);
 		HelloFX.setRoot("Mainmenu", StartController.class);
+		System.out.println("Projekt tilføjet!");
+		System.out.println(app.getConfirmationMSG());
+		if(app.getConfirmationMSG() != null) {
+			confirmMSGPopup(null);
+		}
 	}
 	public void logOut() throws IOException {
 		//sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et tjek for det. Det er mest bare så der ikke sker noget
@@ -64,7 +75,12 @@ public class StartController {
 		StartController.loginIndex = -1;
 		HelloFX.setRoot("Loginpage", StartController.class);			
 	}
-	
+	public static void confirmMSGPopup(ActionEvent e) {
+		alert.setAlertType(AlertType.INFORMATION);
+		alert.setHeaderText(Application.getConfirmationMSG());
+		alert.show();
+	}
+
 	
 	public void toProjektCreater() throws IOException {
 		HelloFX.setRoot("ProjektCreater", StartController.class);
@@ -86,10 +102,10 @@ public class StartController {
 //					System.out.println(loginIndex);
 //				}
 //			}
-			for (Medarbejder M : app.alleMedarbejdere) {
+			for (Medarbejder M : app.workers.getAllUsers()) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					loginIndex = app.alleMedarbejdere.indexOf(M);
+					loginIndex = app.workers.getUserID(M);
 					Application.setMedarbejder(M);
 					System.out.println(app.getMedarbejder());
 				}
@@ -105,6 +121,11 @@ public class StartController {
 		}
 
 	}
+	
+	public void goMain(ActionEvent e) throws IOException {
+		HelloFX.setRoot("Mainmenu",StartController.class);
+	}
+	
 	public void goToLogin(ActionEvent e) throws IOException {
 		HelloFX.setRoot("Loginpage",StartController.class);
 	}
@@ -115,9 +136,9 @@ public class StartController {
 		System.out.println("gabriel er irriterende");
 		if(signupPassword.getText().equals(signupRepeatPassword.getText())) {
 			
-			app.alleMedarbejdere.add(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
-			System.out.println(app.alleMedarbejdere.get(app.alleMedarbejdere.size()-1));
-			loginIndex = app.alleMedarbejdere.size()-1;
+			app.workers.addUser(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
+			System.out.println(app.workers.getUser(app.workers.getAllUsers().length-1));
+			loginIndex = app.workers.getAllUsers().length-1;
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
@@ -139,9 +160,10 @@ public class StartController {
 		Medarbejder h = new Medarbejder("Hans","heste123");
 		Medarbejder l = new Medarbejder("Erik","fisk123");
 		Medarbejder p = new Medarbejder("Peter","næbdyr123");
-		app.alleMedarbejdere.add(h);
-		app.alleMedarbejdere.add(l);
-		app.alleMedarbejdere.add(p);
+		app.workers.addUser(h);
+		app.workers.addUser(l);
+		app.workers.addUser(p);
+		/*
 		h.p.add(new Projekt("1h"));
 		h.p.add(new Projekt("2h"));
 		h.p.add(new Projekt("3h"));
@@ -158,6 +180,7 @@ public class StartController {
 		l.p.add(new Projekt("1l"));
 		l.p.add(new Projekt("2l"));
 		l.p.add(new Projekt("3l"));
+		*/
 
 
 	}
