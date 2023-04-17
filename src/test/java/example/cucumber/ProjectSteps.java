@@ -4,6 +4,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import application.Aktivitet;
 import application.Application;
 import application.Medarbejder;
 import application.Projekt;
@@ -13,6 +15,13 @@ import io.cucumber.java.en.When;
 
 
 public class ProjectSteps {
+	@Given("project {string} has an activity {string} registered")
+	public void projectHasAnActivityRegistered(String string, String string2) {
+		Projekt p = StepDefinitions.app.projects.getProject(string);
+		new Aktivitet(string2, 10, p);
+		assertTrue(p.getAktivitet(string2).navn == string2);
+	}
+	
 	@When("loggedin worker creates a project with the name {string}")
 	public void workerCreatesAProjectWithTheName(String projectName) {
 		StepDefinitions.app.getMedarbejder().addProjekt(new Projekt(projectName));

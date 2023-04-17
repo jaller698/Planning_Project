@@ -81,5 +81,13 @@ public class Projekt {
 	public Medarbejder getProjLeder() {
 		return leder;
 	}
+	
+	public void assignActivity(String actName, Medarbejder workerToBeAssigned, Medarbejder actor) {
+		if ((workerToBeAssigned == actor || actor == leder) && leder == Application.getMedarbejder()) {
+			Aktivitet a = getAktivitet(actName);
+			if (getAktivitet(actName) != null)
+				getAktivitet(actName).addMedarbejder(workerToBeAssigned);
+		}
+	}
 
 }
