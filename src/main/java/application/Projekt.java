@@ -53,6 +53,8 @@ public class Projekt {
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
 		this.leder = m;
+		if(m != null)
+			m.addProjekt(this);
 	}
 	
 	//UI method
