@@ -54,6 +54,7 @@ public class Application {
 		if(A != null && A.isAdmin()) {
 			Medarbejder M = workers.getUser(mid);
 			M.changePassword(newPWD);
+			Application.setConfirmationMSG("Successfully changed "+mid+"("+M.navn+")'s password");
 		}
 	}
 }
