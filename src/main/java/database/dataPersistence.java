@@ -15,6 +15,18 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 	private static HashMap<String, Integer> workerIDs = new HashMap<String, Integer>();
 	private static HashMap<String, Integer> projectIDs = new HashMap<String, Integer>();
 	
+	private static Medarbejder currentEmployee;
+	
+	public ArrayList<Medarbejder> getWorkers(){
+		return allWorkers;
+	}
+	
+	public static void setMedarbejder(Medarbejder m) {
+		currentEmployee = m;
+	}
+	public static Medarbejder getMedarbejder() {
+		return currentEmployee;
+	}
 	
 	@Override
 	public int addUser(Medarbejder user) {
