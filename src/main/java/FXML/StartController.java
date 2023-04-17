@@ -23,7 +23,7 @@ public class StartController {
 	@FXML
 	private Button begin;
 	@FXML
-	private Button leave;
+	private Button Leabe;
 	@FXML
 	private Button cancel;
 	@FXML
