@@ -59,9 +59,9 @@ public class Application {
 	}
 	
 	public void AdminChangePassword(int aid, int mid, String newPWD) {
-		Medarbejder A = workers.getUser(aid);
+		Medarbejder A = workers.getUser(--aid);
 		if(A != null && A.isAdmin()) {
-			Medarbejder M = workers.getUser(mid);
+			Medarbejder M = workers.getUser(--mid);
 			M.changePassword(newPWD);
 			Application.setConfirmationMSG("Successfully changed "+mid+"("+M.navn+")'s password");
 		}

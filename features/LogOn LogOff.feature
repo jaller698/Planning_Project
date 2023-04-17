@@ -43,11 +43,11 @@ Feature: LogOn LogOff
 	Scenario: An admin registers a new worker
 		Given worker 1 is signed in
 		And worker 1 is registered as an admin
-		When admin 1 registeres new worker 3 under the name "Bob" with the password "MySup3rAws0m3Passw0rd"
-		Then worker 3 exists
-		And worker 3 has the name "Bob"
-		And worker 3 has the password "MySup3rAws0m3Passw0rd"
-#		And the message "Successfully created 3(Bob)" is returned
+		When admin 1 registeres new worker 2 under the name "Bob" with the password "MySup3rAws0m3Passw0rd"
+		Then worker 2 exists
+		And worker 2 has the name "Bob"
+		And worker 2 has the password "MySup3rAws0m3Passw0rd"
+#		And the message "Successfully created 2(Bob)" is returned
 		
 		
 # TODO registering new admins
