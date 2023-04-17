@@ -29,6 +29,16 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 		return currentEmployee;
 	}
 	
+	
+	
+	public dataPersistence() {
+		allWorkers = new ArrayList<Medarbejder>();
+		allProjects = new HashMap<Integer, Projekt>();
+		
+		workerIDs = new HashMap<String, Integer>();
+		projectIDs = new HashMap<String, Integer>();
+	}
+	
 	@Override
 	public int addUser(Medarbejder user) {
 		if (allWorkers.contains(user)) { // check for duplicates
@@ -120,7 +130,4 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 		projectIDs.remove(allProjects.get(id).toString()); // removes cache
 		allProjects.remove(id); // removes project
 	}
-	
-
-
 }
