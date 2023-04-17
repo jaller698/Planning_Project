@@ -15,7 +15,7 @@ public class Projekt {
 	
 	public Projekt(String navn) {
 		this.navn=navn;
-		Application.alleProjekter.add(this);
+		Application.projects.addProject(this);
 		setID();
 		leder = Application.getMedarbejder();
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
@@ -67,7 +67,7 @@ public class Projekt {
 		return projID;
 	}
 	private void setID() {
-		String id = ""+ Application.alleProjekter.size();
+		String id = ""+ Application.projects.getProjectID(this);
 		switch (id.length()){
 			case 1:
 				id= "00" + id;

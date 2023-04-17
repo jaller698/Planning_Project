@@ -52,7 +52,7 @@ public class ProjektViewController {
 	private TableColumn<Medarbejder, String> assignedEmplColumn;
 
 	static ObservableList<Projekt> data = convertToOL(
-			Application.alleMedarbejdere.get(StartController.loginIndex).p);
+			Application.workers.getUser(StartController.loginIndex).p);
 	static ObservableList<Aktivitet> projectActivities;
 	static Projekt currentProject = null;
 	static Aktivitet currentActivity = null;
@@ -90,11 +90,11 @@ public class ProjektViewController {
 			currentProject = data.get(0);
 		if(data != null)
 			data = convertToOL(
-					app.alleMedarbejdere.get(StartController.loginIndex).p);
+					app.workers.getUser(StartController.loginIndex).p);
 		System.out.println(data);
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
-		welcome.setText("hej " + app.alleMedarbejdere.get(StartController.loginIndex).navn);
+		welcome.setText("hej " + app.workers.getUser(StartController.loginIndex).navn);
 		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());

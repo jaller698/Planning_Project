@@ -2,12 +2,20 @@ package application;
 
 import java.util.ArrayList;
 
+import database.IProjectRegister;
+import database.IUserRegister;
+import database.dataPersistence;
+
 public class Application {
 
-	public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
-	public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
+	//public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
+	//public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
 	private static Medarbejder currentEmployee;
 	private static String ConfirmationMSG;
+	
+	private static dataPersistence database = new dataPersistence();
+	public static IProjectRegister projects = database;
+	public static IUserRegister workers = database;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -34,20 +42,10 @@ public class Application {
 		ConfirmationMSG = msg;
 	}
 	public Medarbejder findEmployee(String employeeName){
-		Medarbejder m = null;
-		for (int i = 0; i < alleMedarbejdere.size();i++) {
-			if(alleMedarbejdere.get(i).navn.equals(employeeName))
-				m = alleMedarbejdere.get(i);
-		}
-		return m;
+		return workers.getUser(employeeName);
 	}
 	
 	public Projekt findProject(String projName) {
-		Projekt p = null;
-		for(int i = 0; i < alleProjekter.size(); i++) {
-			if(projName.equals(alleProjekter.get(i).toString()))
-				p = alleProjekter.get(i);
-		}
-		return p;
+		return projects.getProject(projName);
 	}
 }
