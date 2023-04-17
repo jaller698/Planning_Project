@@ -4,7 +4,8 @@ Feature: Assign worker to activity
 # Description: Project leader assigns worker to activity
 
 	Background: 
-		Given a worker 1 is registered under the name "Bob"
+		Given a clean slate
+		And a worker 1 is registered under the name "Bob"
 		And worker 1 is signed in
 		And project "MinesweeperBattleRoyale" exists
 		And worker 1 is registered as a project leader for the project "MinesweeperBattleRoyale"

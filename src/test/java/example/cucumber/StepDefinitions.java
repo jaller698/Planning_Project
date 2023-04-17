@@ -5,11 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import application.Application;
 import io.cucumber.java.ParameterType;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class StepDefinitions {
-	
+	public static Application app = new Application();
 	// TODO
 	
 	/*@ParameterType("red|blue|yellow")  // regexp
@@ -22,4 +24,9 @@ public class StepDefinitions {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}*/
+	
+	@Given("a clean slate")
+	public void aCleanSlate() {
+		app = new Application();
+	}
 }

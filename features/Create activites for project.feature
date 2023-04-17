@@ -4,7 +4,8 @@ Feature: Create activites for project
 # Description: Administrator or Project leader creates activity for project
 
 	Background:
-		Given a worker "hans" is registered
+		Given a clean slate
+		And a worker "hans" is registered
 		And worker "hans" is signed in
 		And worker "hans" is a project leader
 

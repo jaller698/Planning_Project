@@ -4,7 +4,8 @@ Feature: Edit activites for project
 # Description: Administrator or Project leader edits the an activity
 
 	Background:
-		Given a worker "hans" is registered
+		Given a clean slate
+		And a worker "hans" is registered
 		And worker "hans" is signed in
 		And project "Company van" exists
 		And project "Company van" has an activity "Concept design brainstorming" registered with 5 hours allocated

@@ -4,7 +4,8 @@ Feature: Register hours
 # Description: A worker registers hours spent on project
 
 	Background:
-		Given a worker 1 is registered
+		Given a clean slate
+		And a worker 1 is registered
 		And worker 1 is signed in
 		And project "Javis" exists
 

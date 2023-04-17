@@ -4,7 +4,8 @@ Feature: Create project
 # Description: Worker or Administrator creates project 
 
 	Background:
-		Given a worker "hans" is registered
+		Given a clean slate
+		And a worker "hans" is registered
 		And worker "hans" is signed in
 
 	Scenario: A worker creates project
