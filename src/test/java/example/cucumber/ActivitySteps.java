@@ -48,6 +48,19 @@ public class ActivitySteps {
 	    assertTrue(p.getProjLeder().equals(m));
 	}
 
-
+	@When("project leader {string} assigns worker {string} to activity {string} under project {string}")
+	public void projectLeaderAssignsWorkerToActivityUnderProject(String string, String string2, String string3, String string4) {
+		StepDefinitions.app.projects.getProject(string4).assignActivity(string3, StepDefinitions.app.workers.getUser(string2), StepDefinitions.app.workers.getUser(string));
+	}
+	
+	@Then("worker {string} is assigned to activity {string}")
+	public void workerIsAssignedToActivity(String string, String string2) {
+		Aktivitet a = StepDefinitions.app.workers.getUser(string).getAktivitet(string2);
+		if (a != null) {
+			assertTrue(a.navn.equals(string2));
+		} else {
+			assertTrue(false);
+		}
+	}
 
 }

@@ -22,6 +22,8 @@ public class UserSteps {
 		s, // User name
 		"Cucumber123" // Password
 		);
+		StepDefinitions.app.workers.addUser(newWorker);
+		
 		assertTrue(StepDefinitions.app.workers.getUser(s).navn.equals(newWorker.navn));
 	    //throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
@@ -49,5 +51,9 @@ public class UserSteps {
 		Projekt p = StepDefinitions.app.findProject(projname);
 		p.getProjLeder();
 	}
-
+	
+	@Then("worker {string} has no assigned activities")
+	public void workerHasNoAssignedActivities(String string) {
+		assertTrue(StepDefinitions.app.workers.getUser(string).a.size() == 0);
+	}
 }

@@ -9,12 +9,14 @@ import database.SessionManager;
 import io.cucumber.java.en.*;
 
 public class Login {
-
+	int i = 0;
 	@Given("a worker {int} is registered under the name {string} with the password {string}")
 	public void aWorkerIsRegisteredUnderTheNameWithThePassword(Integer id, String name, String PWD) {
 		Medarbejder newWorker = new Medarbejder(name,PWD);
 		assertTrue(StepDefinitions.app.workers.getUser(name).navn.equals(newWorker.navn));
 		assertTrue(StepDefinitions.app.workers.getUser(name).password.equals(newWorker.password));
+		System.out.println("count" + i);
+		i++;
 
 		
 	}
@@ -88,7 +90,7 @@ public class Login {
 
 	@Then("worker {int} has the name {string}")
 	public void workerHasTheName(Integer id, String name) {
-		Medarbejder M = StepDefinitions.app.workers.getUser(--id);
-		assertTrue(M.navn.equals(name));
+		Medarbejder B = StepDefinitions.app.workers.getUser(name);
+		assertTrue((--id).equals(StepDefinitions.app.workers.getUserID(B)));
 	}
 }

@@ -51,6 +51,14 @@ public class Medarbejder {
 		// fantastiske navne. Slet ikke forvirrende.
 		this.a.add(A);
 	}
+	
+	public Aktivitet getAktivitet(String actName) {
+		for (int i = 0; i < a.size(); i++) {
+			if (a.get(i).navn.equals(actName))
+				return a.get(i);
+		}
+		return null;
+	}
 
 	public void addProjekt(Projekt P) {
 		// fantastiske navne. Slet ikke forvirrende.
@@ -83,7 +91,7 @@ public class Medarbejder {
 
 	public void changePassword(String currentPWD, String newPWD) {
 		if (this.password.equals(currentPWD)) {
-			this.password = newPWD;
+			password = newPWD;
 			Application.setConfirmationMSG("Successfully changed password");
 		}
 	}
