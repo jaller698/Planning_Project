@@ -23,6 +23,8 @@ public class StartController {
 	@FXML
 	private Button begin;
 	@FXML
+	private Button leave;
+	@FXML
 	private Button refresh;
 	@FXML
 	private Label label;
