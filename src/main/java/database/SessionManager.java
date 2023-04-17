@@ -2,6 +2,7 @@ package database;
 
 import java.util.HashMap;
 
+import application.Application;
 import application.Medarbejder;
 
 public class SessionManager implements ISessionsRegister {
@@ -10,20 +11,35 @@ public class SessionManager implements ISessionsRegister {
 	
 	@Override
 	public String loginUser(String name, String password) {
-		// TODO Auto-generated method stub
+		if ((name != null && password != null)) {
+			boolean loginCheck = false;
+			Medarbejder L = Application.workers.getUser(name);
+			if(L == null)
+				return "test";
+			else if(L.password.equals(password)) {
+				loginCheck = true;
+				Application.setMedarbejder(L);
+				Application.setConfirmationMSG("Successfully logged in");
+				return null;
+			}
+		}
+		Application.setConfirmationMSG("Failed login: Wrong username or password");
 		return null;
 	}
 
 	@Override
 	public void logoutUser(String session) {
-		// TODO Auto-generated method stub
-		
+		Application.setMedarbejder(null);
 	}
 
 	@Override
-	public boolean checkSession(String session) {
-		// TODO Auto-generated method stub
+	public boolean checkSession(String employeeName) {
+		if(Application.getMedarbejder() == null)
+			return false;
+		else if(employeeName.equals(Application.getMedarbejder().navn))
+			return true;
 		return false;
+		
 	}
 
 	@Override

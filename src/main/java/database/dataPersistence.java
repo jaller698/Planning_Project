@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import application.Application;
 import application.Medarbejder;
 import application.Projekt;
 
@@ -51,6 +52,8 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 
 	@Override
 	public Medarbejder getUser(String userName) {
+		if(workerIDs.get(userName) == null)
+			return null;
 		return allWorkers.get(workerIDs.get(userName)); // return worker based on name
 	}
 
@@ -117,4 +120,7 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 		projectIDs.remove(allProjects.get(id).toString()); // removes cache
 		allProjects.remove(id); // removes project
 	}
+	
+
+
 }

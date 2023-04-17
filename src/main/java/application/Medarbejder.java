@@ -76,6 +76,12 @@ public class Medarbejder {
 	public void setProjectLeader(Boolean b) {
 		projectLeader = b;
 	}
+	public void changePassword(String currentPWD, String newPWD) {
+		if(this.password.equals(currentPWD)) {
+			this.password = newPWD;
+			Application.setConfirmationMSG("Successfully changed password");
+			}
+	}
 }
 
 class ProjektLeder extends Medarbejder {
