@@ -62,7 +62,6 @@ public class Aktivitet {
 	}
 
 	public void addMedarbejder(Medarbejder m) {
-		medarbejdere.add(m);
 		m.addAktivitet(this);
 	}
 

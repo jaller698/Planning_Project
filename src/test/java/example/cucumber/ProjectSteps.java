@@ -51,4 +51,11 @@ public class ProjectSteps {
 	public void theAdministratorCreatesProjectWithProjectName(String projName) {
 		new Projekt(projName);
 	}
+	@When("worker {string} joins activity {string} under project {string}")
+	public void workerJoinsActivityUnderProject(String name, String aName, String pName) {
+	    Projekt p = StepDefinitions.app.findProject(pName);
+	    Aktivitet a = p.getAktivitet(aName);
+	    Medarbejder M = StepDefinitions.app.findEmployee(name);
+	    a.addMedarbejder(M);
+	}
 }
