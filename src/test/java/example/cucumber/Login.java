@@ -63,33 +63,32 @@ public class Login {
 	}
 
 	@Given("worker {int} is registered as an admin")
-	public void workerIsRegisteredAsAnAdmin(Integer int1) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void workerIsRegisteredAsAnAdmin(Integer id) {
+		Medarbejder M = StepDefinitions.app.workers.getUser(--id);
+		M.setAdmin(true);
+		assertTrue(M.isAdmin());
+
 	}
 
 	@When("admin {int} changes worker {int} password from {string} to {string}")
-	public void adminChangesWorkerPasswordFromTo(Integer int1, Integer int2, String string, String string2) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void adminChangesWorkerPasswordFromTo(Integer aid, Integer mid, String currentPWD, String newPWD) {
+		StepDefinitions.app.AdminChangePassword(aid, mid, newPWD);
 	}
 
 	@When("admin {int} registeres new worker {int} under the name {string} with the password {string}")
-	public void adminRegisteresNewWorkerUnderTheNameWithThePassword(Integer int1, Integer int2, String string,
-			String string2) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void adminRegisteresNewWorkerUnderTheNameWithThePassword(Integer aid, Integer mid, String Name,
+			String Pwd) {
+		new Medarbejder(Name,Pwd);
 	}
 
 	@Then("worker {int} exists")
-	public void workerExists(Integer int1) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void workerExists(Integer id) {
+		assertTrue(StepDefinitions.app.workers.getUser(--id) != null);
 	}
 
 	@Then("worker {int} has the name {string}")
-	public void workerHasTheName(Integer int1, String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void workerHasTheName(Integer id, String name) {
+		Medarbejder M = StepDefinitions.app.workers.getUser(--id);
+		assertTrue(M.navn.equals(name));
 	}
 }

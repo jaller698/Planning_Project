@@ -48,4 +48,12 @@ public class Application {
 	public Projekt findProject(String projName) {
 		return projects.getProject(projName);
 	}
+	
+	public void AdminChangePassword(int aid, int mid, String newPWD) {
+		Medarbejder A = workers.getUser(aid);
+		if(A != null && A.isAdmin()) {
+			Medarbejder M = workers.getUser(mid);
+			M.changePassword(newPWD);
+		}
+	}
 }

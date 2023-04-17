@@ -167,7 +167,7 @@ public class StartController {
 		System.out.println("gabriel er irriterende");
 		if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
 
-			app.workers.addUser(new Medarbejder(signupUsername.getText(), signupPassword.getText()));
+			new Medarbejder(signupUsername.getText(), signupPassword.getText());
 			System.out.println(app.workers.getUser(app.workers.getAllUsers().length - 1));
 			loginIndex = app.workers.getAllUsers().length - 1;
 			HelloFX.setRoot("Mainmenu", StartController.class);
