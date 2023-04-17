@@ -22,6 +22,13 @@ public class ProjectSteps {
 		assertTrue(p.getAktivitet(string2).navn == string2);
 	}
 	
+	@Given("project {string} has an activity {string} registered with {int} hours allocated")
+	public void projectHasAnActivityRegisteredWithHoursAllocated(String string, String string2, Integer int1) {
+		Projekt p = StepDefinitions.app.projects.getProject(string);
+		new Aktivitet(string2, int1, p);
+		assertTrue(p.getAktivitet(string2).navn == string2);
+	}
+	
 	@When("loggedin worker creates a project with the name {string}")
 	public void workerCreatesAProjectWithTheName(String projectName) {
 		StepDefinitions.app.getMedarbejder().addProjekt(new Projekt(projectName));
@@ -51,11 +58,18 @@ public class ProjectSteps {
 	public void theAdministratorCreatesProjectWithProjectName(String projName) {
 		new Projekt(projName);
 	}
+
 	@When("worker {string} joins activity {string} under project {string}")
 	public void workerJoinsActivityUnderProject(String name, String aName, String pName) {
 	    Projekt p = StepDefinitions.app.findProject(pName);
 	    Aktivitet a = p.getAktivitet(aName);
 	    Medarbejder M = StepDefinitions.app.findEmployee(name);
 	    a.addMedarbejder(M);
+	}
+	
+	@Then("the project {string} has no activity named {string} under it")
+	public void theProjectHasNoActivityNamedUnderIt(String string, String string2) {
+		Projekt p = StepDefinitions.app.findProject(string);
+		assertTrue(p.getAktivitet(string2) == null);
 	}
 }

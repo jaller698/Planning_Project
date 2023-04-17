@@ -8,7 +8,7 @@ import application.Application;
 import application.Medarbejder;
 import application.Projekt;
 
-public class dataPersistence implements IProjectRegister, IUserRegister {
+public class DataPersistence implements IProjectRegister, IUserRegister {
 	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();
 	private static HashMap<Integer, Projekt> allProjects = new HashMap<Integer, Projekt>();
 	
@@ -31,7 +31,7 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 	
 	
 	
-	public dataPersistence() {
+	public DataPersistence() {
 		allWorkers = new ArrayList<Medarbejder>();
 		allProjects = new HashMap<Integer, Projekt>();
 		

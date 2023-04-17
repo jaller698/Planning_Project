@@ -50,6 +50,7 @@ public class Projekt {
 		}
 		return null;
 	}
+	
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
 		this.leder = m;
@@ -91,5 +92,11 @@ public class Projekt {
 				getAktivitet(actName).addMedarbejder(workerToBeAssigned);
 		}
 	}
-
+	
+	public void removeActivity(String actName, Medarbejder actor) {
+		if (leder == Application.getMedarbejder()) {
+			Aktivitet a = getAktivitet(actName);
+			aktiviteter.remove(a);
+		}
+	}
 }

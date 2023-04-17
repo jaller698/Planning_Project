@@ -40,23 +40,6 @@ public class Aktivitet {
 
 	}
 
-	public Aktivitet(String navn, int estTime) {
-		this.navn = navn;
-		this.estTime = estTime;
-
-		/*
-		 * Format for at add medarbejdere for et projekt? like jeg gætter på at vi har
-		 * et stort, samlet array med alle medarbejdere i firmaet men hvordan vælger man
-		 * dem der skal tilføjest? i main programmet mener jeg når man kalder
-		 * constructoren
-		 * 
-		 * 
-		 * Eller gør vi det udenfor konstruktøren? kan man først adde medarbejdere efter
-		 * aktiviteten er oprettet?
-		 */
-
-	}
-
 	public void addToProject(Projekt p) {
 		p.addAktivitet(this);
 	}
@@ -72,6 +55,21 @@ public class Aktivitet {
 	public int getEstHours() {
 		return estTime;
 	}
+	
+	public void editActivity(String navn) {
+		this.navn = navn;
+	}
+	
+	public void editActivity(int estTime) {
+		this.estTime = estTime;
+	}
+	
+	public void editActivity(String navn, int estTime) {
+		this.navn = navn;
+		this.estTime = estTime;
+	}
+	
+	
 
 	// UI method
 	public StringProperty getUIName() {

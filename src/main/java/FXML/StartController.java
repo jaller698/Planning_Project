@@ -23,7 +23,7 @@ import database.*;
 
 public class StartController {
 	Application app = new Application();
-	dataPersistence data = new dataPersistence();
+	DataPersistence data = new DataPersistence();
 	@FXML
 	private Button begin;
 	@FXML

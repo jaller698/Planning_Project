@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import database.IProjectRegister;
 import database.IUserRegister;
-import database.dataPersistence;
+import database.DataPersistence;
 
 public class Application {
 
@@ -13,7 +13,7 @@ public class Application {
 	private static Medarbejder currentEmployee;
 	private static String ConfirmationMSG;
 	
-	private static dataPersistence database = new dataPersistence();
+	private static DataPersistence database = new DataPersistence();
 	public static IProjectRegister projects = database;
 	public static IUserRegister workers = database;
 	
@@ -21,7 +21,7 @@ public class Application {
 		currentEmployee = null;
 		ConfirmationMSG = null;
 		
-		database = new dataPersistence();
+		database = new DataPersistence();
 		projects = database;
 		workers = database;
 	}

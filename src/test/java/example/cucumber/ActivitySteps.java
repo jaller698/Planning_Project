@@ -53,6 +53,22 @@ public class ActivitySteps {
 		StepDefinitions.app.projects.getProject(string4).assignActivity(string3, StepDefinitions.app.workers.getUser(string2), StepDefinitions.app.workers.getUser(string));
 	}
 	
+	@When("project leader {string} edits the expected time of activity {string}, under project {string}, to {int} hours")
+	public void projectLeaderEditsTheExpectedTimeOfActivityUnderProjectToHours(String string, String string2, String string3, Integer int1) {
+		Aktivitet a = StepDefinitions.app.projects.getProject(string3).getAktivitet(string2);
+		Medarbejder m = StepDefinitions.app.workers.getUser(string);
+		
+		a.editActivity(int1);
+	}
+	
+	@When("project leader {string} removes the activity {string}, under project {string}")
+	public void projectLeaderRemovesTheActivityUnderProject(String string, String string2, String string3) {
+		Projekt p = StepDefinitions.app.projects.getProject(string3);
+		Medarbejder m = StepDefinitions.app.workers.getUser(string);
+		
+		p.removeActivity(string2, m);
+	}
+	
 	@Then("worker {string} is assigned to activity {string}")
 	public void workerIsAssignedToActivity(String string, String string2) {
 		Aktivitet a = StepDefinitions.app.workers.getUser(string).getAktivitet(string2);
