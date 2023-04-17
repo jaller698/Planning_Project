@@ -15,40 +15,38 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-public class UserSteps {
-	Application app = new Application();
-	
+public class UserSteps {	
 	@Given("a worker {string} is registered")
 	public void aWorkerIsRegistered(String s) throws Exception {
 		Medarbejder newWorker = new Medarbejder(
 		s, // User name
 		"Cucumber123" // Password
 		);
-		assertTrue(app.workers.getUser(s).navn.equals(newWorker.navn));
+		assertTrue(StepDefinitions.app.workers.getUser(s).navn.equals(newWorker.navn));
 	    //throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
 	}
 	
 	@Given("worker {string} is signed in")
 	public void workerIsSignedIn(String employee) {
-		Medarbejder m = app.findEmployee(employee);
-		app.setMedarbejder(m);
-	    assertTrue(app.getMedarbejder().navn.equals(employee));
+		Medarbejder m = StepDefinitions.app.findEmployee(employee);
+		StepDefinitions.app.setMedarbejder(m);
+	    assertTrue(StepDefinitions.app.getMedarbejder().navn.equals(employee));
 	}
 	@Given("worker {string} is registered as an admin")
 	public void workerIsRegisteredAsAnAdmin(String employee) {
-		Medarbejder m = app.findEmployee(employee);
+		Medarbejder m = StepDefinitions.app.findEmployee(employee);
 		m.setAdmin(true);
 		assertTrue(m.isAdmin());
 	}
 	@Given("worker {string} is a project leader")
 	public void workerIsAProjectLeader(String employee) {
-	    Medarbejder m = app.findEmployee(employee);
+	    Medarbejder m = StepDefinitions.app.findEmployee(employee);
 	    m.setProjectLeader(true);
 	    assertTrue(m.isProjectleader());
 	}
 	@Then("the project {string} has no project leader")
 	public void theProjectHasNoProjectLeader(String projname) {
-		Projekt p = app.findProject(projname);
+		Projekt p = StepDefinitions.app.findProject(projname);
 		p.getProjLeder();
 	}
 
