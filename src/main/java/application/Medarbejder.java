@@ -26,7 +26,7 @@ public class Medarbejder {
 	}
 
 	public String toString() {
-		return navn + " " + password;
+		return this.navn;
 	}
 
 	public void appointProjektleader(Projekt p, Medarbejder m) {
@@ -68,14 +68,29 @@ public class Medarbejder {
 	public Boolean isAdmin() {
 		return admin;
 	}
+
 	public void setAdmin(Boolean b) {
 		admin = b;
 	}
+
 	public Boolean isProjectleader() {
 		return projectLeader;
 	}
+
 	public void setProjectLeader(Boolean b) {
 		projectLeader = b;
+	}
+
+	public void changePassword(String currentPWD, String newPWD) {
+		if (this.password.equals(currentPWD)) {
+			this.password = newPWD;
+			Application.setConfirmationMSG("Successfully changed password");
+		}
+	}
+
+	public void changePassword(String newPWD) {
+		this.password = newPWD;
+		Application.setConfirmationMSG("Successfully changed password");
 	}
 }
 

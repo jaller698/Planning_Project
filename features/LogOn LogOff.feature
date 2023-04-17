@@ -4,8 +4,7 @@ Feature: LogOn LogOff
 # Description: the ability to log on and off the system and registering new workers
 
 	Background:
-		Given a clean slate
-		And a worker 1 is registered under the name "Steve" with the password "SuperSquare9000"
+		Given a worker 1 is registered under the name "Steve" with the password "SuperSquare9000"
 
 	Scenario: A worker logs in to the system
 		Given worker 1 is signed off

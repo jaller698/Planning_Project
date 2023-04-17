@@ -33,7 +33,9 @@ public class ProjektViewController {
 	@FXML
 	private Label estHoursLabel;
 	@FXML
-	private Label comHoursLabel;
+	private Label cumHoursLabel;
+	@FXML
+	private Label projectLeader;
 	@FXML
 	private TableView<Projekt> projectTable;
 	@FXML
@@ -125,6 +127,8 @@ public class ProjektViewController {
 
 	private void showProjectDetails(Projekt p) {
 		if (p != null) {
+			projectLeader.setText(p.leder.toString());
+
 			NameLabel.setText(p.toString());
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivityList());
@@ -135,6 +139,7 @@ public class ProjektViewController {
 			} else {
 				currentActivity = null;
 			}
+
 				showActivityDetails(currentActivity);
 
 			
@@ -153,13 +158,15 @@ public class ProjektViewController {
 			activityLabel.setText(a.toString());
 			activityNumber.setText("117");
 			estHoursLabel.setText("" + a.getEstHours());
-			comHoursLabel.setText("");
+			cumHoursLabel.setText("");
+
 
 		} else {
 			activityLabel.setText("");
 			activityNumber.setText("");
 			estHoursLabel.setText("");
-			comHoursLabel.setText("");
+			cumHoursLabel.setText("");
 		}
+
 	}
 }

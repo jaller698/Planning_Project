@@ -8,9 +8,9 @@ import javafx.beans.property.StringProperty;
 public class Projekt {
 	String navn;
 	ArrayList<Aktivitet> aktiviteter = new ArrayList<Aktivitet>();
-	int estTid;
+	public int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
-	Medarbejder leder;
+	public Medarbejder leder;
 	private int projID;
 	
 	public Projekt(String navn) {
@@ -24,7 +24,7 @@ public class Projekt {
 	
 	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
 		this.navn=navn;
-		this.medarbejdere=medarbejdere;
+		this.medarbejdere = medarbejdere;
 		//tilføj lederen på et tidspunkt
 	}
 

@@ -12,7 +12,7 @@ import javafx.scene.Parent;
 import java.io.File;
 import FXML.*;
 
-
+import database.*;
 import java.io.IOException;
 
 
@@ -21,10 +21,18 @@ public class HelloFX extends Application {
 	private Button begin;
 	private static Scene scene;
 	public static Stage cStage;
-
+	dataPersistence data = new dataPersistence();
+	Medarbejder h = new Medarbejder("Hans","heste123");
+	Medarbejder l = new Medarbejder("Erik","fisk123");
+	Medarbejder p = new Medarbejder("Peter","næbdyr123");
 	// starter det hele, og bruges også senere til at tegne scenerne
 	@Override
 	public void start(Stage stage) throws Exception {
+		System.out.println("gabriel er en ged");
+
+		data.addUser(h);
+		data.addUser(l);
+		data.addUser(p);
 		System.out.println("heya");
 		scene = new Scene(loadFXML("Frontpage", StartController.class));
 		cStage = stage;
