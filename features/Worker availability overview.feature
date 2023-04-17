@@ -6,7 +6,8 @@ Feature: Worker availability overview
 # TODO
 
 #	Background:
-#		Given a worker 1 is registered
+#		Given a clean slate
+#		And a worker 1 is registered
 #		And worker 1 is registered as an admin
 #		And worker 1 is signed in
 

@@ -12,14 +12,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import FXML.ProjektViewController;
+import database.*;
 
 public class StartController {
 	Application app = new Application();
+	dataPersistence data = new dataPersistence();
 	@FXML
 	private Button begin;
 	@FXML
@@ -47,11 +50,17 @@ public class StartController {
 	TextField signupRepeatPassword = new TextField();
 	@FXML 
 	private Button signup;
+	@FXML
 	private Button viewProjects;
+	@FXML
 	private Button logOut;
 	@FXML 
 	public TextField projektNavn = new TextField();
 	
+	@FXML
+	//public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(FXCollections.observableArrayList(data.getWorkers()));
+	public ChoiceBox<String> leaderPick = new ChoiceBox<String>(FXCollections.observableArrayList("hej","med","dig","!"));
+
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
@@ -61,6 +70,9 @@ public class StartController {
 		Projekt p = new Projekt(projektNavn.getText());
 		//Application.alleProjekter.add(p);
 		app.getMedarbejder().addProjekt(p);
+		
+		
+		
 		HelloFX.setRoot("Mainmenu", StartController.class);
 		System.out.println("Projekt tilføjet!");
 		System.out.println(app.getConfirmationMSG());
@@ -83,7 +95,10 @@ public class StartController {
 
 	
 	public void toProjektCreater() throws IOException {
+		leaderPick.setItems(FXCollections.observableArrayList("hej","med","dig","!"));
+
 		HelloFX.setRoot("ProjektCreater", StartController.class);
+		leaderPick.setItems(FXCollections.observableArrayList("hej","med","dig","!"));
 
 	}
 	public void viewProjects() throws IOException {
@@ -102,12 +117,12 @@ public class StartController {
 //					System.out.println(loginIndex);
 //				}
 //			}
-			for (Medarbejder M : app.workers.getAllUsers()) {
+			for (Medarbejder M : data.getWorkers()) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true && M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					loginIndex = app.workers.getUserID(M);
-					Application.setMedarbejder(M);
-					System.out.println(app.getMedarbejder());
+					loginIndex = data.getUserID(M);
+					data.setMedarbejder(M);
+					System.out.println(data.getMedarbejder());
 				}
 			}
 		}
@@ -163,6 +178,8 @@ public class StartController {
 		app.workers.addUser(h);
 		app.workers.addUser(l);
 		app.workers.addUser(p);
+		leaderPick.setItems(FXCollections.observableArrayList("hej","med","dig","!"));
+
 		/*
 		h.p.add(new Projekt("1h"));
 		h.p.add(new Projekt("2h"));
