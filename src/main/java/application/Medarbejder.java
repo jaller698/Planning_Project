@@ -18,7 +18,6 @@ public class Medarbejder {
 	public Medarbejder(String navn, String password) {
 		this.navn = navn;
 		this.password = password;
-		Application.workers.addUser(this);
 	}
 
 	public boolean tjekLogin() {
@@ -26,7 +25,7 @@ public class Medarbejder {
 	}
 
 	public String toString() {
-		return navn + " " + password;
+		return this.navn;
 	}
 
 	public void appointProjektleader(Projekt p, Medarbejder m) {
