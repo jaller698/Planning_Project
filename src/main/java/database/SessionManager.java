@@ -25,4 +25,22 @@ public class SessionManager implements ISessionsRegister {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public int getUserOfSession(String session) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getSessionOfUser(int userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSessionOfUser(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -30,6 +30,10 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 	
 	@Override
 	public int addUser(Medarbejder user) {
+		if (allWorkers.contains(user)) { // check for duplicates
+			return -1;
+		}
+		
 		if (allWorkers.add(user)) { // add worker to list
 			int id = allWorkers.indexOf(user); // gets the worker id or position in list
 			workerIDs.put(user.navn, id); // Caches the worker name
@@ -68,6 +72,10 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 
 	@Override
 	public int addProject(Projekt project) {
+		if (allProjects.containsValue(project)) { // check for duplicates
+			return -1;
+		}
+		
 		int newID = allProjects.size(); // find an unused ID
 		allProjects.put(newID, project); // add a new project under the ID
 		projectIDs.put(project.toString(), newID); // caches project id for a its name
@@ -76,6 +84,10 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 
 	@Override
 	public void addProject(Projekt project, Integer id) {
+		if (allProjects.containsValue(project)) { // check for duplicates
+			return;
+		}
+		
 		allProjects.put(id, project); // adds a project with the given key
 		projectIDs.put(project.toString(), id); // caches project id for a its name
 	}
