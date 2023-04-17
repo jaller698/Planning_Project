@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
@@ -60,8 +61,9 @@ public class StartController {
 	@FXML
 	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(
 			FXCollections.observableArrayList(data.getWorkers()));
-	// public ChoiceBox<String> leaderPick = new
-	// ChoiceBox<String>(FXCollections.observableArrayList("hej","med","dig","!"));
+
+	@FXML
+	public Spinner est;
 
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
@@ -72,7 +74,7 @@ public class StartController {
 		Projekt p = new Projekt(projektNavn.getText());
 		// Application.alleProjekter.add(p);
 		p.leder = data.getUser(data.getUserID(leaderPick.getValue()));
-		System.out.println(p.leder);
+		p.estTid = (int) est.getValue();
 		
 		data.getMedarbejder().addProjekt(p);
 

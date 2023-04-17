@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 public class Projekt {
 	String navn;
 	ArrayList<Aktivitet> aktiviteter = new ArrayList<Aktivitet>();
-	int estTid;
+	public int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public Medarbejder leder;
 	private int projID;
