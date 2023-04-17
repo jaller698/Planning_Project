@@ -14,7 +14,7 @@
       <Text layoutX="214.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medarbejdere? Kan ikke komme på en god måde at vælge dem på. Måske skal vi gøre det efter. Men personen der opretter bliver automatisk addet og kan add andre folk før en projektleder bliver valgt." wrappingWidth="346.791015625" />
       <TextField fx:id="projektNavn" layoutX="23.0" layoutY="90.0" />
       <Text layoutX="23.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projekt navn" />
-      <Spinner layoutX="56.0" layoutY="347.0" prefHeight="25.0" prefWidth="57.0" />
+      <Spinner fx:id="est" layoutX="56.0" layoutY="347.0" prefHeight="25.0" prefWidth="57.0" />
       <CheckBox layoutX="24.0" layoutY="351.0" mnemonicParsing="false" />
       <Text layoutX="23.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Est. tid (optional)" />
       <Text layoutX="124.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Måneder" />

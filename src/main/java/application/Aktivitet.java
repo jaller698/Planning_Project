@@ -12,7 +12,7 @@ public class Aktivitet {
 	public int[] tidBrugt;
 	public ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public String navn;
-	private int estTime;
+	public int estTime;
 
 	// creating a new aktivity has to automatically add said activity to the
 	// project...

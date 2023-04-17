@@ -27,6 +27,12 @@ public class StartController {
 	@FXML
 	private Button begin;
 	@FXML
+	private Button cancelak;
+	@FXML
+	private Button leabek;
+	@FXML
+	private Button createAk;
+	@FXML
 	private Button Leabe;
 	@FXML
 	private Button cancel;
@@ -34,6 +40,8 @@ public class StartController {
 	private Button refresh;
 	@FXML
 	private Label label;
+	@FXML
+	private Label aktivitetNavn;
 	@FXML
 	TextField loginUsername = new TextField();
 	@FXML
@@ -64,11 +72,21 @@ public class StartController {
 
 	@FXML
 	public Spinner est;
+	@FXML
+	public Spinner estak;
 
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 
 	public static int loginIndex;
+	
+	public void createAktivity() throws IOException {
+		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),(int)estak.getValue(), null);
+		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
+		
+		
+		
+	}
 
 	public void createProjekt() throws IOException {
 		Projekt p = new Projekt(projektNavn.getText());
