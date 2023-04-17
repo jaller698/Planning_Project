@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -47,18 +48,46 @@ public class StartController {
 	@FXML
 	TextField signupRepeatPassword = new TextField();
 	@FXML 
+<<<<<<< Updated upstream
 	public Button signup;
 	public Button viewProjects;
 	public Button logOut;
 	@FXML 
 	public TextField projektNavn = new TextField();
 	
+=======
+	private Button signup;
+	@FXML 
+	private Button viewProjects;
+	@FXML 
+	private Button logOut;
+	@FXML 
+	public TextField projektNavn = new TextField();
+	
+	@FXML
+	private static Alert alert = new Alert(AlertType.NONE);
+	@FXML
+	private ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(FXCollections.observableArrayList(app.alleMedarbejdere));;
+	
+	
+	
+>>>>>>> Stashed changes
 	public static int loginIndex;
 	public static Medarbejder currentMedarbejder;
 	
 	public void createProjekt() throws IOException {
+<<<<<<< Updated upstream
 		alleProjekter.add(new Projekt(projektNavn.getText()));
 		alleMedarbejdere.get(loginIndex).addProjekt(alleProjekter.get(alleProjekter.size()-1));
+=======
+		Projekt p = new Projekt(projektNavn.getText());
+		Application.alleProjekter.add(p); //hvis noget går galt udkommentær denne linje
+		app.getMedarbejder().addProjekt(p);
+		
+		
+		
+		
+>>>>>>> Stashed changes
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 	public void logOut() throws IOException {
@@ -73,6 +102,8 @@ public class StartController {
 	
 	public void toProjektCreater() throws IOException {
 		HelloFX.setRoot("ProjektCreater", StartController.class);
+		
+		leaderPick.getItems().addAll(app.alleMedarbejdere);
 
 	}
 	public void viewProjects() throws IOException {
