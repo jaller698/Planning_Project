@@ -17,6 +17,15 @@ public class Application {
 	public static IProjectRegister projects = database;
 	public static IUserRegister workers = database;
 	
+	public Application() {
+		currentEmployee = null;
+		ConfirmationMSG = null;
+		
+		database = new dataPersistence();
+		projects = database;
+		workers = database;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		setConfirmationMSG("");
