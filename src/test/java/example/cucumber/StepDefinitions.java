@@ -12,7 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class StepDefinitions {
-	public static Application app = new Application();
+	public static Application app = Application.singleton();
 	public static SessionManager sm = new SessionManager();
 	// TODO
 	
@@ -29,7 +29,7 @@ public class StepDefinitions {
 	
 	@Given("a clean slate")
 	public void aCleanSlate() {
-		app = new Application();
+		app.reset();
 		sm = new SessionManager();
 	}
 }

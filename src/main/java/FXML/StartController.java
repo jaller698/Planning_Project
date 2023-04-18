@@ -19,11 +19,9 @@ import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import FXML.ProjektViewController;
-import database.*;
 
 public class StartController {
-	Application app = new Application();
-	DataPersistence data = new DataPersistence();
+	Application app = Application.singleton();
 	@FXML
 	private Button begin;
 	@FXML
@@ -68,7 +66,7 @@ public class StartController {
 
 	@FXML
 	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(
-			FXCollections.observableArrayList(data.getWorkers()));
+			FXCollections.observableArrayList(app.workers.getAllUsers()));
 
 	@FXML
 	public Spinner est;
@@ -89,15 +87,23 @@ public class StartController {
 	}
 
 	public void createProjekt() throws IOException {
+		
+		app.workers.addUser(new Medarbejder("name", "password"));
+		System.out.println(app.workers.getAllUsers().toString());
+		// TODO TODO
 		Projekt p = new Projekt(projektNavn.getText());
 		// Application.alleProjekter.add(p);
-		p.leder = data.getUser(data.getUserID(leaderPick.getValue()));
-		p.estTid = (int) est.getValue();
+		if (leaderPick.getValue() != null) 
+			p.leder = app.workers.getUser(app.workers.getUserID(leaderPick.getValue()));
+		if (est.getValue() != null)
+			p.estTid = (int) est.getValue();
+		else
+			p.estTid = 5;
 		
-		data.getMedarbejder().addProjekt(p);
+		app.getCurrentActiveUser().addProjekt(p);
 
 		
-		data.addProject(p);
+		app.projects.addProject(p);
 
 		
 		HelloFX.setRoot("Mainmenu", StartController.class);
@@ -148,13 +154,13 @@ public class StartController {
 //					System.out.println(loginIndex);
 //				}
 //			}
-			for (Medarbejder M : data.getWorkers()) {
+			for (Medarbejder M : app.workers.getAllUsers()) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true
 						&& M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					loginIndex = data.getUserID(M);
-					data.setMedarbejder(M);
-					System.out.println(data.getMedarbejder());
+					loginIndex = app.workers.getUserID(M);
+					app.setCurrentActiveUser(M);
+					System.out.println(app.getCurrentActiveUser());
 				}
 			}
 		}
@@ -184,10 +190,17 @@ public class StartController {
 	public void addUser(ActionEvent e) throws IOException {
 		System.out.println("gabriel er irriterende");
 		if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
-
-			new Medarbejder(signupUsername.getText(), signupPassword.getText());
-			System.out.println(app.workers.getUser(app.workers.getAllUsers().length - 1));
-			loginIndex = app.workers.getAllUsers().length - 1;
+			String userName = signupUsername.getText();
+			String password = signupPassword.getText();
+			
+			Medarbejder newUser = new Medarbejder(userName, password);
+			
+			loginIndex = app.workers.addUser(newUser);
+			
+			System.out.println(app.workers.getAllUsers().toString());
+			
+			app.sessions.loginUser(userName, password);
+			
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} else {
 			System.out.println("farvel");
@@ -203,7 +216,7 @@ public class StartController {
 
 	public void initialize() {
 		leaderPick.getItems().clear();
-		leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
+		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
 
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new

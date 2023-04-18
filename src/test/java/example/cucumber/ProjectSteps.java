@@ -31,7 +31,7 @@ public class ProjectSteps {
 	
 	@When("loggedin worker creates a project with the name {string}")
 	public void workerCreatesAProjectWithTheName(String projectName) {
-		StepDefinitions.app.getMedarbejder().addProjekt(new Projekt(projectName));
+		StepDefinitions.app.getCurrentActiveUser().addProjekt(new Projekt(projectName));
 	}
 
 	@Then("the project {string} with {int}-digit serial no. from year and project number is created")
@@ -44,7 +44,7 @@ public class ProjectSteps {
 	@Then("a worker {string} is a project leader for project {string}")
 	public void aWorkerIsAProjectLeaderForProject(String name, String projName) {
 		Projekt p = null;
-		Medarbejder m = StepDefinitions.app.findEmployee(name);
+		Medarbejder m = StepDefinitions.app.workers.getUser(name);
 		for (int i = 0; i < m.getProjekts().size();i++){
 			if(m.getProjekts().get(i).toString().equals(projName))
 				p = m.getProjekts().get(i);
@@ -61,15 +61,15 @@ public class ProjectSteps {
 
 	@When("worker {string} joins activity {string} under project {string}")
 	public void workerJoinsActivityUnderProject(String name, String aName, String pName) {
-	    Projekt p = StepDefinitions.app.findProject(pName);
+	    Projekt p = StepDefinitions.app.projects.getProject(pName);
 	    Aktivitet a = p.getAktivitet(aName);
-	    Medarbejder M = StepDefinitions.app.findEmployee(name);
+	    Medarbejder M = StepDefinitions.app.workers.getUser(name);
 	    a.addMedarbejder(M);
 	}
 	
 	@Then("the project {string} has no activity named {string} under it")
 	public void theProjectHasNoActivityNamedUnderIt(String string, String string2) {
-		Projekt p = StepDefinitions.app.findProject(string);
+		Projekt p = StepDefinitions.app.projects.getProject(string);
 		assertTrue(p.getAktivitet(string2) == null);
 	}
 }

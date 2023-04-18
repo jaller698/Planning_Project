@@ -1,6 +1,8 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,8 +11,7 @@ import javafx.beans.value.ObservableValue;
 
 public class Aktivitet {
 	public Projekt p;
-	public int[] tidBrugt;
-	public ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
+	public HashMap<Integer, Integer> timeWorked = new HashMap<Integer, Integer>(); // <>userID, hours>
 	public String navn;
 	public int estTime;
 
@@ -18,7 +19,7 @@ public class Aktivitet {
 	// project...
 	// can i do that in the constructor?
 	public Aktivitet(String navn, int estTime, Projekt p) {
-		if(!p.getProjLeder().equals(Application.getMedarbejder())) {
+		if(!p.getProjLeder().equals(Application.getCurrentActiveUser())) {
 			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");
 			return;
 		}
@@ -64,9 +65,36 @@ public class Aktivitet {
 		this.estTime = estTime;
 	}
 	
-	public void editActivity(String navn, int estTime) {
+	public void editActivity(String navn, int estTime) { // edit an activity after the fact
 		this.navn = navn;
 		this.estTime = estTime;
+	}
+	
+	public void addTime(int hours, Medarbejder user) { // add time to an activity
+		// get a userID to associate the time with
+		int userID = Application.workers.getUserID(user); 
+		
+		// adds the time to the hashmap
+		//timeWorked.getOrDefault(userID, 0)
+		timeWorked.put(userID, timeWorked.computeIfAbsent(userID, k -> 0) + hours);
+		
+		addMedarbejder(user);
+	}
+	
+	public int getTimeDone() { //gets the total time done
+		int totalTime = 0;
+		
+		for (Iterator<Integer> iterator = timeWorked.keySet().iterator(); iterator.hasNext();) {
+			totalTime += (Integer) iterator.next();
+		}
+		
+		return totalTime;
+	}
+	
+	public int getTimeDoneByUser(Medarbejder user) { // gets the time done by a specific user
+		int userID = Application.workers.getUserID(user); 
+		
+		return timeWorked.get(userID);
 	}
 	
 	

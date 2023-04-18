@@ -5,12 +5,12 @@ Feature: Working hours overview
 
 # TODO
 
-	Background:
-		Given a clean slate
-		And a worker 1 is registered
-		And worker 1 is signed in
+#	Background:
+#		Given a clean slate
+#		And a worker 1 is registered
+#		And worker 1 is signed in
 
-	Scenario: 
- 		Given worker is signed in
- 		When worker "worker" requests overview of previous working hours by activity
- 		Then worker "worker" is returned total number of working hours by activity
+#	Scenario: 
+# 	Given worker is signed in
+# 	When worker "worker" requests overview of previous working hours by activity
+# 	Then worker "worker" is returned total number of working hours by activity

@@ -17,7 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class ProjektViewController {
-	Application app = new Application();
+	Application app = Application.singleton();
 	@FXML
 	public Button refresh;
 	@FXML

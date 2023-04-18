@@ -2,41 +2,48 @@ package application;
 
 import java.util.ArrayList;
 
-import database.IProjectRegister;
-import database.IUserRegister;
-import database.DataPersistence;
+import database.*;
 
-public class Application {
+public final class Application {
+	private final static Application singleton = new Application();
 
-	//public static ArrayList<Medarbejder> alleMedarbejdere = new ArrayList<Medarbejder>();
-	//public static ArrayList<Projekt> alleProjekter = new ArrayList<Projekt>();
-	private static Medarbejder currentEmployee;
+	private static Medarbejder currentActiveUser;
 	private static String ConfirmationMSG;
 	
 	private static DataPersistence database = new DataPersistence();
 	public static IProjectRegister projects = database;
 	public static IUserRegister workers = database;
+	public static ISessionsRegister sessions = new SessionManager();
 	
-	public Application() {
-		currentEmployee = null;
+	private Application() {}
+	
+	public static Application singleton() {
+		return Application.singleton;
+	}
+	
+	public void reset() {
+		currentActiveUser = null;
 		ConfirmationMSG = null;
 		
 		database = new DataPersistence();
 		projects = database;
 		workers = database;
+		
+		System.out.println("Application: Created a new clean slate");
 	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		setConfirmationMSG("");
 	}
 	
-	public static Medarbejder getMedarbejder() {
-		return currentEmployee;
+	public static Medarbejder getCurrentActiveUser() {
+		return currentActiveUser;
 	}
 	
-	public static void setMedarbejder(Medarbejder m) {
-		currentEmployee = m;
+	public static void setCurrentActiveUser(Medarbejder m) {
+		currentActiveUser = m;
 	}
 	
 	public static int getYear() {
@@ -49,13 +56,6 @@ public class Application {
 	
 	public static void setConfirmationMSG(String msg){
 		ConfirmationMSG = msg;
-	}
-	public Medarbejder findEmployee(String employeeName){
-		return workers.getUser(employeeName);
-	}
-	
-	public Projekt findProject(String projName) {
-		return projects.getProject(projName);
 	}
 	
 	public void AdminChangePassword(int aid, int mid, String newPWD) {
