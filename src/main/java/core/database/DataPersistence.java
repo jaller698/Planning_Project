@@ -1,4 +1,4 @@
-package database;
+package core.database;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,8 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import application.Application;
-import application.Medarbejder;
-import application.Projekt;
+import core.common.Medarbejder;
+import core.common.Projekt;
+import core.sessions.IUserRegister;
 
 public class DataPersistence implements IProjectRegister, IUserRegister {
 	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();

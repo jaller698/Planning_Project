@@ -1,7 +1,8 @@
-package application;
+package core.common;
 
 import java.util.ArrayList;
 
+import application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

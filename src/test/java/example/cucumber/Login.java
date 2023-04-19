@@ -4,8 +4,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import application.Application;
-import application.Medarbejder;
-import database.SessionManager;
+import core.common.Medarbejder;
+import core.sessions.SessionManager;
 import io.cucumber.java.en.*;
 
 public class Login {

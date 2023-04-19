@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Aktivitet;
 import application.Application;
-import application.Medarbejder;
-import application.Projekt;
+import core.common.Aktivitet;
+import core.common.Medarbejder;
+import core.common.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

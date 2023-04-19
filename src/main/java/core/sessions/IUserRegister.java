@@ -1,8 +1,8 @@
-package database;
+package core.sessions;
 
 import java.util.ArrayList;
 
-import application.Medarbejder;
+import core.common.Medarbejder;
 
 public interface IUserRegister {
 	public int addUser(Medarbejder user); // stores new user and returns the new users ID

@@ -1,6 +1,6 @@
-package database;
+package core.database;
 
-import application.Projekt;
+import core.common.Projekt;
 
 public interface IProjectRegister {
 	public int addProject(Projekt project); // stores new project

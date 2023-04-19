@@ -2,7 +2,12 @@ package application;
 
 import java.util.ArrayList;
 
-import database.*;
+import core.common.Medarbejder;
+import core.database.DataPersistence;
+import core.database.IProjectRegister;
+import core.database.ISessionsRegister;
+import core.sessions.IUserRegister;
+import core.sessions.SessionManager;
 
 public final class Application {
 	private final static Application singleton = new Application();

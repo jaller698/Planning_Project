@@ -2,8 +2,8 @@ package example.cucumber;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Medarbejder;
-import application.Projekt;
+import core.common.Medarbejder;
+import core.common.Projekt;
 import io.cucumber.java.en.*;
 
 public class ProjectLeaderSteps {

@@ -11,8 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.File;
 import FXML.*;
+import core.common.Medarbejder;
+import core.database.DataPersistence;
 
-import database.*;
 import java.io.IOException;
 
 
