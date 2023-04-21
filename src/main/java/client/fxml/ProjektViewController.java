@@ -1,12 +1,10 @@
-package FXML;
+package client.fxml;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import application.Application;
-import application.HelloFX;
-import core.common.Aktivitet;
-import core.common.Medarbejder;
-import core.common.Projekt;
+
+import client.Application;
+import client.HelloFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import sharedCore.Aktivitet;
+import sharedCore.Medarbejder;
+import sharedCore.Projekt;
 
 public class ProjektViewController {
 	Application app = Application.singleton();

@@ -1,10 +1,9 @@
-package core.sessions;
+package server;
 
 import java.util.HashMap;
 
-import application.Application;
-import core.common.Medarbejder;
-import core.database.ISessionsRegister;
+import client.Application;
+import sharedCore.Medarbejder;
 
 public class SessionManager implements ISessionsRegister {
 	private static HashMap<Integer, Medarbejder> activeSessions = new HashMap<Integer, Medarbejder>();

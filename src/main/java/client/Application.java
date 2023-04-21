@@ -1,13 +1,13 @@
-package application;
+package client;
 
 import java.util.ArrayList;
 
-import core.common.Medarbejder;
-import core.database.DataPersistence;
-import core.database.IProjectRegister;
-import core.database.ISessionsRegister;
-import core.sessions.IUserRegister;
-import core.sessions.SessionManager;
+import server.DataPersistence;
+import server.IProjectRegister;
+import server.ISessionsRegister;
+import server.IUserRegister;
+import server.SessionManager;
+import sharedCore.Medarbejder;
 
 public final class Application {
 	private final static Application singleton = new Application();

@@ -1,8 +1,8 @@
-package core.common;
+package sharedCore;
 
 import java.util.ArrayList;
 
-import application.Application;
+import client.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

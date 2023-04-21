@@ -1,14 +1,11 @@
-package FXML;
+package client.fxml;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.control.Alert;
-import application.*;
-import core.common.Aktivitet;
-import core.common.Medarbejder;
-import core.common.Projekt;
+import client.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,10 +15,12 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
+import sharedCore.Aktivitet;
+import sharedCore.Medarbejder;
+import sharedCore.Projekt;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import FXML.ProjektViewController;
 
 public class StartController {
 	Application app = Application.singleton();

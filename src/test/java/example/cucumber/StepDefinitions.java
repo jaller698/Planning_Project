@@ -5,11 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Application;
-import core.sessions.SessionManager;
+import client.Application;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import server.SessionManager;
 
 public class StepDefinitions {
 	public static Application app = Application.singleton();

@@ -3,10 +3,10 @@ package example.cucumber;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Application;
-import core.common.Medarbejder;
-import core.sessions.SessionManager;
+import client.Application;
 import io.cucumber.java.en.*;
+import server.SessionManager;
+import sharedCore.Medarbejder;
 
 public class Login {
 	int i = 0;

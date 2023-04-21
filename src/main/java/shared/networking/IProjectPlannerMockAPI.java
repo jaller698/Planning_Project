@@ -1,4 +1,4 @@
-package networking;
+package shared.networking;
 
 public interface IProjectPlannerMockAPI {
 	//Lo

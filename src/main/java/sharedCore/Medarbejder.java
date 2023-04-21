@@ -1,9 +1,9 @@
-package core.common;
+package sharedCore;
 
 import java.util.ArrayList;
 import java.util.function.BooleanSupplier;
 
-import application.Application;
+import client.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

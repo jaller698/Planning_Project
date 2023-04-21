@@ -1,8 +1,8 @@
-package core.sessions;
+package server;
 
 import java.util.ArrayList;
 
-import core.common.Medarbejder;
+import sharedCore.Medarbejder;
 
 public interface IUserRegister {
 	public int addUser(Medarbejder user); // stores new user and returns the new users ID

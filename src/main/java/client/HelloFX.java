@@ -1,4 +1,4 @@
-package application;
+package client;
 
 
 import javafx.application.Application;
@@ -6,13 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import server.DataPersistence;
+import sharedCore.Medarbejder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.File;
-import FXML.*;
-import core.common.Medarbejder;
-import core.database.DataPersistence;
+import client.fxml.StartController;
 
 import java.io.IOException;
 

@@ -1,6 +1,6 @@
-package core.database;
+package server;
 
-import core.common.Medarbejder;
+import sharedCore.Medarbejder;
 
 public interface ISessionsRegister {
 	public String loginUser(String name, String password); // logs in a user and retrieves a session id

@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import FXML.StartController;
-import application.Application;
-import core.common.Medarbejder;
-import core.common.Projekt;
+import client.Application;
+import client.fxml.StartController;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import sharedCore.Medarbejder;
+import sharedCore.Projekt;
 
 
 public class UserSteps {	
