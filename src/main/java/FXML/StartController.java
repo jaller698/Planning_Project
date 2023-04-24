@@ -77,7 +77,7 @@ public class StartController {
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),(int)estak.getValue(), null);
+		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), null);
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
 		
 		
@@ -89,8 +89,8 @@ public class StartController {
 		// Application.alleProjekter.add(p);
 		if (leaderPick.getValue() != null) 
 			p.leder = app.workers.getUser(app.workers.getUserID(leaderPick.getValue()));
-		if (est.getValue() != null)
-			p.estTid = (int) est.getValue();
+		if (Integer.valueOf(est.getText()) != null)
+			p.estTid = Integer.valueOf(est.getText());
 		else
 			p.estTid = 5;
 		app.getCurrentActiveUser().addProjekt(p);
