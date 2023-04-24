@@ -1,6 +1,7 @@
 package database;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -122,5 +123,10 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	public void removeProject(Integer id) {
 		projectIDs.remove(allProjects.get(id).toString()); // removes cache
 		allProjects.remove(id); // removes project
+	}
+
+	@Override
+	public ArrayList<Projekt> getAllProjectsAsList() {
+		return new ArrayList<Projekt>(Arrays.asList(getAllProjects()));
 	}
 }
