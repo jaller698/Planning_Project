@@ -18,6 +18,6 @@
       <Button fx:id="cancel" layoutX="336.0" layoutY="22.0" mnemonicParsing="false" onAction="#goMain" text="Cancel project" />
       <Text layoutX="23.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leder (optional)" />
       <Button fx:id="Leabe" layoutX="436.0" layoutY="22.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
-      <TextField fx:id="projektNavn1" layoutX="14.0" layoutY="346.0" onAction="#est" />
+      <TextField fx:id="est" layoutX="14.0" layoutY="346.0" />
    </children>
 </AnchorPane>

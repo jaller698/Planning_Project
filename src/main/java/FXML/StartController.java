@@ -24,12 +24,7 @@ public class StartController {
 	Application app = Application.singleton();
 	@FXML
 	private Button begin;
-	@FXML
-	private Button cancelak;
-	@FXML
-	private Button leabek;
-	@FXML
-	private Button createAk;
+	
 	@FXML
 	private Button Leabe;
 	@FXML
@@ -38,8 +33,7 @@ public class StartController {
 	private Button refresh;
 	@FXML
 	private Label label;
-	@FXML
-	private Label aktivitetNavn;
+	
 	@FXML
 	TextField loginUsername = new TextField();
 	@FXML
@@ -70,14 +64,28 @@ public class StartController {
 
 	@FXML
 	TextField est = new TextField();
+	
+	@FXML
+	private Button cancelak;
+	@FXML
+	private Button leabek;
+	@FXML
+	private Button createAk;
+	
+	@FXML
+	TextField aktivitetNavn = new TextField();
 	@FXML
 	TextField estak = new TextField();
-
+	
+//	@FXML
+//	public ChoiceBox<Medarbejder> projectPick = new ChoiceBox<Projekt>(
+//			FXCollections.observableArrayList(app.projects.getAllProjects()));
+	
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),(int)estak.getValue(), null);
+		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), null);
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
 		
 		
@@ -89,8 +97,8 @@ public class StartController {
 		// Application.alleProjekter.add(p);
 		if (leaderPick.getValue() != null) 
 			p.leder = app.workers.getUser(app.workers.getUserID(leaderPick.getValue()));
-		if (est.getValue() != null)
-			p.estTid = (int) est.getValue();
+		if (Integer.valueOf(est.getText()) != null)
+			p.estTid = Integer.valueOf(est.getText());
 		else
 			p.estTid = 5;
 		app.getCurrentActiveUser().addProjekt(p);
@@ -209,7 +217,8 @@ public class StartController {
 	public void initialize() {
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
-
+//		projectPick.getItems().clear();
+//		projectPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
 		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));

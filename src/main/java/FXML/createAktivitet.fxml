@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -15,6 +16,8 @@
       <Text layoutX="173.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Måneder" />
       <Button fx:id="cancelak" layoutX="336.0" layoutY="22.0" mnemonicParsing="false" onAction="#viewProjects" text="Cancel aktivitet" />
       <Button fx:id="Leabek" layoutX="436.0" layoutY="22.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
-      <TextField fx:id="aktivitetNavn1" layoutX="20.0" layoutY="341.0" onAction="#estak" />
+      <TextField fx:id="estak" layoutX="20.0" layoutY="341.0" />
+      <ChoiceBox fx:id="projectPick" layoutX="33.0" layoutY="281.0" prefWidth="150.0" />
+      <Text layoutX="72.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projekt" />
    </children>
 </AnchorPane>
