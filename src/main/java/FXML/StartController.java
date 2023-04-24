@@ -75,8 +75,6 @@ public class StartController {
 
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
-
-	public static int loginIndex;
 	
 	public void createAktivity() throws IOException {
 		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),(int)estak.getValue(), null);
@@ -87,10 +85,6 @@ public class StartController {
 	}
 
 	public void createProjekt() throws IOException {
-		
-		app.workers.addUser(new Medarbejder("name", "password"));
-		System.out.println(app.workers.getAllUsers().toString());
-		// TODO TODO
 		Projekt p = new Projekt(projektNavn.getText());
 		// Application.alleProjekter.add(p);
 		if (leaderPick.getValue() != null) 
@@ -99,7 +93,6 @@ public class StartController {
 			p.estTid = (int) est.getValue();
 		else
 			p.estTid = 5;
-		
 		app.getCurrentActiveUser().addProjekt(p);
 
 		
@@ -120,7 +113,7 @@ public class StartController {
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
 		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
 		// og dermed skifte index. Bare extra safety.
-		StartController.loginIndex = -1;
+		app.setCurrentActiveUser(null);
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
@@ -158,7 +151,6 @@ public class StartController {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true
 						&& M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					loginIndex = app.workers.getUserID(M);
 					app.setCurrentActiveUser(M);
 					System.out.println(app.getCurrentActiveUser());
 				}
@@ -195,7 +187,7 @@ public class StartController {
 			
 			Medarbejder newUser = new Medarbejder(userName, password);
 			
-			loginIndex = app.workers.addUser(newUser);
+			app.setCurrentActiveUser(newUser);
 			
 			System.out.println(app.workers.getAllUsers().toString());
 			
