@@ -1,11 +1,9 @@
-package client;
+package application;
 
-import server.ISessionsRegister;
-import server.SessionManager;
-import server.database.DataPersistence;
-import server.database.IProjectRegister;
-import server.database.IUserRegister;
-import shared.Medarbejder;
+import java.sql.Date;
+import java.util.*;
+
+import database.*;
 
 public final class Application {
 	private final static Application singleton = new Application();
@@ -20,7 +18,7 @@ public final class Application {
 	
 	private Application() {}
 	
-	public static Application singleton() {	
+	public static Application singleton() {
 		return Application.singleton;
 	}
 	
