@@ -1,5 +1,7 @@
 package database;
 
+import java.util.ArrayList;
+
 import application.Medarbejder;
 
 public interface IUserRegister {
@@ -10,7 +12,7 @@ public interface IUserRegister {
 	public Medarbejder getUser(String userName); // retrieves a user based on a users name
 	
 	// TODO add administrator check
-	public Medarbejder[] getAllUsers(); // retrieves all users
+	public ArrayList<Medarbejder> getAllUsers(); // retrieves all users
 	
 	public int getUserID(Medarbejder user); // gets a specific userID
 	

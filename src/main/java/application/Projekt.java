@@ -17,7 +17,7 @@ public class Projekt {
 		this.navn=navn;
 		Application.projects.addProject(this);
 		setID();
-		leder = Application.getMedarbejder();
+		leder = Application.getCurrentActiveUser();
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
 	
@@ -50,9 +50,12 @@ public class Projekt {
 		}
 		return null;
 	}
+	
 	public void addProjektLeder(Medarbejder m) {
 		//properties for den givne medarbejder
 		this.leder = m;
+		if(m != null)
+			m.addProjekt(this);
 	}
 	
 	//UI method
@@ -83,11 +86,17 @@ public class Projekt {
 	}
 	
 	public void assignActivity(String actName, Medarbejder workerToBeAssigned, Medarbejder actor) {
-		if ((workerToBeAssigned == actor || actor == leder) && leder == Application.getMedarbejder()) {
+		if ((workerToBeAssigned == actor || actor == leder) && leder == Application.getCurrentActiveUser()) {
 			Aktivitet a = getAktivitet(actName);
 			if (getAktivitet(actName) != null)
 				getAktivitet(actName).addMedarbejder(workerToBeAssigned);
 		}
 	}
-
+	
+	public void removeActivity(String actName, Medarbejder actor) {
+		if (leder == Application.getCurrentActiveUser()) {
+			Aktivitet a = getAktivitet(actName);
+			aktiviteter.remove(a);
+		}
+	}
 }

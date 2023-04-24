@@ -48,7 +48,7 @@ public class Login {
 	@Given("worker {int} is signed in")
 	public void workerIsSignedIn(Integer id) {
 		Medarbejder M = StepDefinitions.app.workers.getUser(--id);
-		StepDefinitions.app.setMedarbejder(M);
+		StepDefinitions.app.setCurrentActiveUser(M);
 		assertTrue(StepDefinitions.sm.checkSession(M.navn));
 	}
 

@@ -21,7 +21,7 @@ public class HelloFX extends Application {
 	private Button begin;
 	private static Scene scene;
 	public static Stage cStage;
-	dataPersistence data = new dataPersistence();
+	DataPersistence data = new DataPersistence();
 	Medarbejder h = new Medarbejder("Hans","heste123");
 	Medarbejder l = new Medarbejder("Erik","fisk123");
 	Medarbejder p = new Medarbejder("Peter","næbdyr123");

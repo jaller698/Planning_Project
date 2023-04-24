@@ -1,6 +1,7 @@
 package database;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ import application.Application;
 import application.Medarbejder;
 import application.Projekt;
 
-public class dataPersistence implements IProjectRegister, IUserRegister {
+public class DataPersistence implements IProjectRegister, IUserRegister {
 	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();
 	private static HashMap<Integer, Projekt> allProjects = new HashMap<Integer, Projekt>();
 	
@@ -16,27 +17,14 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 	private static HashMap<String, Integer> workerIDs = new HashMap<String, Integer>();
 	private static HashMap<String, Integer> projectIDs = new HashMap<String, Integer>();
 	
-	private static Medarbejder currentEmployee;
-	
-	public ArrayList<Medarbejder> getWorkers(){
-		return allWorkers;
-	}
-	
-	public static void setMedarbejder(Medarbejder m) {
-		currentEmployee = m;
-	}
-	public static Medarbejder getMedarbejder() {
-		return currentEmployee;
-	}
-	
-	
-	
-	public dataPersistence() {
+	public DataPersistence() {		
 		allWorkers = new ArrayList<Medarbejder>();
 		allProjects = new HashMap<Integer, Projekt>();
 		
 		workerIDs = new HashMap<String, Integer>();
 		projectIDs = new HashMap<String, Integer>();
+		
+		System.out.println("DataPersistence: Reset persistent values");
 	}
 	
 	@Override
@@ -68,8 +56,8 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public Medarbejder[] getAllUsers() {
-		return (Medarbejder[]) allWorkers.toArray(); // returns all workers as an array
+	public ArrayList<Medarbejder> getAllUsers() {
+		return new ArrayList<Medarbejder>(allWorkers); // returns all workers as an array
 	}
 	
 	@Override
@@ -116,8 +104,13 @@ public class dataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public Projekt[] getAllProjects() {
-		return (Projekt[]) allProjects.values().toArray(); // returns all projects
+	public Projekt[] getAllProjects() { // returns all projects as an array
+		// a roundabout fix for the toArray() function as it refuses to work with the Projekt class
+		Collection<Projekt> tempValues = allProjects.values(); // all projects currently saved
+		Projekt[] array = new Projekt[tempValues.size()]; // array the size of the amount of projects
+ 		tempValues.toArray(array); // then all projects are added to the array
+		
+		return array; // returns all projects
 	}
 	
 	@Override

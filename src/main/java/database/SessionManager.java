@@ -8,6 +8,12 @@ import application.Medarbejder;
 public class SessionManager implements ISessionsRegister {
 	private static HashMap<Integer, Medarbejder> activeSessions = new HashMap<Integer, Medarbejder>();
 
+	public SessionManager() {
+		activeSessions = new HashMap<Integer, Medarbejder>();
+		
+		System.out.println("DataPersistence: Reset persistent values");
+	}
+	
 	
 	@Override
 	public String loginUser(String name, String password) {
@@ -18,7 +24,7 @@ public class SessionManager implements ISessionsRegister {
 				return "test";
 			else if(L.password.equals(password)) {
 				loginCheck = true;
-				Application.setMedarbejder(L);
+				Application.setCurrentActiveUser(L);
 				Application.setConfirmationMSG("Successfully logged in");
 				return null;
 			}
@@ -29,17 +35,16 @@ public class SessionManager implements ISessionsRegister {
 
 	@Override
 	public void logoutUser(String session) {
-		Application.setMedarbejder(null);
+		Application.setCurrentActiveUser(null);
 	}
 
 	@Override
 	public boolean checkSession(String employeeName) {
-		if(Application.getMedarbejder() == null)
+		if(Application.getCurrentActiveUser() == null)
 			return false;
-		else if(employeeName.equals(Application.getMedarbejder().navn))
+		else if(employeeName.equals(Application.getCurrentActiveUser().navn))
 			return true;
 		return false;
-		
 	}
 
 	@Override

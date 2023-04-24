@@ -30,25 +30,25 @@ public class UserSteps {
 	
 	@Given("worker {string} is signed in")
 	public void workerIsSignedIn(String employee) {
-		Medarbejder m = StepDefinitions.app.findEmployee(employee);
-		StepDefinitions.app.setMedarbejder(m);
-	    assertTrue(StepDefinitions.app.getMedarbejder().navn.equals(employee));
+		Medarbejder m = StepDefinitions.app.workers.getUser(employee);
+		StepDefinitions.app.setCurrentActiveUser(m);
+	    assertTrue(StepDefinitions.app.getCurrentActiveUser().navn.equals(employee));
 	}
 	@Given("worker {string} is registered as an admin")
 	public void workerIsRegisteredAsAnAdmin(String employee) {
-		Medarbejder m = StepDefinitions.app.findEmployee(employee);
+		Medarbejder m = StepDefinitions.app.workers.getUser(employee);
 		m.setAdmin(true);
 		assertTrue(m.isAdmin());
 	}
 	@Given("worker {string} is a project leader")
 	public void workerIsAProjectLeader(String employee) {
-	    Medarbejder m = StepDefinitions.app.findEmployee(employee);
+	    Medarbejder m = StepDefinitions.app.workers.getUser(employee);
 	    m.setProjectLeader(true);
 	    assertTrue(m.isProjectleader());
 	}
 	@Then("the project {string} has no project leader")
 	public void theProjectHasNoProjectLeader(String projname) {
-		Projekt p = StepDefinitions.app.findProject(projname);
+		Projekt p = StepDefinitions.app.projects.getProject(projname);
 		p.getProjLeder();
 	}
 	

@@ -11,6 +11,6 @@ Feature: Working hours overview
 #		And worker 1 is signed in
 
 #	Scenario: 
-# 		Given worker is signed in
-# 		When worker "worker" requests overview of previous working hours by activity
-# 		Then worker "worker" is returned total number of working hours by activity
+# 	Given worker is signed in
+# 	When worker "worker" requests overview of previous working hours by activity
+# 	Then worker "worker" is returned total number of working hours by activity
