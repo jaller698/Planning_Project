@@ -77,15 +77,16 @@ public class StartController {
 	@FXML
 	TextField estak = new TextField();
 	
-//	@FXML
-//	public ChoiceBox<Medarbejder> projectPick = new ChoiceBox<Projekt>(
-//			FXCollections.observableArrayList(app.projects.getAllProjects()));
+	@FXML
+	public ChoiceBox<Projekt> projectPick = new ChoiceBox<Projekt>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 	
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), null);
+		new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
+		HelloFX.setRoot("projektview", ProjektViewController.class);
+		
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
 		
 		
@@ -217,8 +218,8 @@ public class StartController {
 	public void initialize() {
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
-//		projectPick.getItems().clear();
-//		projectPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
+		projectPick.getItems().clear();
+		projectPick.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
 		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));
