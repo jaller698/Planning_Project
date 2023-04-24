@@ -5,16 +5,14 @@ import shared.AProject;
 
 public class ProjectClient extends AProject {
 
+	public ProjectClient(String name) {
+		super(name);
+	}
+
+
 	@Override
 	public ActivityClient CreateActivity(String name) {
 		// TODO Auto-generated method stub
 		return (ActivityClient) super.CreateActivity(name);
-	}
-	
-	
-	@Override
-	public AProject asBase() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

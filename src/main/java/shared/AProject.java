@@ -20,6 +20,10 @@ public class AProject {
 		this.name = name;
 	}
 	
+	public AProject asBase() {
+		return this;
+	}
+	
 	public AActivity CreateActivity(String name) {
 		AActivity activity = new AActivity(this, name);
 		
@@ -29,13 +33,6 @@ public class AProject {
 	}
 	
 	public void AddActivity(AActivity activity) {
-		// TODO
 		
-		ActivityClient yes = null;
-		AActivity y = yes.getBase();
-	}
-	
-	public AProject asBase() {
-		return this;
 	}
 }
