@@ -69,9 +69,9 @@ public class StartController {
 			FXCollections.observableArrayList(app.workers.getAllUsers()));
 
 	@FXML
-	public Spinner est;
+	TextField est = new TextField();
 	@FXML
-	public Spinner estak;
+	TextField estak = new TextField();
 
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
