@@ -55,7 +55,7 @@ public class ProjektViewController {
 	private TableColumn<Medarbejder, String> assignedEmplColumn;
 
 	static ObservableList<Projekt> data = convertToOL(
-			Application.workers.getUser(StartController.loginIndex).p);
+			Application.getCurrentActiveUser().p);
 	static ObservableList<Aktivitet> projectActivities;
 	static Projekt currentProject = null;
 	static Aktivitet currentActivity = null;
@@ -83,21 +83,20 @@ public class ProjektViewController {
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
 		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
 		// og dermed skifte index. Bare extra safety.
-		StartController.loginIndex = -1;
+		app.setCurrentActiveUser(null);
 		HelloFX.setRoot("Loginpage", StartController.class);
 
 	}
 
-	public void initialize() {
+	public void initialize() {		
 		if(!data.isEmpty())
 			currentProject = data.get(0);
 		if(data != null)
 			data = convertToOL(
-					app.workers.getUser(StartController.loginIndex).p);
-		System.out.println(data);
+					app.getCurrentActiveUser().p);
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
-		welcome.setText("hej " + app.workers.getUser(StartController.loginIndex).navn);
+		welcome.setText("hej " + app.getCurrentActiveUser().p);
 		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());
@@ -128,12 +127,12 @@ public class ProjektViewController {
 
 	private void showProjectDetails(Projekt p) {
 		if (p != null) {
-			projectLeader.setText(p.leder.toString());
+			//ERROR!!
+			//projectLeader.setText(p.leder.toString());
 
 			NameLabel.setText(p.toString());
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivityList());
-			System.out.print(p.getActivityList().toString());
 			activityTable.setItems(projectActivities);
 			if (!projectActivities.isEmpty()) {
 				currentActivity = projectActivities.get(0);
