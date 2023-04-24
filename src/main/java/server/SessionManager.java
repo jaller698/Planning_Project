@@ -3,7 +3,7 @@ package server;
 import java.util.HashMap;
 
 import client.Application;
-import sharedCore.Medarbejder;
+import shared.Medarbejder;
 
 public class SessionManager implements ISessionsRegister {
 	private static HashMap<Integer, Medarbejder> activeSessions = new HashMap<Integer, Medarbejder>();

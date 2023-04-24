@@ -2,12 +2,12 @@ package client;
 
 import java.util.ArrayList;
 
-import server.DataPersistence;
-import server.IProjectRegister;
 import server.ISessionsRegister;
-import server.IUserRegister;
 import server.SessionManager;
-import sharedCore.Medarbejder;
+import server.databse.DataPersistence;
+import server.databse.IProjectRegister;
+import server.databse.IUserRegister;
+import shared.Medarbejder;
 
 public final class Application {
 	private final static Application singleton = new Application();

@@ -1,6 +1,6 @@
-package server;
+package server.databse;
 
-import sharedCore.Projekt;
+import shared.Projekt;
 
 public interface IProjectRegister {
 	public int addProject(Projekt project); // stores new project

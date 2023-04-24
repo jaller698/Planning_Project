@@ -13,9 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import sharedCore.Aktivitet;
-import sharedCore.Medarbejder;
-import sharedCore.Projekt;
+import shared.Aktivitet;
+import shared.Medarbejder;
+import shared.Projekt;
 
 public class ProjektViewController {
 	Application app = Application.singleton();

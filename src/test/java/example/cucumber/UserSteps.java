@@ -11,8 +11,8 @@ import client.fxml.StartController;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import sharedCore.Medarbejder;
-import sharedCore.Projekt;
+import shared.Medarbejder;
+import shared.Projekt;
 
 
 public class UserSteps {	

@@ -1,4 +1,4 @@
-package server;
+package server.databse;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import client.Application;
-import sharedCore.Medarbejder;
-import sharedCore.Projekt;
+import shared.Medarbejder;
+import shared.Projekt;
 
 public class DataPersistence implements IProjectRegister, IUserRegister {
 	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();

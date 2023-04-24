@@ -9,9 +9,9 @@ import client.Application;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import sharedCore.Aktivitet;
-import sharedCore.Medarbejder;
-import sharedCore.Projekt;
+import shared.Aktivitet;
+import shared.Medarbejder;
+import shared.Projekt;
 
 
 public class ProjectSteps {

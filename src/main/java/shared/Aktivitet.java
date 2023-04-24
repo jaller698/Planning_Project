@@ -1,4 +1,4 @@
-package sharedCore;
+package shared;
 
 import java.util.ArrayList;
 import java.util.HashMap;

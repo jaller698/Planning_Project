@@ -3,8 +3,8 @@ package example.cucumber;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.cucumber.java.en.*;
-import sharedCore.Medarbejder;
-import sharedCore.Projekt;
+import shared.Medarbejder;
+import shared.Projekt;
 
 public class ProjectLeaderSteps {
 	@Given("a worker {int} is registered under the name {string}")

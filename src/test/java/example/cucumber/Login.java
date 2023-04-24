@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import client.Application;
 import io.cucumber.java.en.*;
 import server.SessionManager;
-import sharedCore.Medarbejder;
+import shared.Medarbejder;
 
 public class Login {
 	int i = 0;
