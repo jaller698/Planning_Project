@@ -94,20 +94,17 @@ public class StartController {
 	}
 
 	public void createProjekt() throws IOException {
-		Projekt p = new Projekt(projektNavn.getText());
 		// Application.alleProjekter.add(p);
-		if (leaderPick.getValue() != null) 
-			p.leder = app.workers.getUser(app.workers.getUserID(leaderPick.getValue()));
+		int estTid = 0;
 		if (Integer.valueOf(est.getText()) != null)
-			p.estTid = Integer.valueOf(est.getText());
-		else
-			p.estTid = 5;
-		app.getCurrentActiveUser().addProjekt(p);
-
-		
-		app.projects.addProject(p);
-
-		
+			 estTid = Integer.valueOf(est.getText());
+		if (leaderPick.getValue() != null) {
+			Projekt p = new Projekt(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
+		}
+		else {
+			Projekt p = new Projekt(projektNavn.getText());
+			p.estTid = estTid;
+		}
 		HelloFX.setRoot("Mainmenu", StartController.class);
 		System.out.println("Projekt tilføjet!");
 		System.out.println(app.getConfirmationMSG());

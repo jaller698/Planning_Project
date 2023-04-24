@@ -20,7 +20,14 @@ public class Projekt {
 		leder = Application.getCurrentActiveUser();
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
-	
+	public Projekt(String navn, Medarbejder leder, int estT) {
+		this.navn = navn;
+		Application.projects.addProject(this);
+		setID();
+		this.addProjektLeder(leder);
+		this.estTid = estT;
+		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
+	}
 	
 	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
 		this.navn=navn;
@@ -28,9 +35,6 @@ public class Projekt {
 		//tilføj lederen på et tidspunkt
 	}
 
-	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder, int estTid) {
-	
-	}
 	
 	public String toString() {
 		return this.navn;
