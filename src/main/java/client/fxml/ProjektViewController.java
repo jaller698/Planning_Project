@@ -21,6 +21,7 @@ public class ProjektViewController {
 	Application app = Application.singleton();
 	@FXML
 	public Button refresh;
+	
 	@FXML
 	Button logout;
 	@FXML
@@ -62,6 +63,14 @@ public class ProjektViewController {
 
 	public Button backToMain;
 
+	public Button toAK;
+	
+	
+	public void createAk() throws IOException {
+		HelloFX.setRoot("createAktivitet", StartController.class);
+
+	}
+	
 	public void backToMain() throws IOException {
 		HelloFX.setRoot("Mainmenu", StartController.class);
 
@@ -128,9 +137,11 @@ public class ProjektViewController {
 	private void showProjectDetails(Projekt p) {
 		if (p != null) {
 			//ERROR!!
-			//projectLeader.setText(p.leder.toString());
+			
 
 			NameLabel.setText(p.toString());
+			projectLeader.setText(p.leder.toString());
+			estHoursLabel.setText(Integer.toString(p.estTid));
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivityList());
 			activityTable.setItems(projectActivities);
@@ -167,6 +178,7 @@ public class ProjektViewController {
 			estHoursLabel.setText("");
 			cumHoursLabel.setText("");
 		}
+		
 
 	}
 }

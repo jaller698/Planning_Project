@@ -1,6 +1,8 @@
-package server.databse;
+package database;
 
-import shared.Projekt;
+import java.util.ArrayList;
+
+import application.Projekt;
 
 public interface IProjectRegister {
 	public int addProject(Projekt project); // stores new project
@@ -12,6 +14,8 @@ public interface IProjectRegister {
 	public Projekt getProject(String name); // retrieves a project from given name
 	
 	public Projekt[] getAllProjects(); // retrieves all projects
+	
+	public ArrayList<Projekt> getAllProjectsAsList(); // retrieves all projects as a list
 	
 	public int getProjectID(Projekt project); // gets a specific projectID
 	
