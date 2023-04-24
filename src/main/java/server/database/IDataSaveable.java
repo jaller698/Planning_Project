@@ -1,4 +1,4 @@
-package server.databse;
+package server.database;
 
 public interface IDataSaveable {
 

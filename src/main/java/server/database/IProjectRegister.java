@@ -1,8 +1,8 @@
-package database;
+package server.database;
 
 import java.util.ArrayList;
 
-import application.Projekt;
+import shared.Projekt;
 
 public interface IProjectRegister {
 	public int addProject(Projekt project); // stores new project

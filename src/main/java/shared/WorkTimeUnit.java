@@ -13,11 +13,11 @@ public class WorkTimeUnit {
 		this.user = user;
 	}
 	
-	public void AddTime(int hours) {
+	public void AddTime(int hours) { // adds time to this unit
 		timeWorked.add(hours);
 	}
 	
-	public int GetTotalTime() {
+	public int GetTotalTime() { // returns the total time of this unit
 		int totalTime = 0;
 		
 		for (Integer integer : timeWorked) {

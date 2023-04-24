@@ -6,6 +6,9 @@ public class AActivity {
 	private String name; // the activities name
 	public String getName() {return name;}
 	
+	private int estTime; // the estimated time for this activity
+	public int getEstTime() {return estTime;}
+	
 	private AProject project; // the project the activity is tied to
 	public AProject getProject() {return project;}
 	
@@ -13,15 +16,21 @@ public class AActivity {
 	
 	
 	
-	public AActivity(AProject project, String name) {
+	public AActivity(AProject project, String name, int estTime) {
 		this.name = name;
+		this.estTime = estTime;
+		this.project = project;
 		
 		project.AddActivity(this);
-		this.project = project;
 	}
 	
 	public AActivity getBase() {
 		return this;
+	}
+	
+	@Override
+	public String toString() {
+		return project.toString()+':'+name;
 	}
 	
 	public void RegisterHours(AUser user, int hours) { // register hours to a user for this activity
@@ -50,5 +59,16 @@ public class AActivity {
 	
 	public int GetTotalTime(AUser user) {
 		return timeWorked.get(user).GetTotalTime();
+	}	
+	
+	public void SwitchProject(AProject destination) { // switches the project this is tied to
+		System.out.println("Activity("+this+"): Switch from project: " + project+ " to " + destination);
+		
+		if (destination != project) {
+			AProject tempP = project;
+			project = destination;
+			tempP.MoveActivity(this, destination);
+			project.MoveActivity(this, destination);
+		}
 	}
 }

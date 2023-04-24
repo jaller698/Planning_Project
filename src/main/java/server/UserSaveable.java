@@ -1,6 +1,6 @@
 package server;
 
-import server.databse.IDataSaveable;
+import server.database.IDataSaveable;
 import shared.AUser;
 
 public class UserSaveable extends AUser implements IDataSaveable {

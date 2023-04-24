@@ -1,12 +1,10 @@
 package client;
 
-import java.util.ArrayList;
-
 import server.ISessionsRegister;
 import server.SessionManager;
-import server.databse.DataPersistence;
-import server.databse.IProjectRegister;
-import server.databse.IUserRegister;
+import server.database.DataPersistence;
+import server.database.IProjectRegister;
+import server.database.IUserRegister;
 import shared.Medarbejder;
 
 public final class Application {
@@ -22,7 +20,7 @@ public final class Application {
 	
 	private Application() {}
 	
-	public static Application singleton() {
+	public static Application singleton() {	
 		return Application.singleton;
 	}
 	

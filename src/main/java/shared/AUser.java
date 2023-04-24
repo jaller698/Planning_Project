@@ -26,12 +26,21 @@ public abstract class AUser {
 		return this;
 	}
 	
+	@Override
+	public String toString() {
+		return id+':'+name;
+	}
+	
 	public void AssignProject(AProject project) { // assign a project to this user
 		if (!projects.contains(project)) {
 			projects.add(project);
 		} else {
 			// TODO error 
 		}
+	}
+	
+	public void UnAssignProject(AProject project) { // remove a project to this user
+		projects.remove(project);
 	}
 	
 	public void AssignActivity(AActivity activity) { // assign an activity to this user
@@ -42,6 +51,10 @@ public abstract class AUser {
 		} else {
 			// TODO error
 		}
+	}
+	
+	public void UnAssignActivity(AActivity activity) { // remove an activity to this user
+		activities.remove(activity);
 	}
 	
 	public void RegisterHours(AActivity activity, int hours) { // register hours for an activity for this user
