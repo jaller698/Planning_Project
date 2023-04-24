@@ -187,10 +187,28 @@ public class StartController {
 	}
 
 	public void addUser(ActionEvent e) throws IOException {
-		System.out.println("gabriel er irriterende");
-		if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
-			String userName = signupUsername.getText();
-			String password = signupPassword.getText();
+		String userName = signupUsername.getText();
+		String password = signupPassword.getText();
+		if(userName.isBlank()) {
+			app.setConfirmationMSG("Username must not be blank!");
+			confirmMSGPopup(null);
+
+		}
+		else if(app.workers.getUser(userName) != null) {
+			app.setConfirmationMSG("This username is already taken");
+			confirmMSGPopup(null);
+		}
+		else if(password.isBlank()) {
+			app.setConfirmationMSG("Password must not be blank!");
+			confirmMSGPopup(null);
+		}
+		else if(!password.equals(signupRepeatPassword.getText())) {
+			app.setConfirmationMSG("Password does not match!");
+			confirmMSGPopup(null);
+
+		}
+		else if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
+			
 			
 			Medarbejder newUser = new Medarbejder(userName, password);
 			
@@ -201,9 +219,8 @@ public class StartController {
 			app.sessions.loginUser(userName, password);
 			
 			HelloFX.setRoot("Mainmenu", StartController.class);
-		} else {
-			System.out.println("farvel");
-		}
+		} 
+
 	}
 
 	@FXML
