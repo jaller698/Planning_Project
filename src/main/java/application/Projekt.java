@@ -18,6 +18,7 @@ public class Projekt {
 		Application.projects.addProject(this);
 		setID();
 		leder = Application.getCurrentActiveUser();
+		Application.getCurrentActiveUser().addProjekt(this);
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
 	public Projekt(String navn, Medarbejder leder, int estT) {

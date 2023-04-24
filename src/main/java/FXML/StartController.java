@@ -105,9 +105,10 @@ public class StartController {
 			Projekt p = new Projekt(projektNavn.getText());
 			p.estTid = estTid;
 		}
+
 		HelloFX.setRoot("Mainmenu", StartController.class);
-		System.out.println("Projekt tilføjet!");
-		System.out.println(app.getConfirmationMSG());
+		//System.out.println("Projekt tilføjet!");
+		//System.out.println(app.getConfirmationMSG());
 		if (app.getConfirmationMSG() != null) {
 			confirmMSGPopup(null);
 		}
