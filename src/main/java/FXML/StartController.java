@@ -77,15 +77,16 @@ public class StartController {
 	@FXML
 	TextField estak = new TextField();
 	
-//	@FXML
-//	public ChoiceBox<Medarbejder> projectPick = new ChoiceBox<Projekt>(
-//			FXCollections.observableArrayList(app.projects.getAllProjects()));
+	@FXML
+	public ChoiceBox<Projekt> projectPick = new ChoiceBox<Projekt>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 	
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		Aktivitet a = new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), null);
+		new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
+		HelloFX.setRoot("projektview", ProjektViewController.class);
+		
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
 		
 		
@@ -93,23 +94,21 @@ public class StartController {
 	}
 
 	public void createProjekt() throws IOException {
-		Projekt p = new Projekt(projektNavn.getText());
 		// Application.alleProjekter.add(p);
-		if (leaderPick.getValue() != null) 
-			p.leder = app.workers.getUser(app.workers.getUserID(leaderPick.getValue()));
+		int estTid = 0;
 		if (Integer.valueOf(est.getText()) != null)
-			p.estTid = Integer.valueOf(est.getText());
-		else
-			p.estTid = 5;
-		app.getCurrentActiveUser().addProjekt(p);
+			 estTid = Integer.valueOf(est.getText());
+		if (leaderPick.getValue() != null) {
+			Projekt p = new Projekt(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
+		}
+		else {
+			Projekt p = new Projekt(projektNavn.getText());
+			p.estTid = estTid;
+		}
 
-		
-		app.projects.addProject(p);
-
-		
 		HelloFX.setRoot("Mainmenu", StartController.class);
-		System.out.println("Projekt tilføjet!");
-		System.out.println(app.getConfirmationMSG());
+		//System.out.println("Projekt tilføjet!");
+		//System.out.println(app.getConfirmationMSG());
 		if (app.getConfirmationMSG() != null) {
 			confirmMSGPopup(null);
 		}
@@ -188,10 +187,28 @@ public class StartController {
 	}
 
 	public void addUser(ActionEvent e) throws IOException {
-		System.out.println("gabriel er irriterende");
-		if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
-			String userName = signupUsername.getText();
-			String password = signupPassword.getText();
+		String userName = signupUsername.getText();
+		String password = signupPassword.getText();
+		if(userName.isBlank()) {
+			app.setConfirmationMSG("Username must not be blank!");
+			confirmMSGPopup(null);
+
+		}
+		else if(app.workers.getUser(userName) != null) {
+			app.setConfirmationMSG("This username is already taken");
+			confirmMSGPopup(null);
+		}
+		else if(password.isBlank()) {
+			app.setConfirmationMSG("Password must not be blank!");
+			confirmMSGPopup(null);
+		}
+		else if(!password.equals(signupRepeatPassword.getText())) {
+			app.setConfirmationMSG("Password does not match!");
+			confirmMSGPopup(null);
+
+		}
+		else if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
+			
 			
 			Medarbejder newUser = new Medarbejder(userName, password);
 			
@@ -202,9 +219,8 @@ public class StartController {
 			app.sessions.loginUser(userName, password);
 			
 			HelloFX.setRoot("Mainmenu", StartController.class);
-		} else {
-			System.out.println("farvel");
-		}
+		} 
+
 	}
 
 	@FXML
@@ -217,8 +233,8 @@ public class StartController {
 	public void initialize() {
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
-//		projectPick.getItems().clear();
-//		projectPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
+		projectPick.getItems().clear();
+		projectPick.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
 		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));
