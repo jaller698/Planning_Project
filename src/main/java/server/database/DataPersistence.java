@@ -4,76 +4,96 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import client.Application;
-import shared.Medarbejder;
-import shared.Projekt;
+import server.UserSaveable;
+import server.ProjectSaveable;
 
-public class DataPersistence implements IProjectRegister, IUserRegister {
-	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();
-	private static HashMap<Integer, Projekt> allProjects = new HashMap<Integer, Projekt>();
+public class DataPersistence implements IProjectRegister, IUserRegister { // {Written by Perry02}
+	private static ArrayList<UserSaveable> allUsers = new ArrayList<UserSaveable>();
+	private static HashMap<Integer, ProjectSaveable> allProjects = new HashMap<Integer, ProjectSaveable>();
 	
 	// Cache of search properties
-	private static HashMap<String, Integer> workerIDs = new HashMap<String, Integer>();
+	private static HashMap<String, Integer[]> userIDs = new HashMap<String, Integer[]>();
 	private static HashMap<String, Integer> projectIDs = new HashMap<String, Integer>();
 	
 	public DataPersistence() {		
-		allWorkers = new ArrayList<Medarbejder>();
-		allProjects = new HashMap<Integer, Projekt>();
+		allUsers = new ArrayList<UserSaveable>();
+		allProjects = new HashMap<Integer, ProjectSaveable>();
 		
-		workerIDs = new HashMap<String, Integer>();
+		userIDs = new HashMap<String, Integer[]>();
 		projectIDs = new HashMap<String, Integer>();
 		
 		System.out.println("DataPersistence: Reset persistent values");
 	}
 	
 	@Override
-	public int addUser(Medarbejder user) {
-		if (allWorkers.contains(user)) { // check for duplicates
+	public int addUser(UserSaveable user) {
+		if (allUsers.contains(user)) { // check for duplicates
 			return -1;
 		}
 		
-		if (allWorkers.add(user)) { // add worker to list
-			int id = allWorkers.indexOf(user); // gets the worker id or position in list
-			workerIDs.put(user.navn, id); // Caches the worker name
+		if (allUsers.add(user)) { // add user to list
+			int id = allUsers.indexOf(user); // gets the user id or position in list
 			
-			return id; // return worker id or position in list
+			if (userIDs.get(user.getName()) != null) {
+				Integer[] oldUserIDs = userIDs.get(user.getName());
+				Integer[] newUserIDs = Arrays.copyOf(oldUserIDs, oldUserIDs.length + 1);
+				newUserIDs[oldUserIDs.length] = id;
+				
+				userIDs.put(user.getName(), newUserIDs); // Adds the users to the cache
+				
+				return id; // return user id or position in list
+			}
+			
+			userIDs.put(user.getName(), new Integer[] {id}); // Caches the users name
+			
+			return id; // return user id or position in list
 		}
 
-		return -1; // return -1 if failed to add worker.
+		return -1; // return -1 if failed to add user.
 	}
 
 	@Override
-	public Medarbejder getUser(int userID) {
-		return allWorkers.get(userID); // return worker based on ID
+	public UserSaveable getUser(int userID) {
+		return allUsers.get(userID); // return user based on ID
 	}
 
 	@Override
-	public Medarbejder getUser(String userName) {
-		if(workerIDs.get(userName) == null)
+	public UserSaveable[] getUser(String userName) {
+		if(userIDs.get(userName) == null)
 			return null;
-		return allWorkers.get(workerIDs.get(userName)); // return worker based on name
+		
+		Integer[] _userIDs = userIDs.get(userName);
+		UserSaveable[] _usersOut = new UserSaveable[_userIDs.length];
+		
+		for (int i = 0; i < _userIDs.length; i++) {
+			_usersOut[i] = getUser(i);
+		}
+		
+		return _usersOut; // return users based on name
 	}
 
 	@Override
-	public ArrayList<Medarbejder> getAllUsers() {
-		return new ArrayList<Medarbejder>(allWorkers); // returns all workers as an array
+	public ArrayList<UserSaveable> getAllUsers() {
+		return new ArrayList<UserSaveable>(allUsers); // returns all users as an array
 	}
 	
 	@Override
-	public int getUserID(Medarbejder user) {
-		return allWorkers.indexOf(user); // returns specific workerID
+	public int getUserID(UserSaveable user) {
+		return allUsers.indexOf(user); // returns specific userID
 	}
 
 	@Override
 	public void removeUser(int userID) {
-		workerIDs.remove(allWorkers.get(userID).navn); // removes cache
-		allWorkers.remove(userID); // removes specific worker
+		userIDs.remove(allUsers.get(userID).getName()); // removes cache
+		allUsers.remove(userID); // removes specific user
 	}
 
 	@Override
-	public int addProject(Projekt project) {
+	public int addProject(ProjectSaveable project) {
 		if (allProjects.containsValue(project)) { // check for duplicates
 			return -1;
 		}
@@ -85,7 +105,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public void addProject(Projekt project, Integer id) {
+	public void addProject(ProjectSaveable project, Integer id) {
 		if (allProjects.containsValue(project)) { // check for duplicates
 			return;
 		}
@@ -95,27 +115,27 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public Projekt getProject(Integer id) {
+	public ProjectSaveable getProject(Integer id) {
 		return allProjects.get(id); // returns project with the given key
 	}
 
 	@Override
-	public Projekt getProject(String name) {
+	public ProjectSaveable getProject(String name) {
 		return allProjects.get(projectIDs.get(name)); // returns project with the given name
 	}
 
 	@Override
-	public Projekt[] getAllProjects() { // returns all projects as an array
+	public ProjectSaveable[] getAllProjects() { // returns all projects as an array
 		// a roundabout fix for the toArray() function as it refuses to work with the Projekt class
-		Collection<Projekt> tempValues = allProjects.values(); // all projects currently saved
-		Projekt[] array = new Projekt[tempValues.size()]; // array the size of the amount of projects
+		Collection<ProjectSaveable> tempValues = allProjects.values(); // all projects currently saved
+		ProjectSaveable[] array = new ProjectSaveable[tempValues.size()]; // array the size of the amount of projects
  		tempValues.toArray(array); // then all projects are added to the array
 		
 		return array; // returns all projects
 	}
 	
 	@Override
-	public int getProjectID(Projekt project) {
+	public int getProjectID(ProjectSaveable project) {
 		return projectIDs.get(project.toString()); // get project id based on name
 	}
 
@@ -126,7 +146,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public ArrayList<Projekt> getAllProjectsAsList() {
-		return new ArrayList<Projekt>(Arrays.asList(getAllProjects()));
+	public ArrayList<ProjectSaveable> getAllProjectsAsList() {
+		return new ArrayList<ProjectSaveable>(Arrays.asList(getAllProjects()));
 	}
 }

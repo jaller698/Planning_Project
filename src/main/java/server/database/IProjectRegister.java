@@ -2,22 +2,23 @@ package server.database;
 
 import java.util.ArrayList;
 
-import shared.Projekt;
+import server.ProjectSaveable;
 
-public interface IProjectRegister {
-	public int addProject(Projekt project); // stores new project
+public interface IProjectRegister { // {Written by Perry02}
 	
-	public void addProject(Projekt project, Integer id); // stores new project under given id
+	public int addProject(ProjectSaveable project); // stores new project
 	
-	public Projekt getProject(Integer id); // retrieves a project from given id
+	public void addProject(ProjectSaveable project, Integer id); // stores new project under given id
 	
-	public Projekt getProject(String name); // retrieves a project from given name
+	public ProjectSaveable getProject(Integer id); // retrieves a project from given id
 	
-	public Projekt[] getAllProjects(); // retrieves all projects
+	public ProjectSaveable getProject(String name); // retrieves a project from given name
 	
-	public ArrayList<Projekt> getAllProjectsAsList(); // retrieves all projects as a list
+	public ProjectSaveable[] getAllProjects(); // retrieves all projects
 	
-	public int getProjectID(Projekt project); // gets a specific projectID
+	public ArrayList<ProjectSaveable> getAllProjectsAsList(); // retrieves all projects as a list
+	
+	public int getProjectID(ProjectSaveable project); // gets a specific projectID
 	
 	// TODO add administrator check
 	public void removeProject(Integer id); // removes project from given id

@@ -2,19 +2,20 @@ package server.database;
 
 import java.util.ArrayList;
 
-import shared.Medarbejder;
+import server.UserSaveable;
 
-public interface IUserRegister {
-	public int addUser(Medarbejder user); // stores new user and returns the new users ID
+public interface IUserRegister { // {Written by Perry02}
 	
-	public Medarbejder getUser(int userID); // retrieves a user based on the users ID
+	public int addUser(UserSaveable user); // stores new user and returns the new users ID
 	
-	public Medarbejder getUser(String userName); // retrieves a user based on a users name
+	public UserSaveable getUser(int userID); // retrieves a user based on the users ID
+	
+	public UserSaveable[] getUser(String userName); // retrieves a user based on a users name
 	
 	// TODO add administrator check
-	public ArrayList<Medarbejder> getAllUsers(); // retrieves all users
+	public ArrayList<UserSaveable> getAllUsers(); // retrieves all users
 	
-	public int getUserID(Medarbejder user); // gets a specific userID
+	public int getUserID(UserSaveable user); // gets a specific userID
 	
 	// TODO add administrator check
 	public void removeUser(int userID); // removes user based on user ID
