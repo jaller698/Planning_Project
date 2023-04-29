@@ -1,67 +1,69 @@
 package server;
 
 import java.util.HashMap;
-
+import java.util.Iterator;
+import java.time.Instant;
 import client.Application;
 import shared.Medarbejder;
 
-public class SessionManager implements ISessionsRegister {
-	private static HashMap<Integer, Medarbejder> activeSessions = new HashMap<Integer, Medarbejder>();
+public class SessionManager implements ISessionsRegister { // {Written by Perry02 and Jaller698}
+	private static HashMap<String, Integer> activeSessions = new HashMap<String, Integer>();
 
-	public SessionManager() {
-		activeSessions = new HashMap<Integer, Medarbejder>();
+	public SessionManager() { // {Written by Perry02}
+		activeSessions = new HashMap<String, Integer>();
 		
 		System.out.println("DataPersistence: Reset persistent values");
 	}
 	
+	// small function to create unique sessions
+	private String CreateSession(String text) { // {Written by Perry02}
+		return text + Instant.now();
+	}
+	
+	
 	
 	@Override
-	public String loginUser(String name, String password) {
-		if ((name != null && password != null)) {
-			boolean loginCheck = false;
-			Medarbejder L = Application.workers.getUser(name);
-			if(L == null)
-				return "test";
-			else if(L.password.equals(password)) {
-				loginCheck = true;
-				Application.setCurrentActiveUser(L);
-				Application.setConfirmationMSG("Successfully logged in");
-				return null;
+	public String loginUser(String name, String password) { // {Written by Jaller698, refactored by Perry02}
+		if (!name.isBlank() && !name.isBlank()) {
+			UserSaveable[] userOfName = ServerCore.users.getUser(name);
+			
+			for (UserSaveable userSaveable : userOfName) {
+				if (userSaveable.CheckPassword(password)) {
+					String session = CreateSession(userSaveable.toString());
+					
+					activeSessions.put(session, userSaveable.getId());
+					
+					Application.setConfirmationMSG("Successfully logged in");
+					return session;
+				}
 			}
 		}
+
 		Application.setConfirmationMSG("Failed login: Wrong username or password");
 		return null;
 	}
 
 	@Override
-	public void logoutUser(String session) {
-		Application.setCurrentActiveUser(null);
+	public void logoutUser(String session) { // {Written by Perry02}
+		activeSessions.remove(session);
 	}
 
 	@Override
-	public boolean checkSession(String employeeName) {
-		if(Application.getCurrentActiveUser() == null)
-			return false;
-		else if(employeeName.equals(Application.getCurrentActiveUser().navn))
+	public boolean checkSession(String session) { // {Written by Jaller698, refactored by Perry02}
+		if (activeSessions.containsKey(session)) {
 			return true;
+		}
+		
 		return false;
 	}
 
 	@Override
-	public int getUserOfSession(String session) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getUserIDOfSession(String session) { // {Written by Perry02}
+		return activeSessions.computeIfAbsent(session, k -> -1);
 	}
 
 	@Override
-	public String getSessionOfUser(int userID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getSessionOfUser(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean checkIfUserIsActive(int userID) { // {Written by Perry02}
+		return activeSessions.containsValue(userID);
 	}
 }
