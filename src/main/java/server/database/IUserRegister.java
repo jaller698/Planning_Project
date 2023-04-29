@@ -12,11 +12,11 @@ public interface IUserRegister { // {Written by Perry02}
 	
 	public UserSaveable[] getUser(String userName); // retrieves a user based on a users name
 	
-	// TODO add administrator check
-	public ArrayList<UserSaveable> getAllUsers(); // retrieves all users
+	public UserSaveable[] getAllUsers(); // retrieves all users
+	
+	public ArrayList<UserSaveable> getAllUsersAsList(); // retrieves all users as list
 	
 	public int getUserID(UserSaveable user); // gets a specific userID
 	
-	// TODO add administrator check
 	public void removeUser(int userID); // removes user based on user ID
 }

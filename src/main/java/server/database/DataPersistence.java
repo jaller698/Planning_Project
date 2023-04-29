@@ -75,10 +75,16 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 		
 		return _usersOut; // return users based on name
 	}
+	
+	@Override
+	public UserSaveable[] getAllUsers() {
+		
+		return allUsers.toArray(new UserSaveable[allUsers.size()]); // returns all users as an array
+	}
 
 	@Override
-	public ArrayList<UserSaveable> getAllUsers() {
-		return new ArrayList<UserSaveable>(allUsers); // returns all users as an array
+	public ArrayList<UserSaveable> getAllUsersAsList() {
+		return new ArrayList<UserSaveable>(allUsers); // returns all users as an array as list
 	}
 	
 	@Override
@@ -99,6 +105,10 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 		}
 		
 		int newID = allProjects.size(); // find an unused ID
+		while (allProjects.containsKey(newID)) {
+			newID++;
+		}
+		
 		allProjects.put(newID, project); // add a new project under the ID
 		projectIDs.put(project.toString(), newID); // caches project id for a its name
 		return newID;

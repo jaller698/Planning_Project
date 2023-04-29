@@ -20,6 +20,5 @@ public interface IProjectRegister { // {Written by Perry02}
 	
 	public int getProjectID(ProjectSaveable project); // gets a specific projectID
 	
-	// TODO add administrator check
 	public void removeProject(Integer id); // removes project from given id
 }
