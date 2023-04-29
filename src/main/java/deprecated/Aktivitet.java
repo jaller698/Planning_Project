@@ -1,4 +1,4 @@
-package shared;
+package deprecated;
 
 import java.util.ArrayList;
 import java.util.HashMap;
