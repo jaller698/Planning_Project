@@ -13,7 +13,7 @@ public class Project {
 	public ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public Medarbejder Leader;
 	private int projID;
-
+//
 	public Project(String navn) {
 		this.navn=navn;
 		Application.projects.addProject(this);
