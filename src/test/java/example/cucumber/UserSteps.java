@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import FXML.StartController;
-import application.Application;
-import application.Medarbejder;
-import application.Project;
+import client.Application;
+import client.fxml.StartController;
+import deprecated.Medarbejder;
+import deprecated.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,8 +31,8 @@ public class UserSteps {
 	@Given("worker {string} is signed in")
 	public void workerIsSignedIn(String employee) {
 		Medarbejder m = StepDefinitions.app.workers.getUser(employee);
-		StepDefinitions.app.setCurrentActiveUser(m);
-	    assertTrue(StepDefinitions.app.getCurrentActiveUser().navn.equals(employee));
+		StepDefinitions.app.setCurrentActiveSession(m);
+	    assertTrue(StepDefinitions.app.getCurrentActiveSession().navn.equals(employee));
 	}
 	@Given("worker {string} is registered as an admin")
 	public void workerIsRegisteredAsAnAdmin(String employee) {

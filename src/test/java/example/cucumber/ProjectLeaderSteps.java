@@ -2,8 +2,8 @@ package example.cucumber;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Medarbejder;
-import application.Project;
+import deprecated.Medarbejder;
+import deprecated.Projekt;
 import io.cucumber.java.en.*;
 
 public class ProjectLeaderSteps {
@@ -20,7 +20,7 @@ public class ProjectLeaderSteps {
 	}
 	@Given("worker {string} is project leader for the project {string}")
 	public void workerIsProjectLeaderForTheProject(String eName, String pName) {
-		Project p = StepDefinitions.app.projects.getProject(pName);
+		Projekt p = StepDefinitions.app.projects.getProject(pName);
 		Medarbejder M = StepDefinitions.app.workers.getUser(eName);
 	    p.addProjectLeader(M);
 	}
@@ -35,7 +35,7 @@ public class ProjectLeaderSteps {
 
 	@When("an admin {string} sets worker {string} as a project leader for project {string}")
 	public void anAdminSetsWorkerAsAProjectLeaderForProject(String aName, String eName, String pName) {
-		Project p = StepDefinitions.app.projects.getProject(pName);
+		Projekt p = StepDefinitions.app.projects.getProject(pName);
 		Medarbejder M = StepDefinitions.app.workers.getUser(eName);
 	    p.addProjectLeader(M);
 	}
