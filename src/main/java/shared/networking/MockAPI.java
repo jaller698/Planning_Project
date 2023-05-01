@@ -198,6 +198,12 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		
 		return new ProjectClient(ServerCore.projects.getProject(projectID));
 	}
+	
+	@Override
+	public ProjectClient projectGetProject(String session, String projectName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public ProjectClient[] projectGetAllProjects(String session) { // {Written by Perry02}

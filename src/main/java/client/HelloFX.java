@@ -25,9 +25,9 @@ public class HelloFX extends Application {
 	
 	public static IProjectPlannerMockAPI serverAPI = new MockAPI();
 	
-	UserClient h = serverAPI.userSignUp("Hans","heste123");
-	UserClient l = serverAPI.userSignUp("Erik","fisk123");
-	UserClient p = serverAPI.userSignUp("Peter","næbdyr123");
+	UserClient h = client.Application.serverAPI.userSignUp("Hans","heste123");
+	UserClient l = client.Application.serverAPI.userSignUp("Erik","fisk123");
+	UserClient p = client.Application.serverAPI.userSignUp("Peter","næbdyr123");
 	// starter det hele, og bruges også senere til at tegne scenerne
 	@Override
 	public void start(Stage stage) throws Exception {

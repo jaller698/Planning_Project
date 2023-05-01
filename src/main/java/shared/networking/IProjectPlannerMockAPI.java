@@ -44,6 +44,7 @@ public interface IProjectPlannerMockAPI { // {Written by Perry02}
 	public void projectAddNewProject(String session, ProjectClient project, Integer projectID); // creates a new project with a specific projectID
 	
 	public ProjectClient projectGetProject(String session, Integer projectID); // get a project by projectID
+	public ProjectClient projectGetProject(String session, String projectName); // get a project by name
 	
 	public ProjectClient[] projectGetAllProjects(String session); // returns all project
 	public ProjectClient[] projectGetAllProjects(String session, String name); // returns all projects by the given name
