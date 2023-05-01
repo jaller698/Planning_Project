@@ -8,11 +8,11 @@ import java.util.Map;
 
 import application.Application;
 import application.Medarbejder;
-import application.Projekt;
+import application.Project;
 
 public class DataPersistence implements IProjectRegister, IUserRegister {
 	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();
-	private static HashMap<Integer, Projekt> allProjects = new HashMap<Integer, Projekt>();
+	private static HashMap<Integer, Project> allProjects = new HashMap<Integer, Project>();
 	
 	// Cache of search properties
 	private static HashMap<String, Integer> workerIDs = new HashMap<String, Integer>();
@@ -20,7 +20,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	
 	public DataPersistence() {		
 		allWorkers = new ArrayList<Medarbejder>();
-		allProjects = new HashMap<Integer, Projekt>();
+		allProjects = new HashMap<Integer, Project>();
 		
 		workerIDs = new HashMap<String, Integer>();
 		projectIDs = new HashMap<String, Integer>();
@@ -73,7 +73,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public int addProject(Projekt project) {
+	public int addProject(Project project) {
 		if (allProjects.containsValue(project)) { // check for duplicates
 			return -1;
 		}
@@ -85,7 +85,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public void addProject(Projekt project, Integer id) {
+	public void addProject(Project project, Integer id) {
 		if (allProjects.containsValue(project)) { // check for duplicates
 			return;
 		}
@@ -95,27 +95,27 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public Projekt getProject(Integer id) {
+	public Project getProject(Integer id) {
 		return allProjects.get(id); // returns project with the given key
 	}
 
 	@Override
-	public Projekt getProject(String name) {
+	public Project getProject(String name) {
 		return allProjects.get(projectIDs.get(name)); // returns project with the given name
 	}
 
 	@Override
-	public Projekt[] getAllProjects() { // returns all projects as an array
-		// a roundabout fix for the toArray() function as it refuses to work with the Projekt class
-		Collection<Projekt> tempValues = allProjects.values(); // all projects currently saved
-		Projekt[] array = new Projekt[tempValues.size()]; // array the size of the amount of projects
+	public Project[] getAllProjects() { // returns all projects as an array
+		// a roundabout fix for the toArray() function as it refuses to work with the Project class
+		Collection<Project> tempValues = allProjects.values(); // all projects currently saved
+		Project[] array = new Project[tempValues.size()]; // array the size of the amount of projects
  		tempValues.toArray(array); // then all projects are added to the array
 		
 		return array; // returns all projects
 	}
 	
 	@Override
-	public int getProjectID(Projekt project) {
+	public int getProjectID(Project project) {
 		return projectIDs.get(project.toString()); // get project id based on name
 	}
 
@@ -126,7 +126,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister {
 	}
 
 	@Override
-	public ArrayList<Projekt> getAllProjectsAsList() {
-		return new ArrayList<Projekt>(Arrays.asList(getAllProjects()));
+	public ArrayList<Project> getAllProjectsAsList() {
+		return new ArrayList<Project>(Arrays.asList(getAllProjects()));
 	}
 }

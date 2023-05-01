@@ -12,7 +12,7 @@ public class Medarbejder {
 	int arbejdsTimer;
 	private boolean admin;
 	private boolean projectLeader;
-	public ArrayList<Projekt> p = new ArrayList<Projekt>();
+	public ArrayList<Project> p = new ArrayList<Project>();
 	public ArrayList<Activity> a = new ArrayList<Activity>();
 
 	public Medarbejder(String navn, String password) {
@@ -29,12 +29,12 @@ public class Medarbejder {
 		return this.navn;
 	}
 
-	public void appointProjektleader(Projekt p, Medarbejder m) {
+	public void appointProjectleader(Project p, Medarbejder m) {
 
-		p.addProjektLeder(this);
+		p.addProjectLeder(this);
 	}
 
-	public ArrayList<Projekt> getProjekts() {
+	public ArrayList<Project> getProjects() {
 		return p;
 	}
 
@@ -60,7 +60,7 @@ public class Medarbejder {
 		return null;
 	}
 
-	public void addProjekt(Projekt P) {
+	public void addProject(Project P) {
 		// fantastiske navne. Slet ikke forvirrende.
 		this.p.add(P);
 		System.out.println(P.toString() + "added to " + this.navn);
@@ -102,9 +102,9 @@ public class Medarbejder {
 	}
 }
 
-class ProjektLeder extends Medarbejder {
+class ProjectLeder extends Medarbejder {
 
-	public ProjektLeder(String navn, String password) {
+	public ProjectLeder(String navn, String password) {
 		super(navn, password);
 		// TODO Auto-generated constructor stub
 	}

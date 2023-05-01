@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Projekt {
+public class Project {
 	String navn;
 	ArrayList<Activity> Activityer = new ArrayList<Activity>();
 	public int estTid;
@@ -13,24 +13,24 @@ public class Projekt {
 	public Medarbejder leder;
 	private int projID;
 	
-	public Projekt(String navn) {
+	public Project(String navn) {
 		this.navn=navn;
 		Application.projects.addProject(this);
 		setID();
 		leder = Application.getCurrentActiveUser();
-		Application.getCurrentActiveUser().addProjekt(this);
+		Application.getCurrentActiveUser().addProject(this);
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
-	public Projekt(String navn, Medarbejder leder, int estT) {
+	public Project(String navn, Medarbejder leder, int estT) {
 		this.navn = navn;
 		Application.projects.addProject(this);
 		setID();
-		this.addProjektLeder(leder);
+		this.addProjectLeder(leder);
 		this.estTid = estT;
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
 	
-	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
+	public Project(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
 		this.navn=navn;
 		this.medarbejdere = medarbejdere;
 	}
@@ -55,11 +55,11 @@ public class Projekt {
 		return null;
 	}
 	
-	public void addProjektLeder(Medarbejder m) {
+	public void addProjectLeder(Medarbejder m) {
 		//properties for den givne medarbejder
 		this.leder = m;
 		if(m != null)
-			m.addProjekt(this);
+			m.addProject(this);
 	}
 	
 	//UI method

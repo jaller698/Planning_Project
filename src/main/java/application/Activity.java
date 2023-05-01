@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 
 public class Activity {
-	public Projekt p;
+	public Project p;
 	public HashMap<Integer, Integer> timeWorked = new HashMap<Integer, Integer>(); // <>userID, hours>
 	public String navn;
 	public int estTime;
@@ -18,7 +18,7 @@ public class Activity {
 	// creating a new aktivity has to automatically add said activity to the
 	// project...
 	// can i do that in the constructor?
-	public Activity(String navn, int estTime, Projekt p) {
+	public Activity(String navn, int estTime, Project p) {
 		if(!p.getProjLeder().equals(Application.getCurrentActiveUser())) { /*choice 1 */
 			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");
 			return;
@@ -31,7 +31,7 @@ public class Activity {
 
 	}
 
-	public void addToProject(Projekt p) {
+	public void addToProject(Project p) {
 		p.addActivity(this);
 	}
 

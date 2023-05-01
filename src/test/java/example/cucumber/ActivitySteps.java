@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import application.Activity;
 import application.Application;
 import application.Medarbejder;
-import application.Projekt;
+import application.Project;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,24 +18,24 @@ public class ActivitySteps {
 
 	@Given("project {string} exists")
 	public void projectExists(String projname) {
-		new Projekt(projname);
-		Projekt p = StepDefinitions.app.projects.getProject(projname);
+		new Project(projname);
+		Project p = StepDefinitions.app.projects.getProject(projname);
 		assertTrue( p!= null);
 	}
 	@When("project leader {string} creates activity {string} with {int} hours given in project {string}")
 	public void projectLeaderCreatesActivityWithHoursGivenInProject(String employee, String actName, Integer estHours, String projName) {
-	    Projekt p = StepDefinitions.app.projects.getProject(projName);
+	    Project p = StepDefinitions.app.projects.getProject(projName);
 		new Activity(actName,estHours,p);
 	    
 	}
 	@Given("worker {string} is not registered as a project leader for the project {string}")
 	public void workerIsNotRegisteredAsAProjectLeaderForTheProject(String employee, String projName) {
-	    Projekt p = StepDefinitions.app.projects.getProject(projName);
-	    p.addProjektLeder(new Medarbejder("Jens", "test123"));
+	    Project p = StepDefinitions.app.projects.getProject(projName);
+	    p.addProjectLeder(new Medarbejder("Jens", "test123"));
 	}
 	@Then("the activity {string} with {int} hours allocated exists under project {string}")
 	public void theActivityWithHoursAllocatedExistsUnderProject(String actName, Integer estHours, String projName) {
-	    Projekt p = StepDefinitions.app.projects.getProject(projName);
+	    Project p = StepDefinitions.app.projects.getProject(projName);
 	    Activity a = p.getActivity(actName);
 	    assertTrue(a.navn.equals(actName));
 	    assertTrue(a.getEstHours() == estHours);
@@ -44,7 +44,7 @@ public class ActivitySteps {
 	@Given("worker {string} is registered as a project leader for the project {string}")
 	public void workerIsRegisteredAsAProjectLeaderForTheProject(String employee, String projname) {
 	    Medarbejder m = StepDefinitions.app.workers.getUser(employee);
-		Projekt p = StepDefinitions.app.projects.getProject(projname);
+		Project p = StepDefinitions.app.projects.getProject(projname);
 	    assertTrue(p.getProjLeder().equals(m));
 	}
 
@@ -63,7 +63,7 @@ public class ActivitySteps {
 	
 	@When("project leader {string} removes the activity {string}, under project {string}")
 	public void projectLeaderRemovesTheActivityUnderProject(String string, String string2, String string3) {
-		Projekt p = StepDefinitions.app.projects.getProject(string3);
+		Project p = StepDefinitions.app.projects.getProject(string3);
 		Medarbejder m = StepDefinitions.app.workers.getUser(string);
 		
 		p.removeActivity(string2, m);
