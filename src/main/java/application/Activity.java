@@ -9,8 +9,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 
-public class Aktivitet {
-	public Projekt p;
+public class Activity {
+	public Project p;
 	public HashMap<Integer, Integer> timeWorked = new HashMap<Integer, Integer>(); // <>userID, hours>
 	public String navn;
 	public int estTime;
@@ -18,8 +18,8 @@ public class Aktivitet {
 	// creating a new aktivity has to automatically add said activity to the
 	// project...
 	// can i do that in the constructor?
-	public Aktivitet(String navn, int estTime, Projekt p) {
-		if(!p.getProjLeder().equals(Application.getCurrentActiveUser())) {
+	public Activity(String navn, int estTime, Project p) {
+		if(!p.getProjLeader().equals(Application.getCurrentActiveUser())) { /*choice 1 */
 			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");
 			return;
 		}
@@ -28,25 +28,15 @@ public class Aktivitet {
 		addToProject(this.p);
 		this.estTime = estTime;
 		Application.setConfirmationMSG("Successfully created activity '"+ navn+"' with "+estTime +" hours under '"+p.navn +"'");
-		/*
-		 * Format for at add medarbejdere for et projekt? like jeg gætter på at vi har
-		 * et stort, samlet array med alle medarbejdere i firmaet men hvordan vælger man
-		 * dem der skal tilføjest? i main programmet mener jeg når man kalder
-		 * constructoren
-		 * 
-		 * 
-		 * Eller gør vi det udenfor konstruktøren? kan man først adde medarbejdere efter
-		 * aktiviteten er oprettet?
-		 */
 
 	}
 
-	public void addToProject(Projekt p) {
-		p.addAktivitet(this);
+	public void addToProject(Project p) {
+		p.addActivity(this);
 	}
 
 	public void addMedarbejder(Medarbejder m) {
-		m.addAktivitet(this);
+		m.addActivity(this);
 	}
 
 	public String toString() {

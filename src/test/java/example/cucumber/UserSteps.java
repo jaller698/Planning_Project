@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import FXML.StartController;
 import application.Application;
 import application.Medarbejder;
-import application.Projekt;
+import application.Project;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -48,8 +48,8 @@ public class UserSteps {
 	}
 	@Then("the project {string} has no project leader")
 	public void theProjectHasNoProjectLeader(String projname) {
-		Projekt p = StepDefinitions.app.projects.getProject(projname);
-		p.getProjLeder();
+		Project p = StepDefinitions.app.projects.getProject(projname);
+		p.getProjLeader();
 	}
 	
 	@Then("worker {string} has no assigned activities")
