@@ -10,23 +10,9 @@ public class Project {
 	ArrayList<Activity> Activities = new ArrayList<Activity>();
 	public int estTid;
 	public ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
-	public Medarbejder leder;
-	private int projID;
-
-	public Project(String navn) {
-		this.navn = navn;
-		Application.projects.addProject(this);
-		setID();
-		leder = Application.getCurrentActiveUser();
-		Application.getCurrentActiveUser().addProjekt(this);
-		Application.setConfirmationMSG("Successfully created project '" + this.navn + "'(" + this.projID + ")");
-	}
-
-	public Project(String navn, Medarbejder leder, int estT) {
-	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public Medarbejder Leader;
 	private int projID;
-	
+
 	public Project(String navn) {
 		this.navn=navn;
 		Application.projects.addProject(this);
@@ -35,6 +21,7 @@ public class Project {
 		Application.getCurrentActiveUser().addProject(this);
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
+
 	public Project(String navn, Medarbejder Leader, int estT) {
 		this.navn = navn;
 		Application.projects.addProject(this);
@@ -73,9 +60,9 @@ public class Project {
 
 	public void addProjectLeader(Medarbejder m) {
 		// properties for den givne medarbejder
-		if (this.leder == null) {
-			this.leder = m;
-			m.addProjekt(this);
+		if (this.Leader == null) {
+			this.Leader = m;
+			m.addProject(this);
 		}else {
 			System.out.println("Project already has leader");
 		}

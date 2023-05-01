@@ -6,7 +6,7 @@ import application.Application;
 import application.Activity;
 import application.HelloFX;
 import application.Medarbejder;
-import application.Projekt;
+import application.Project;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class ProjektViewController {
+public class ProjectViewController {
 	Application app = Application.singleton();
 	@FXML
 	public Button refresh;
@@ -38,9 +38,9 @@ public class ProjektViewController {
 	@FXML
 	private Label projectLeader;
 	@FXML
-	private TableView<Projekt> projectTable;
+	private TableView<Project> projectTable;
 	@FXML
-	private TableColumn<Projekt, String> NameColumn;
+	private TableColumn<Project, String> NameColumn;
 	// we can add multiple columns to out tableview, like estimated hours, estimated
 	// time of completion, percentage of progression.
 	@FXML
@@ -54,10 +54,10 @@ public class ProjektViewController {
 	@FXML
 	private TableColumn<Medarbejder, String> assignedEmplColumn;
 
-	static ObservableList<Projekt> data = convertToOL(
+	static ObservableList<Project> data = convertToOL(
 			Application.getCurrentActiveUser().p);
 	static ObservableList<Activity> projectActivities;
-	static Projekt currentProject = null;
+	static Project currentProject = null;
 	static Activity currentActivity = null;
 
 	public Button backToMain;
@@ -117,9 +117,9 @@ public class ProjektViewController {
 				.addListener((observable, oldValue, newValue) -> showActivityDetails(newValue));
 	}
 
-	public static ObservableList<Projekt> convertToOL(ArrayList<Projekt> a) {
-		ObservableList<Projekt> o = FXCollections.observableArrayList();
-		for (Projekt P : a) {
+	public static ObservableList<Project> convertToOL(ArrayList<Project> a) {
+		ObservableList<Project> o = FXCollections.observableArrayList();
+		for (Project P : a) {
 			o.add(P);
 		}
 		return o;
@@ -133,7 +133,7 @@ public class ProjektViewController {
 		return o;
 	}
 
-	private void showProjectDetails(Projekt p) {
+	private void showProjectDetails(Project p) {
 		if (p != null) {
 			//ERROR!!
 			

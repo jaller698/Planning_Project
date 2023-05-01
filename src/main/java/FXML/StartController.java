@@ -18,7 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import FXML.ProjektViewController;
+import FXML.ProjectViewController;
 
 public class StartController {
 	Application app = Application.singleton();
@@ -66,8 +66,10 @@ public class StartController {
 	private Button Cal;
 
 	@FXML
-	public ChoiceBox<Projekt> PP =  new ChoiceBox<Projekt>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
-
+	public ChoiceBox<Project> PP =  new ChoiceBox<Project>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+	
+	@FXML
+	private Button toCreater;
 	
 	@FXML
 	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(
@@ -93,14 +95,14 @@ public class StartController {
 	TextField estak = new TextField();
 	
 	@FXML
-	public ChoiceBox<Projekt> projectPick = new ChoiceBox<Projekt>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+	public ChoiceBox<Project> projectPick = new ChoiceBox<Project>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 	
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
 		new Activity(ActivityNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
-		HelloFX.setRoot("projektview", ProjektViewController.class);
+		HelloFX.setRoot("projectview", ProjectViewController.class);
 	}
 	
 	
@@ -109,7 +111,7 @@ public class StartController {
 	}
 	
 	public void AddLeader() throws IOException {
-		PP.getValue().addProjektLeder(Emp.getValue());
+		PP.getValue().addProjectLeader(Emp.getValue());
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 
@@ -120,11 +122,11 @@ public class StartController {
 			 estTid = Integer.valueOf(est.getText());
 		}
 		if (leaderPick.getValue() != null) {
-			Projekt p = new Projekt(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
+			Project p = new Project(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
 			p.medarbejdere.add(app.getCurrentActiveUser());
 		}
 		else {
-			Projekt p = new Projekt(projektNavn.getText(),estTid);
+			Project p = new Project(projektNavn.getText(),estTid);
 		}
 
 		HelloFX.setRoot("Mainmenu", StartController.class);
@@ -151,16 +153,16 @@ public class StartController {
 		alert.show();
 	}
 
-	public void toProjektCreater() throws IOException {
+	public void toProjectCreater() throws IOException {
 		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
 
-		HelloFX.setRoot("ProjektCreater", StartController.class);
+		HelloFX.setRoot("ProjectCreater", StartController.class);
 		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
 
 	}
 
 	public void viewProjects() throws IOException {
-		HelloFX.setRoot("projektview", ProjektViewController.class);
+		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 	}
 
 	public void go(ActionEvent e) throws IOException {
