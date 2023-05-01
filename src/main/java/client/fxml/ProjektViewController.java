@@ -138,7 +138,13 @@ public class ProjektViewController {
 			
 
 			NameLabel.setText(p.toString());
-			projectLeader.setText(p.getProjectLeader().toString());
+			UserClient projectleader = (UserClient) p.getProjectLeader();
+			if (projectleader != null) {
+				projectLeader.setText(projectleader.toString());
+			} else {
+				projectLeader.setText("none");
+			}
+			
 			estHoursLabel.setText(Integer.toString(p.getEstTime()));
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivitiesClient());

@@ -34,7 +34,7 @@ public class AProject {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return id+':'+name;
+		return "("+id+")"+name;
 	}
 	
 	public AActivity CreateActivity(String name, int estTime) { // create an activity
