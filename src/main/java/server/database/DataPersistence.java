@@ -31,12 +31,14 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	
 	@Override
 	public int addUser(UserSaveable user) {
+		System.out.println("DataPersistence: addUser:" + user.getName());
 		if (allUsers.contains(user)) { // check for duplicates
 			return -1;
 		}
 		
 		if (allUsers.add(user)) { // add user to list
 			int id = allUsers.indexOf(user); // gets the user id or position in list
+			System.out.println("DataPersistence: userID:" + id);
 			
 			if (userIDs.get(user.getName()) != null) {
 				Integer[] oldUserIDs = userIDs.get(user.getName());
@@ -46,9 +48,9 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 				userIDs.put(user.getName(), newUserIDs); // Adds the users to the cache
 				
 				return id; // return user id or position in list
+			} else {
+				userIDs.put(user.getName(), new Integer[] {id}); // Caches the users name
 			}
-			
-			userIDs.put(user.getName(), new Integer[] {id}); // Caches the users name
 			
 			return id; // return user id or position in list
 		}
@@ -58,19 +60,28 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 
 	@Override
 	public UserSaveable getUser(int userID) {
+		System.out.print("DataPersistence: getUser by id: " + userID);
 		return allUsers.get(userID); // return user based on ID
 	}
 
 	@Override
 	public UserSaveable[] getUser(String userName) {
+		System.out.print("DataPersistence: getUser by name: " + userName);
+		
 		if(userIDs.get(userName) == null)
 			return null;
 		
 		Integer[] _userIDs = userIDs.get(userName);
 		UserSaveable[] _usersOut = new UserSaveable[_userIDs.length];
 		
+		System.out.print("DataPersistence: getUser by name - users: ");
 		for (int i = 0; i < _userIDs.length; i++) {
-			_usersOut[i] = getUser(i);
+			System.out.print(_userIDs[i].toString());
+		}
+		System.out.println();
+		
+		for (int i = 0; i < _userIDs.length; i++) {
+			_usersOut[i] = getUser(_userIDs[i]);
 		}
 		
 		return _usersOut; // return users based on name
@@ -78,7 +89,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	
 	@Override
 	public UserSaveable[] getAllUsers() {
-		
+		System.out.println("DataPersistence: getAllUsers");
 		return allUsers.toArray(new UserSaveable[allUsers.size()]); // returns all users as an array
 	}
 
@@ -109,6 +120,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 			newID++;
 		}
 		
+		project.SetId(newID);
 		allProjects.put(newID, project); // add a new project under the ID
 		projectIDs.put(project.toString(), newID); // caches project id for a its name
 		return newID;
@@ -120,6 +132,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 			return;
 		}
 		
+		project.SetId(id);
 		allProjects.put(id, project); // adds a project with the given key
 		projectIDs.put(project.toString(), id); // caches project id for a its name
 	}

@@ -3,8 +3,11 @@ package client.fxml;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import client.ActivityClient;
 import client.Application;
 import client.HelloFX;
+import client.ProjectClient;
+import client.UserClient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,9 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import shared.Aktivitet;
-import shared.Medarbejder;
-import shared.Projekt;
 
 public class ProjektViewController {
 	Application app = Application.singleton();
@@ -39,27 +39,26 @@ public class ProjektViewController {
 	@FXML
 	private Label projectLeader;
 	@FXML
-	private TableView<Projekt> projectTable;
+	private TableView<ProjectClient> projectTable;
 	@FXML
-	private TableColumn<Projekt, String> NameColumn;
+	private TableColumn<ProjectClient, String> NameColumn;
 	// we can add multiple columns to out tableview, like estimated hours, estimated
 	// time of completion, percentage of progression.
 	@FXML
-	private TableView<Aktivitet> activityTable;
+	private TableView<ActivityClient> activityTable;
 	@FXML
-	private TableColumn<Aktivitet, String> activityColumn;
+	private TableColumn<ActivityClient, String> activityColumn;
 	@FXML
-	private TableColumn<Aktivitet, Integer> estHourColumn;
+	private TableColumn<ActivityClient, Integer> estHourColumn;
 	@FXML
-	private TableView<Medarbejder> assignedEmplTable;
+	private TableView<UserClient> assignedEmplTable;
 	@FXML
-	private TableColumn<Medarbejder, String> assignedEmplColumn;
+	private TableColumn<UserClient, String> assignedEmplColumn;
 
-	static ObservableList<Projekt> data = convertToOL(
-			Application.getCurrentActiveUser().p);
-	static ObservableList<Aktivitet> projectActivities;
-	static Projekt currentProject = null;
-	static Aktivitet currentActivity = null;
+	static ObservableList<ProjectClient> data = convertToOL(Application.serverAPI.projectGetAllProjectsAsList(Application.getCurrentActiveSession()));
+	static ObservableList<ActivityClient> projectActivities;
+	static ProjectClient currentProject = null;
+	static ActivityClient currentActivity = null;
 
 	public Button backToMain;
 
@@ -92,7 +91,7 @@ public class ProjektViewController {
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
 		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
 		// og dermed skifte index. Bare extra safety.
-		app.setCurrentActiveUser(null);
+		app.setCurrentActiveSession(null);
 		HelloFX.setRoot("Loginpage", StartController.class);
 
 	}
@@ -101,11 +100,10 @@ public class ProjektViewController {
 		if(!data.isEmpty())
 			currentProject = data.get(0);
 		if(data != null)
-			data = convertToOL(
-					app.getCurrentActiveUser().p);
+			data = convertToOL(app.serverAPI.projectGetAllProjectsAsList(Application.getCurrentActiveSession()));
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
-		welcome.setText("hej " + app.getCurrentActiveUser().p);
+		welcome.setText("hej " + app.serverAPI.projectGetAllProjectsAsList(Application.getCurrentActiveSession()));
 		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());
@@ -118,32 +116,32 @@ public class ProjektViewController {
 				.addListener((observable, oldValue, newValue) -> showActivityDetails(newValue));
 	}
 
-	public static ObservableList<Projekt> convertToOL(ArrayList<Projekt> a) {
-		ObservableList<Projekt> o = FXCollections.observableArrayList();
-		for (Projekt P : a) {
+	public static ObservableList<ProjectClient> convertToOL(ArrayList<ProjectClient> a) {
+		ObservableList<ProjectClient> o = FXCollections.observableArrayList();
+		for (ProjectClient P : a) {
 			o.add(P);
 		}
 		return o;
 	}
 
-	public static ObservableList<Aktivitet> projectActivities(ArrayList<Aktivitet> a) {
-		ObservableList<Aktivitet> o = FXCollections.observableArrayList();
-		for (Aktivitet A : a) {
+	public static ObservableList<ActivityClient> projectActivities(ArrayList<ActivityClient> a) {
+		ObservableList<ActivityClient> o = FXCollections.observableArrayList();
+		for (ActivityClient A : a) {
 			o.add(A);
 		}
 		return o;
 	}
 
-	private void showProjectDetails(Projekt p) {
+	private void showProjectDetails(ProjectClient p) {
 		if (p != null) {
 			//ERROR!!
 			
 
 			NameLabel.setText(p.toString());
-			projectLeader.setText(p.leder.toString());
-			estHoursLabel.setText(Integer.toString(p.estTid));
+			projectLeader.setText(p.getProjectLeader().toString());
+			estHoursLabel.setText(Integer.toString(p.getEstTime()));
 			currentProject = p;
-			projectActivities = projectActivities(p.getActivityList());
+			projectActivities = projectActivities(p.getActivitiesClient());
 			activityTable.setItems(projectActivities);
 			if (!projectActivities.isEmpty()) {
 				currentActivity = projectActivities.get(0);
@@ -164,11 +162,11 @@ public class ProjektViewController {
 		}
 	}
 
-	private void showActivityDetails(Aktivitet a) {
+	private void showActivityDetails(ActivityClient a) {
 		if (a != null) {
 			activityLabel.setText(a.toString());
 			activityNumber.setText("117");
-			estHoursLabel.setText("" + a.getEstHours());
+			estHoursLabel.setText("" + a.getEstTime());
 			cumHoursLabel.setText("");
 
 

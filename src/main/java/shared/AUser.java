@@ -2,36 +2,34 @@ package shared;
 
 import java.util.ArrayList;
 
-public abstract class AUser {
-	private String name; // the users name
+public abstract class AUser { // {Written by GaySupremacy and Perry02, refactored by Perry02 (Original file: Medarbejder.java)}
+	protected String name; // the users name
 	public String getName() {return name;}
 	
-	private Integer id; // the users id
+	protected Integer id; // the users id
 	public Integer getId() {return id;}
 	
-	private ArrayList<AProject> projects = new ArrayList<AProject>(); // the users projects
-	public ArrayList<AProject> getProjects() {return projects;}
+	protected ArrayList<AProject> projects = new ArrayList<AProject>(); // the users projects
+	public ArrayList<AProject> getProjects() {return projects;} // {Written by GaySupremacy}
 	
-	private ArrayList<AActivity> activities = new ArrayList<AActivity>(); // the users activities
-	public ArrayList<AActivity> getActivities() {return activities;}
+	protected ArrayList<AActivity> activities = new ArrayList<AActivity>(); // the users activities
+	public ArrayList<AActivity> getActivities() {return activities;} // {Written by GaySupremacy}
 	
 	
 	
-	public AUser(String name, Integer id) {
-		this.name = name;
-		this.id = id;
-	}
+	protected AUser() {}
 	
-	public AUser getBase() {
+	public AUser getBase() { // {Written by Perry02}
 		return this;
 	}
 	
 	@Override
-	public String toString() {
-		return id+':'+name;
+	public String toString() { // {Written by GaySupremacy}
+		return "("+id+"):"+name;
 	}
 	
-	public void AssignProject(AProject project) { // assign a project to this user
+	// assign a project to this user
+	public void AssignProject(AProject project) { // {Written by GaySupremacy}
 		if (!projects.contains(project)) {
 			projects.add(project);
 		} else {
@@ -39,11 +37,13 @@ public abstract class AUser {
 		}
 	}
 	
-	public void UnAssignProject(AProject project) { // remove a project to this user
+	// remove a project to this user
+	public void UnAssignProject(AProject project) { // {Written by GaySupremacy} 
 		projects.remove(project);
 	}
 	
-	public void AssignActivity(AActivity activity) { // assign an activity to this user
+	// assign an activity to this user
+	public void AssignActivity(AActivity activity) { // {Written by GaySupremacy}
 		AssignProject(activity.getProject());
 		
 		if (!activities.contains(activity)) {
@@ -53,17 +53,19 @@ public abstract class AUser {
 		}
 	}
 	
-	public void UnAssignActivity(AActivity activity) { // remove an activity to this user
+	// remove an activity to this user
+	public void UnAssignActivity(AActivity activity) { // {Written by Perry02}
 		activities.remove(activity);
 	}
 	
-	public void RegisterHours(AActivity activity, int hours) { // register hours for an activity for this user
+	// register hours for an activity for this user
+	public void RegisterHours(AActivity activity, int hours) {  // {Written by GaySupremacy}
 		AssignActivity(activity);
 		
 		activity.RegisterHours(this, hours);
 	}
 	
-	public int GetTotalTime() {
+	public int GetTotalTime() { // {Written by Perry02}
 		int totalTime = 0;
 		
 		for (AActivity activity : activities) {

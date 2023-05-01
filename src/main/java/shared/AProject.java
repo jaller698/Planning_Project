@@ -5,25 +5,29 @@ import java.util.ArrayList;
 import client.ActivityClient;
 
 public class AProject {
-	private String name; // the project name
+	protected String name; // the project name
 	public String getName() {return name;}
 
-	private String id; // the projectID
-	public String getId() {return id;}
+	protected Integer id; // the projectID
+	public Integer getId() {return id;}
+	
+	protected int estTime; // the estimated time for this project
+	public int getEstTime() {return estTime;}
 
-	private AUser projectLeader; // the projectLeader
+	protected AUser projectLeader; // the projectLeader
 	public AUser getProjectLeader() {return projectLeader;}
 	
-	private ArrayList<AActivity> activities = new ArrayList<AActivity>(); // the activities tied to this project
+	protected ArrayList<AActivity> activities = new ArrayList<AActivity>(); // the activities tied to this project
 	public ArrayList<AActivity> getActivities() {return activities;}
 	
 
 	
-	public AProject(String name) {
+	protected AProject(String name, int estTime) {
 		this.name = name;
+		this.estTime = estTime;
 	}
 	
-	public AProject asBase() {
+	public AProject getBase() {
 		return this;
 	}
 	

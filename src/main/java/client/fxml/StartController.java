@@ -15,9 +15,6 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
-import shared.Aktivitet;
-import shared.Medarbejder;
-import shared.Projekt;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -61,8 +58,8 @@ public class StartController {
 	public TextField projektNavn = new TextField();
 
 	@FXML
-	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(
-			FXCollections.observableArrayList(app.workers.getAllUsers()));
+	public ChoiceBox<UserClient> leaderPick = new ChoiceBox<UserClient>(
+			FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
 
 	@FXML
 	TextField est = new TextField();
@@ -80,13 +77,13 @@ public class StartController {
 	TextField estak = new TextField();
 	
 	@FXML
-	public ChoiceBox<Projekt> projectPick = new ChoiceBox<Projekt>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+	public ChoiceBox<ProjectClient> projectPick = new ChoiceBox<ProjectClient>(FXCollections.observableArrayList(app.serverAPI.projectGetAllProjectsAsList(app.getCurrentActiveSession())));
 	
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
+		new ActivityClient(projectPick.getValue(), aktivitetNavn.getText(),Integer.valueOf(estak.getText()));
 		HelloFX.setRoot("projektview", ProjektViewController.class);
 		
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
@@ -96,17 +93,25 @@ public class StartController {
 	}
 
 	public void createProjekt() throws IOException {
-		// Application.alleProjekter.add(p);
-		int estTid = 0;
-		if (Integer.valueOf(est.getText()) != null)
+		int estTid = Integer.valueOf("0"+est.getText());
+		UserClient leaderpick = leaderPick.getValue();
+		
+		if (leaderpick != null) {
+			new ProjectClient(projektNavn.getText(), estTid, leaderpick);
+		} else {
+			new ProjectClient(projektNavn.getText(), estTid);
+		}
+		
+		/*
+		if (Integer.valueOf("0"+est.getText()) != null)
 			 estTid = Integer.valueOf(est.getText());
 		if (leaderPick.getValue() != null) {
-			Projekt p = new Projekt(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
+			new ProjectClient(projektNavn.getText(), estTid, app.serverAPI.userGetUser(app.getCurrentActiveSession(), leaderPick.getValue().getId()));
 		}
 		else {
-			Projekt p = new Projekt(projektNavn.getText());
-			p.estTid = estTid;
+			new ProjectClient(projektNavn.getText(), estTid);
 		}
+		*/
 
 		HelloFX.setRoot("Mainmenu", StartController.class);
 		//System.out.println("Projekt tilføjet!");
@@ -122,7 +127,10 @@ public class StartController {
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
 		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
 		// og dermed skifte index. Bare extra safety.
-		app.setCurrentActiveUser(null);
+		
+		app.serverAPI.userLogOff(app.getCurrentActiveSession());
+		
+		app.setCurrentActiveSession(null);
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
@@ -146,6 +154,10 @@ public class StartController {
 
 	public void go(ActionEvent e) throws IOException {
 		boolean checkSuccesful = false;
+		
+		String name = loginUsername.getText().toLowerCase();
+		String password = loginPassword.getText();
+		
 		if ((loginUsername.getText() != null && loginPassword.getText() != null)) {
 //			
 //			for (int i = 0; i < alleMedarbejdere.size(); i++) {
@@ -156,14 +168,25 @@ public class StartController {
 //					System.out.println(loginIndex);
 //				}
 //			}
-			for (Medarbejder M : app.workers.getAllUsers()) {
+			String session = app.serverAPI.userLogIn(name, password);
+			
+			if (session != null) {
+				if (!session.isBlank()) {
+					checkSuccesful = true;
+					Application.setCurrentActiveSession(session);
+					System.out.println(app.getCurrentActiveSession());
+				}
+			}
+			
+			
+			/*for (Medarbejder M : app.workers.getAllUsers()) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true
 						&& M.password.equals(loginPassword.getText()) == true) {
 					checkSuccesful = true;
-					app.setCurrentActiveUser(M);
-					System.out.println(app.getCurrentActiveUser());
+					app.setCurrentActiveSession(M);
+					System.out.println(app.getCurrentActiveSession());
 				}
-			}
+			}*/
 		}
 		if (!checkSuccesful) {
 			System.out.println("You fucked it");
@@ -194,9 +217,44 @@ public class StartController {
 		if(userName.isBlank()) {
 			app.setConfirmationMSG("Username must not be blank!");
 			confirmMSGPopup(null);
-
+			
+			return;
 		}
-		else if(app.workers.getUser(userName) != null) {
+		
+		if(password.isBlank()) {
+			if(!password.equals(signupRepeatPassword.getText())) {
+				app.setConfirmationMSG("Password does not match!");
+				confirmMSGPopup(null);
+				
+				return;
+			}
+			
+			app.setConfirmationMSG("Password must not be blank!");
+			confirmMSGPopup(null);
+			
+			return;
+		}
+		
+		UserClient newUser = app.serverAPI.userSignUp(userName, password); // signup and create new user
+		String session = app.serverAPI.userLogIn(userName, password); // login the new user
+		
+		if (session == null) {
+			app.setConfirmationMSG("Unknown error, try agaub");
+			return;
+		}
+		if (session.isBlank()) {
+			app.setConfirmationMSG("Unknown error, try agaub");
+			return;
+		}
+		
+		Application.setCurrentActiveSession(session); // saves the session
+		
+		
+		System.out.println(app.serverAPI.userGetAllUsersAsList(session));
+
+		HelloFX.setRoot("Mainmenu", StartController.class);
+		
+		/*else if(app.workers.getUser(userName) != null) {
 			app.setConfirmationMSG("This username is already taken");
 			confirmMSGPopup(null);
 		}
@@ -214,7 +272,7 @@ public class StartController {
 			
 			Medarbejder newUser = new Medarbejder(userName, password);
 			
-			app.setCurrentActiveUser(newUser);
+			app.setCurrentActiveSession(newUser);
 			
 			System.out.println(app.workers.getAllUsers().toString());
 			
@@ -222,7 +280,7 @@ public class StartController {
 			
 			HelloFX.setRoot("Mainmenu", StartController.class);
 		} 
-
+		*/
 	}
 
 	@FXML
@@ -234,9 +292,9 @@ public class StartController {
 
 	public void initialize() {
 		leaderPick.getItems().clear();
-		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
+		leaderPick.setItems(FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
 		projectPick.getItems().clear();
-		projectPick.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+		projectPick.setItems(FXCollections.observableArrayList(app.serverAPI.projectGetAllProjectsAsList(app.getCurrentActiveSession())));
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
 		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));

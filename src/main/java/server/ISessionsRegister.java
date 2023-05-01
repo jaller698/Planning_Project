@@ -9,5 +9,7 @@ public interface ISessionsRegister { // {Written by Perry02}
 	
 	public int getUserIDOfSession(String session); // gets the userID associated with a session
 	
+	public Integer[] getAllActiveUsers(); // returns all active userIDs
+	
 	public Boolean checkIfUserIsActive(int userID); // checks if a user is active
 }

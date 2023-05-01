@@ -1,70 +1,59 @@
-package application;
+package client;
 
 import java.sql.Date;
 import java.util.*;
 
-import database.*;
+import server.ServerCore;
+import shared.networking.*;
 
-public final class Application {
+public final class Application { // {Written by Jaller698 and Perry02}
 	private final static Application singleton = new Application();
+	private static ServerCore backendServer;
 
-	private static Medarbejder currentActiveUser;
+	private static String currentSession;
 	private static String ConfirmationMSG;
 	
-	private static DataPersistence database = new DataPersistence();
-	public static IProjectRegister projects = database;
-	public static IUserRegister workers = database;
-	public static ISessionsRegister sessions = new SessionManager();
+	public static IProjectPlannerMockAPI serverAPI = new MockAPI();
 	
-	private Application() {}
+	private Application() {} // {Written by Perry02}
 	
-	public static Application singleton() {
+	public static Application singleton() { // {Written by Perry02}
 		return Application.singleton;
 	}
 	
-	public void reset() {
-		currentActiveUser = null;
+	public void reset() { // {Written by Perry02}
+		currentSession = null;
 		ConfirmationMSG = null;
 		
-		database = new DataPersistence();
-		projects = database;
-		workers = database;
+		backendServer.reset();
+		serverAPI = new MockAPI();
 		
 		System.out.println("Application: Created a new clean slate");
 	}
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { // {Written by Jaller698}
 		// TODO Auto-generated method stub
 		setConfirmationMSG("");
 	}
 	
-	public static Medarbejder getCurrentActiveUser() {
-		return currentActiveUser;
+	public static String getCurrentActiveSession() { // {Written by Perry02}
+		return currentSession;
 	}
 	
-	public static void setCurrentActiveUser(Medarbejder m) {
-		currentActiveUser = m;
+	public static void setCurrentActiveSession(String session) { // {Written by Perry02}
+		currentSession = session;
 	}
 	
-	public static int getYear() {
+	public static int getYear() { // {Written by Jaller698}
 		return 23;
 	}
 
-	public static String getConfirmationMSG() {
+	public static String getConfirmationMSG() { // {Written by Jaller698}
 		return ConfirmationMSG;
 	}
 	
-	public static void setConfirmationMSG(String msg){
+	public static void setConfirmationMSG(String msg){ // {Written by Jaller698}
 		ConfirmationMSG = msg;
-	}
-	
-	public void AdminChangePassword(int aid, int mid, String newPWD) {
-		Medarbejder A = workers.getUser(--aid);
-		if(A != null && A.isAdmin()) {
-			Medarbejder M = workers.getUser(--mid);
-			M.changePassword(newPWD);
-			Application.setConfirmationMSG("Successfully changed "+mid+"("+M.navn+")'s password");
-		}
 	}
 }

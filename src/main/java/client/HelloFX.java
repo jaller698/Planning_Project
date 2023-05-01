@@ -6,8 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import server.database.DataPersistence;
-import shared.Medarbejder;
+import shared.networking.IProjectPlannerMockAPI;
+import shared.networking.MockAPI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,18 +22,17 @@ public class HelloFX extends Application {
 	private Button begin;
 	private static Scene scene;
 	public static Stage cStage;
-	DataPersistence data = new DataPersistence();
-	Medarbejder h = new Medarbejder("Hans","heste123");
-	Medarbejder l = new Medarbejder("Erik","fisk123");
-	Medarbejder p = new Medarbejder("Peter","næbdyr123");
+	
+	public static IProjectPlannerMockAPI serverAPI = new MockAPI();
+	
+	UserClient h = serverAPI.userSignUp("Hans","heste123");
+	UserClient l = serverAPI.userSignUp("Erik","fisk123");
+	UserClient p = serverAPI.userSignUp("Peter","næbdyr123");
 	// starter det hele, og bruges også senere til at tegne scenerne
 	@Override
 	public void start(Stage stage) throws Exception {
 		System.out.println("gabriel er en ged");
 
-		data.addUser(h);
-		data.addUser(l);
-		data.addUser(p);
 		System.out.println("heya");
 		scene = new Scene(loadFXML("Frontpage", StartController.class));
 		cStage = stage;

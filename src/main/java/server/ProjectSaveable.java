@@ -3,10 +3,15 @@ package server;
 import server.database.IDataSaveable;
 import shared.AProject;
 
-public class ProjectSaveable extends AProject implements IDataSaveable {
+public class ProjectSaveable extends AProject implements IDataSaveable { // {Written by Perry02}
 
-	public ProjectSaveable(String name) {
-		super(name);
+	public void SetId(int id) {
+		this.id = id;
+	}
+	
+	public ProjectSaveable(AProject project) {
+		super(project.getName(), project.getEstTime());
+		
 	}
 
 }

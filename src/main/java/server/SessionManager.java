@@ -1,10 +1,8 @@
 package server;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.time.Instant;
 import client.Application;
-import shared.Medarbejder;
 
 public class SessionManager implements ISessionsRegister { // {Written by Perry02 and Jaller698}
 	private static HashMap<String, Integer> activeSessions = new HashMap<String, Integer>();
@@ -24,10 +22,14 @@ public class SessionManager implements ISessionsRegister { // {Written by Perry0
 	
 	@Override
 	public String loginUser(String name, String password) { // {Written by Jaller698, refactored by Perry02}
-		if (!name.isBlank() && !name.isBlank()) {
-			UserSaveable[] userOfName = ServerCore.users.getUser(name);
+		System.out.println("SessionManager: loginUser step 1 - name: " + name + " - password: " + password);
+		if (!name.isBlank() && !password.isBlank()) {
+			UserSaveable[] userOfName = ServerCore.users.getUser(name); // TODO name calling does not work currently
+			
+			System.out.println("SessionManager: loginUser step 2 check users: " + userOfName.length);
 			
 			for (UserSaveable userSaveable : userOfName) {
+				System.out.println("SessionManager: loginUser user: " + userSaveable);
 				if (userSaveable.CheckPassword(password)) {
 					String session = CreateSession(userSaveable.toString());
 					
@@ -50,16 +52,23 @@ public class SessionManager implements ISessionsRegister { // {Written by Perry0
 
 	@Override
 	public boolean checkSession(String session) { // {Written by Jaller698, refactored by Perry02}
+		System.out.print("SessionManager: checkSession - ");
 		if (activeSessions.containsKey(session)) {
+			System.out.println("true");
 			return true;
 		}
-		
+		System.out.println("false");
 		return false;
 	}
 
 	@Override
 	public int getUserIDOfSession(String session) { // {Written by Perry02}
 		return activeSessions.computeIfAbsent(session, k -> -1);
+	}
+	
+	@Override
+	public Integer[] getAllActiveUsers() { // {Written by Perry02}
+		return activeSessions.values().toArray(new Integer[activeSessions.values().size()]);
 	}
 
 	@Override

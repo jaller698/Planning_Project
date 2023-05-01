@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import client.Application;
+import deprecated.Aktivitet;
+import deprecated.Medarbejder;
+import deprecated.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import shared.Aktivitet;
-import shared.Medarbejder;
-import shared.Projekt;
 
 
 public class ActivitySteps {	

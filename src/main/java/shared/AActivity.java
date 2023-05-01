@@ -3,16 +3,16 @@ package shared;
 import java.util.HashMap;
 
 public class AActivity {
-	private String name; // the activities name
+	protected String name; // the activities name
 	public String getName() {return name;}
 	
-	private int estTime; // the estimated time for this activity
+	protected int estTime; // the estimated time for this activity
 	public int getEstTime() {return estTime;}
 	
-	private AProject project; // the project the activity is tied to
+	protected AProject project; // the project the activity is tied to
 	public AProject getProject() {return project;}
 	
-	private HashMap<AUser, WorkTimeUnit> timeWorked = new HashMap<AUser, WorkTimeUnit>();
+	protected HashMap<AUser, WorkTimeUnit> timeWorked = new HashMap<AUser, WorkTimeUnit>();
 	
 	
 	
@@ -47,7 +47,7 @@ public class AActivity {
 		time.AddTime(hours);
 	}
 	
-	public int GetTotalTime() {
+	public int GetTotalTime() { // {Written by Perry02}
 		int totalTime = 0;
 		
 		for (WorkTimeUnit timeUnit : timeWorked.values()) {

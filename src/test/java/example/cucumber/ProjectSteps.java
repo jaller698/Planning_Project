@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import client.Application;
+import deprecated.Aktivitet;
+import deprecated.Medarbejder;
+import deprecated.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import shared.Aktivitet;
-import shared.Medarbejder;
-import shared.Projekt;
 
 
 public class ProjectSteps {
@@ -31,7 +31,7 @@ public class ProjectSteps {
 	
 	@When("loggedin worker creates a project with the name {string}")
 	public void workerCreatesAProjectWithTheName(String projectName) {
-		StepDefinitions.app.getCurrentActiveUser().addProjekt(new Projekt(projectName));
+		StepDefinitions.app.getCurrentActiveSession().addProjekt(new Projekt(projectName));
 	}
 
 	@Then("the project {string} with {int}-digit serial no. from year and project number is created")

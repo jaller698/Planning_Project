@@ -4,9 +4,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import client.Application;
+import deprecated.Medarbejder;
 import io.cucumber.java.en.*;
 import server.SessionManager;
-import shared.Medarbejder;
 
 public class Login {
 	int i = 0;
@@ -48,7 +48,7 @@ public class Login {
 	@Given("worker {int} is signed in")
 	public void workerIsSignedIn(Integer id) {
 		Medarbejder M = StepDefinitions.app.workers.getUser(--id);
-		StepDefinitions.app.setCurrentActiveUser(M);
+		StepDefinitions.app.setCurrentActiveSession(M);
 		assertTrue(StepDefinitions.sm.checkSession(M.navn));
 	}
 
