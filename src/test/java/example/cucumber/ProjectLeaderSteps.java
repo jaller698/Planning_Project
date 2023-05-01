@@ -16,28 +16,28 @@ public class ProjectLeaderSteps {
 	@When("an admin {string} removes worker {string} as a project leader from project {string}")
 	public void anAdminRemovesWorkerAsAProjectLeaderFromProject(String aName, String eName, String pName) {
 	    Project p = StepDefinitions.app.projects.getProject(pName);
-	    p.addProjectLeder(null);
+	    p.addProjectLeader(null);
 	}
 	@Given("worker {string} is project leader for the project {string}")
 	public void workerIsProjectLeaderForTheProject(String eName, String pName) {
 		Project p = StepDefinitions.app.projects.getProject(pName);
 		Medarbejder M = StepDefinitions.app.workers.getUser(eName);
-	    p.addProjectLeder(M);
+	    p.addProjectLeader(M);
 	}
 
 	@Given("the project {string} has no project leader assigned")
 	public void theProjectHasNoProjectLeaderAssigned(String pName) {
 	    Project p = StepDefinitions.app.projects.getProject(pName);
-	    System.out.println(p.getProjLeder().navn);
-	    p.addProjectLeder(null);
-	    assertTrue(p.getProjLeder() == null);
+	    System.out.println(p.getProjLeader().navn);
+	    p.addProjectLeader(null);
+	    assertTrue(p.getProjLeader() == null);
 	}
 
 	@When("an admin {string} sets worker {string} as a project leader for project {string}")
 	public void anAdminSetsWorkerAsAProjectLeaderForProject(String aName, String eName, String pName) {
 		Project p = StepDefinitions.app.projects.getProject(pName);
 		Medarbejder M = StepDefinitions.app.workers.getUser(eName);
-	    p.addProjectLeder(M);
+	    p.addProjectLeader(M);
 	}
 
 }

@@ -10,27 +10,27 @@ public class Project {
 	ArrayList<Activity> Activityer = new ArrayList<Activity>();
 	public int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
-	public Medarbejder leder;
+	public Medarbejder Leader;
 	private int projID;
 	
 	public Project(String navn) {
 		this.navn=navn;
 		Application.projects.addProject(this);
 		setID();
-		leder = Application.getCurrentActiveUser();
+		Leader = Application.getCurrentActiveUser();
 		Application.getCurrentActiveUser().addProject(this);
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
-	public Project(String navn, Medarbejder leder, int estT) {
+	public Project(String navn, Medarbejder Leader, int estT) {
 		this.navn = navn;
 		Application.projects.addProject(this);
 		setID();
-		this.addProjectLeder(leder);
+		this.addProjectLeader(Leader);
 		this.estTid = estT;
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
 	
-	public Project(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
+	public Project(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder Leader) {
 		this.navn=navn;
 		this.medarbejdere = medarbejdere;
 	}
@@ -55,9 +55,9 @@ public class Project {
 		return null;
 	}
 	
-	public void addProjectLeder(Medarbejder m) {
+	public void addProjectLeader(Medarbejder m) {
 		//properties for den givne medarbejder
-		this.leder = m;
+		this.Leader = m;
 		if(m != null)
 			m.addProject(this);
 	}
@@ -89,12 +89,12 @@ public class Project {
 		}
 		projID = Integer.parseInt("" + Application.getYear() + id );
 	}
-	public Medarbejder getProjLeder() {
-		return leder;
+	public Medarbejder getProjLeader() {
+		return Leader;
 	}
 	
 	public void assignActivity(String actName, Medarbejder workerToBeAssigned, Medarbejder actor) {
-		if ((workerToBeAssigned == actor || actor == leder) && leder == Application.getCurrentActiveUser()) {
+		if ((workerToBeAssigned == actor || actor == Leader) && Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);
 			if (getActivity(actName) != null)
 				getActivity(actName).addMedarbejder(workerToBeAssigned);
@@ -102,7 +102,7 @@ public class Project {
 	}
 	
 	public void removeActivity(String actName, Medarbejder actor) {
-		if (leder == Application.getCurrentActiveUser()) {
+		if (Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);
 			Activityer.remove(a);
 		}

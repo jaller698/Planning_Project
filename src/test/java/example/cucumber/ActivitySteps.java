@@ -31,7 +31,7 @@ public class ActivitySteps {
 	@Given("worker {string} is not registered as a project leader for the project {string}")
 	public void workerIsNotRegisteredAsAProjectLeaderForTheProject(String employee, String projName) {
 	    Project p = StepDefinitions.app.projects.getProject(projName);
-	    p.addProjectLeder(new Medarbejder("Jens", "test123"));
+	    p.addProjectLeader(new Medarbejder("Jens", "test123"));
 	}
 	@Then("the activity {string} with {int} hours allocated exists under project {string}")
 	public void theActivityWithHoursAllocatedExistsUnderProject(String actName, Integer estHours, String projName) {
@@ -45,7 +45,7 @@ public class ActivitySteps {
 	public void workerIsRegisteredAsAProjectLeaderForTheProject(String employee, String projname) {
 	    Medarbejder m = StepDefinitions.app.workers.getUser(employee);
 		Project p = StepDefinitions.app.projects.getProject(projname);
-	    assertTrue(p.getProjLeder().equals(m));
+	    assertTrue(p.getProjLeader().equals(m));
 	}
 
 	@When("project leader {string} assigns worker {string} to activity {string} under project {string}")

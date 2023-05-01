@@ -139,7 +139,7 @@ public class ProjektViewController {
 			
 
 			NameLabel.setText(p.toString());
-			projectLeader.setText(p.leder.toString());
+			projectLeader.setText(p.Leader.toString());
 			estHoursLabel.setText(Integer.toString(p.estTid));
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivityList());
