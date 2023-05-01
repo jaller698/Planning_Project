@@ -2,23 +2,16 @@
 package client.fxml;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.scene.control.Alert;
 import client.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class StartController {
 	Application app = Application.singleton();
@@ -57,11 +50,25 @@ public class StartController {
 	private Button logOut;
 	@FXML
 	public TextField projektNavn = new TextField();
+	
+	@FXML
+	private Button addLeader;
+	@FXML
+	private Button addL;
+	@FXML
+	private Button Cal;
+	
+	@FXML
+	public ChoiceBox<ProjectClient> PP =  new ChoiceBox<ProjectClient>(FXCollections.observableArrayList(app.serverAPI.projectGetAllProjectsAsList(app.getCurrentActiveSession())));
 
 	@FXML
 	public ChoiceBox<UserClient> leaderPick = new ChoiceBox<UserClient>(
 			FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
 
+	@FXML
+	public ChoiceBox<UserClient> Emp = new ChoiceBox<UserClient>(
+			FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
+	
 	@FXML
 	TextField est = new TextField();
 	
@@ -92,6 +99,15 @@ public class StartController {
 		
 		
 	}
+	
+	public void goAdd(ActionEvent e) throws IOException {
+		HelloFX.setRoot("Addlead", StartController.class);
+	}
+	
+	public void AddLeader() throws IOException {
+		PP.getValue().setProjectLeader(Emp.getValue());
+		HelloFX.setRoot("Mainmenu", StartController.class);
+	}
 
 	public void createProjekt() throws IOException {
 		int estTid = Integer.valueOf("0"+est.getText());
@@ -102,6 +118,7 @@ public class StartController {
 		} else {
 			new ProjectClient(projektNavn.getText(), estTid);
 		}
+		
 		
 		/*
 		if (Integer.valueOf("0"+est.getText()) != null)
@@ -141,7 +158,7 @@ public class StartController {
 		alert.show();
 	}
 
-	public void toProjektCreater() throws IOException {
+	public void toProjectCreater() throws IOException {
 		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
 
 		HelloFX.setRoot("ProjectCreater", StartController.class);
@@ -294,8 +311,14 @@ public class StartController {
 	public void initialize() {
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
+		Emp.getItems().clear();
+		Emp.setItems(FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
+		
 		projectPick.getItems().clear();
 		projectPick.setItems(FXCollections.observableArrayList(app.serverAPI.projectGetAllProjectsAsList(app.getCurrentActiveSession())));
+		PP.getItems().clear();
+		PP.setItems(FXCollections.observableArrayList(app.serverAPI.projectGetAllProjectsAsList(app.getCurrentActiveSession())));
+		
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
 		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));

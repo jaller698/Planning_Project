@@ -6,6 +6,7 @@ import java.util.Iterator;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.AProject;
+import shared.AUser;
 
 public class ProjectClient extends AProject { // {Written by Jaller698, GaySupremacy and McQueen24, refactored by Perry02 (Original file: Projekt.java)}
 
@@ -33,6 +34,11 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 		this.projectLeader = projectLeader.getBase();
 		
 		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
+	}
+	
+	@Override
+	public void setProjectLeader(AUser projectLeader) { // {Written by Perry02}
+		this.projectLeader = Application.serverAPI.projectAddProjectLeader(Application.getCurrentActiveSession(), this.id, projectLeader.getId());
 	}
 	
 	

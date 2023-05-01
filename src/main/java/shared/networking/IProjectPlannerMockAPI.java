@@ -50,6 +50,7 @@ public interface IProjectPlannerMockAPI { // {Written by Perry02}
 	public ArrayList<ProjectClient> projectGetAllProjectsAsList(String session); // as list versions
 	public ArrayList<ProjectClient> projectGetAllProjectsAsList(String session, String name);
 	
+	public UserClient projectAddProjectLeader(String session, Integer projectID, Integer userID); // adds the given user ad a leader to the project
 	
 	public Boolean projectAddUserToProject(String session, Integer projectID); // add the user session to the project
 	public Boolean projectAddUserToProject(String session, Integer projectID, Integer userID); // add the user by id to the project

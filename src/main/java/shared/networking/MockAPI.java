@@ -235,6 +235,20 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		System.out.println("API: projectGetAllProjectsAsList by name");
 		return new ArrayList<ProjectClient>(Arrays.asList(projectGetAllProjects(session, name)));
 	}
+	
+	@Override
+	public UserClient projectAddProjectLeader(String session, Integer projectID, Integer userID) {
+		System.out.println("API: projectAddProjectLeader - add project leader: " + userID + " to project: " + userID);
+		if (!ServerCore.sessions.checkSession(session))
+			return null;
+		
+		ProjectSaveable project = ServerCore.projects.getProject(projectID);
+		UserSaveable user = ServerCore.users.getUser(userID);
+		
+		project.setProjectLeader(user);
+		
+		return new UserClient(user);		
+	}
 
 	@Override
 	public Boolean projectAddUserToProject(String session, Integer projectID) {

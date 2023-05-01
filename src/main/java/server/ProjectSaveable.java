@@ -2,6 +2,7 @@ package server;
 
 import server.database.IDataSaveable;
 import shared.AProject;
+import shared.AUser;
 
 public class ProjectSaveable extends AProject implements IDataSaveable { // {Written by Perry02}
 
@@ -12,6 +13,11 @@ public class ProjectSaveable extends AProject implements IDataSaveable { // {Wri
 	public ProjectSaveable(AProject project) {
 		super(project.getName(), project.getEstTime());
 		
+	}
+	
+	@Override
+	public void setProjectLeader(AUser projectLeader) { // {Written by Perry02}
+		this.projectLeader = projectLeader;
 	}
 
 }

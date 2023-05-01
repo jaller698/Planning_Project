@@ -6,7 +6,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.fxml.StartController">
    <children>
       <Button fx:id="logOut" layoutX="436.0" layoutY="22.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
-      <Button fx:id="toCreater" layoutX="233.0" layoutY="217.0" mnemonicParsing="false" onAction="#toProjectCreater" prefHeight="31.0" prefWidth="124.0" text="New Project" />
+      <Button fx:id="toProjectCreater" layoutX="233.0" layoutY="217.0" mnemonicParsing="false" onAction="#toProjectCreater" prefHeight="31.0" prefWidth="124.0" text="New Project" />
       <Button fx:id="viewProjects" layoutX="238.0" layoutY="270.0" mnemonicParsing="false" onAction="#viewProjects" text="View your projects" />
       <Button fx:id="addLeader" layoutX="378.0" layoutY="220.0" mnemonicParsing="false" onAction="#goAdd" text="Add leader" />
    </children>
