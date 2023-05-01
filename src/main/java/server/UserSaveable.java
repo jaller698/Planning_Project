@@ -4,7 +4,7 @@ import client.Application;
 import server.database.IDataSaveable;
 import shared.AUser;
 
-public class UserSaveable extends AUser implements IDataSaveable { // {Written by Jaller698, refactored by Perry02 (Original file: Medarbejder.java)}
+public class UserSaveable extends AUser implements IDataSaveable { // {Written by Jaller698 and Perry02, refactored by Perry02 (Original file: Medarbejder.java)}
 	private boolean admin;
 	private String password;
 

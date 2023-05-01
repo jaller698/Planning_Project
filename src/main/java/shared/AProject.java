@@ -2,9 +2,7 @@ package shared;
 
 import java.util.ArrayList;
 
-import client.ActivityClient;
-
-public class AProject {
+public class AProject { // {Written by Jaller698, GaySupremacy and McQueen24, refactored by Perry02 (Original file: Projekt.java)}
 	protected String name; // the project name
 	public String getName() {return name;}
 
@@ -22,28 +20,29 @@ public class AProject {
 	
 
 	
-	protected AProject(String name, int estTime) {
+	protected AProject(String name, int estTime) { // {Written by GaySupremacy}
 		this.name = name;
 		this.estTime = estTime;
 	}
 	
-	public AProject getBase() {
+	public AProject getBase() { // {Written by Perry02}
 		return this;
 	}
 	
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
+	public String toString() { // {Written by GaySupremacy}
 		return "("+id+")"+name;
 	}
 	
-	public AActivity CreateActivity(String name, int estTime) { // create an activity
+	// create an activity
+	public AActivity CreateActivity(String name, int estTime) { // {Written by Perry02}
 		AActivity activity = new AActivity(this, name, estTime);
 		
 		return activity;
 	}
 	
-	public void AddActivity(AActivity activity) { // add a given activity to this project if it does not exist here
+	  // add a given activity to this project if it does not exist here
+	public void AddActivity(AActivity activity) { // {Written by GaySupremacy}
 		if (activity.getProject() == this) {
 			if (!activities.contains(activity)) {
 				activities.add(activity);
@@ -53,7 +52,8 @@ public class AProject {
 		}
 	}
 	
-	public void MoveActivity(AActivity activity, AProject destination) { // moves an activity to another project
+	// moves an activity to another project
+	public void MoveActivity(AActivity activity, AProject destination) { // {Written by Perry02}
 		System.out.println("Project("+ this +"): Move activity from: " + activity + " to " + destination);
 		if (destination == this) {
 			if (activity.getProject() != destination) {
@@ -71,6 +71,6 @@ public class AProject {
 	}
 	
 	public void RemoveActivity(AActivity activity) {
-		
+		// TODO
 	}
 }

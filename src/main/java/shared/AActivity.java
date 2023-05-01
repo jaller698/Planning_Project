@@ -2,7 +2,7 @@ package shared;
 
 import java.util.HashMap;
 
-public class AActivity {
+public class AActivity { // {Written by Jaller698, GaySupremacy and Perry02, refactored by Perry02 (Original file: aktivitet.java)}
 	protected String name; // the activities name
 	public String getName() {return name;}
 	
@@ -16,7 +16,7 @@ public class AActivity {
 	
 	
 	
-	public AActivity(AProject project, String name, int estTime) {
+	public AActivity(AProject project, String name, int estTime) { // {Written by GaySupremacy}
 		this.name = name;
 		this.estTime = estTime;
 		this.project = project;
@@ -24,21 +24,22 @@ public class AActivity {
 		project.AddActivity(this);
 	}
 	
-	public AActivity getBase() {
+	public AActivity getBase() { // {Written by Perry02}
 		return this;
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() { // {Written by Jaller698}
 		return project.toString()+':'+name;
 	}
 	
-	public void RegisterHours(AUser user, int hours) { // register hours to a user for this activity
+	// register hours to a user for this activity
+	public void RegisterHours(AUser user, int hours) { // {Written by Perry02}
 		user.AssignActivity(this);
 		WorkTimeUnit time = null;
 		
 		if (timeWorked.containsKey(user)) {
-			time = timeWorked.get(time);
+			time = timeWorked.get(user);
 		} else {
 			time = new WorkTimeUnit(user);
 			timeWorked.put(user, time);
@@ -57,11 +58,12 @@ public class AActivity {
 		return totalTime;
 	}
 	
-	public int GetTotalTime(AUser user) {
+	public int GetTotalTime(AUser user) {  // {Written by Perry02}
 		return timeWorked.get(user).GetTotalTime();
 	}	
 	
-	public void SwitchProject(AProject destination) { // switches the project this is tied to
+	// switches the project this is tied to
+	public void SwitchProject(AProject destination) { // {Written by Perry02}
 		System.out.println("Activity("+this+"): Switch from project: " + project+ " to " + destination);
 		
 		if (destination != project) {
