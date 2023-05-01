@@ -32,7 +32,7 @@ public class Medarbejder {
 
 	public void appointProjectleader(Project p, Medarbejder m) {
 
-		p.addProjectLeder(this);
+		p.addProjectLeader(this);
 	}
 
 	public ArrayList<Project> getProjects() {
@@ -103,9 +103,9 @@ public class Medarbejder {
 	}
 }
 
-class ProjectLeder extends Medarbejder {
+class ProjectLeader extends Medarbejder {
 
-	public ProjectLeder(String navn, String password) {
+	public ProjectLeader(String navn, String password) {
 		super(navn, password);
 		// TODO Auto-generated constructor stub
 	}

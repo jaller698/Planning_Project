@@ -20,7 +20,7 @@ public class Activity {
 	// project...
 	// can i do that in the constructor?
 	public Activity(String navn, int estTime, Project p) {
-		if(!p.getProjLeder().equals(Application.getCurrentActiveUser())) { /*choice 1 */
+		if(!p.getProjLeader().equals(Application.getCurrentActiveUser())) { /*choice 1 */
 			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");
 			return;
 		}

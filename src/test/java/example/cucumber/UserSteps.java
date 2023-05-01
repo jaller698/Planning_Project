@@ -48,8 +48,8 @@ public class UserSteps {
 	}
 	@Then("the project {string} has no project leader")
 	public void theProjectHasNoProjectLeader(String projname) {
-		Projekt p = StepDefinitions.app.projects.getProject(projname);
-		p.getProjLeder();
+		Project p = StepDefinitions.app.projects.getProject(projname);
+		p.getProjLeader();
 	}
 	
 	@Then("worker {string} has no assigned activities")

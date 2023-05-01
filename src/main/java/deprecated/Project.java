@@ -8,72 +8,80 @@ import javafx.beans.property.StringProperty;
 
 public class Project {
 	String navn;
-	ArrayList<Activity> Activityer = new ArrayList<Activity>();
+	ArrayList<Activity> Activities = new ArrayList<Activity>();
 	public int estTid;
-	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
-	public Medarbejder leder;
+	public ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
+	public Medarbejder Leader;
 	private int projID;
-	
+
 	public Project(String navn) {
 		this.navn=navn;
 		Application.projects.addProject(this);
 		setID();
-		leder = Application.getCurrentActiveUser();
+		Leader = Application.getCurrentActiveUser();
 		Application.getCurrentActiveUser().addProject(this);
 		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
 	}
-	public Project(String navn, Medarbejder leder, int estT) {
+
+	public Project(String navn, Medarbejder Leader, int estT) {
 		this.navn = navn;
 		Application.projects.addProject(this);
 		setID();
-		this.addProjectLeder(leder);
+		this.addProjectLeader(Leader);
 		this.estTid = estT;
-		Application.setConfirmationMSG("Successfully created project '"+this.navn+"'("+this.projID+")");
-	}
-	
-	public Project(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
-		this.navn=navn;
-		this.medarbejdere = medarbejdere;
+		Application.setConfirmationMSG("Successfully created project '" + this.navn + "'(" + this.projID + ")");
 	}
 
-	
+	public Project(String navn, int estT) {
+		this.navn = navn;
+		Application.projects.addProject(this);
+		setID();
+		this.estTid = estT;
+		Application.setConfirmationMSG("Successfully created project '" + this.navn + "'(" + this.projID + ")");
+	}
+
 	public String toString() {
 		return this.navn;
 	}
 	public void addActivity(Activity A) {
-		this.Activityer.add(A);
+		this.Activities.add(A);
 	}
-	public void getActivityer() {
-		for(Activity a : this.Activityer) {
+	public void getActivities() {
+		for(Activity a : this.Activities) {
 			System.out.println(a.navn);	
 		}
 	}
 	public Activity getActivity(String actName) {
-		for(Activity a : this.Activityer) {
+		for(Activity a : this.Activities) {
 			if(a.navn.equals(actName))
 				return a;
 		}
 		return null;
 	}
-	
-	public void addProjectLeder(Medarbejder m) {
-		//properties for den givne medarbejder
-		this.leder = m;
-		if(m != null)
+
+	public void addProjectLeader(Medarbejder m) {
+		// properties for den givne medarbejder
+		if (this.Leader == null) {
+			this.Leader = m;
 			m.addProject(this);
+		}else {
+			System.out.println("Project already has leader");
+		}
 	}
-	
-	//UI method
+
+	// UI method
 	public StringProperty getUIName() {
 		StringProperty ProjectName = new SimpleStringProperty(navn);
 		return ProjectName;
 	}
 	public ArrayList<Activity> getActivityList(){
-		return Activityer;
+		return Activities;
 	}
+
 	public int getID() {
 		return projID;
 	}
+
 	private void setID() {
 		String id = ""+ Application.projects.getProjectID(this);
 		switch (id.length()){   /* choice 1 */
@@ -88,24 +96,24 @@ public class Project {
 			default:
 				return;
 		}
-		projID = Integer.parseInt("" + Application.getYear() + id );
+		projID = Integer.parseInt("" + Application.getYear() + id);
 	}
-	public Medarbejder getProjLeder() {
-		return leder;
+	public Medarbejder getProjLeader() {
+		return Leader;
 	}
-	
+
 	public void assignActivity(String actName, Medarbejder workerToBeAssigned, Medarbejder actor) {
-		if ((workerToBeAssigned == actor || actor == leder) && leder == Application.getCurrentActiveUser()) {
+		if ((workerToBeAssigned == actor || actor == Leader) && Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);
 			if (getActivity(actName) != null)
 				getActivity(actName).addMedarbejder(workerToBeAssigned);
 		}
 	}
-	
+
 	public void removeActivity(String actName, Medarbejder actor) {
-		if (leder == Application.getCurrentActiveUser()) {
+		if (Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);
-			Activityer.remove(a);
+			Activities.remove(a);
 		}
 	}
 }

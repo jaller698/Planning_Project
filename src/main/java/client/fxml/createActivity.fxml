@@ -9,7 +9,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.fxml.StartController">
    <children>
       <Button fx:id="createAk" layoutX="431.0" layoutY="323.0" mnemonicParsing="false" onAction="#createAktivity" prefHeight="31.0" prefWidth="124.0" text="Create!" />
-      <Text layoutX="214.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medarbejdere? Kan ikke komme på en god måde at vælge dem på. Måske skal vi gøre det efter. Men personen der opretter bliver automatisk addet og kan add andre folk før en projektleder bliver valgt." wrappingWidth="346.791015625" />
       <TextField fx:id="ActivityNavn" layoutX="23.0" layoutY="90.0" />
       <Text layoutX="23.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activity navn" />
       <Text layoutX="77.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Est. tid" />
