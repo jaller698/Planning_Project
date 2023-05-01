@@ -7,7 +7,7 @@ import javafx.beans.property.StringProperty;
 
 public class Project {
 	String navn;
-	ArrayList<Activity> Activityer = new ArrayList<Activity>();
+	ArrayList<Activity> Activities = new ArrayList<Activity>();
 	public int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public Medarbejder Leader;
@@ -40,15 +40,15 @@ public class Project {
 		return this.navn;
 	}
 	public void addActivity(Activity A) {
-		this.Activityer.add(A);
+		this.Activities.add(A);
 	}
-	public void getActivityer() {
-		for(Activity a : this.Activityer) {
+	public void getActivities() {
+		for(Activity a : this.Activities) {
 			System.out.println(a.navn);	
 		}
 	}
 	public Activity getActivity(String actName) {
-		for(Activity a : this.Activityer) {
+		for(Activity a : this.Activities) {
 			if(a.navn.equals(actName))
 				return a;
 		}
@@ -68,7 +68,7 @@ public class Project {
 		return ProjectName;
 	}
 	public ArrayList<Activity> getActivityList(){
-		return Activityer;
+		return Activities;
 	}
 	public int getID() {
 		return projID;
@@ -104,7 +104,7 @@ public class Project {
 	public void removeActivity(String actName, Medarbejder actor) {
 		if (Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);
-			Activityer.remove(a);
+			Activities.remove(a);
 		}
 	}
 }
