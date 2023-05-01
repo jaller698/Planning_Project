@@ -57,11 +57,26 @@ public class StartController {
 	private Button logOut;
 	@FXML
 	public TextField projektNavn = new TextField();
+	
+	@FXML
+	private Button addLeader;
+	@FXML
+	private Button addL;
+	@FXML
+	private Button Cal;
 
+	@FXML
+	public ChoiceBox<Projekt> PP =  new ChoiceBox<Projekt>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+
+	
 	@FXML
 	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(
 			FXCollections.observableArrayList(app.workers.getAllUsers()));
 
+	@FXML
+	public ChoiceBox<Medarbejder> Emp = new ChoiceBox<Medarbejder>(
+			FXCollections.observableArrayList(app.workers.getAllUsers()));
+	
 	@FXML
 	TextField est = new TextField();
 	
@@ -86,24 +101,30 @@ public class StartController {
 	public void createAktivity() throws IOException {
 		new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
 		HelloFX.setRoot("projektview", ProjektViewController.class);
-		
-		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
-		
-		
-		
+	}
+	
+	
+	public void goAdd(ActionEvent e) throws IOException {
+		HelloFX.setRoot("Addlead", StartController.class);
+	}
+	
+	public void AddLeader() throws IOException {
+		PP.getValue().addProjektLeder(Emp.getValue());
+		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 
 	public void createProjekt() throws IOException {
 		// Application.alleProjekter.add(p);
 		int estTid = 0;
-		if (Integer.valueOf(est.getText()) != null)
+		if (Integer.valueOf(est.getText()) != null) {
 			 estTid = Integer.valueOf(est.getText());
+		}
 		if (leaderPick.getValue() != null) {
 			Projekt p = new Projekt(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
+			p.medarbejdere.add(app.getCurrentActiveUser());
 		}
 		else {
-			Projekt p = new Projekt(projektNavn.getText());
-			p.estTid = estTid;
+			Projekt p = new Projekt(projektNavn.getText(),estTid);
 		}
 
 		HelloFX.setRoot("Mainmenu", StartController.class);
@@ -216,8 +237,12 @@ public class StartController {
 	public void initialize() {
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
+		Emp.getItems().clear();
+		Emp.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
 		projectPick.getItems().clear();
 		projectPick.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+		PP.getItems().clear();
+		PP.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
 		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));

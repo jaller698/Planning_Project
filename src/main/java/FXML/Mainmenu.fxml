@@ -8,5 +8,6 @@
       <Button fx:id="logOut" layoutX="436.0" layoutY="22.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
       <Button fx:id="toProjektCreater" layoutX="233.0" layoutY="217.0" mnemonicParsing="false" onAction="#toProjektCreater" prefHeight="31.0" prefWidth="124.0" text="New Project" />
       <Button fx:id="viewprojects" layoutX="238.0" layoutY="270.0" mnemonicParsing="false" onAction="#viewProjects" text="View your projects" />
+      <Button fx:id="addLeader" layoutX="378.0" layoutY="220.0" mnemonicParsing="false" onAction="#goAdd" text="Add leader" />
    </children>
 </AnchorPane>
