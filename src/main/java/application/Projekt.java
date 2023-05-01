@@ -7,7 +7,7 @@ import javafx.beans.property.StringProperty;
 
 public class Projekt {
 	String navn;
-	ArrayList<Aktivitet> aktiviteter = new ArrayList<Aktivitet>();
+	ArrayList<Activity> Activityer = new ArrayList<Activity>();
 	public int estTid;
 	ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public Medarbejder leder;
@@ -39,16 +39,16 @@ public class Projekt {
 	public String toString() {
 		return this.navn;
 	}
-	public void addAktivitet(Aktivitet A) {
-		this.aktiviteter.add(A);
+	public void addActivity(Activity A) {
+		this.Activityer.add(A);
 	}
-	public void getAktiviteter() {
-		for(Aktivitet a : this.aktiviteter) {
+	public void getActivityer() {
+		for(Activity a : this.Activityer) {
 			System.out.println(a.navn);	
 		}
 	}
-	public Aktivitet getAktivitet(String actName) {
-		for(Aktivitet a : this.aktiviteter) {
+	public Activity getActivity(String actName) {
+		for(Activity a : this.Activityer) {
 			if(a.navn.equals(actName))
 				return a;
 		}
@@ -67,8 +67,8 @@ public class Projekt {
 		StringProperty ProjectName = new SimpleStringProperty(navn);
 		return ProjectName;
 	}
-	public ArrayList<Aktivitet> getActivityList(){
-		return aktiviteter;
+	public ArrayList<Activity> getActivityList(){
+		return Activityer;
 	}
 	public int getID() {
 		return projID;
@@ -95,16 +95,16 @@ public class Projekt {
 	
 	public void assignActivity(String actName, Medarbejder workerToBeAssigned, Medarbejder actor) {
 		if ((workerToBeAssigned == actor || actor == leder) && leder == Application.getCurrentActiveUser()) {
-			Aktivitet a = getAktivitet(actName);
-			if (getAktivitet(actName) != null)
-				getAktivitet(actName).addMedarbejder(workerToBeAssigned);
+			Activity a = getActivity(actName);
+			if (getActivity(actName) != null)
+				getActivity(actName).addMedarbejder(workerToBeAssigned);
 		}
 	}
 	
 	public void removeActivity(String actName, Medarbejder actor) {
 		if (leder == Application.getCurrentActiveUser()) {
-			Aktivitet a = getAktivitet(actName);
-			aktiviteter.remove(a);
+			Activity a = getActivity(actName);
+			Activityer.remove(a);
 		}
 	}
 }

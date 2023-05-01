@@ -73,7 +73,7 @@ public class StartController {
 	private Button createAk;
 	
 	@FXML
-	TextField aktivitetNavn = new TextField();
+	TextField ActivityNavn = new TextField();
 	@FXML
 	TextField estak = new TextField();
 	
@@ -84,10 +84,10 @@ public class StartController {
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		new Aktivitet(aktivitetNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
+		new Activity(ActivityNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
 		HelloFX.setRoot("projektview", ProjektViewController.class);
 		
-		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
+		//tilføj kode til at initialise med et projekt, samt derefter tilføje Activityen til projektet
 		
 		
 		
@@ -237,16 +237,16 @@ public class StartController {
 		projectPick.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 		/*
 		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
-		 * Projekt("3h")); h.p.get(0).addAktivitet(new Aktivitet("næbdyr0", 4755));
-		 * h.p.get(0).addAktivitet(new Aktivitet("næbdyr1", 565));
-		 * h.p.get(0).addAktivitet(new Aktivitet("næbdyr2", 34));
-		 * h.p.get(0).addAktivitet(new Aktivitet("næbdyr3", 32));
-		 * h.p.get(0).addAktivitet(new Aktivitet("næbdyr4", 32));
-		 * h.p.get(1).addAktivitet(new Aktivitet("fisk1", 789));
-		 * h.p.get(1).addAktivitet(new Aktivitet("fisk2", 456));
-		 * h.p.get(1).addAktivitet(new Aktivitet("fisk3", 258));
-		 * h.p.get(1).addAktivitet(new Aktivitet("fisk4", 1234));
-		 * h.p.get(1).addAktivitet(new Aktivitet("fisk5", 420)); l.p.add(new
+		 * Projekt("3h")); h.p.get(0).addActivity(new Activity("næbdyr0", 4755));
+		 * h.p.get(0).addActivity(new Activity("næbdyr1", 565));
+		 * h.p.get(0).addActivity(new Activity("næbdyr2", 34));
+		 * h.p.get(0).addActivity(new Activity("næbdyr3", 32));
+		 * h.p.get(0).addActivity(new Activity("næbdyr4", 32));
+		 * h.p.get(1).addActivity(new Activity("fisk1", 789));
+		 * h.p.get(1).addActivity(new Activity("fisk2", 456));
+		 * h.p.get(1).addActivity(new Activity("fisk3", 258));
+		 * h.p.get(1).addActivity(new Activity("fisk4", 1234));
+		 * h.p.get(1).addActivity(new Activity("fisk5", 420)); l.p.add(new
 		 * Projekt("1l")); l.p.add(new Projekt("2l")); l.p.add(new Projekt("3l"));
 		 */
 

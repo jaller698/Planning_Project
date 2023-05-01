@@ -13,7 +13,7 @@ public class Medarbejder {
 	private boolean admin;
 	private boolean projectLeader;
 	public ArrayList<Projekt> p = new ArrayList<Projekt>();
-	public ArrayList<Aktivitet> a = new ArrayList<Aktivitet>();
+	public ArrayList<Activity> a = new ArrayList<Activity>();
 
 	public Medarbejder(String navn, String password) {
 		this.navn = navn;
@@ -38,7 +38,7 @@ public class Medarbejder {
 		return p;
 	}
 
-	public ArrayList<Aktivitet> getPA() {
+	public ArrayList<Activity> getPA() {
 
 		return a;
 	}
@@ -47,12 +47,12 @@ public class Medarbejder {
 
 	}
 
-	public void addAktivitet(Aktivitet A) {
+	public void addActivity(Activity A) {
 		// fantastiske navne. Slet ikke forvirrende.
 		this.a.add(A);
 	}
 	
-	public Aktivitet getAktivitet(String actName) {
+	public Activity getActivity(String actName) {
 		for (int i = 0; i < a.size(); i++) {
 			if (a.get(i).navn.equals(actName))
 				return a.get(i);

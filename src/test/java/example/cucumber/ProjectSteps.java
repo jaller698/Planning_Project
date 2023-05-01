@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Aktivitet;
+import application.Activity;
 import application.Application;
 import application.Medarbejder;
 import application.Projekt;
@@ -18,15 +18,15 @@ public class ProjectSteps {
 	@Given("project {string} has an activity {string} registered")
 	public void projectHasAnActivityRegistered(String string, String string2) {
 		Projekt p = StepDefinitions.app.projects.getProject(string);
-		new Aktivitet(string2, 10, p);
-		assertTrue(p.getAktivitet(string2).navn == string2);
+		new Activity(string2, 10, p);
+		assertTrue(p.getActivity(string2).navn == string2);
 	}
 	
 	@Given("project {string} has an activity {string} registered with {int} hours allocated")
 	public void projectHasAnActivityRegisteredWithHoursAllocated(String string, String string2, Integer int1) {
 		Projekt p = StepDefinitions.app.projects.getProject(string);
-		new Aktivitet(string2, int1, p);
-		assertTrue(p.getAktivitet(string2).navn == string2);
+		new Activity(string2, int1, p);
+		assertTrue(p.getActivity(string2).navn == string2);
 	}
 	
 	@When("loggedin worker creates a project with the name {string}")
@@ -62,7 +62,7 @@ public class ProjectSteps {
 	@When("worker {string} joins activity {string} under project {string}")
 	public void workerJoinsActivityUnderProject(String name, String aName, String pName) {
 	    Projekt p = StepDefinitions.app.projects.getProject(pName);
-	    Aktivitet a = p.getAktivitet(aName);
+	    Activity a = p.getActivity(aName);
 	    Medarbejder M = StepDefinitions.app.workers.getUser(name);
 	    a.addMedarbejder(M);
 	}
@@ -70,6 +70,6 @@ public class ProjectSteps {
 	@Then("the project {string} has no activity named {string} under it")
 	public void theProjectHasNoActivityNamedUnderIt(String string, String string2) {
 		Projekt p = StepDefinitions.app.projects.getProject(string);
-		assertTrue(p.getAktivitet(string2) == null);
+		assertTrue(p.getActivity(string2) == null);
 	}
 }

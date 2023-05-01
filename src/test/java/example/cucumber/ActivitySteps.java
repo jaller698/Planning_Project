@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import application.Aktivitet;
+import application.Activity;
 import application.Application;
 import application.Medarbejder;
 import application.Projekt;
@@ -25,7 +25,7 @@ public class ActivitySteps {
 	@When("project leader {string} creates activity {string} with {int} hours given in project {string}")
 	public void projectLeaderCreatesActivityWithHoursGivenInProject(String employee, String actName, Integer estHours, String projName) {
 	    Projekt p = StepDefinitions.app.projects.getProject(projName);
-		new Aktivitet(actName,estHours,p);
+		new Activity(actName,estHours,p);
 	    
 	}
 	@Given("worker {string} is not registered as a project leader for the project {string}")
@@ -36,7 +36,7 @@ public class ActivitySteps {
 	@Then("the activity {string} with {int} hours allocated exists under project {string}")
 	public void theActivityWithHoursAllocatedExistsUnderProject(String actName, Integer estHours, String projName) {
 	    Projekt p = StepDefinitions.app.projects.getProject(projName);
-	    Aktivitet a = p.getAktivitet(actName);
+	    Activity a = p.getActivity(actName);
 	    assertTrue(a.navn.equals(actName));
 	    assertTrue(a.getEstHours() == estHours);
 	}
@@ -55,7 +55,7 @@ public class ActivitySteps {
 	
 	@When("project leader {string} edits the expected time of activity {string}, under project {string}, to {int} hours")
 	public void projectLeaderEditsTheExpectedTimeOfActivityUnderProjectToHours(String string, String string2, String string3, Integer int1) {
-		Aktivitet a = StepDefinitions.app.projects.getProject(string3).getAktivitet(string2);
+		Activity a = StepDefinitions.app.projects.getProject(string3).getActivity(string2);
 		Medarbejder m = StepDefinitions.app.workers.getUser(string);
 		
 		a.editActivity(int1);
@@ -71,7 +71,7 @@ public class ActivitySteps {
 	
 	@Then("worker {string} is assigned to activity {string}")
 	public void workerIsAssignedToActivity(String string, String string2) {
-		Aktivitet a = StepDefinitions.app.workers.getUser(string).getAktivitet(string2);
+		Activity a = StepDefinitions.app.workers.getUser(string).getActivity(string2);
 		if (a != null) {
 			assertTrue(a.navn.equals(string2));
 		} else {
@@ -83,13 +83,13 @@ public class ActivitySteps {
 	public void theWorkerAddsHoursToActivityUnderProject(String string, Integer int1, String string2, String string3) {
 		Medarbejder m = StepDefinitions.app.workers.getUser(string);
 		
-		StepDefinitions.app.projects.getProject(string3).getAktivitet(string2).addTime(int1, m);
+		StepDefinitions.app.projects.getProject(string3).getActivity(string2).addTime(int1, m);
 	}
 	
 	@Then("{int} hours is registered under worker {string} in activity {string}")
 	public void hoursIsRegisteredUnderWorkerInActivityOfProject(Integer int1, String string, String string2) {
 		Medarbejder m = StepDefinitions.app.workers.getUser(string);
 		
-		assertTrue(m.getAktivitet(string2).getTimeDoneByUser(m) == int1);
+		assertTrue(m.getActivity(string2).getTimeDoneByUser(m) == int1);
 	}
 }

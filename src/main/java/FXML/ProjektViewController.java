@@ -3,7 +3,7 @@ package FXML;
 import java.io.IOException;
 import java.util.ArrayList;
 import application.Application;
-import application.Aktivitet;
+import application.Activity;
 import application.HelloFX;
 import application.Medarbejder;
 import application.Projekt;
@@ -44,11 +44,11 @@ public class ProjektViewController {
 	// we can add multiple columns to out tableview, like estimated hours, estimated
 	// time of completion, percentage of progression.
 	@FXML
-	private TableView<Aktivitet> activityTable;
+	private TableView<Activity> activityTable;
 	@FXML
-	private TableColumn<Aktivitet, String> activityColumn;
+	private TableColumn<Activity, String> activityColumn;
 	@FXML
-	private TableColumn<Aktivitet, Integer> estHourColumn;
+	private TableColumn<Activity, Integer> estHourColumn;
 	@FXML
 	private TableView<Medarbejder> assignedEmplTable;
 	@FXML
@@ -56,9 +56,9 @@ public class ProjektViewController {
 
 	static ObservableList<Projekt> data = convertToOL(
 			Application.getCurrentActiveUser().p);
-	static ObservableList<Aktivitet> projectActivities;
+	static ObservableList<Activity> projectActivities;
 	static Projekt currentProject = null;
-	static Aktivitet currentActivity = null;
+	static Activity currentActivity = null;
 
 	public Button backToMain;
 
@@ -66,7 +66,7 @@ public class ProjektViewController {
 	
 	
 	public void createAk() throws IOException {
-		HelloFX.setRoot("createAktivitet", StartController.class);
+		HelloFX.setRoot("createActivity", StartController.class);
 
 	}
 	
@@ -125,9 +125,9 @@ public class ProjektViewController {
 		return o;
 	}
 
-	public static ObservableList<Aktivitet> projectActivities(ArrayList<Aktivitet> a) {
-		ObservableList<Aktivitet> o = FXCollections.observableArrayList();
-		for (Aktivitet A : a) {
+	public static ObservableList<Activity> projectActivities(ArrayList<Activity> a) {
+		ObservableList<Activity> o = FXCollections.observableArrayList();
+		for (Activity A : a) {
 			o.add(A);
 		}
 		return o;
@@ -163,7 +163,7 @@ public class ProjektViewController {
 		}
 	}
 
-	private void showActivityDetails(Aktivitet a) {
+	private void showActivityDetails(Activity a) {
 		if (a != null) {
 			activityLabel.setText(a.toString());
 			activityNumber.setText("117");
