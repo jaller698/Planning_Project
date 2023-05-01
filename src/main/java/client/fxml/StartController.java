@@ -104,12 +104,12 @@ public class StartController {
 		HelloFX.setRoot("Addlead", StartController.class);
 	}
 	
-	public void AddLeader() throws IOException {
+	public void AddLeader() throws IOException { // {Written by NA33AT0R}
 		PP.getValue().setProjectLeader(Emp.getValue());
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 
-	public void createProjekt() throws IOException {
+	public void createProjekt() throws IOException { // {Written by GaySupremacy}
 		int estTid = Integer.valueOf("0"+est.getText());
 		UserClient leaderpick = leaderPick.getValue();
 		
@@ -139,7 +139,7 @@ public class StartController {
 		}
 	}
 
-	public void logOut() throws IOException {
+	public void logOut() throws IOException { // {Written by NA33AT0R, GaySupremacy}
 		// sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et
 		// tjek for det. Det er mest bare så der ikke sker noget
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
@@ -152,7 +152,7 @@ public class StartController {
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
-	public static void confirmMSGPopup(ActionEvent e) {
+	public static void confirmMSGPopup(ActionEvent e) { // {Written by Jaller698}
 		alert.setAlertType(AlertType.INFORMATION);
 		alert.setHeaderText(Application.getConfirmationMSG());
 		alert.show();
@@ -170,7 +170,7 @@ public class StartController {
 		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 	}
 
-	public void go(ActionEvent e) throws IOException {
+	public void go(ActionEvent e) throws IOException { // {Written by GaySupremacy}
 		boolean checkSuccesful = false;
 		
 		String name = loginUsername.getText().toLowerCase();
@@ -217,19 +217,19 @@ public class StartController {
 
 	}
 
-	public void goMain(ActionEvent e) throws IOException {
+	public void goMain(ActionEvent e) throws IOException { // {Written by NA33AT0R}
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 
-	public void goToLogin(ActionEvent e) throws IOException {
+	public void goToLogin(ActionEvent e) throws IOException { // {Written by GaySupremacy}
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
-	public void goToSignup(ActionEvent e) throws IOException {
+	public void goToSignup(ActionEvent e) throws IOException { // {Written by GaySupremacy}
 		HelloFX.setRoot("Signuppage", StartController.class);
 	}
 
-	public void addUser(ActionEvent e) throws IOException {
+	public void addUser(ActionEvent e) throws IOException { // {Written by GaySupremacy}
 		String userName = signupUsername.getText();
 		String password = signupPassword.getText();
 		if(userName.isBlank()) {
@@ -302,13 +302,13 @@ public class StartController {
 	}
 
 	@FXML
-	private void handleButtonAction(ActionEvent event) throws IOException {
+	private void handleButtonAction(ActionEvent event) throws IOException { // {Written by GaySupremacy}
 		System.out.println("You clicked me!");
 		label.setText("Hello World!");
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
-	public void initialize() {
+	public void initialize() { // {Written by GaySupremacy}
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.serverAPI.userGetAllUsersAsList(app.getCurrentActiveSession())));
 		Emp.getItems().clear();
