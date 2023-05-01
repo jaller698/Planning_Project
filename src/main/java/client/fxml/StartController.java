@@ -85,7 +85,7 @@ public class StartController {
 	
 	public void createAktivity() throws IOException {
 		new ActivityClient(projectPick.getValue(), aktivitetNavn.getText(),Integer.valueOf(estak.getText()));
-		HelloFX.setRoot("projektview", ProjektViewController.class);
+		HelloFX.setRoot("projektview", ProjectViewController.class);
 		
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
 		
@@ -144,13 +144,13 @@ public class StartController {
 	public void toProjektCreater() throws IOException {
 		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
 
-		HelloFX.setRoot("ProjektCreater", StartController.class);
+		HelloFX.setRoot("ProjectCreater", StartController.class);
 		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
 
 	}
 
 	public void viewProjects() throws IOException {
-		HelloFX.setRoot("projektview", ProjektViewController.class);
+		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 	}
 
 	public void go(ActionEvent e) throws IOException {
