@@ -33,7 +33,6 @@ public class Projekt {
 	public Projekt(String navn, ArrayList<Medarbejder> medarbejdere, Medarbejder leder) {
 		this.navn=navn;
 		this.medarbejdere = medarbejdere;
-		//tilføj lederen på et tidspunkt
 	}
 
 	
@@ -76,13 +75,17 @@ public class Projekt {
 	}
 	private void setID() {
 		String id = ""+ Application.projects.getProjectID(this);
-		switch (id.length()){
+		switch (id.length()){   /* choice 1 */
 			case 1:
 				id= "00" + id;
 				break;
 			case 2: 
 				id="0"+id;
 				break;
+			case 3:
+				break;
+			default:
+				return;
 		}
 		projID = Integer.parseInt("" + Application.getYear() + id );
 	}
