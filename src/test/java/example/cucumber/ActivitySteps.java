@@ -5,9 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import client.ActivityClient;
 import client.Application;
+import client.ProjectClient;
+import client.UserClient;
 import server.ProjectSaveable;
 import server.ServerCore;
+import server.UserSaveable;
+import shared.AUser;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,20 +31,29 @@ public class ActivitySteps {
 	@When("project leader {string} creates activity {string} with {int} hours given in project {string}")
 	public void projectLeaderCreatesActivityWithHoursGivenInProject(String employee, String actName, Integer estHours, String projName) {
 	    String session = Application.getCurrentActiveSession();
-		ProjectClient project = Application.serverAPI.projectGetProject(session, estHours)
+		ProjectClient project = Application.serverAPI.projectGetProject(session, projName);
 	    
-	    
-		Projekt p = StepDefinitions.app.projects.getProject(projName);
-		new Aktivitet(actName,estHours,p);
-	    
+		ActivityClient activity = new ActivityClient(project, actName, estHours);
 	}
+	
 	@Given("worker {string} is not registered as a project leader for the project {string}")
 	public void workerIsNotRegisteredAsAProjectLeaderForTheProject(String employee, String projName) {
-	    Project p = StepDefinitions.app.projects.getProject(projName);
-	    p.addProjectLeader(new Medarbejder("Jens", "test123"));
+		String session = Application.getCurrentActiveSession();
+		UserSaveable user = ServerCore.users.getUser(ServerCore.sessions.getUserIDOfSession(session));
+		ProjectClient project = Application.serverAPI.projectGetProject(session, projName);
+		
+		//project.setProjectLeader(user);
+	    
+	    assertTrue(project.getProjectLeader()!= user);
 	}
-	@Then("the activity {string} with {int} hours allocated exists under project {string}")
+	
+	@Then("the activity {string} with {int} hours allocated exists under project {string}")	
 	public void theActivityWithHoursAllocatedExistsUnderProject(String actName, Integer estHours, String projName) {
+		ProjectSaveable project = ServerCore.projects.getProject(projName);
+		
+		
+		
+		
 	    Projekt p = StepDefinitions.app.projects.getProject(projName);
 	    Aktivitet a = p.getAktivitet(actName);
 	    assertTrue(a.navn.equals(actName));
