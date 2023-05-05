@@ -79,4 +79,11 @@ public class ProjectSteps {
 	    }
 	    Projekt p2 = new Projekt(Name);
 	}
+	@When("number {int} project titled {string} is created")
+	public void numberProjectTitledIsCreated(Integer no, String Name) {
+	    for(int i = 0; i<no; i++) {
+	    	Projekt p = new Projekt("test");
+	    }
+	    Projekt p2 = new Projekt(Name);
+	}
 }
