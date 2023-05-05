@@ -13,26 +13,30 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	public ProjectClient(String name, int estTime) { // {Written by GaySupremacy}
 		super(name, estTime);
 		
-		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
+		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
 	}
 	public ProjectClient(String name, int estTime, UserClient projectLeader) { // {Written by GaySupremacy}
 		super(name, estTime);
 		if (projectLeader != null)
 			this.projectLeader = projectLeader.getBase();
 		
-		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
+		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
 	}
 	
 	public ProjectClient(AProject project) { // {Written by Perry02}
 		super(project.getName(), project.getEstTime());
 		
-		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
+		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
 	}
 	
 	public ProjectClient(AProject project, UserClient projectLeader) { // {Written by Perry02}
 		super(project.getName(), project.getEstTime());
 		this.projectLeader = projectLeader.getBase();
 		
+		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
+	}
+	
+	public void setID() {
 		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
 	}
 	
