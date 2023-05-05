@@ -11,11 +11,8 @@ public class ProjectSaveable extends AProject implements IDataSaveable { // {Wri
 	}
 	
 	public ProjectSaveable(AProject project) {
-		super(project.getName(), project.getEstTime());	
-	}
-	
-	public ProjectSaveable(String name, int estTime) {
-		super(name, estTime);
+		super(project.getName(), project.getEstTime());
+		
 	}
 	
 	@Override

@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import client.Application;
-import server.ProjectSaveable;
-import server.ServerCore;
+import deprecated.Aktivitet;
+import deprecated.Medarbejder;
+import deprecated.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,19 +18,13 @@ public class ActivitySteps {
 
 	@Given("project {string} exists")
 	public void projectExists(String projname) {
-		ServerCore.projects.addProject(new ProjectSaveable(projname, 0));
-		
-		ProjectSaveable project = ServerCore.projects.getProject(projname);
-		assertTrue(project!= null);
+		new Projekt(projname);
+		Projekt p = StepDefinitions.app.projects.getProject(projname);
+		assertTrue( p!= null);
 	}
-	
 	@When("project leader {string} creates activity {string} with {int} hours given in project {string}")
 	public void projectLeaderCreatesActivityWithHoursGivenInProject(String employee, String actName, Integer estHours, String projName) {
-	    String session = Application.getCurrentActiveSession();
-		ProjectClient project = Application.serverAPI.projectGetProject(session, estHours)
-	    
-	    
-		Projekt p = StepDefinitions.app.projects.getProject(projName);
+	    Projekt p = StepDefinitions.app.projects.getProject(projName);
 		new Aktivitet(actName,estHours,p);
 	    
 	}
