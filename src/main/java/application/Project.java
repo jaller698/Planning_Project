@@ -45,11 +45,11 @@ public class Project {
 	public void addActivity(Activity A) {
 		this.Activities.add(A);
 	}
-	public void getActivities() {
-		for(Activity a : this.Activities) {
-			System.out.println(a.navn);	
-		}
-	}
+	//public void getActivities() {
+	//	for(Activity a : this.Activities) {
+	//		System.out.println(a.navn);	
+	//	}
+	//}
 	public Activity getActivity(String actName) {
 		for(Activity a : this.Activities) {
 			if(a.navn.equals(actName))
