@@ -45,18 +45,18 @@ public class Activity {
 		return estTime;
 	}
 	
-	public void editActivity(String navn) {
-		this.navn = navn;
-	}
+	//public void editActivity(String navn) {
+	//	this.navn = navn;
+	//}
 	
 	public void editActivity(int estTime) {
 		this.estTime = estTime;
 	}
 	
-	public void editActivity(String navn, int estTime) { // edit an activity after the fact
-		this.navn = navn;
-		this.estTime = estTime;
-	}
+	//public void editActivity(String navn, int estTime) { // edit an activity after the fact
+	//	this.navn = navn;
+	//	this.estTime = estTime;
+	//}
 	
 	public void addTime(int hours, Medarbejder user) { // add time to an activity
 		// get a userID to associate the time with
@@ -69,15 +69,15 @@ public class Activity {
 		addMedarbejder(user);
 	}
 	
-	public int getTimeDone() { //gets the total time done
-		int totalTime = 0;
-		
-		for (Iterator<Integer> iterator = timeWorked.keySet().iterator(); iterator.hasNext();) {
-			totalTime += (Integer) iterator.next();
-		}
-		
-		return totalTime;
-	}
+	//public int getTimeDone() { //gets the total time done
+	//	int totalTime = 0;
+	//	
+	//	for (Iterator<Integer> iterator = timeWorked.keySet().iterator(); iterator.hasNext();) {
+	//		totalTime += (Integer) iterator.next();
+	//	}
+	//	
+	//	return totalTime;
+	//}
 	
 	public int getTimeDoneByUser(Medarbejder user) { // gets the time done by a specific user
 		int userID = Application.workers.getUserID(user); 

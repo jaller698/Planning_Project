@@ -79,5 +79,15 @@ public class ProjectSteps {
 	    }
 	    Project p2 = new Project(Name);
 	}
+	@When("administrator creates a project with the name {string} and estimated time {int}")
+	public void administratorCreatesAProjectWithTheNameAndEstimatedTime(String projname, Integer estTime) {
+	    Project P = new Project(projname,estTime);
+	}
+
+	@When("administrator creates a project with the name {string}, with leader {string}, and estimated time {int}")
+	public void administratorCreatesAProjectWithTheNameWithLeaderAndEstimatedTime(String projname, String leader, Integer estTime) {
+	    Medarbejder m = StepDefinitions.app.workers.getUser(leader);
+	    Project P = new Project(projname,m,estTime);
+	}
 
 }
