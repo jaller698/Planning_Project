@@ -1,4 +1,4 @@
-package example.cucumber;
+package test.cucumber;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -72,4 +72,12 @@ public class ProjectSteps {
 		Project p = StepDefinitions.app.projects.getProject(string);
 		assertTrue(p.getActivity(string2) == null);
 	}
+	@When("number {int} project titled {string} is created")
+	public void numberProjectTitledIsCreated(Integer no, String Name) {
+	    for(int i = 0; i<no; i++) {
+	    	Project p = new Project("test");
+	    }
+	    Project p2 = new Project(Name);
+	}
+
 }

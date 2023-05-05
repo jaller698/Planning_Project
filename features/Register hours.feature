@@ -13,7 +13,7 @@ Feature: Register hours
 		Given project "Javis" has an activity "TileCreation" registered
 		When the worker "Greg" adds 10 hours to activity "TileCreation" under project "Javis"
 		Then 10 hours is registered under worker "Greg" in activity "TileCreation"
-#		And the message "Success" is returned
+		#And the message "Success" is returned
 
 #	Scenario: A worker registers hours spent on activity not created
 #		When the worker "Greg" adds 10 hours to activity "TileCreation" under project "Javis"
