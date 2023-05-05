@@ -114,11 +114,9 @@ public class StartController {
 		UserClient leaderpick = leaderPick.getValue();
 		
 		if (leaderpick != null) {
-			ProjectClient proj = new ProjectClient(projektNavn.getText(), estTid, leaderpick);
-			proj.setID();
+			new ProjectClient(projektNavn.getText(), estTid, leaderpick);
 		} else {
-			ProjectClient proj = new ProjectClient(projektNavn.getText(), estTid);
-			proj.setID();
+			new ProjectClient(projektNavn.getText(), estTid);
 		}
 		
 		
