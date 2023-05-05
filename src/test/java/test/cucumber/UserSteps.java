@@ -77,12 +77,14 @@ public class UserSteps {
 	public void isAssignedAnId(String name) {
 	    Medarbejder m = StepDefinitions.app.workers.getUser(name);
 	    int id = StepDefinitions.app.workers.getUserID(m);
+	    System.out.println(name + "id: " + id);
 	    assertTrue(id != -1);
 	}
 
 	@Then("{string} is not assigned an id")
 	public void isNotAssignedAnId(String name) {
 	    int id = StepDefinitions.app.workers.getUserID(m2);
+	    System.out.println(name + "id: " + id);
 	    assertTrue(id == -1);
 	}
 }

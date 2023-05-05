@@ -31,3 +31,4 @@ Feature: Whitebox test
   	When the user "Ole" is created
   	And the duplicate user "Ole" is created
   	Then "Ole" is not assigned an id
+  	
