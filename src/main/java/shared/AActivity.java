@@ -2,7 +2,7 @@ package shared;
 
 import java.util.HashMap;
 
-public class AActivity { // {Written by Jaller698, GaySupremacy and Perry02, refactored by Perry02 (Original file: aktivitet.java)}
+public abstract class AActivity { // {Written by Jaller698, GaySupremacy and Perry02, refactored by Perry02 (Original file: aktivitet.java)}
 	protected String name; // the activities name
 	public String getName() {return name;}
 	
@@ -16,7 +16,7 @@ public class AActivity { // {Written by Jaller698, GaySupremacy and Perry02, ref
 	
 	
 	
-	public AActivity(AProject project, String name, int estTime) { // {Written by GaySupremacy}
+	protected AActivity(AProject project, String name, int estTime) { // {Written by GaySupremacy}
 		this.name = name;
 		this.estTime = estTime;
 		this.project = project;
@@ -34,43 +34,12 @@ public class AActivity { // {Written by Jaller698, GaySupremacy and Perry02, ref
 	}
 	
 	// register hours to a user for this activity
-	public void RegisterHours(AUser user, int hours) { // {Written by Perry02}
-		user.AssignActivity(this);
-		WorkTimeUnit time = null;
-		
-		if (timeWorked.containsKey(user)) {
-			time = timeWorked.get(user);
-		} else {
-			time = new WorkTimeUnit(user);
-			timeWorked.put(user, time);
-		}
-		
-		time.AddTime(hours);
-	}
+	public abstract void RegisterHours(AUser user, int hours);
 	
-	public int GetTotalTime() { // {Written by Perry02}
-		int totalTime = 0;
-		
-		for (WorkTimeUnit timeUnit : timeWorked.values()) {
-			totalTime += timeUnit.GetTotalTime();
-		}
-		
-		return totalTime;
-	}
+	public abstract int GetTotalTime();
 	
-	public int GetTotalTime(AUser user) {  // {Written by Perry02}
-		return timeWorked.get(user).GetTotalTime();
-	}	
+	public abstract int GetTotalTime(AUser user);	
 	
 	// switches the project this is tied to
-	public void SwitchProject(AProject destination) { // {Written by Perry02}
-		System.out.println("Activity("+this+"): Switch from project: " + project+ " to " + destination);
-		
-		if (destination != project) {
-			AProject tempP = project;
-			project = destination;
-			tempP.MoveActivity(this, destination);
-			project.MoveActivity(this, destination);
-		}
-	}
+	public abstract void SwitchProject(AProject destination);
 }

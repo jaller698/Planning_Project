@@ -38,42 +38,13 @@ public abstract class AProject { // {Written by Jaller698, GaySupremacy and McQu
 	}
 	
 	// create an activity
-	public AActivity CreateActivity(String name, int estTime) { // {Written by Perry02}
-		AActivity activity = new AActivity(this, name, estTime);
-		
-		return activity;
-	}
+	public abstract AActivity CreateActivity(String name, int estTime);
 	
-	  // add a given activity to this project if it does not exist here
-	public void AddActivity(AActivity activity) { // {Written by GaySupremacy}
-		if (activity.getProject() == this) {
-			if (!activities.contains(activity)) {
-				activities.add(activity);
-			}
-		} else {
-			MoveActivity(activity, this);
-		}
-	}
+	// add a given activity to this project if it does not exist here
+	public abstract void AddActivity(AActivity activity);
 	
 	// moves an activity to another project
-	public void MoveActivity(AActivity activity, AProject destination) { // {Written by Perry02}
-		System.out.println("Project("+ this +"): Move activity from: " + activity + " to " + destination);
-		if (destination == this) {
-			if (activity.getProject() != destination) {
-				activity.getProject().MoveActivity(activity, destination);
-			} else {
-				activities.add(activity);
-			}
-			
-		} else if (activities.contains(activity)) {
-			activities.remove(activity);
-			if (activity.getProject() != destination) {
-				activity.SwitchProject(destination);
-			}
-		}
-	}
+	public abstract void MoveActivity(AActivity activity, AProject destination);
 	
-	public void RemoveActivity(AActivity activity) {
-		// TODO
-	}
+	public abstract void RemoveActivity(AActivity activity);
 }

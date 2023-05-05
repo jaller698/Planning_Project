@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.AActivity;
 import shared.AProject;
 import shared.AUser;
 
@@ -38,14 +39,39 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	}
 	*/
 	
-	public void setID() {
-		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
+	private ProjectClient(String name, int estTime) { // {Written by GaySupremacy}
+		super(name, estTime);
 	}
 	
 	@Override
 	public void setProjectLeader(AUser projectLeader) { // {Written by Perry02}
 		this.projectLeader = Application.serverAPI.projectAddProjectLeader(Application.getCurrentActiveSession(), this.id, projectLeader.getId());
 	}
+	
+	@Override
+	public AActivity CreateActivity(String name, int estTime) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void AddActivity(AActivity activity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void MoveActivity(AActivity activity, AProject destination) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void RemoveActivity(AActivity activity) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	
 	

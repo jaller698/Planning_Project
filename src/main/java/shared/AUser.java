@@ -29,49 +29,19 @@ public abstract class AUser { // {Written by GaySupremacy and Perry02, refactore
 	}
 	
 	// assign a project to this user
-	public void AssignProject(AProject project) { // {Written by GaySupremacy}
-		if (!projects.contains(project)) {
-			projects.add(project);
-		} else {
-			// TODO error 
-		}
-	}
+	public abstract void AssignProject(AProject project);
 	
 	// remove a project to this user
-	public void UnAssignProject(AProject project) { // {Written by GaySupremacy} 
-		projects.remove(project);
-	}
+	public abstract void UnAssignProject(AProject project);
 	
 	// assign an activity to this user
-	public void AssignActivity(AActivity activity) { // {Written by GaySupremacy}
-		AssignProject(activity.getProject());
-		
-		if (!activities.contains(activity)) {
-			activities.add(activity);
-		} else {
-			// TODO error
-		}
-	}
+	public abstract void AssignActivity(AActivity activity);
 	
 	// remove an activity to this user
-	public void UnAssignActivity(AActivity activity) { // {Written by Perry02}
-		activities.remove(activity);
-	}
+	public abstract void UnAssignActivity(AActivity activity);
 	
 	// register hours for an activity for this user
-	public void RegisterHours(AActivity activity, int hours) {  // {Written by GaySupremacy}
-		AssignActivity(activity);
-		
-		activity.RegisterHours(this, hours);
-	}
+	public abstract void RegisterHours(AActivity activity, int hours);
 	
-	public int GetTotalTime() { // {Written by Perry02}
-		int totalTime = 0;
-		
-		for (AActivity activity : activities) {
-			totalTime = activity.GetTotalTime(this);
-		}
-		
-		return totalTime;
-	}
+	public abstract int GetTotalTime();
 }

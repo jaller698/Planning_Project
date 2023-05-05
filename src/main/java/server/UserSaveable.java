@@ -2,6 +2,8 @@ package server;
 
 import client.Application;
 import server.database.IDataSaveable;
+import shared.AActivity;
+import shared.AProject;
 import shared.AUser;
 
 public class UserSaveable extends AUser implements IDataSaveable { // {Written by Jaller698 and Perry02, refactored by Perry02 (Original file: Medarbejder.java)}
@@ -15,6 +17,61 @@ public class UserSaveable extends AUser implements IDataSaveable { // {Written b
 		this.password = password;
 		id = ServerCore.users.addUser(this);
 	}
+	
+	// assign a project to this user
+	@Override
+	public void AssignProject(AProject project) { // {Written by GaySupremacy}
+		if (!projects.contains(project)) {
+			projects.add(project);
+		} else {
+			// TODO error 
+		}
+	}
+	
+	// remove a project to this user
+	@Override
+	public void UnAssignProject(AProject project) { // {Written by GaySupremacy} 
+		projects.remove(project);
+	}
+	
+	// assign an activity to this user
+	@Override
+	public void AssignActivity(AActivity activity) { // {Written by GaySupremacy}
+		AssignProject(activity.getProject());
+		
+		if (!activities.contains(activity)) {
+			activities.add(activity);
+		} else {
+			// TODO error
+		}
+	}
+	
+	// remove an activity to this user
+	@Override
+	public void UnAssignActivity(AActivity activity) { // {Written by Perry02}
+		activities.remove(activity);
+	}
+	
+	// register hours for an activity for this user
+	@Override
+	public void RegisterHours(AActivity activity, int hours) {  // {Written by GaySupremacy}
+		AssignActivity(activity);
+		
+		activity.RegisterHours(this, hours);
+	}
+	
+	@Override
+	public int GetTotalTime() { // {Written by Perry02}
+		int totalTime = 0;
+		
+		for (AActivity activity : activities) {
+			totalTime = activity.GetTotalTime(this);
+		}
+		
+		return totalTime;
+	}
+	
+	
 	
 	public static UserSaveable getUser(AUser user) { // {Written by Perry02}
 		return ServerCore.users.getUser(user.getId());
