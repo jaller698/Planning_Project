@@ -9,6 +9,7 @@ import shared.AProject;
 
 public class ActivityClient extends AActivity { // {Written by Jaller698, refactored by Perry02 (Original file: Aktivitet.java)}
 
+	/*
 	public ActivityClient(AProject project, String name, int estTime) { // {Written by Jaller698}
 		super(project, name, estTime);
 	}
@@ -20,7 +21,7 @@ public class ActivityClient extends AActivity { // {Written by Jaller698, refact
 	public ProjectClient getProjectClient() { // {Written by Perry02}
 		return (ProjectClient) project;
 	}
-	
+	*/
 	
 	
 	// UI method

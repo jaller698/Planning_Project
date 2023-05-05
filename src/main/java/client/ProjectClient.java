@@ -10,6 +10,7 @@ import shared.AUser;
 
 public class ProjectClient extends AProject { // {Written by Jaller698, GaySupremacy and McQueen24, refactored by Perry02 (Original file: Projekt.java)}
 
+	/*
 	public ProjectClient(String name, int estTime) { // {Written by GaySupremacy}
 		super(name, estTime);
 		
@@ -35,6 +36,7 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 		
 		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
 	}
+	*/
 	
 	public void setID() {
 		this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
