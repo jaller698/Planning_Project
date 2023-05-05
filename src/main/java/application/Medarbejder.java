@@ -21,31 +21,27 @@ public class Medarbejder {
 		Application.workers.addUser(this);
 	}
 
-	public boolean tjekLogin() {
-		return true;
-	}
+	//public boolean tjekLogin() {
+	//	return true;
+	//}
 
 	public String toString() {
 		return this.navn;
 	}
 
-	public void appointProjectleader(Project p, Medarbejder m) {
+	//public void appointProjectleader(Project p, Medarbejder m) {
 
-		p.addProjectLeader(this);
-	}
+	//	p.addProjectLeader(this);
+	//}
 
 	public ArrayList<Project> getProjects() {
 		return p;
 	}
 
-	public ArrayList<Activity> getPA() {
+	//public ArrayList<Activity> getPA() {
 
-		return a;
-	}
-
-	public void addWorkHours(int hours) {
-
-	}
+	//	return a;
+	//}
 
 	public void addActivity(Activity A) {
 		// fantastiske navne. Slet ikke forvirrende.
@@ -63,7 +59,7 @@ public class Medarbejder {
 	public void addProject(Project P) {
 		// fantastiske navne. Slet ikke forvirrende.
 		this.p.add(P);
-		System.out.println(P.toString() + "added to " + this.navn);
+		//System.out.println(P.toString() + "added to " + this.navn);
 
 	}
 
@@ -102,11 +98,3 @@ public class Medarbejder {
 	}
 }
 
-class ProjectLeader extends Medarbejder {
-
-	public ProjectLeader(String navn, String password) {
-		super(navn, password);
-		// TODO Auto-generated constructor stub
-	}
-
-}
