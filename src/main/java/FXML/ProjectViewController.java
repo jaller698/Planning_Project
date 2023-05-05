@@ -20,7 +20,7 @@ public class ProjectViewController {
 	Application app = Application.singleton();
 	@FXML
 	public Button refresh;
-	
+
 	@FXML
 	Button logout;
 	@FXML
@@ -38,6 +38,14 @@ public class ProjectViewController {
 	@FXML
 	private Label projectLeader;
 	@FXML
+	private Label projID;
+	@FXML
+	private Label projEstT;
+	@FXML
+	private Label thisID;
+	@FXML
+	private Label thisEstT;
+	@FXML
 	private TableView<Project> projectTable;
 	@FXML
 	private TableColumn<Project, String> NameColumn;
@@ -54,8 +62,7 @@ public class ProjectViewController {
 	@FXML
 	private TableColumn<Medarbejder, String> assignedEmplColumn;
 
-	static ObservableList<Project> data = convertToOL(
-			Application.getCurrentActiveUser().p);
+	static ObservableList<Project> data = convertToOL(Application.getCurrentActiveUser().p);
 	static ObservableList<Activity> projectActivities;
 	static Project currentProject = null;
 	static Activity currentActivity = null;
@@ -63,13 +70,12 @@ public class ProjectViewController {
 	public Button backToMain;
 
 	public Button toAK;
-	
-	
+
 	public void createAk() throws IOException {
 		HelloFX.setRoot("createActivity", StartController.class);
 
 	}
-	
+
 	public void backToMain() throws IOException {
 		HelloFX.setRoot("Mainmenu", StartController.class);
 
@@ -96,12 +102,11 @@ public class ProjectViewController {
 
 	}
 
-	public void initialize() {		
-		if(!data.isEmpty())
+	public void initialize() {
+		if (!data.isEmpty())
 			currentProject = data.get(0);
-		if(data != null)
-			data = convertToOL(
-					app.getCurrentActiveUser().p);
+		if (data != null)
+			data = convertToOL(app.getCurrentActiveUser().p);
 		projectTable.setItems(data);
 		activityTable.setItems(projectActivities);
 		welcome.setText("hej " + app.getCurrentActiveUser().p);
@@ -135,14 +140,16 @@ public class ProjectViewController {
 
 	private void showProjectDetails(Project p) {
 		if (p != null) {
-			//ERROR!!
-			
+			// ERROR!!
 
 			NameLabel.setText(p.toString());
 			projectLeader.setText(p.Leader.toString());
 			estHoursLabel.setText(Integer.toString(p.estTid));
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivityList());
+			thisID.setText("" + p.getID());;
+			thisEstT.setText("" + p.estTid);
+
 			activityTable.setItems(projectActivities);
 			if (!projectActivities.isEmpty()) {
 				currentActivity = projectActivities.get(0);
@@ -150,9 +157,7 @@ public class ProjectViewController {
 				currentActivity = null;
 			}
 
-				showActivityDetails(currentActivity);
-
-			
+			showActivityDetails(currentActivity);
 
 		} else {
 			NameLabel.setText("Project Name");
@@ -170,14 +175,12 @@ public class ProjectViewController {
 			estHoursLabel.setText("" + a.getEstHours());
 			cumHoursLabel.setText("");
 
-
 		} else {
 			activityLabel.setText("");
 			activityNumber.setText("");
 			estHoursLabel.setText("");
 			cumHoursLabel.setText("");
 		}
-		
 
 	}
 }
