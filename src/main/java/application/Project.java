@@ -60,10 +60,12 @@ public class Project {
 
 	public void addProjectLeader(Medarbejder m) {
 		// properties for den givne medarbejder
-		if (this.Leader == null) {
+		if (this.Leader == null || Application.getCurrentActiveUser().isAdmin() || Application.getCurrentActiveUser().equals(this.getProjLeader())) {
 			this.Leader = m;
-			m.addProject(this);
-		}else {
+			if(m != null)
+				m.addProject(this);
+		}
+		else {
 			System.out.println("Project already has leader");
 		}
 	}

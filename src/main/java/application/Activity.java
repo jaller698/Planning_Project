@@ -14,10 +14,7 @@ public class Activity {
 	public HashMap<Integer, Integer> timeWorked = new HashMap<Integer, Integer>(); // <>userID, hours>
 	public String navn;
 	public int estTime;
-
-	// creating a new aktivity has to automatically add said activity to the
-	// project...
-	// can i do that in the constructor?
+	
 	public Activity(String navn, int estTime, Project p) {
 		if(!p.getProjLeader().equals(Application.getCurrentActiveUser())) { /*choice 1 */
 			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");

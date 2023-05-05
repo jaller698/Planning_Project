@@ -75,15 +75,9 @@ public class ProjectSteps {
 	@When("number {int} project titled {string} is created")
 	public void numberProjectTitledIsCreated(Integer no, String Name) {
 	    for(int i = 0; i<no; i++) {
-	    	Projekt p = new Projekt("test");
+	    	Project p = new Project("test");
 	    }
-	    Projekt p2 = new Projekt(Name);
+	    Project p2 = new Project(Name);
 	}
-	@When("number {int} project titled {string} is created")
-	public void numberProjectTitledIsCreated(Integer no, String Name) {
-	    for(int i = 0; i<no; i++) {
-	    	Projekt p = new Projekt("test");
-	    }
-	    Projekt p2 = new Projekt(Name);
-	}
+
 }
