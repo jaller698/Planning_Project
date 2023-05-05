@@ -24,8 +24,7 @@ public class SessionManager implements ISessionsRegister { // {Written by Perry0
 	public String loginUser(String name, String password) { // {Written by Jaller698, refactored by Perry02}
 		System.out.println("SessionManager: loginUser step 1 - name: " + name + " - password: " + password);
 		if (!name.isBlank() && !password.isBlank()) {
-			//UserSaveable[] userOfName = ServerCore.users.getUser(name); // TODO name calling does not work currently
-			UserSaveable[] userOfName = ServerCore.users.getAllUsers();
+			UserSaveable[] userOfName = ServerCore.users.getUser(name); // TODO name calling does not work currently
 			
 			System.out.println("SessionManager: loginUser step 2 check users: " + userOfName.length);
 			
