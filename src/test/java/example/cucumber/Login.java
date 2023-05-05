@@ -3,10 +3,10 @@ package example.cucumber;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import client.Application;
-import deprecated.Medarbejder;
+import application.Application;
+import application.Medarbejder;
+import database.SessionManager;
 import io.cucumber.java.en.*;
-import server.SessionManager;
 
 public class Login {
 	int i = 0;
@@ -48,7 +48,7 @@ public class Login {
 	@Given("worker {int} is signed in")
 	public void workerIsSignedIn(Integer id) {
 		Medarbejder M = StepDefinitions.app.workers.getUser(--id);
-		StepDefinitions.app.setCurrentActiveSession(M);
+		StepDefinitions.app.setCurrentActiveUser(M);
 		assertTrue(StepDefinitions.sm.checkSession(M.navn));
 	}
 
