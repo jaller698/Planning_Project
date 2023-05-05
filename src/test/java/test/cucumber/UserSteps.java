@@ -1,4 +1,4 @@
-package example.cucumber;
+package test.cucumber;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertThat;
@@ -55,5 +55,34 @@ public class UserSteps {
 	@Then("worker {string} has no assigned activities")
 	public void workerHasNoAssignedActivities(String string) {
 		assertTrue(StepDefinitions.app.workers.getUser(string).a.size() == 0);
+	}
+	@Then("the message {string} is returned")
+	public void theMessageIsReturned(String string) {
+	    String msg = StepDefinitions.app.getConfirmationMSG();
+		System.out.println(string + msg);
+	    assertTrue(string.equals(msg));
+	}
+	
+	@When("the user {string} is created")
+	public void theUserIsCreated(String name) {
+	    Medarbejder m = new Medarbejder(name, "test123");
+	}
+	Medarbejder m2;
+	@When("the duplicate user {string} is created")
+	public void theDuplicateUserIsCreated(String name) {
+	    m2 = new Medarbejder(name, "test123");
+	}
+
+	@Then("{string} is assigned an id")
+	public void isAssignedAnId(String name) {
+	    Medarbejder m = StepDefinitions.app.workers.getUser(name);
+	    int id = StepDefinitions.app.workers.getUserID(m);
+	    assertTrue(id != -1);
+	}
+
+	@Then("{string} is not assigned an id")
+	public void isNotAssignedAnId(String name) {
+	    int id = StepDefinitions.app.workers.getUserID(m2);
+	    assertTrue(id == -1);
 	}
 }
