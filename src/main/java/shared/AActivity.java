@@ -13,6 +13,7 @@ public abstract class AActivity { // {Written by Jaller698, GaySupremacy and Per
 	public AProject getProject() {return project;}
 	
 	protected HashMap<AUser, WorkTimeUnit> timeWorked = new HashMap<AUser, WorkTimeUnit>();
+	public HashMap<AUser, WorkTimeUnit> getTimeWorked() {return new HashMap<AUser, WorkTimeUnit>(timeWorked);}
 	
 	
 	
@@ -20,8 +21,6 @@ public abstract class AActivity { // {Written by Jaller698, GaySupremacy and Per
 		this.name = name;
 		this.estTime = estTime;
 		this.project = project;
-		
-		project.AddActivity(this);
 	}
 	
 	public AActivity getBase() { // {Written by Perry02}
@@ -35,6 +34,8 @@ public abstract class AActivity { // {Written by Jaller698, GaySupremacy and Per
 	
 	// register hours to a user for this activity
 	public abstract void RegisterHours(AUser user, int hours);
+	
+	public abstract void editActivity(int hours);
 	
 	public abstract int GetTotalTime();
 	

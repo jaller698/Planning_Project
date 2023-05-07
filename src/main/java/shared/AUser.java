@@ -14,14 +14,17 @@ public abstract class AUser { // {Written by GaySupremacy and Perry02, refactore
 	
 	protected ArrayList<AActivity> activities = new ArrayList<AActivity>(); // the users activities
 	public ArrayList<AActivity> getActivities() {return activities;} // {Written by GaySupremacy}
-	
+	public AActivity getActivities(String name) {
+		for (AActivity aActivity : activities) {
+			if (aActivity.getName().equals(name)) {
+				return aActivity;
+			}
+		}
+		return null;
+	}
 	
 	
 	protected AUser() {}
-	
-	public AUser getBase() { // {Written by Perry02}
-		return this;
-	}
 	
 	@Override
 	public String toString() { // {Written by GaySupremacy}
@@ -35,7 +38,7 @@ public abstract class AUser { // {Written by GaySupremacy and Perry02, refactore
 	public abstract void UnAssignProject(AProject project);
 	
 	// assign an activity to this user
-	public abstract void AssignActivity(AActivity activity);
+	public abstract AActivity AssignActivity(AActivity activity);
 	
 	// remove an activity to this user
 	public abstract void UnAssignActivity(AActivity activity);

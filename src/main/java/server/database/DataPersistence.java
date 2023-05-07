@@ -111,7 +111,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 
 	@Override
 	public int addProject(ProjectSaveable project) {
-		if (allProjects.containsValue(project)) { // check for duplicates
+		if (allProjects.containsValue(project) || projectIDs.containsKey(project.getName())) { // check for duplicates
 			return -1;
 		}
 		
@@ -122,19 +122,19 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 		
 		project.SetId(newID);
 		allProjects.put(newID, project); // add a new project under the ID
-		projectIDs.put(project.toString(), newID); // caches project id for a its name
+		projectIDs.put(project.getName(), newID); // caches project id for a its name
 		return newID;
 	}
 
 	@Override
 	public void addProject(ProjectSaveable project, Integer id) {
-		if (allProjects.containsValue(project)) { // check for duplicates
+		if (allProjects.containsValue(project) || projectIDs.containsKey(project.getName())) { // check for duplicates
 			return;
 		}
 		
 		project.SetId(id);
 		allProjects.put(id, project); // adds a project with the given key
-		projectIDs.put(project.toString(), id); // caches project id for a its name
+		projectIDs.put(project.getName(), id); // caches project id for a its name
 	}
 
 	@Override

@@ -39,19 +39,34 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	}
 	*/
 	
-	private ProjectClient(String name, int estTime) { // {Written by GaySupremacy}
-		super(name, estTime);
+	public ProjectClient(AProject project) { // {Written by GaySupremacy}
+		super(project.getName(), project.getEstTime());
+		
+		this.id = project.getId();
+		this.projectLeader = project.getProjectLeader();
+		this.activities = project.getActivities();
 	}
+	
+	
 	
 	@Override
 	public void setProjectLeader(AUser projectLeader) { // {Written by Perry02}
-		this.projectLeader = Application.serverAPI.projectAddProjectLeader(Application.getCurrentActiveSession(), this.id, projectLeader.getId());
+		if (projectLeader == null) {
+			this.projectLeader = Application.serverAPI.projectAddProjectLeader(Application.getCurrentActiveSession(), this.id, null);;
+		} else {
+			this.projectLeader = Application.serverAPI.projectAddProjectLeader(Application.getCurrentActiveSession(), this.id, projectLeader.getId());
+		}
 	}
 	
 	@Override
 	public AActivity CreateActivity(String name, int estTime) {
-		// TODO Auto-generated method stub
-		return null;
+		ActivityClient activity = Application.serverAPI.activityAddNewActivity(Application.getCurrentActiveSession(), name, estTime, id);
+		if (activity == null)
+			return null;
+		
+		activities.add(activity);
+		
+		return activity;
 	}
 
 	@Override
@@ -68,8 +83,9 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 
 	@Override
 	public void RemoveActivity(AActivity activity) {
-		// TODO Auto-generated method stub
-		
+		if (Application.serverAPI.activityRemoveActivity(Application.getCurrentActiveSession(), new ActivityClient(activity))) {
+			activities.remove(activity);
+		}
 	}
 	
 	

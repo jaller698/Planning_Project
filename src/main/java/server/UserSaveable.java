@@ -9,6 +9,7 @@ import shared.AUser;
 public class UserSaveable extends AUser implements IDataSaveable { // {Written by Jaller698 and Perry02, refactored by Perry02 (Original file: Medarbejder.java)}
 	private boolean admin;
 	private String password;
+	public String getPassword() {return password;} // for use in tests
 
 	public UserSaveable(String name, String password) {
 		super();
@@ -18,6 +19,13 @@ public class UserSaveable extends AUser implements IDataSaveable { // {Written b
 		id = ServerCore.users.addUser(this);
 	}
 	
+	public UserSaveable(AUser user) {
+		this.name = user.getName();
+		this.id = user.getId();
+		this.projects = user.getProjects();
+		this.activities = user.getActivities();
+	}
+
 	// assign a project to this user
 	@Override
 	public void AssignProject(AProject project) { // {Written by GaySupremacy}
@@ -36,13 +44,14 @@ public class UserSaveable extends AUser implements IDataSaveable { // {Written b
 	
 	// assign an activity to this user
 	@Override
-	public void AssignActivity(AActivity activity) { // {Written by GaySupremacy}
+	public AActivity AssignActivity(AActivity activity) { // {Written by GaySupremacy}
 		AssignProject(activity.getProject());
 		
 		if (!activities.contains(activity)) {
 			activities.add(activity);
+			return activity;
 		} else {
-			// TODO error
+			return null;
 		}
 	}
 	

@@ -2,6 +2,7 @@ package shared;
 
 import java.util.ArrayList;
 
+import client.Application;
 import shared.AUser;
 
 public abstract class AProject { // {Written by Jaller698, GaySupremacy and McQueen24, refactored by Perry02 (Original file: Projekt.java)}
@@ -20,6 +21,14 @@ public abstract class AProject { // {Written by Jaller698, GaySupremacy and McQu
 	
 	protected ArrayList<AActivity> activities = new ArrayList<AActivity>(); // the activities tied to this project
 	public ArrayList<AActivity> getActivities() {return activities;}
+	public AActivity getActivities(String name) {
+		for (AActivity aActivity : activities) {
+			if (aActivity.getName().equals(name)) {
+				return aActivity;
+			}
+		}
+		return null;
+	}
 	
 
 	
@@ -28,13 +37,26 @@ public abstract class AProject { // {Written by Jaller698, GaySupremacy and McQu
 		this.estTime = estTime;
 	}
 	
-	public AProject getBase() { // {Written by Perry02}
-		return this;
-	}
-	
 	@Override
 	public String toString() { // {Written by GaySupremacy}
 		return "("+id+")"+name;
+	}
+	
+	public int getID() {
+		String _id = this.id.toString();
+		switch (_id.length()){   /* choice 1 */
+			case 1:
+				_id= "00" + _id;
+				break;
+			case 2: 
+				_id="0"+_id;
+				break;
+			case 3:
+				break;
+			default:
+				return -1;
+		}
+		return Integer.parseInt("" + Application.getYear() + _id);
 	}
 	
 	// create an activity

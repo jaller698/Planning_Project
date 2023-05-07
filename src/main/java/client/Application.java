@@ -8,7 +8,7 @@ import shared.networking.*;
 
 public final class Application { // {Written by Jaller698 and Perry02}
 	private final static Application singleton = new Application();
-	private static ServerCore backendServer;
+	private static ServerCore backendServer = ServerCore.singleton();
 
 	private static String currentSession;
 	private static String ConfirmationMSG;

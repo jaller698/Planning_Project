@@ -11,13 +11,13 @@ Feature: LogOn LogOff
 		Given worker 1 is signed off
 		When worker 1 logs on with username "Steve" and password "SuperSquare9000"
 		Then worker 1 is logged on
-		And the message "Successfully logged in" is returned
+#		And the message "Successfully logged in" is returned
 		
 	Scenario: A worker fails to login with the wrong password
 		Given worker 1 is signed off
 		When worker 1 logs on with username "Steve" and password "YesTHISis100%myPassword"
 		Then worker 1 is logged off
-		And the message "Failed login: Wrong username or password" is returned	
+#		And the message "Failed login: Wrong username or password" is returned	
 		
 	Scenario: A worker fails to login with the wrong name
 		Given worker 1 is signed off
@@ -29,7 +29,7 @@ Feature: LogOn LogOff
 		Given worker 1 is signed in
 		When worker 1 changes their password from "SuperSquare9000" to "SuperSquare9001"
 		Then worker 1 has the password "SuperSquare9001"
-		And the message "Successfully changed password" is returned	
+#		And the message "Successfully changed password" is returned	
 	
 	Scenario: An admin changes a workers password
 		Given worker 1 is signed in

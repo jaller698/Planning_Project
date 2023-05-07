@@ -16,7 +16,12 @@ public class UserClient extends AUser { // {Written by Jaller698, refactored by 
 		this.activities = user.getActivities();
 	}	
 	*/
-	private UserClient() {}
+	public UserClient(AUser user) {
+		this.name = user.getName();
+		this.id = user.getId();
+		this.projects = user.getProjects();
+		this.activities = user.getActivities();
+	}
 	
 	@Override
 	public void AssignProject(AProject project) {
@@ -31,9 +36,15 @@ public class UserClient extends AUser { // {Written by Jaller698, refactored by 
 	}
 
 	@Override
-	public void AssignActivity(AActivity activity) {
-		// TODO Auto-generated method stub
+	public AActivity AssignActivity(AActivity activity) {
 		
+		AActivity _activity = Application.serverAPI.activityAssignUsertoActivity(Application.getCurrentActiveSession(), new ActivityClient(activity), this);
+		if (_activity == null) {
+			return null;
+		}
+		
+		activities.add(_activity);
+		return _activity;
 	}
 
 	@Override

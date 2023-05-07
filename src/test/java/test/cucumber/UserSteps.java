@@ -1,89 +1,100 @@
 package test.cucumber;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import client.Application;
-import client.fxml.StartController;
-import deprecated.Medarbejder;
-import deprecated.Projekt;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import server.ProjectSaveable;
+import server.ServerCore;
+import server.UserSaveable;
+import shared.AUser;
 
 
 public class UserSteps {	
 	@Given("a worker {string} is registered")
-	public void aWorkerIsRegistered(String s) throws Exception {
-		Medarbejder newWorker = new Medarbejder(
-		s, // User name
-		"Cucumber123" // Password
-		);
-		StepDefinitions.app.workers.addUser(newWorker);
-		
-		assertTrue(StepDefinitions.app.workers.getUser(s).navn.equals(newWorker.navn));
-	    //throw new io.cucumber.java.PendingException("the user register is missing an {int} identifier");
+	public void aWorkerIsRegistered(String userName) throws Exception {
+		Application.serverAPI.userSignUp(
+				userName, // User name
+				userName+"password" // Password
+				);
+
+		assertTrue(ServerCore.users.getUser(userName)[0].getName().equals(userName));
 	}
 	
 	@Given("worker {string} is signed in")
-	public void workerIsSignedIn(String employee) {
-		Medarbejder m = StepDefinitions.app.workers.getUser(employee);
-		StepDefinitions.app.setCurrentActiveSession(m);
-	    assertTrue(StepDefinitions.app.getCurrentActiveSession().navn.equals(employee));
+	public void workerIsSignedIn(String userName) {
+		UserSaveable user = ServerCore.users.getUser(userName)[0];
+		String session = Application.serverAPI.userLogIn(userName, user.getPassword());
+		
+		Application.setCurrentActiveSession(session);
+		
+	    assertTrue(ServerCore.users.getUser(ServerCore.sessions.getUserIDOfSession(session)).getName().equals(userName));
 	}
+	
 	@Given("worker {string} is registered as an admin")
-	public void workerIsRegisteredAsAnAdmin(String employee) {
-		Medarbejder m = StepDefinitions.app.workers.getUser(employee);
-		m.setAdmin(true);
-		assertTrue(m.isAdmin());
+	public void workerIsRegisteredAsAnAdmin(String userName) {
+		UserSaveable user = ServerCore.users.getUser(userName)[0];
+		user.setAdmin(true);
+
+		assertTrue(user.isAdmin());
 	}
-	@Given("worker {string} is a project leader")
-	public void workerIsAProjectLeader(String employee) {
-	    Medarbejder m = StepDefinitions.app.workers.getUser(employee);
-	    m.setProjectLeader(true);
-	    assertTrue(m.isProjectleader());
-	}
+	
+	
+	
 	@Then("the project {string} has no project leader")
 	public void theProjectHasNoProjectLeader(String projname) {
-		Project p = StepDefinitions.app.projects.getProject(projname);
-		p.getProjLeader();
+		ProjectSaveable proj = ServerCore.projects.getProject(projname);
+		UserSaveable leader = (UserSaveable) proj.getProjectLeader();
+		
+		assertTrue(leader == null);
 	}
 	
 	@Then("worker {string} has no assigned activities")
-	public void workerHasNoAssignedActivities(String string) {
-		assertTrue(StepDefinitions.app.workers.getUser(string).a.size() == 0);
+	public void workerHasNoAssignedActivities(String userName) {
+		UserSaveable user = ServerCore.users.getUser(userName)[0];
+
+		assertTrue(user.getActivities().isEmpty());
 	}
+	
 	@Then("the message {string} is returned")
 	public void theMessageIsReturned(String string) {
-	    String msg = StepDefinitions.app.getConfirmationMSG();
+	    String msg = Application.getConfirmationMSG();
 		System.out.println(string + msg);
 	    assertTrue(string.equals(msg));
 	}
 	
 	@When("the user {string} is created")
-	public void theUserIsCreated(String name) {
-	    Medarbejder m = new Medarbejder(name, "test123");
+	public void theUserIsCreated(String userName) {
+		Application.serverAPI.userSignUp(
+				userName, // User name
+				userName+"password" // Password
+				);
 	}
-	Medarbejder m2;
+	
+	AUser m2;
 	@When("the duplicate user {string} is created")
-	public void theDuplicateUserIsCreated(String name) {
-	    m2 = new Medarbejder(name, "test123");
+	public void theDuplicateUserIsCreated(String userName) {
+		m2 = Application.serverAPI.userSignUp(
+				userName, // User name
+				userName+"password" // Password
+				);
 	}
 
 	@Then("{string} is assigned an id")
-	public void isAssignedAnId(String name) {
-	    Medarbejder m = StepDefinitions.app.workers.getUser(name);
-	    int id = StepDefinitions.app.workers.getUserID(m);
-	    System.out.println(name + "id: " + id);
+	public void isAssignedAnId(String userName) {
+		UserSaveable user = ServerCore.users.getUser(userName)[0];
+		int id = ServerCore.users.getUserID(user);
+		
+	    System.out.println(userName + "id: " + id);
 	    assertTrue(id != -1);
 	}
 
 	@Then("{string} is not assigned an id")
 	public void isNotAssignedAnId(String name) {
-	    int id = StepDefinitions.app.workers.getUserID(m2);
+		
+	    int id = ServerCore.users.getUserID(new UserSaveable(m2));
 	    System.out.println(name + "id: " + id);
 	    assertTrue(id == -1);
 	}

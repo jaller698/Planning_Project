@@ -14,6 +14,14 @@ public class ActivitySaveable extends AActivity implements IDataSaveable { // {W
 
 	
 	
+	public ActivitySaveable(AActivity activity) {
+		super(activity.getProject(), activity.getName(), activity.getEstTime());
+		
+		this.timeWorked = activity.getTimeWorked();
+	}
+
+
+
 	// switches the project this is tied to
 	@Override
 	public void SwitchProject(AProject destination) { // {Written by Perry02}
@@ -57,5 +65,12 @@ public class ActivitySaveable extends AActivity implements IDataSaveable { // {W
 	@Override
 	public int GetTotalTime(AUser user) {  // {Written by Perry02}
 		return timeWorked.get(user).GetTotalTime();
+	}
+
+
+
+	@Override
+	public void editActivity(int hours) {
+		this.estTime = hours;
 	}	
 }

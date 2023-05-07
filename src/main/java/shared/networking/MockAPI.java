@@ -7,9 +7,11 @@ import client.ActivityClient;
 import client.Application;
 import client.ProjectClient;
 import client.UserClient;
+import server.ActivitySaveable;
 import server.ProjectSaveable;
 import server.ServerCore;
 import server.UserSaveable;
+import shared.AActivity;
 
 public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02, Jaller698}
 	
@@ -48,6 +50,14 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		UserClient user = new UserClient(ServerCore.users.getUser(userID));
 		System.out.println("user: " + user);
 		return user;
+	}
+	
+	@Override
+	public UserClient userGetUserOfSession(String session) { // {Written by Perry02}
+		if (!ServerCore.sessions.checkSession(session))
+			return null;
+
+		return new UserClient(ServerCore.users.getUser(ServerCore.sessions.getUserIDOfSession(session)));
 	}
 
 	@Override
@@ -115,16 +125,6 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		
 		return ServerCore.sessions.checkIfUserIsActive(userID);
 	}
-
-	@Override
-	public Boolean userUpdateProfile(String session, String name) { // {Written by Perry02}
-		return userUpdateProfile(session, ServerCore.sessions.getUserIDOfSession(session), name, null);
-	}
-
-	@Override
-	public Boolean userUpdateProfile(String session, String name, String password) { // {Written by Perry02}
-		return userUpdateProfile(session, ServerCore.sessions.getUserIDOfSession(session), name, password);
-	}
 	
 	@Override
 	public Boolean userUpdateProfile(String session, int userIDTarget, String name, String password) { // {Written by Jaller698 (Originally from Application.java)}
@@ -167,32 +167,27 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		System.out.println("failed to remove: " + userID);
 		return false;
 	}
-
+	
 	@Override
-	public Integer projectAddNewProject(String session, ProjectClient project) { // {Written by Perry02}
-		System.out.println("API: projectAddNewProject: " + project.toString());
+	public ProjectClient projectAddNewProject(String session, String name, int estTime, UserClient projectLeader) {
 		if (!ServerCore.sessions.checkSession(session))
-			return -1;
+			return null;
 		
-		int id = ServerCore.projects.addProject(new ProjectSaveable(project));
+		ProjectSaveable project = new ProjectSaveable(name, estTime);
 		
-		System.out.println("API: projectAddNewProject saved project as " + project.toString());
-		return id;
-	}
-
-	@Override
-	public void projectAddNewProject(String session, ProjectClient project, Integer projectID) { // {Written by Perry02}
-		System.out.println("API: projectAddNewProject: " + project.toString() + " under id: " + projectID);
-		if (!ServerCore.sessions.checkSession(session))
-			return;
+		if (projectLeader != null) {
+			UserSaveable user = ServerCore.users.getUser(projectLeader.getId());
+			project.setProjectLeader(user);
+		}
 		
-		System.out.println("API: projectAddNewProject saved project as " + project.toString());
-		ServerCore.projects.addProject(new ProjectSaveable(project), projectID);
+		ServerCore.projects.addProject(project);
+		
+		return new ProjectClient(project);
 	}
 
 	@Override
 	public ProjectClient projectGetProject(String session, Integer projectID) { // {Written by Perry02}
-		System.out.println("API: projectGetProject");
+		System.out.println("API: projectGetProject by id: " + projectID);
 		if (!ServerCore.sessions.checkSession(session))
 			return null;
 		
@@ -201,8 +196,12 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	
 	@Override
 	public ProjectClient projectGetProject(String session, String projectName) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("API: projectGetProject by name: " + projectName);
+		if (!ServerCore.sessions.checkSession(session))
+			return null;
+		
+		
+		return new ProjectClient(ServerCore.projects.getProject(projectName));
 	}
 
 	@Override
@@ -249,25 +248,15 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 			return null;
 		
 		ProjectSaveable project = ServerCore.projects.getProject(projectID);
-		UserSaveable user = ServerCore.users.getUser(userID);
+		if (userID == null) {
+			project.setProjectLeader(null);
+			return null;
+		}
 		
+		UserSaveable user = ServerCore.users.getUser(userID);
 		project.setProjectLeader(user);
 		
 		return new UserClient(user);		
-	}
-
-	@Override
-	public Boolean projectAddUserToProject(String session, Integer projectID) {
-		System.out.println("API: projectAddUserToProject TODO");
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean projectAddUserToProject(String session, Integer projectID, Integer userID) {
-		System.out.println("API: projectAddUserToProject TODO");
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -285,38 +274,71 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 
 	@Override
-	public void activityAddNewActivity(String session, ActivityClient activity, Integer projectID) {
-		System.out.println("API: activityAddNewActivity TODO");
-		// TODO Auto-generated method stub
+	public ActivityClient activityAddNewActivity(String session, String name, Integer estTime, Integer projectID) {
+		System.out.println("API: activityAddNewActivity");
+		if (!ServerCore.sessions.checkSession(session))
+			return null;
 		
+		ProjectSaveable project = ServerCore.projects.getProject(projectID);
+		
+		project.CreateActivity(name, estTime);
+		
+		return new ActivityClient(project.CreateActivity(name, estTime));
 	}
 
 	@Override
-	public void activityAddNewActivity(String session, ActivityClient activity, ProjectClient project) {
-		System.out.println("API: activityAddNewActivity TODO");
-		// TODO Auto-generated method stub
+	public ActivityClient activityAssignUsertoActivity(String session, ActivityClient activity, UserClient user) {
+		System.out.println("API: activityAssignUsertoActivity");
+		if (!ServerCore.sessions.checkSession(session))
+			return null;
 		
+		AActivity _activity = ServerCore.projects.getProject(activity.getProject().getName()).getActivities(activity.getName());
+		
+		UserSaveable _user = ServerCore.users.getUser(user.getId());
+		_user.AssignActivity(_activity);
+		
+		return activity;
+	}
+	
+	@Override
+	public ActivityClient activityEditActivity(String session, ActivityClient activity, String name, Integer estTime) {
+		if (!ServerCore.sessions.checkSession(session))
+			return null;
+		
+		AActivity _activity = ServerCore.projects.getProject(activity.getProject().getId()).getActivities(activity.getName());
+		
+		if (_activity == null)
+			return null;
+		
+		_activity.editActivity(estTime);
+		
+		return new ActivityClient(_activity);
 	}
 
 	@Override
-	public void activityAssignUsertoActivity(String session, ActivityClient activity, UserClient user) {
-		System.out.println("API: activityAssignUsertoActivity TODO");
-		// TODO Auto-generated method stub
+	public int activityUserAddTime(String session, ActivityClient activity, Integer time) {
+		System.out.println("API: activityUserAddTime");
+		if (!ServerCore.sessions.checkSession(session))
+			return -1;
 		
-	}
+		AActivity _activity = ServerCore.projects.getProject(activity.getProject().getId()).getActivities(activity.getName());
+		
+		_activity.RegisterHours(ServerCore.users.getUser(ServerCore.sessions.getUserIDOfSession(session)), time);
 
-	@Override
-	public int activityUserAddTime(String session, String activityID, Integer time) {
-		System.out.println("API: activityUserAddTime TODO");
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public Boolean activityRemoveActivity(String session, ActivityClient activity) {
-		System.out.println("API: activityRemoveActivity TODO");
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("API: activityRemoveActivity");
+		if (!ServerCore.sessions.checkSession(session))
+			return false;
+		
+		ProjectSaveable project = ServerCore.projects.getProject(activity.getProject().getId());
+		
+		project.RemoveActivity(activity);
+		
+		return true;
 	}
 	
 	

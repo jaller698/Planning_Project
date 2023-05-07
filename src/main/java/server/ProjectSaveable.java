@@ -15,6 +15,8 @@ public class ProjectSaveable extends AProject implements IDataSaveable { // {Wri
 		super(name, estTime);
 	}
 	
+	
+	
 	public void SetId(int id) {
 		this.id = id;
 	}
@@ -27,8 +29,18 @@ public class ProjectSaveable extends AProject implements IDataSaveable { // {Wri
 	// create an activity
 	@Override
 	public AActivity CreateActivity(String name, int estTime) {
-		// TODO Auto-generated method stub
-		return null;
+		ActivitySaveable activity = new ActivitySaveable(this, name, estTime);
+		
+		for (AActivity aActivity : activities) {
+			if (aActivity.getName() == activity.getName())
+				return aActivity;
+		}
+		
+		if (!activities.contains(activity)) {
+			activities.add(activity);
+		}
+		
+		return activity;
 	}
 	
 	// add a given activity to this project if it does not exist here
@@ -64,7 +76,8 @@ public class ProjectSaveable extends AProject implements IDataSaveable { // {Wri
 
 	@Override
 	public void RemoveActivity(AActivity activity) {
-		// TODO Auto-generated method stub
+		AActivity _localActivity = getActivities(activity.getName());
 		
+		activities.remove(_localActivity);
 	}
 }
