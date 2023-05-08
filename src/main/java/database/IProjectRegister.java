@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.Project;
 
+//Martin
 public interface IProjectRegister {
 	public int addProject(Project project); // stores new project
 	

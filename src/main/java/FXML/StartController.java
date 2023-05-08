@@ -20,11 +20,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import FXML.ProjectViewController;
 
+//Skrevet af Gabriel, Christian, Natascha
+
 public class StartController {
 	Application app = Application.singleton();
 	@FXML
 	private Button begin;
-	
+
 	@FXML
 	private Button Leabe;
 	@FXML
@@ -33,7 +35,7 @@ public class StartController {
 	private Button refresh;
 	@FXML
 	private Label label;
-	
+
 	@FXML
 	TextField loginUsername = new TextField();
 	@FXML
@@ -57,7 +59,7 @@ public class StartController {
 	private Button logOut;
 	@FXML
 	public TextField projektNavn = new TextField();
-	
+
 	@FXML
 	private Button addLeader;
 	@FXML
@@ -66,11 +68,12 @@ public class StartController {
 	private Button Cal;
 
 	@FXML
-	public ChoiceBox<Project> PP =  new ChoiceBox<Project>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
-	
+	public ChoiceBox<Project> PP = new ChoiceBox<Project>(
+			FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+
 	@FXML
 	private Button toCreater;
-	
+
 	@FXML
 	public ChoiceBox<Medarbejder> leaderPick = new ChoiceBox<Medarbejder>(
 			FXCollections.observableArrayList(app.workers.getAllUsers()));
@@ -78,75 +81,72 @@ public class StartController {
 	@FXML
 	public ChoiceBox<Medarbejder> Emp = new ChoiceBox<Medarbejder>(
 			FXCollections.observableArrayList(app.workers.getAllUsers()));
-	
+
 	@FXML
 	TextField est = new TextField();
-	
+
 	@FXML
 	private Button cancelak;
 	@FXML
 	private Button leabek;
 	@FXML
 	private Button createAk;
-	
+
 	@FXML
 	TextField ActivityNavn = new TextField();
 	@FXML
 	TextField estak = new TextField();
-	
+
 	@FXML
-	public ChoiceBox<Project> projectPick = new ChoiceBox<Project>(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
-	
+	public ChoiceBox<Project> projectPick = new ChoiceBox<Project>(
+			FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
+
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
-	
+
+	// Gabriel indtil andet sagt.
 	public void createAktivity() throws IOException {
-		new Activity(ActivityNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
+		new Activity(ActivityNavn.getText(), Integer.valueOf(estak.getText()), projectPick.getValue());
 		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 	}
-	
-	
+
 	public void goAdd(ActionEvent e) throws IOException {
 		HelloFX.setRoot("Addlead", StartController.class);
 	}
-	
+
 	public void AddLeader() throws IOException {
 		PP.getValue().addProjectLeader(Emp.getValue());
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 
+	// Gabriel og Christian
 	public void createProjekt() throws IOException {
 		// Application.alleProjekter.add(p);
 		int estTid = 0;
 		if (Integer.valueOf(est.getText()) != null) {
-			 estTid = Integer.valueOf(est.getText());
+			estTid = Integer.valueOf(est.getText());
 		}
 		if (leaderPick.getValue() != null) {
-			Project p = new Project(projektNavn.getText(), app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
+			Project p = new Project(projektNavn.getText(),
+					app.workers.getUser(app.workers.getUserID(leaderPick.getValue())), estTid);
 			p.medarbejdere.add(app.getCurrentActiveUser());
-		}
-		else {
-			Project p = new Project(projektNavn.getText(),estTid);
+		} else {
+			Project p = new Project(projektNavn.getText(), estTid);
 		}
 
 		HelloFX.setRoot("Mainmenu", StartController.class);
-		//System.out.println("Projekt tilføjet!");
-		//System.out.println(app.getConfirmationMSG());
 		if (app.getConfirmationMSG() != null) {
 			confirmMSGPopup(null);
 		}
 	}
 
+	// Natascha
 	public void logOut() throws IOException {
-		// sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et
-		// tjek for det. Det er mest bare så der ikke sker noget
-		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
-		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
-		// og dermed skifte index. Bare extra safety.
 		app.setCurrentActiveUser(null);
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
+	// Christian
 	public static void confirmMSGPopup(ActionEvent e) {
 		alert.setAlertType(AlertType.INFORMATION);
 		alert.setHeaderText(Application.getConfirmationMSG());
@@ -154,29 +154,18 @@ public class StartController {
 	}
 
 	public void toProjectCreater() throws IOException {
-		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
-
 		HelloFX.setRoot("ProjectCreater", StartController.class);
-		// leaderPick.setItems(FXCollections.observableArrayList(data.getWorkers()));
-
 	}
 
 	public void viewProjects() throws IOException {
 		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 	}
 
+	// Natascha
 	public void go(ActionEvent e) throws IOException {
 		boolean checkSuccesful = false;
 		if ((loginUsername.getText() != null && loginPassword.getText() != null)) {
-//			
-//			for (int i = 0; i < alleMedarbejdere.size(); i++) {
-//				if (alleMedarbejdere.get(i).navn.equals(loginUsername.getText()) == true && alleMedarbejdere.get(i).password.equals(loginPassword.getText()) == true) {
-//					checkSuccesful = true;
-//					//loginIndex = alleMedarbejdere.indexOf();
-//					loginIndex = i;
-//					System.out.println(loginIndex);
-//				}
-//			}
+
 			for (Medarbejder M : app.workers.getAllUsers()) {
 				if (M.navn.toLowerCase().equals(loginUsername.getText().toLowerCase()) == true
 						&& M.password.equals(loginPassword.getText()) == true) {
@@ -194,7 +183,6 @@ public class StartController {
 			HelloFX.setRoot("Mainmenu", StartController.class);
 
 		}
-
 	}
 
 	public void goMain(ActionEvent e) throws IOException {
@@ -209,40 +197,36 @@ public class StartController {
 		HelloFX.setRoot("Signuppage", StartController.class);
 	}
 
+	// Christian og Natascha
 	public void addUser(ActionEvent e) throws IOException {
 		String userName = signupUsername.getText();
 		String password = signupPassword.getText();
-		if(userName.isBlank()) {
+		if (userName.isBlank()) {
 			app.setConfirmationMSG("Username must not be blank!");
 			confirmMSGPopup(null);
 
-		}
-		else if(app.workers.getUser(userName) != null) {
+		} else if (app.workers.getUser(userName) != null) {
 			app.setConfirmationMSG("This username is already taken");
 			confirmMSGPopup(null);
-		}
-		else if(password.isBlank()) {
+		} else if (password.isBlank()) {
 			app.setConfirmationMSG("Password must not be blank!");
 			confirmMSGPopup(null);
-		}
-		else if(!password.equals(signupRepeatPassword.getText())) {
+		} else if (!password.equals(signupRepeatPassword.getText())) {
 			app.setConfirmationMSG("Password does not match!");
 			confirmMSGPopup(null);
 
-		}
-		else if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
-			
-			
+		} else if (signupPassword.getText().equals(signupRepeatPassword.getText())) {
+
 			Medarbejder newUser = new Medarbejder(userName, password);
-			
+
 			app.setCurrentActiveUser(newUser);
-			
+
 			System.out.println(app.workers.getAllUsers().toString());
-			
+
 			app.sessions.loginUser(userName, password);
-			
+
 			HelloFX.setRoot("Mainmenu", StartController.class);
-		} 
+		}
 
 	}
 
@@ -253,6 +237,7 @@ public class StartController {
 		HelloFX.setRoot("Loginpage", StartController.class);
 	}
 
+	// Natascha
 	public void initialize() {
 		leaderPick.getItems().clear();
 		leaderPick.setItems(FXCollections.observableArrayList(app.workers.getAllUsers()));
@@ -262,21 +247,6 @@ public class StartController {
 		projectPick.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
 		PP.getItems().clear();
 		PP.setItems(FXCollections.observableArrayList(app.projects.getAllProjectsAsList()));
-		/*
-		 * h.p.add(new Projekt("1h")); h.p.add(new Projekt("2h")); h.p.add(new
-		 * Projekt("3h")); h.p.get(0).addActivity(new Activity("næbdyr0", 4755));
-		 * h.p.get(0).addActivity(new Activity("næbdyr1", 565));
-		 * h.p.get(0).addActivity(new Activity("næbdyr2", 34));
-		 * h.p.get(0).addActivity(new Activity("næbdyr3", 32));
-		 * h.p.get(0).addActivity(new Activity("næbdyr4", 32));
-		 * h.p.get(1).addActivity(new Activity("fisk1", 789));
-		 * h.p.get(1).addActivity(new Activity("fisk2", 456));
-		 * h.p.get(1).addActivity(new Activity("fisk3", 258));
-		 * h.p.get(1).addActivity(new Activity("fisk4", 1234));
-		 * h.p.get(1).addActivity(new Activity("fisk5", 420)); l.p.add(new
-		 * Projekt("1l")); l.p.add(new Projekt("2l")); l.p.add(new Projekt("3l"));
-		 */
-
 	}
 
 }

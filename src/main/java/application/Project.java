@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+//Skrevet af Alle
+
 public class Project {
 	String navn;
 	ArrayList<Activity> Activities = new ArrayList<Activity>();
@@ -12,7 +14,8 @@ public class Project {
 	public ArrayList<Medarbejder> medarbejdere = new ArrayList<Medarbejder>();
 	public Medarbejder Leader;
 	private int projID;
-//
+	
+	//
 	public Project(String navn) {
 		this.navn=navn;
 		Application.projects.addProject(this);
@@ -57,7 +60,7 @@ public class Project {
 		}
 		return null;
 	}
-
+	//Christian og Gabriel
 	public void addProjectLeader(Medarbejder m) {
 		// properties for den givne medarbejder
 		if (this.Leader == null || Application.getCurrentActiveUser().isAdmin() || Application.getCurrentActiveUser().equals(this.getProjLeader())) {
@@ -82,7 +85,7 @@ public class Project {
 	public int getID() {
 		return projID;
 	}
-
+	//Christian
 	private void setID() {
 		String id = ""+ Application.projects.getProjectID(this);
 		switch (id.length()){   /* choice 1 */
@@ -102,7 +105,7 @@ public class Project {
 	public Medarbejder getProjLeader() {
 		return Leader;
 	}
-
+	//Martin
 	public void assignActivity(String actName, Medarbejder workerToBeAssigned, Medarbejder actor) {
 		if ((workerToBeAssigned == actor || actor == Leader) && Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);
@@ -110,7 +113,7 @@ public class Project {
 				getActivity(actName).addMedarbejder(workerToBeAssigned);
 		}
 	}
-
+	//Martin
 	public void removeActivity(String actName, Medarbejder actor) {
 		if (Leader == Application.getCurrentActiveUser()) {
 			Activity a = getActivity(actName);

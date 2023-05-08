@@ -14,7 +14,7 @@ import FXML.*;
 
 import database.*;
 import java.io.IOException;
-
+//skrevet af Gabriel og KUN Gabriel
 
 public class HelloFX extends Application {
 	@FXML

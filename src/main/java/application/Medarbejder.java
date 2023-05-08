@@ -6,6 +6,8 @@ import java.util.function.BooleanSupplier;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+//Natascha, Christian og Martin
+
 public class Medarbejder {
 	public String navn;
 	public String password;
@@ -21,27 +23,13 @@ public class Medarbejder {
 		Application.workers.addUser(this);
 	}
 
-	//public boolean tjekLogin() {
-	//	return true;
-	//}
-
 	public String toString() {
 		return this.navn;
 	}
 
-	//public void appointProjectleader(Project p, Medarbejder m) {
-
-	//	p.addProjectLeader(this);
-	//}
-
 	public ArrayList<Project> getProjects() {
 		return p;
 	}
-
-	//public ArrayList<Activity> getPA() {
-
-	//	return a;
-	//}
 
 	public void addActivity(Activity A) {
 		// fantastiske navne. Slet ikke forvirrende.
