@@ -39,6 +39,14 @@ public class ProjectViewController {
 	@FXML
 	private Label projectLeader;
 	@FXML
+	private Label projID;
+	@FXML
+	private Label projEstT;
+	@FXML
+	private Label thisID;
+	@FXML
+	private Label thisEstT;
+	@FXML
 	private TableView<ProjectClient> projectTable;
 	@FXML
 	private TableColumn<ProjectClient, String> NameColumn;
@@ -150,6 +158,10 @@ public class ProjectViewController {
 			estHoursLabel.setText(Integer.toString(p.getEstTime()));
 			currentProject = p;
 			projectActivities = projectActivities(p.getActivitiesClient());
+			
+			thisID.setText("" + p.getID());
+			thisEstT.setText("" + p.getEstTime());
+			
 			activityTable.setItems(projectActivities);
 			if (!projectActivities.isEmpty()) {
 				currentActivity = projectActivities.get(0);
@@ -157,9 +169,7 @@ public class ProjectViewController {
 				currentActivity = null;
 			}
 
-				showActivityDetails(currentActivity);
-
-			
+			showActivityDetails(currentActivity);
 
 		} else {
 			NameLabel.setText("Project Name");
