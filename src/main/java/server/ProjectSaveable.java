@@ -44,7 +44,6 @@ public class ProjectSaveable extends AProject implements IDataSaveable { // {Wri
 	}
 	
 	// add a given activity to this project if it does not exist here
-	@Override
 	public void AddActivity(AActivity activity) { // {Written by GaySupremacy}
 		if (activity.getProject() == this) {
 			if (!activities.contains(activity)) {

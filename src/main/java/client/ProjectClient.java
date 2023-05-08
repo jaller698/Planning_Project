@@ -70,15 +70,8 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	}
 
 	@Override
-	public void AddActivity(AActivity activity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void MoveActivity(AActivity activity, AProject destination) {
-		// TODO Auto-generated method stub
-		
+		Application.serverAPI.activityMoveActivity(Application.getCurrentActiveSession(), new ActivityClient(activity), new ProjectClient(destination));
 	}
 
 	@Override

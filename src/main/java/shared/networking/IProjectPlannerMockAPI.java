@@ -62,5 +62,7 @@ public interface IProjectPlannerMockAPI { // {Written by Perry02}
 	
 	public int activityUserAddTime(String session, ActivityClient activity, Integer time); // add time associated with a user to an activity, returns total time done
 
+	public void activityMoveActivity(String session, ActivityClient activity, ProjectClient destination); // moves a given activity
+	
 	public Boolean activityRemoveActivity(String session, ActivityClient activity); // removes given activity
 }

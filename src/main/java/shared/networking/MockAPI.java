@@ -12,6 +12,7 @@ import server.ProjectSaveable;
 import server.ServerCore;
 import server.UserSaveable;
 import shared.AActivity;
+import shared.AProject;
 
 public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02, Jaller698}
 	
@@ -312,6 +313,25 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		_activity.RegisterHours(ServerCore.users.getUser(ServerCore.sessions.getUserIDOfSession(session)), time);
 
 		return 1;
+	}
+	
+	@Override
+	public void activityMoveActivity(String session, ActivityClient activity, ProjectClient destination) {
+		System.out.println("API: activityMoveActivity");
+		if (!ServerCore.sessions.checkSession(session))
+			return;
+		
+		ProjectSaveable dest = ServerCore.projects.getProject(destination.getId());
+		ProjectSaveable proj = ServerCore.projects.getProject(activity.getProject().getId());
+		AActivity act = ServerCore.projects.getProject(activity.getProject().getId()).getActivities(activity.getName());
+		
+		AProject oldproj = activity.getProject();
+		
+		act.SwitchProject(proj);
+		
+		destination = new ProjectClient(dest);
+		oldproj = new ProjectClient(proj);
+		activity = new ActivityClient(act);
 	}
 
 	@Override

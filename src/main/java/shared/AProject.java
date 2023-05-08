@@ -62,9 +62,6 @@ public abstract class AProject { // {Written by Jaller698, GaySupremacy and McQu
 	// create an activity
 	public abstract AActivity CreateActivity(String name, int estTime);
 	
-	// add a given activity to this project if it does not exist here
-	public abstract void AddActivity(AActivity activity);
-	
 	// moves an activity to another project
 	public abstract void MoveActivity(AActivity activity, AProject destination);
 	
