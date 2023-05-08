@@ -281,8 +281,15 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 		
 		AActivity _activity = ServerCore.projects.getProject(activity.getProject().getName()).getActivities(activity.getName());
 		
+		if (_activity == null) {
+			Application.setConfirmationMSG("Unable to find activity '"+activity.getName()+"' under '"+activity.getProject().getName()+"'");
+			return null;
+		}
+		
 		UserSaveable _user = ServerCore.users.getUser(user.getId());
 		_user.AssignActivity(_activity);
+		
+		Application.setConfirmationMSG("Successfully added "+(_user.getId()+1)+"("+_user.getName()+") to activity '"+_activity.getName()+"' under '"+_activity.getProject().getName()+"'");
 		
 		return activity;
 	}
