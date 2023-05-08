@@ -93,7 +93,7 @@ public class StartController {
 	public void createAktivity() throws IOException {
 		//new ActivityClient(projectPick.getValue(), aktivitetNavn.getText(),Integer.valueOf(estak.getText()));
 		projectPick.getValue().CreateActivity(aktivitetNavn.getText(), Integer.valueOf(estak.getText()));
-		HelloFX.setRoot("projektview", ProjectViewController.class);
+		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 		
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
 		

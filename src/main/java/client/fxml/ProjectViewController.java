@@ -74,7 +74,7 @@ public class ProjectViewController {
 	
 	
 	public void createAk() throws IOException {
-		HelloFX.setRoot("createAktivitet", StartController.class);
+		HelloFX.setRoot("createActivity", StartController.class);
 
 	}
 	

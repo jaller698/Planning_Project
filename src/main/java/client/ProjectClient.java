@@ -85,9 +85,9 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	
 	
 	public ArrayList<ActivityClient> getActivitiesClient() { // {Written by McQueen24}
-		ArrayList<ActivityClient> list = new ArrayList<ActivityClient>();
-		for (Iterator iterator = activities.iterator(); iterator.hasNext();) {
-			list.add((ActivityClient) iterator.next());
+		ArrayList<ActivityClient> list = new ArrayList<ActivityClient>();		
+		for (AActivity aActivity : activities) {
+			list.add(new ActivityClient(aActivity));
 		}
 		
 		return list;
