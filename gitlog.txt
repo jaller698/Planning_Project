@@ -1,0 +1,2152 @@
+commit 94d4797198ff1d291e9e1c7be6840ec0bdf0715d
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon May 8 14:26:34 2023 +0200
+
+    naming error
+
+commit eeb713107e1e660ba53c7eb55cb57c81f9ee981d
+Merge: 392ced0 122a59b
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon May 8 13:43:44 2023 +0200
+
+    Merge pull request #5 from jaller698/ui-cleanup
+    
+    UI cleanup
+
+commit 392ced05a8943ffbf0f6191c6ad81f60aba7fd04
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon May 8 13:04:24 2023 +0200
+
+    Update whitebox.feature
+
+commit 969b2e8cac9a41a952b9d5bc20efbe045cfb365e
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon May 8 12:36:22 2023 +0200
+
+    Update README.md
+
+commit 122a59bae2c6f520f2d4a171497666cf5595299a
+Merge: 5b2310c 4923e86
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Fri May 5 15:04:20 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 5b2310c06a669e3a93d4f1a9d402a4f460cce879
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Fri May 5 15:03:50 2023 +0200
+
+    a little ui cleanup
+
+commit 4923e86bde824adad690788a9b0ec5ea9274e4f6
+Merge: 404bca6 1d7c7e6
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Fri May 5 14:58:18 2023 +0200
+
+    Merge pull request #4 from jaller698/cfs/removed_code
+    
+    added extra tests to cover alle code, plus removed some
+
+commit 1d7c7e67150204f2d175edc6fb26a9a033f09b68
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 14:54:33 2023 +0200
+
+    added extra tests to cover alle code, plus removed some
+
+commit 404bca65fa3aefd8cfe9ae3788858825a5a9e396
+Merge: 4ae576f c862b6c
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Fri May 5 14:00:06 2023 +0200
+
+    Merge pull request #3 from jaller698/cfs/whitebox_test
+    
+    Cfs/whitebox test
+
+commit c862b6c384fa962d6e7f14fc50199f1c2fb41afd
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:59:21 2023 +0200
+
+    finalized tests
+
+commit 827a6638800d1d9d0ae210e3925812cc9d09b23f
+Merge: ad0c7ff aef5c01
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:37:09 2023 +0200
+
+    Merge branch 'cfs/whitebox_test' of github.com:jaller698/Planning_Project into cfs/whitebox_test
+
+commit ad0c7ff63051ec39cae406ec2614a4fe8a942594
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:34:22 2023 +0200
+
+    added test for the first three cases
+
+commit ff8bddf6cca43169544dfdeeb4212910d94d832a
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 12:49:02 2023 +0200
+
+    started work on the whitebox test
+
+commit aef5c01098542b308f1a156ac77bf3539c92cd0b
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:34:22 2023 +0200
+
+    added test for the first three cases
+
+commit 4ae576f31e92f856be1940d720bccabfa61a3271
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:29 2023 +0200
+
+    Revert "Merge pull request #2 from jaller698/MockAPI"
+    
+    This reverts commit 5c46a605ec9dfb052288f9896236e8e31f11edf9, reversing
+    changes made to 5aad7fd83d6e1aa5bc4846e07a4308c99715f362.
+
+commit a76922780301a5c7e24a312defc0b49631695d76
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:27 2023 +0200
+
+    Revert "Fixed preset users"
+    
+    This reverts commit 703ac9194f813fa31df3010fe9e356ef5a968e63.
+
+commit 52bd8536f57d162ab3de0625bb44eb5bd7cb082e
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:25 2023 +0200
+
+    Revert "Update SessionManager.java"
+    
+    This reverts commit 7e5ae1ba08a0d8086a1093a90b9bd4db9295b5e2.
+
+commit 96263462ae9dd1f81372ced157040495623d6582
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:20 2023 +0200
+
+    Revert "Project setID not starting infinite  loop"
+    
+    This reverts commit f2516890851005545806c5d20742deda915adda4.
+
+commit f2516890851005545806c5d20742deda915adda4
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 12:57:41 2023 +0200
+
+    Project setID not starting infinite  loop
+
+commit a53fa5bbb8e8a2810d21f0403a444257676d39be
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 12:49:02 2023 +0200
+
+    started work on the whitebox test
+
+commit 7e5ae1ba08a0d8086a1093a90b9bd4db9295b5e2
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:49:28 2023 +0200
+
+    Update SessionManager.java
+
+commit 703ac9194f813fa31df3010fe9e356ef5a968e63
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:47:02 2023 +0200
+
+    Fixed preset users
+
+commit 5c46a605ec9dfb052288f9896236e8e31f11edf9
+Merge: 5aad7fd e914719
+Author: Perry02 <59411123+Perry02@users.noreply.github.com>
+Date:   Mon May 1 14:23:14 2023 +0200
+
+    Merge pull request #2 from jaller698/MockAPI
+    
+    Mock api
+
+commit e9147191ea481e63e36cc176996f66b327ec1c54
+Merge: b4ed786 5aad7fd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:22:36 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit b4ed7869d6577f239e97a8cf628f38b432808c2d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:22:28 2023 +0200
+
+    Update StartController.java
+
+commit 5aad7fd83d6e1aa5bc4846e07a4308c99715f362
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 14:14:09 2023 +0200
+
+    empty
+
+commit 5f4b04b3e835010f8f0306c5a1e3e56b62755126
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:14:03 2023 +0200
+
+    Fixed merge
+
+commit aee3fd1bd7e3f096a1ff74a127a1ea8863537644
+Merge: 883b590 8f63d94
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 13:22:13 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 883b5901c40e5ce48cbb931bbb7debd564c7369d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 13:13:42 2023 +0200
+
+    Added comments on who made what
+
+commit 8f63d94539570fa640a3d4ad5aa89e62d1f4a30a
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 13:10:47 2023 +0200
+
+    fixed
+
+commit 32ef03838014f8d7070982165214cb8d9510cbc6
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:53:16 2023 +0200
+
+    Fixed merge errors
+
+commit 23fe4c561b1914aeb11758131c3fe105381d777b
+Merge: ec17558 f5d6298
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 12:49:48 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 2ab115e7c12c97217805f82a6f45561d32e69040
+Merge: bfaa569 1941038
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:42:04 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit ec1755892a0d3a921123bb2968a549421c2050ba
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 12:34:36 2023 +0200
+
+    Add leader
+    
+    you can now add leader to projects without it
+
+commit f5d62989b4716cb68af488f614a628650469bcad
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:34:24 2023 +0200
+
+    Activityer -> Activities
+
+commit dfba3ccc4f911325182c12e5110c7526bf4df79a
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:22:37 2023 +0200
+
+    Leder -> Leader
+
+commit bfaa5692867a397c57de0cdeaee233acd22d054c
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:22:29 2023 +0200
+
+    Fixed projectview functionality
+
+commit 1941038dd3facc5597f9cf38de18b85935b61f40
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:12:14 2023 +0200
+
+    Projekt -> Project
+
+commit e79a36b2c8ef9f51e228e2fc212454ccc700b767
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:09:21 2023 +0200
+
+    Complete refactor - nonfunctional
+
+commit 36c265cddff53b674e9204c75b99b458a6f72f68
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:01:28 2023 +0200
+
+    Aktivitet -> Activity
+
+commit 329813d208fa9e5fdfdeae2f8ceeb7aa1e02bec3
+Merge: f5ace56 f750018
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 11:22:00 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 58d7a3850ffd7636c3c97242b71cf2523080db8d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 20:27:43 2023 +0200
+
+    Refactored DataPersistence
+
+commit 5175189f6c06dc45d9ef6174b870f49d384069f2
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 20:26:54 2023 +0200
+
+    Removed unused classes
+
+commit 58130dc3c5c69870d77fc7dbf9f77568fa8c51fd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 02:10:47 2023 +0200
+
+    Refactored DataPersistence to use new Project and user classes
+
+commit 3d13e8da232166802ed701b39ba1d501bbb569c7
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 02:07:10 2023 +0200
+
+    Refactored SessionManager
+
+commit ff54f85ad8cacfc3df5360a24b8e1e327b30891e
+Merge: 7a148d0 f750018
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri Apr 28 14:28:18 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit f7500184c3ac7e547728817249fbf0892270b1d2
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Thu Apr 27 17:54:57 2023 +0200
+
+    added some whitebox test comments, and refactor
+
+commit f5ace5693911782fe0efc26b190b0e40e8b24563
+Merge: 1078860 13925cd
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Tue Apr 25 22:16:22 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 7a148d048278df28c58c9a585f7032e2e5b2aae3
+Merge: 6d3ec0b 13925cd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 18:52:30 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 6d3ec0b23619f644d73e07ae43290e2ca95e5092
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 18:50:11 2023 +0200
+
+    Added ability to switch an activity between projects
+
+commit 13925cd1f86e74be234f6c125dd701e2653f38b3
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 24 16:03:52 2023 +0200
+
+    minor signup improvements
+
+commit c674c163d1a3199112379cd594c0cba99eff79c2
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 24 15:45:05 2023 +0200
+
+    minor fix
+
+commit d40d063459141f0ba7fdd11584b44346bb2a7d86
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 24 15:41:01 2023 +0200
+
+    fixed project create func
+
+commit a26359912382313bcbc433074934b8e52d0a154b
+Merge: 50178fd 0752bbd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 15:38:30 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 50178fd4a2a8cc4ac9896b11d70b73051f807fac
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 15:33:41 2023 +0200
+
+    Added time registering
+
+commit 0752bbd615575b34e906785c33d5bf8d9d1350a6
+Merge: e5b6118 63ef11b
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 15:19:17 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit e5b61180b3ce38ad698bc12555596d95ed2a0ac4
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 15:19:06 2023 +0200
+
+    aktivitet semi work
+
+commit 63ef11b94262663efa0eefb78eea89367d3f33e0
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon Apr 24 15:16:43 2023 +0200
+
+    Delete Admin.java
+    
+    no longer in use
+
+commit 6b3f800d2f97ed6d3ba88cf221184dd6d1455967
+Merge: 0b05e9f 4e9f439
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:58:12 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 0b05e9f597ddffef08e3f072b023bc6f15944eb3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:58:09 2023 +0200
+
+    added a get projects as a list function
+
+commit 1078860eebe0ce4b3aefbdccd88aad05b1df80e6
+Merge: 0976813 4e9f439
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 14:53:51 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 4e9f439cab45b78e25ae90287e26c0b73d56d664
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:52:57 2023 +0200
+
+    quick stuff
+
+commit f7f1294521bdd22e7918e9393d4f7332d5f85965
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:13:41 2023 +0200
+
+    fox
+
+commit 63f20db3f43f77ed3da5a9e2582931dcdfb89b2a
+Merge: 66c63b8 d571113
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:13:02 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 6c8369d28bbbbf37e0f8697a4ef89034f2dcf873
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:11:16 2023 +0200
+
+    fix
+
+commit 097681344f4ac23bb13cf7b04b79b1ac4c521d81
+Merge: 3ba78c9 3e1726f
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 14:07:05 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 3e1726fa21e5fbb761b9a75d6cb9711baf794231
+Merge: f5af998 d571113
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:06:07 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit f5af998764e065dbb2c135aa2df80550f26dc3f6
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:06:03 2023 +0200
+
+    small changes
+
+commit 3ba78c9e3340e2950288d7ebf33ab6f155374609
+Merge: 1bb0d43 d571113
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 14:05:48 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit d571113bc1c32df7987c9eff73d2644b8b39ec27
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:05:42 2023 +0200
+
+    Fixed GUI show projects crashing
+
+commit 66c63b85197fb94c010d509df93ad21e3c19d19c
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 13:29:18 2023 +0200
+
+    Partial implementation of server client seperation
+
+commit 1bb0d43462aa2f34369899576ee91010bd935a1a
+Merge: 793e1f5 c465880
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 13:24:07 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 56f4cb5cec6d116775069e0b5a4512337ae4f20b
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri Apr 21 12:32:42 2023 +0200
+
+    Reorganized folders
+
+commit 545b4b6ddbf07c0a748b1267bab1264f33f50880
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Wed Apr 19 23:45:20 2023 +0200
+
+    Sorted folders
+
+commit c46588003b6b267dcde97efc8afcfe918dc322b8
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Apr 18 20:54:07 2023 +0200
+
+    Implemented the register hours feature and fixed the database resetting on every GUI event
+
+commit 5b7ea9b91760ea23bc8f8feaf2bac6e23eda5a01
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 17:32:49 2023 +0200
+
+    Implemented feature edit activity
+
+commit f8524396b3701337c7c2e07177a9ac0eed002db7
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 17:02:32 2023 +0200
+
+    added another feature
+
+commit 793e1f5fab1274f666eb6251506e7a05a56bab7e
+Merge: 36f8020 cd4d84b
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 16:48:39 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit cd4d84b6d20779a59c4941c29f40752086742464
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:33:13 2023 +0200
+
+    fixed Worker Joins activity
+
+commit 0c9dce66fef3c2be5118158a44e9ca2f1c402705
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:24:34 2023 +0200
+
+    added project pane
+
+commit cbb03166f3d5cf76d12363b2a09a95d5f3c8579d
+Merge: d202bf1 a2678df
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 16:24:23 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit d202bf1b6fa23a82bb489522152da772951d834c
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 16:24:13 2023 +0200
+
+    skeleton for aktivity
+
+commit a2678df0a3dcb74d12fe2e42951929e0745f1e33
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:18:42 2023 +0200
+
+    finished the login feature
+
+commit 402f0c02ffe4fb93235acee070de5c406bb9ceb3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 16:15:13 2023 +0200
+
+    Update dataPersistence.java
+
+commit c5d80b6bf5a8d09e3aca68c6936d818ee2ec9f1f
+Merge: f4a7351 b3bc967
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 16:11:31 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit f4a73515a0d42696f5a48cf1a97d1e62b15f691e
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 16:11:22 2023 +0200
+
+    Fixed duplicates of users and projects on "clean slates"
+
+commit b3bc9672e5052ceb95a4db674c3064a1e550c203
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:09:37 2023 +0200
+
+    implemented some more to login feature
+
+commit 2a60de3e7bcf2406dc830f11c3a0385460601632
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:09:16 2023 +0200
+
+    implemented some more to login feature
+
+commit bb4bd4b5c0137cef742d0fff87a391d1bdbef3f6
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 15:50:21 2023 +0200
+
+    Update Create project.feature
+
+commit 9edd6f509dbe6b00540ff5a5a1c490fece150b15
+Merge: a538b7e 36f8020
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 15:48:47 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit a538b7e1132a84b89d70cc3f0c6fe9f89b29eff3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 15:48:44 2023 +0200
+
+    Assign worker to activity feature implemented
+
+commit 36f802077b61704d01750803e9a7b5cc50719b40
+Merge: c29816f 3752767
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 15:34:50 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 3752767103f413fb9dffb49fe2e68fa35b7ab4d7
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 15:31:35 2023 +0200
+
+    whooops
+
+commit e07964de05763eb190779d2a4e98ccc0e63c860d
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 15:27:32 2023 +0200
+
+    fixed new user bug
+
+commit 29efd78a1d0f780138edf656ac4ea652183de9af
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 15:16:55 2023 +0200
+
+    est tid
+
+commit 0f3974819c2a78e01e89f80216167eb1aa518eda
+Merge: 4500192 a764515
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 15:08:54 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 45001922fca06de62a05bcef2e24d8bcd684d171
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 15:08:40 2023 +0200
+
+    fixede at natascha ikke kan stave
+    
+    kek hun kan ikke skrive projectleader
+
+commit a764515bd17aa928e0d7681ac50941a8488f2151
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 14:59:38 2023 +0200
+
+    midway implentation of login
+
+commit a08433c89b93da89fe179b1a28d37ed743a831c9
+Merge: 9091ea1 0302dcb
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 14:58:30 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 9091ea12a07d0671343667ea88e30b13856059fe
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 14:58:26 2023 +0200
+
+    fix
+
+commit c29816fe6b76493c6f244f67394d70e47402d927
+Merge: a8d0ac4 0302dcb
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 14:52:43 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 0302dcba71526a09b9eada5541efb7c198232a14
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 14:30:30 2023 +0200
+
+    Added user retrieval from session
+
+commit 42c9e119b3c4cc2ccac68751972433a4e2f27fb2
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 14:17:24 2023 +0200
+
+    check duplicates
+
+commit a8d0ac4049973d02d5d38d5cce5ce4d439f94075
+Merge: 4d58927 39ffeb5
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 14:06:05 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 39ffeb530b724702bbcd9178af7b01900d90d9fd
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Apr 17 14:05:21 2023 +0200
+
+    choicebox works!!!
+
+commit 4dc6e313e7e72c4c619e93904810a07cc3a217f4
+Merge: b750350 dabbea7
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 13:48:59 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit b750350d55f6f596dd08f9941cf9fef59cc9ef38
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 13:48:44 2023 +0200
+
+    fix
+
+commit dabbea79a767bb0fa1098fae4e95abaa73c06fe2
+Merge: 80f2292 0f1cc9d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:39:56 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 80f229296fcca2ccf5632b9811ba6caeb16cd1d3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:39:45 2023 +0200
+
+    Removed message tests - temp
+
+commit 0f1cc9d28dd20dd8875c2236f67423d0e525ee0e
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 13:29:32 2023 +0200
+
+    started work on login test
+
+commit bc5d67ac1ef6e3543fb4ec4ae0b31dbfc39dfa3f
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:29:03 2023 +0200
+
+    Added a clean slate pre-test
+
+commit 8c403f8fa079905450f77cb693cbda84b7ccae74
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:15:41 2023 +0200
+
+    fixed cucumber test exception
+
+commit 4d5892749c16ea03c8456e609d93c1f614b5e50e
+Merge: e26c6ac 4270cd3
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 13:14:49 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 4270cd34717d1fea23a1e3049c842d23c0bf8882
+Merge: 2da61e3 c2feeb7
+Author: Perry02 <59411123+Perry02@users.noreply.github.com>
+Date:   Mon Apr 17 13:07:55 2023 +0200
+
+    Merge pull request #1 from jaller698/user-register-test-using-SOLID
+    
+    Added a user and project database
+
+commit c2feeb7905cb26c857e2dd85d6928f4292e3cecf
+Merge: c328708 f672322
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 12:53:40 2023 +0200
+
+    Merge branch 'main' into user-register-test-using-SOLID
+
+commit 2da61e394462b8cc8b60f176773b8f7b2a27eee5
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:51:28 2023 +0200
+
+    fixed logout button again
+
+commit f672322442beaa059014d2baa933e026be889f8b
+Merge: da8f135 874d409
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:46:08 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit da8f135c6f4310bd4849e2b62413ee9576003ace
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:45:47 2023 +0200
+
+    cancel project
+
+commit 874d4099dd2c089d1cf29f7d49a2e8dfec2b48a9
+Author: Perry02 <59411123+Perry02@users.noreply.github.com>
+Date:   Mon Apr 17 12:44:34 2023 +0200
+
+    Delete bin directory
+
+commit 9cb2a49548f46f92781f65568c4c36aa60cb3b1d
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:04:35 2023 +0200
+
+    fixed logout button
+
+commit c328708d6cc838adae8e0ebf39b2c57f127c536d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sun Apr 9 19:36:56 2023 +0200
+
+    Added a user and project database
+
+commit 158143937bcf0de95a26ddccef62d82cf33ead4b
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Fri Apr 7 18:01:23 2023 +0200
+
+    added second feature
+
+commit cb8d149a1f80f0899f04dc5f9bb41bc43245854a
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Fri Apr 7 17:07:15 2023 +0200
+
+    added alert popup
+
+commit e26c6ac068908a37e024923e0af3e28f8cfc78c1
+Merge: 400e937 4913f5d
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Thu Apr 6 09:58:12 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 4913f5ddbd1417aab8bd80a2967dd4a5ee609bf7
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 14:15:40 2023 +0200
+
+    added the first feature test, and made it run
+
+commit b037d395e8e07e820a1f2c3292142cc45c37c5b5
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 11:51:52 2023 +0200
+
+    fixed some things
+
+commit f054a0dd3fd1be3d51cb3d71a13a32ca82a4edf0
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 11:28:25 2023 +0200
+
+    added an backend application class
+
+commit a607f7d442db3f5a015fb0c44f2efeb56bc62f5a
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 09:17:37 2023 +0200
+
+    fixed display bug
+
+commit 24d6a0296c999da0598f4cd0b6e3de2af859fb76
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 09:15:19 2023 +0200
+
+    fixed signup
+
+commit f5f47b2f89217f2b7bfa8c4756213e8ddab09fb7
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sun Apr 2 12:51:39 2023 +0200
+
+    fixed int UI bug
+
+commit db95aeed04faddae2e62d49eec79c00855a234ec
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sun Apr 2 12:42:26 2023 +0200
+
+    Added dynamic view to activities
+
+commit 408a99eca104a3a21784a4e6bd571be2a8a8ebcb
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sat Apr 1 12:13:14 2023 +0200
+
+    added responsive UI, for now it's just the name that changes, but it activty also needs to change
+
+commit 0983bb4a6f86d342fa0bb162b1de4f95540ce3ec
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sat Apr 1 11:25:53 2023 +0200
+
+    changed the list to a table, to be able to sort
+
+commit 936ad4b9aec1fd39f54e7ddb5409f250dfb968ae
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sat Apr 1 11:02:16 2023 +0200
+
+    fixed login screen, issues
+
+commit 57f33934afacb213a2b72b138d9eb3cbbc1c96bd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 23:51:22 2023 +0200
+
+    "Attempted" to implement user login  step definition
+    
+    Missing user identifiers
+
+commit eb39c28fcea6b1651006c5b57fb9eff3dd411f43
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 23:29:26 2023 +0200
+
+    Update ProjectSteps.java
+
+commit 9caf7201ac0a5a250db22f30610071ef0dac84bc
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 23:18:55 2023 +0200
+
+    Added all current use cases
+    
+    Added all current use cases as features and step definitions
+
+commit fea0579deac3f24a063c5fe82ae957a5aa580618
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 19:35:34 2023 +0200
+
+    projekt creater(virker kun for navn atm)
+
+commit b04b88c452d952a7d7b2a38551ec3a0c0fbd28d7
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 19:00:38 2023 +0200
+
+    signup added
+
+commit 2e8881dd954558d16db31831e5c683e79506a40c
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 17:28:07 2023 +0200
+
+    more cursed ui
+
+commit 1833c483d54a3613ce8aa062def8a28628383dd9
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 15:38:13 2023 +0200
+
+    cursed ui stuff
+
+commit 73dba959307281798de34b6e66a8567d5d8dd3a5
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 14:02:48 2023 +0200
+
+    Added missing stepdifinitions
+
+commit a0248bc310d8835ab43f9f79ed7d9657616fa19e
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Tue Mar 28 13:05:51 2023 +0200
+
+    fxml loader
+    
+    added file
+
+commit 54cfe1b6fe5761ab873f80e45e8200e020e29600
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 09:52:17 2023 +0200
+
+    added more functions to classes
+
+commit ee0d06770f285b86849fdd63fcea77f4f290e06e
+Merge: 204c605 8591020
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 18:17:54 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 204c605428fa660eb12f672ab4de88bdc6c97e16
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 18:17:52 2023 +0200
+
+    added some more to classes
+
+commit 85910200579490a7c311ee17f15e7c8967e72a82
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:20:26 2023 +0200
+
+    Fixed cucumber error
+
+commit 56fb4a17410185ac72c6c55fd3c5ff613357f3cf
+Merge: 3ceb37f fbbd638
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:15:50 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 3ceb37f1dfdbe252066900ac4702311ebf01af1f
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:15:41 2023 +0200
+
+    Revised some features
+
+commit fbbd638734aab5100c4608f40a959645122524da
+Merge: 2b33f18 edf2889
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 17:06:48 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 2b33f18ac658278c8d5b88fbcc7c6067e6e7b675
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 17:06:44 2023 +0200
+
+    Added classes
+
+commit edf2889c51650d54b97fe3909c6c1c1380713aa4
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:05:55 2023 +0200
+
+    Refactored features and step definitions
+
+commit c8618388462e28b25455a2193bfe418e9fd875d0
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon Mar 27 16:33:19 2023 +0200
+
+    Delete HelloFX.java~
+
+commit 400e937ac38afa762af456817e319c1f560e2ab2
+Merge: 0e5a869 624e83c
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 16:10:19 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 624e83c29cb8a5177cc041a8bb0e752925c557c0
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Mar 27 16:09:49 2023 +0200
+
+    fixed JavaFX
+
+commit 86a24d9514c2db5a7de09b575e4d51f01eccec71
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 16:03:42 2023 +0200
+
+    Added project and user step definitions
+
+commit 0e5a8693c543a4df6a12f61073dfb1cf9f865c9a
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 15:22:51 2023 +0200
+
+    remove test.txt
+
+commit 9f5f5f5b5a867b6e5db3c26dc48bbc00abde64b1
+Merge: 93332ca fce2962
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 15:21:39 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit fce2962879f04ee218fbee615b73893b81b87813
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Mar 27 15:19:15 2023 +0200
+
+    test
+
+commit c4113b0c6c97ce2c75945143eb3fec616b2d2135
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Mar 27 15:02:16 2023 +0200
+
+    setup JavaFX
+
+commit 8042f46d1ae3fadb32ad0121645608e58310d39b
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon Mar 27 15:18:26 2023 +0200
+
+    Create README.md
+
+commit cc62b0d25538ab500ab463d83d544b3aa6e095ed
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 15:15:03 2023 +0200
+
+    Added Create activites for project feature
+
+commit 93332cab4cd049ef055f0c31decde0a8f573f330
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 15:05:22 2023 +0200
+
+    test add
+
+commit c3dd90e7905c28dff3f69520e956e34e01f82a5a
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 14:35:04 2023 +0200
+
+    Added Register hours feature
+
+commit e12969ff8c55ae3c7f5d1e7adfd8932d3d6908ad
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 13:16:53 2023 +0200
+
+    Create .gitignore
+
+commit 45fef7abc89f930123aab00f7ef331ddc93e2746
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Thu Mar 23 16:33:16 2023 +0100
+
+    Added some automatic testing
+
+commit 189a4e54ff8239cbee521b26b00a5b96f4a49685
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Thu Mar 23 10:33:49 2023 +0100
+
+    Project template
+commit 94d4797198ff1d291e9e1c7be6840ec0bdf0715d
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon May 8 14:26:34 2023 +0200
+
+    naming error
+
+commit eeb713107e1e660ba53c7eb55cb57c81f9ee981d
+Merge: 392ced0 122a59b
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon May 8 13:43:44 2023 +0200
+
+    Merge pull request #5 from jaller698/ui-cleanup
+    
+    UI cleanup
+
+commit 392ced05a8943ffbf0f6191c6ad81f60aba7fd04
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon May 8 13:04:24 2023 +0200
+
+    Update whitebox.feature
+
+commit 969b2e8cac9a41a952b9d5bc20efbe045cfb365e
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon May 8 12:36:22 2023 +0200
+
+    Update README.md
+
+commit 122a59bae2c6f520f2d4a171497666cf5595299a
+Merge: 5b2310c 4923e86
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Fri May 5 15:04:20 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 5b2310c06a669e3a93d4f1a9d402a4f460cce879
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Fri May 5 15:03:50 2023 +0200
+
+    a little ui cleanup
+
+commit 4923e86bde824adad690788a9b0ec5ea9274e4f6
+Merge: 404bca6 1d7c7e6
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Fri May 5 14:58:18 2023 +0200
+
+    Merge pull request #4 from jaller698/cfs/removed_code
+    
+    added extra tests to cover alle code, plus removed some
+
+commit 1d7c7e67150204f2d175edc6fb26a9a033f09b68
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 14:54:33 2023 +0200
+
+    added extra tests to cover alle code, plus removed some
+
+commit 404bca65fa3aefd8cfe9ae3788858825a5a9e396
+Merge: 4ae576f c862b6c
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Fri May 5 14:00:06 2023 +0200
+
+    Merge pull request #3 from jaller698/cfs/whitebox_test
+    
+    Cfs/whitebox test
+
+commit c862b6c384fa962d6e7f14fc50199f1c2fb41afd
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:59:21 2023 +0200
+
+    finalized tests
+
+commit 827a6638800d1d9d0ae210e3925812cc9d09b23f
+Merge: ad0c7ff aef5c01
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:37:09 2023 +0200
+
+    Merge branch 'cfs/whitebox_test' of github.com:jaller698/Planning_Project into cfs/whitebox_test
+
+commit ad0c7ff63051ec39cae406ec2614a4fe8a942594
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:34:22 2023 +0200
+
+    added test for the first three cases
+
+commit ff8bddf6cca43169544dfdeeb4212910d94d832a
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 12:49:02 2023 +0200
+
+    started work on the whitebox test
+
+commit aef5c01098542b308f1a156ac77bf3539c92cd0b
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 13:34:22 2023 +0200
+
+    added test for the first three cases
+
+commit 4ae576f31e92f856be1940d720bccabfa61a3271
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:29 2023 +0200
+
+    Revert "Merge pull request #2 from jaller698/MockAPI"
+    
+    This reverts commit 5c46a605ec9dfb052288f9896236e8e31f11edf9, reversing
+    changes made to 5aad7fd83d6e1aa5bc4846e07a4308c99715f362.
+
+commit a76922780301a5c7e24a312defc0b49631695d76
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:27 2023 +0200
+
+    Revert "Fixed preset users"
+    
+    This reverts commit 703ac9194f813fa31df3010fe9e356ef5a968e63.
+
+commit 52bd8536f57d162ab3de0625bb44eb5bd7cb082e
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:25 2023 +0200
+
+    Revert "Update SessionManager.java"
+    
+    This reverts commit 7e5ae1ba08a0d8086a1093a90b9bd4db9295b5e2.
+
+commit 96263462ae9dd1f81372ced157040495623d6582
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 13:05:20 2023 +0200
+
+    Revert "Project setID not starting infinite  loop"
+    
+    This reverts commit f2516890851005545806c5d20742deda915adda4.
+
+commit f2516890851005545806c5d20742deda915adda4
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri May 5 12:57:41 2023 +0200
+
+    Project setID not starting infinite  loop
+
+commit a53fa5bbb8e8a2810d21f0403a444257676d39be
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Fri May 5 12:49:02 2023 +0200
+
+    started work on the whitebox test
+
+commit 7e5ae1ba08a0d8086a1093a90b9bd4db9295b5e2
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:49:28 2023 +0200
+
+    Update SessionManager.java
+
+commit 703ac9194f813fa31df3010fe9e356ef5a968e63
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:47:02 2023 +0200
+
+    Fixed preset users
+
+commit 5c46a605ec9dfb052288f9896236e8e31f11edf9
+Merge: 5aad7fd e914719
+Author: Perry02 <59411123+Perry02@users.noreply.github.com>
+Date:   Mon May 1 14:23:14 2023 +0200
+
+    Merge pull request #2 from jaller698/MockAPI
+    
+    Mock api
+
+commit e9147191ea481e63e36cc176996f66b327ec1c54
+Merge: b4ed786 5aad7fd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:22:36 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit b4ed7869d6577f239e97a8cf628f38b432808c2d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:22:28 2023 +0200
+
+    Update StartController.java
+
+commit 5aad7fd83d6e1aa5bc4846e07a4308c99715f362
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 14:14:09 2023 +0200
+
+    empty
+
+commit 5f4b04b3e835010f8f0306c5a1e3e56b62755126
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 14:14:03 2023 +0200
+
+    Fixed merge
+
+commit aee3fd1bd7e3f096a1ff74a127a1ea8863537644
+Merge: 883b590 8f63d94
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 13:22:13 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 883b5901c40e5ce48cbb931bbb7debd564c7369d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 13:13:42 2023 +0200
+
+    Added comments on who made what
+
+commit 8f63d94539570fa640a3d4ad5aa89e62d1f4a30a
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 13:10:47 2023 +0200
+
+    fixed
+
+commit 32ef03838014f8d7070982165214cb8d9510cbc6
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:53:16 2023 +0200
+
+    Fixed merge errors
+
+commit 23fe4c561b1914aeb11758131c3fe105381d777b
+Merge: ec17558 f5d6298
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 12:49:48 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 2ab115e7c12c97217805f82a6f45561d32e69040
+Merge: bfaa569 1941038
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:42:04 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit ec1755892a0d3a921123bb2968a549421c2050ba
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon May 1 12:34:36 2023 +0200
+
+    Add leader
+    
+    you can now add leader to projects without it
+
+commit f5d62989b4716cb68af488f614a628650469bcad
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:34:24 2023 +0200
+
+    Activityer -> Activities
+
+commit dfba3ccc4f911325182c12e5110c7526bf4df79a
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:22:37 2023 +0200
+
+    Leder -> Leader
+
+commit bfaa5692867a397c57de0cdeaee233acd22d054c
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:22:29 2023 +0200
+
+    Fixed projectview functionality
+
+commit 1941038dd3facc5597f9cf38de18b85935b61f40
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:12:14 2023 +0200
+
+    Projekt -> Project
+
+commit e79a36b2c8ef9f51e228e2fc212454ccc700b767
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon May 1 12:09:21 2023 +0200
+
+    Complete refactor - nonfunctional
+
+commit 36c265cddff53b674e9204c75b99b458a6f72f68
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 12:01:28 2023 +0200
+
+    Aktivitet -> Activity
+
+commit 329813d208fa9e5fdfdeae2f8ceeb7aa1e02bec3
+Merge: f5ace56 f750018
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon May 1 11:22:00 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 58d7a3850ffd7636c3c97242b71cf2523080db8d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 20:27:43 2023 +0200
+
+    Refactored DataPersistence
+
+commit 5175189f6c06dc45d9ef6174b870f49d384069f2
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 20:26:54 2023 +0200
+
+    Removed unused classes
+
+commit 58130dc3c5c69870d77fc7dbf9f77568fa8c51fd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 02:10:47 2023 +0200
+
+    Refactored DataPersistence to use new Project and user classes
+
+commit 3d13e8da232166802ed701b39ba1d501bbb569c7
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sat Apr 29 02:07:10 2023 +0200
+
+    Refactored SessionManager
+
+commit ff54f85ad8cacfc3df5360a24b8e1e327b30891e
+Merge: 7a148d0 f750018
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri Apr 28 14:28:18 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit f7500184c3ac7e547728817249fbf0892270b1d2
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Thu Apr 27 17:54:57 2023 +0200
+
+    added some whitebox test comments, and refactor
+
+commit f5ace5693911782fe0efc26b190b0e40e8b24563
+Merge: 1078860 13925cd
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Tue Apr 25 22:16:22 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 7a148d048278df28c58c9a585f7032e2e5b2aae3
+Merge: 6d3ec0b 13925cd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 18:52:30 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 6d3ec0b23619f644d73e07ae43290e2ca95e5092
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 18:50:11 2023 +0200
+
+    Added ability to switch an activity between projects
+
+commit 13925cd1f86e74be234f6c125dd701e2653f38b3
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 24 16:03:52 2023 +0200
+
+    minor signup improvements
+
+commit c674c163d1a3199112379cd594c0cba99eff79c2
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 24 15:45:05 2023 +0200
+
+    minor fix
+
+commit d40d063459141f0ba7fdd11584b44346bb2a7d86
+Author: jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 24 15:41:01 2023 +0200
+
+    fixed project create func
+
+commit a26359912382313bcbc433074934b8e52d0a154b
+Merge: 50178fd 0752bbd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 15:38:30 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 50178fd4a2a8cc4ac9896b11d70b73051f807fac
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 15:33:41 2023 +0200
+
+    Added time registering
+
+commit 0752bbd615575b34e906785c33d5bf8d9d1350a6
+Merge: e5b6118 63ef11b
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 15:19:17 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit e5b61180b3ce38ad698bc12555596d95ed2a0ac4
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 15:19:06 2023 +0200
+
+    aktivitet semi work
+
+commit 63ef11b94262663efa0eefb78eea89367d3f33e0
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon Apr 24 15:16:43 2023 +0200
+
+    Delete Admin.java
+    
+    no longer in use
+
+commit 6b3f800d2f97ed6d3ba88cf221184dd6d1455967
+Merge: 0b05e9f 4e9f439
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:58:12 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 0b05e9f597ddffef08e3f072b023bc6f15944eb3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:58:09 2023 +0200
+
+    added a get projects as a list function
+
+commit 1078860eebe0ce4b3aefbdccd88aad05b1df80e6
+Merge: 0976813 4e9f439
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 14:53:51 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 4e9f439cab45b78e25ae90287e26c0b73d56d664
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:52:57 2023 +0200
+
+    quick stuff
+
+commit f7f1294521bdd22e7918e9393d4f7332d5f85965
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:13:41 2023 +0200
+
+    fox
+
+commit 63f20db3f43f77ed3da5a9e2582931dcdfb89b2a
+Merge: 66c63b8 d571113
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:13:02 2023 +0200
+
+    Merge branch 'main' into MockAPI
+
+commit 6c8369d28bbbbf37e0f8697a4ef89034f2dcf873
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:11:16 2023 +0200
+
+    fix
+
+commit 097681344f4ac23bb13cf7b04b79b1ac4c521d81
+Merge: 3ba78c9 3e1726f
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 14:07:05 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 3e1726fa21e5fbb761b9a75d6cb9711baf794231
+Merge: f5af998 d571113
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:06:07 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit f5af998764e065dbb2c135aa2df80550f26dc3f6
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 24 14:06:03 2023 +0200
+
+    small changes
+
+commit 3ba78c9e3340e2950288d7ebf33ab6f155374609
+Merge: 1bb0d43 d571113
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 14:05:48 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit d571113bc1c32df7987c9eff73d2644b8b39ec27
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 14:05:42 2023 +0200
+
+    Fixed GUI show projects crashing
+
+commit 66c63b85197fb94c010d509df93ad21e3c19d19c
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 24 13:29:18 2023 +0200
+
+    Partial implementation of server client seperation
+
+commit 1bb0d43462aa2f34369899576ee91010bd935a1a
+Merge: 793e1f5 c465880
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 24 13:24:07 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 56f4cb5cec6d116775069e0b5a4512337ae4f20b
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Fri Apr 21 12:32:42 2023 +0200
+
+    Reorganized folders
+
+commit 545b4b6ddbf07c0a748b1267bab1264f33f50880
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Wed Apr 19 23:45:20 2023 +0200
+
+    Sorted folders
+
+commit c46588003b6b267dcde97efc8afcfe918dc322b8
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Apr 18 20:54:07 2023 +0200
+
+    Implemented the register hours feature and fixed the database resetting on every GUI event
+
+commit 5b7ea9b91760ea23bc8f8feaf2bac6e23eda5a01
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 17:32:49 2023 +0200
+
+    Implemented feature edit activity
+
+commit f8524396b3701337c7c2e07177a9ac0eed002db7
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 17:02:32 2023 +0200
+
+    added another feature
+
+commit 793e1f5fab1274f666eb6251506e7a05a56bab7e
+Merge: 36f8020 cd4d84b
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 16:48:39 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit cd4d84b6d20779a59c4941c29f40752086742464
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:33:13 2023 +0200
+
+    fixed Worker Joins activity
+
+commit 0c9dce66fef3c2be5118158a44e9ca2f1c402705
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:24:34 2023 +0200
+
+    added project pane
+
+commit cbb03166f3d5cf76d12363b2a09a95d5f3c8579d
+Merge: d202bf1 a2678df
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 16:24:23 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit d202bf1b6fa23a82bb489522152da772951d834c
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 16:24:13 2023 +0200
+
+    skeleton for aktivity
+
+commit a2678df0a3dcb74d12fe2e42951929e0745f1e33
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:18:42 2023 +0200
+
+    finished the login feature
+
+commit 402f0c02ffe4fb93235acee070de5c406bb9ceb3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 16:15:13 2023 +0200
+
+    Update dataPersistence.java
+
+commit c5d80b6bf5a8d09e3aca68c6936d818ee2ec9f1f
+Merge: f4a7351 b3bc967
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 16:11:31 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit f4a73515a0d42696f5a48cf1a97d1e62b15f691e
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 16:11:22 2023 +0200
+
+    Fixed duplicates of users and projects on "clean slates"
+
+commit b3bc9672e5052ceb95a4db674c3064a1e550c203
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:09:37 2023 +0200
+
+    implemented some more to login feature
+
+commit 2a60de3e7bcf2406dc830f11c3a0385460601632
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 16:09:16 2023 +0200
+
+    implemented some more to login feature
+
+commit bb4bd4b5c0137cef742d0fff87a391d1bdbef3f6
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 15:50:21 2023 +0200
+
+    Update Create project.feature
+
+commit 9edd6f509dbe6b00540ff5a5a1c490fece150b15
+Merge: a538b7e 36f8020
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 15:48:47 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit a538b7e1132a84b89d70cc3f0c6fe9f89b29eff3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 15:48:44 2023 +0200
+
+    Assign worker to activity feature implemented
+
+commit 36f802077b61704d01750803e9a7b5cc50719b40
+Merge: c29816f 3752767
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 15:34:50 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 3752767103f413fb9dffb49fe2e68fa35b7ab4d7
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 15:31:35 2023 +0200
+
+    whooops
+
+commit e07964de05763eb190779d2a4e98ccc0e63c860d
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 15:27:32 2023 +0200
+
+    fixed new user bug
+
+commit 29efd78a1d0f780138edf656ac4ea652183de9af
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 15:16:55 2023 +0200
+
+    est tid
+
+commit 0f3974819c2a78e01e89f80216167eb1aa518eda
+Merge: 4500192 a764515
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 15:08:54 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 45001922fca06de62a05bcef2e24d8bcd684d171
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 15:08:40 2023 +0200
+
+    fixede at natascha ikke kan stave
+    
+    kek hun kan ikke skrive projectleader
+
+commit a764515bd17aa928e0d7681ac50941a8488f2151
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 14:59:38 2023 +0200
+
+    midway implentation of login
+
+commit a08433c89b93da89fe179b1a28d37ed743a831c9
+Merge: 9091ea1 0302dcb
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 14:58:30 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 9091ea12a07d0671343667ea88e30b13856059fe
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 14:58:26 2023 +0200
+
+    fix
+
+commit c29816fe6b76493c6f244f67394d70e47402d927
+Merge: a8d0ac4 0302dcb
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 14:52:43 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 0302dcba71526a09b9eada5541efb7c198232a14
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 14:30:30 2023 +0200
+
+    Added user retrieval from session
+
+commit 42c9e119b3c4cc2ccac68751972433a4e2f27fb2
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 14:17:24 2023 +0200
+
+    check duplicates
+
+commit a8d0ac4049973d02d5d38d5cce5ce4d439f94075
+Merge: 4d58927 39ffeb5
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 14:06:05 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 39ffeb530b724702bbcd9178af7b01900d90d9fd
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Apr 17 14:05:21 2023 +0200
+
+    choicebox works!!!
+
+commit 4dc6e313e7e72c4c619e93904810a07cc3a217f4
+Merge: b750350 dabbea7
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 13:48:59 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit b750350d55f6f596dd08f9941cf9fef59cc9ef38
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 13:48:44 2023 +0200
+
+    fix
+
+commit dabbea79a767bb0fa1098fae4e95abaa73c06fe2
+Merge: 80f2292 0f1cc9d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:39:56 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 80f229296fcca2ccf5632b9811ba6caeb16cd1d3
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:39:45 2023 +0200
+
+    Removed message tests - temp
+
+commit 0f1cc9d28dd20dd8875c2236f67423d0e525ee0e
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Apr 17 13:29:32 2023 +0200
+
+    started work on login test
+
+commit bc5d67ac1ef6e3543fb4ec4ae0b31dbfc39dfa3f
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:29:03 2023 +0200
+
+    Added a clean slate pre-test
+
+commit 8c403f8fa079905450f77cb693cbda84b7ccae74
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 13:15:41 2023 +0200
+
+    fixed cucumber test exception
+
+commit 4d5892749c16ea03c8456e609d93c1f614b5e50e
+Merge: e26c6ac 4270cd3
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Apr 17 13:14:49 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 4270cd34717d1fea23a1e3049c842d23c0bf8882
+Merge: 2da61e3 c2feeb7
+Author: Perry02 <59411123+Perry02@users.noreply.github.com>
+Date:   Mon Apr 17 13:07:55 2023 +0200
+
+    Merge pull request #1 from jaller698/user-register-test-using-SOLID
+    
+    Added a user and project database
+
+commit c2feeb7905cb26c857e2dd85d6928f4292e3cecf
+Merge: c328708 f672322
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Apr 17 12:53:40 2023 +0200
+
+    Merge branch 'main' into user-register-test-using-SOLID
+
+commit 2da61e394462b8cc8b60f176773b8f7b2a27eee5
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:51:28 2023 +0200
+
+    fixed logout button again
+
+commit f672322442beaa059014d2baa933e026be889f8b
+Merge: da8f135 874d409
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:46:08 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit da8f135c6f4310bd4849e2b62413ee9576003ace
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:45:47 2023 +0200
+
+    cancel project
+
+commit 874d4099dd2c089d1cf29f7d49a2e8dfec2b48a9
+Author: Perry02 <59411123+Perry02@users.noreply.github.com>
+Date:   Mon Apr 17 12:44:34 2023 +0200
+
+    Delete bin directory
+
+commit 9cb2a49548f46f92781f65568c4c36aa60cb3b1d
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Mon Apr 17 12:04:35 2023 +0200
+
+    fixed logout button
+
+commit c328708d6cc838adae8e0ebf39b2c57f127c536d
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Sun Apr 9 19:36:56 2023 +0200
+
+    Added a user and project database
+
+commit 158143937bcf0de95a26ddccef62d82cf33ead4b
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Fri Apr 7 18:01:23 2023 +0200
+
+    added second feature
+
+commit cb8d149a1f80f0899f04dc5f9bb41bc43245854a
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Fri Apr 7 17:07:15 2023 +0200
+
+    added alert popup
+
+commit e26c6ac068908a37e024923e0af3e28f8cfc78c1
+Merge: 400e937 4913f5d
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Thu Apr 6 09:58:12 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 4913f5ddbd1417aab8bd80a2967dd4a5ee609bf7
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 14:15:40 2023 +0200
+
+    added the first feature test, and made it run
+
+commit b037d395e8e07e820a1f2c3292142cc45c37c5b5
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 11:51:52 2023 +0200
+
+    fixed some things
+
+commit f054a0dd3fd1be3d51cb3d71a13a32ca82a4edf0
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 11:28:25 2023 +0200
+
+    added an backend application class
+
+commit a607f7d442db3f5a015fb0c44f2efeb56bc62f5a
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 09:17:37 2023 +0200
+
+    fixed display bug
+
+commit 24d6a0296c999da0598f4cd0b6e3de2af859fb76
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Wed Apr 5 09:15:19 2023 +0200
+
+    fixed signup
+
+commit f5f47b2f89217f2b7bfa8c4756213e8ddab09fb7
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sun Apr 2 12:51:39 2023 +0200
+
+    fixed int UI bug
+
+commit db95aeed04faddae2e62d49eec79c00855a234ec
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sun Apr 2 12:42:26 2023 +0200
+
+    Added dynamic view to activities
+
+commit 408a99eca104a3a21784a4e6bd571be2a8a8ebcb
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sat Apr 1 12:13:14 2023 +0200
+
+    added responsive UI, for now it's just the name that changes, but it activty also needs to change
+
+commit 0983bb4a6f86d342fa0bb162b1de4f95540ce3ec
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sat Apr 1 11:25:53 2023 +0200
+
+    changed the list to a table, to be able to sort
+
+commit 936ad4b9aec1fd39f54e7ddb5409f250dfb968ae
+Author: christian Søtorp <c.soetorp@gmail.com>
+Date:   Sat Apr 1 11:02:16 2023 +0200
+
+    fixed login screen, issues
+
+commit 57f33934afacb213a2b72b138d9eb3cbbc1c96bd
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 23:51:22 2023 +0200
+
+    "Attempted" to implement user login  step definition
+    
+    Missing user identifiers
+
+commit eb39c28fcea6b1651006c5b57fb9eff3dd411f43
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 23:29:26 2023 +0200
+
+    Update ProjectSteps.java
+
+commit 9caf7201ac0a5a250db22f30610071ef0dac84bc
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 23:18:55 2023 +0200
+
+    Added all current use cases
+    
+    Added all current use cases as features and step definitions
+
+commit fea0579deac3f24a063c5fe82ae957a5aa580618
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 19:35:34 2023 +0200
+
+    projekt creater(virker kun for navn atm)
+
+commit b04b88c452d952a7d7b2a38551ec3a0c0fbd28d7
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 19:00:38 2023 +0200
+
+    signup added
+
+commit 2e8881dd954558d16db31831e5c683e79506a40c
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 17:28:07 2023 +0200
+
+    more cursed ui
+
+commit 1833c483d54a3613ce8aa062def8a28628383dd9
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 15:38:13 2023 +0200
+
+    cursed ui stuff
+
+commit 73dba959307281798de34b6e66a8567d5d8dd3a5
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Tue Mar 28 14:02:48 2023 +0200
+
+    Added missing stepdifinitions
+
+commit a0248bc310d8835ab43f9f79ed7d9657616fa19e
+Author: NA33AT0R <Gabrielllarsen@outlook.com>
+Date:   Tue Mar 28 13:05:51 2023 +0200
+
+    fxml loader
+    
+    added file
+
+commit 54cfe1b6fe5761ab873f80e45e8200e020e29600
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Tue Mar 28 09:52:17 2023 +0200
+
+    added more functions to classes
+
+commit ee0d06770f285b86849fdd63fcea77f4f290e06e
+Merge: 204c605 8591020
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 18:17:54 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 204c605428fa660eb12f672ab4de88bdc6c97e16
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 18:17:52 2023 +0200
+
+    added some more to classes
+
+commit 85910200579490a7c311ee17f15e7c8967e72a82
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:20:26 2023 +0200
+
+    Fixed cucumber error
+
+commit 56fb4a17410185ac72c6c55fd3c5ff613357f3cf
+Merge: 3ceb37f fbbd638
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:15:50 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 3ceb37f1dfdbe252066900ac4702311ebf01af1f
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:15:41 2023 +0200
+
+    Revised some features
+
+commit fbbd638734aab5100c4608f40a959645122524da
+Merge: 2b33f18 edf2889
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 17:06:48 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 2b33f18ac658278c8d5b88fbcc7c6067e6e7b675
+Author: GaySupremacy <nata847s@gmail.com>
+Date:   Mon Mar 27 17:06:44 2023 +0200
+
+    Added classes
+
+commit edf2889c51650d54b97fe3909c6c1c1380713aa4
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 17:05:55 2023 +0200
+
+    Refactored features and step definitions
+
+commit c8618388462e28b25455a2193bfe418e9fd875d0
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon Mar 27 16:33:19 2023 +0200
+
+    Delete HelloFX.java~
+
+commit 400e937ac38afa762af456817e319c1f560e2ab2
+Merge: 0e5a869 624e83c
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 16:10:19 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit 624e83c29cb8a5177cc041a8bb0e752925c557c0
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Mar 27 16:09:49 2023 +0200
+
+    fixed JavaFX
+
+commit 86a24d9514c2db5a7de09b575e4d51f01eccec71
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 16:03:42 2023 +0200
+
+    Added project and user step definitions
+
+commit 0e5a8693c543a4df6a12f61073dfb1cf9f865c9a
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 15:22:51 2023 +0200
+
+    remove test.txt
+
+commit 9f5f5f5b5a867b6e5db3c26dc48bbc00abde64b1
+Merge: 93332ca fce2962
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 15:21:39 2023 +0200
+
+    Merge branch 'main' of https://github.com/jaller698/Planning_Project
+
+commit fce2962879f04ee218fbee615b73893b81b87813
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Mar 27 15:19:15 2023 +0200
+
+    test
+
+commit c4113b0c6c97ce2c75945143eb3fec616b2d2135
+Author: Jaller698 <c.soetorp@gmail.com>
+Date:   Mon Mar 27 15:02:16 2023 +0200
+
+    setup JavaFX
+
+commit 8042f46d1ae3fadb32ad0121645608e58310d39b
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Mon Mar 27 15:18:26 2023 +0200
+
+    Create README.md
+
+commit cc62b0d25538ab500ab463d83d544b3aa6e095ed
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 15:15:03 2023 +0200
+
+    Added Create activites for project feature
+
+commit 93332cab4cd049ef055f0c31decde0a8f573f330
+Author: McQueen24 <rasmuslindholdt2406@gmail.com>
+Date:   Mon Mar 27 15:05:22 2023 +0200
+
+    test add
+
+commit c3dd90e7905c28dff3f69520e956e34e01f82a5a
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 14:35:04 2023 +0200
+
+    Added Register hours feature
+
+commit e12969ff8c55ae3c7f5d1e7adfd8932d3d6908ad
+Author: Perry02 <martinfhjensen@gmail.com>
+Date:   Mon Mar 27 13:16:53 2023 +0200
+
+    Create .gitignore
+
+commit 45fef7abc89f930123aab00f7ef331ddc93e2746
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Thu Mar 23 16:33:16 2023 +0100
+
+    Added some automatic testing
+
+commit 189a4e54ff8239cbee521b26b00a5b96f4a49685
+Author: jaller698 <93883159+jaller698@users.noreply.github.com>
+Date:   Thu Mar 23 10:33:49 2023 +0100
+
+    Project template

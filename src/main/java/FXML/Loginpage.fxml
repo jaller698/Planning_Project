@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.StartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.StartController">
    <children>
       <TextField fx:id="loginUsername" layoutX="226.0" layoutY="216.0" />
       <Text layoutX="224.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
       <Text layoutX="226.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
       <PasswordField fx:id="loginPassword" layoutX="226.0" layoutY="270.0" onAction="#go" />
       <Button fx:id="Go" layoutX="248.0" layoutY="306.0" mnemonicParsing="false" onAction="#go" prefHeight="31.0" prefWidth="103.0" text="Go" />
-      <Button layoutX="248.0" layoutY="346.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="103.0" text="Sign up" />
+      <Button layoutX="248.0" layoutY="346.0" mnemonicParsing="false" onAction="#goToSignup" prefHeight="31.0" prefWidth="103.0" text="Sign up" />
    </children>
 </AnchorPane>
