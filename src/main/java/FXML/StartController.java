@@ -102,7 +102,7 @@ public class StartController {
 	
 	public void createAktivity() throws IOException {
 		new Activity(ActivityNavn.getText(),Integer.valueOf(estak.getText()), projectPick.getValue());
-		HelloFX.setRoot("projectview", ProjectViewController.class);
+		HelloFX.setRoot("ProjectView", ProjectViewController.class);
 	}
 	
 	
