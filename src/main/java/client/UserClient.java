@@ -7,16 +7,8 @@ import shared.AProject;
 import shared.AUser;
 
 public class UserClient extends AUser { // {Written by Jaller698, refactored by Perry02 (Original file: Medarbejder.java)}
-	/*
-	public UserClient(AUser user) {
-		super();
-		this.name = user.getName();
-		this.id = user.getId();
-		this.projects = user.getProjects();
-		this.activities = user.getActivities();
-	}	
-	*/
-	public UserClient(AUser user) {
+
+	public UserClient(AUser user) { // {Written by GaySupremacy}
 		this.name = user.getName();
 		this.id = user.getId();
 		this.projects = user.getProjects();
@@ -36,7 +28,7 @@ public class UserClient extends AUser { // {Written by Jaller698, refactored by 
 	}
 
 	@Override
-	public AActivity AssignActivity(AActivity activity) {
+	public AActivity AssignActivity(AActivity activity) { // {Written by GaySupremacy}
 		
 		AActivity _activity = Application.serverAPI.activityAssignUsertoActivity(Application.getCurrentActiveSession(), new ActivityClient(activity), this);
 		if (_activity == null) {

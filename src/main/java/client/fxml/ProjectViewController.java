@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class ProjectViewController {
+public class ProjectViewController { // {Written by GaySupremacy, NA33AT0R and Jaller698}
 	Application app = Application.singleton();
 	@FXML
 	public Button refresh;
@@ -84,7 +84,7 @@ public class ProjectViewController {
 	}
 
 	@FXML
-	public void refresh(ActionEvent e) throws IOException {
+	public void refresh(ActionEvent e) throws IOException { // {Written by Jaller698}
 		// projektTable.setItems(data);
 		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
@@ -93,7 +93,7 @@ public class ProjectViewController {
 
 	}
 
-	public void logOut() throws IOException {
+	public void logOut() throws IOException { // {Written by GaySupremacy}
 		// sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et
 		// tjek for det. Det er mest bare så der ikke sker noget
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
@@ -104,7 +104,7 @@ public class ProjectViewController {
 
 	}
 
-	public void initialize() {		
+	public void initialize() { // {Written by Jaller698}	
 		data = convertToOL(Application.serverAPI.projectGetAllProjectsAsList(Application.getCurrentActiveSession()));
 		
 		if(!data.isEmpty())

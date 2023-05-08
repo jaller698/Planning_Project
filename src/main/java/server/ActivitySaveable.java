@@ -8,13 +8,13 @@ import shared.WorkTimeUnit;
 
 public class ActivitySaveable extends AActivity implements IDataSaveable { // {Written by Perry02}
 
-	public ActivitySaveable(AProject project, String name, int estTime) {
+	public ActivitySaveable(AProject project, String name, int estTime) { // {Written by GaySupremacy}
 		super(project, name, estTime);
 	}
 
 	
 	
-	public ActivitySaveable(AActivity activity) {
+	public ActivitySaveable(AActivity activity) { // {Written by GaySupremacy}
 		super(activity.getProject(), activity.getName(), activity.getEstTime());
 		
 		this.timeWorked = activity.getTimeWorked();
@@ -54,7 +54,7 @@ public class ActivitySaveable extends AActivity implements IDataSaveable { // {W
 
 
 	@Override
-	public void editActivity(int hours) {
+	public void editActivity(int hours) { // {Written by Perry02}
 		this.estTime = hours;
 	}	
 }

@@ -10,34 +10,6 @@ import shared.AProject;
 import shared.AUser;
 
 public class ProjectClient extends AProject { // {Written by Jaller698, GaySupremacy and McQueen24, refactored by Perry02 (Original file: Projekt.java)}
-
-	/*
-	public ProjectClient(String name, int estTime) { // {Written by GaySupremacy}
-		super(name, estTime);
-		
-		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
-	}
-	public ProjectClient(String name, int estTime, UserClient projectLeader) { // {Written by GaySupremacy}
-		super(name, estTime);
-		if (projectLeader != null)
-			this.projectLeader = projectLeader.getBase();
-		
-		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
-	}
-	
-	public ProjectClient(AProject project) { // {Written by Perry02}
-		super(project.getName(), project.getEstTime());
-		
-		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
-	}
-	
-	public ProjectClient(AProject project, UserClient projectLeader) { // {Written by Perry02}
-		super(project.getName(), project.getEstTime());
-		this.projectLeader = projectLeader.getBase();
-		
-		//this.id = Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), this);
-	}
-	*/
 	
 	public ProjectClient(AProject project) { // {Written by GaySupremacy}
 		super(project.getName(), project.getEstTime());
@@ -59,7 +31,7 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	}
 	
 	@Override
-	public AActivity CreateActivity(String name, int estTime) {
+	public AActivity CreateActivity(String name, int estTime) { // {Written by Perry02}
 		ActivityClient activity = Application.serverAPI.activityAddNewActivity(Application.getCurrentActiveSession(), name, estTime, id);
 		if (activity == null)
 			return null;
@@ -70,12 +42,12 @@ public class ProjectClient extends AProject { // {Written by Jaller698, GaySupre
 	}
 
 	@Override
-	public void MoveActivity(AActivity activity, AProject destination) {
+	public void MoveActivity(AActivity activity, AProject destination) { // {Written by Perry02}
 		Application.serverAPI.activityMoveActivity(Application.getCurrentActiveSession(), new ActivityClient(activity), new ProjectClient(destination));
 	}
 
 	@Override
-	public void RemoveActivity(AActivity activity) {
+	public void RemoveActivity(AActivity activity) { // {Written by Perry02}
 		if (Application.serverAPI.activityRemoveActivity(Application.getCurrentActiveSession(), new ActivityClient(activity))) {
 			activities.remove(activity);
 		}

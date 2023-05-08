@@ -19,7 +19,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	private static HashMap<String, Integer[]> userIDs = new HashMap<String, Integer[]>();
 	private static HashMap<String, Integer> projectIDs = new HashMap<String, Integer>();
 	
-	public DataPersistence() {		
+	public DataPersistence() {  // {Written by Perry02}
 		allUsers = new ArrayList<UserSaveable>();
 		allProjects = new HashMap<Integer, ProjectSaveable>();
 		
@@ -30,7 +30,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	}
 	
 	@Override
-	public int addUser(UserSaveable user) {
+	public int addUser(UserSaveable user) {  // {Written by Perry02}
 		System.out.println("DataPersistence: addUser:" + user.getName());
 		if (allUsers.contains(user)) { // check for duplicates
 			return -1;
@@ -59,13 +59,13 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	}
 
 	@Override
-	public UserSaveable getUser(int userID) {
+	public UserSaveable getUser(int userID) { // {Written by Perry02}
 		System.out.print("DataPersistence: getUser by id: " + userID);
 		return allUsers.get(userID); // return user based on ID
 	}
 
 	@Override
-	public UserSaveable[] getUser(String userName) {
+	public UserSaveable[] getUser(String userName) { // {Written by Perry02}
 		System.out.print("DataPersistence: getUser by name: " + userName);
 		
 		if(userIDs.get(userName) == null)
@@ -88,29 +88,29 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	}
 	
 	@Override
-	public UserSaveable[] getAllUsers() {
+	public UserSaveable[] getAllUsers() { // {Written by Perry02}
 		System.out.println("DataPersistence: getAllUsers");
 		return allUsers.toArray(new UserSaveable[allUsers.size()]); // returns all users as an array
 	}
 
 	@Override
-	public ArrayList<UserSaveable> getAllUsersAsList() {
+	public ArrayList<UserSaveable> getAllUsersAsList() { // {Written by Perry02}
 		return new ArrayList<UserSaveable>(allUsers); // returns all users as an array as list
 	}
 	
 	@Override
-	public int getUserID(UserSaveable user) {
+	public int getUserID(UserSaveable user) { // {Written by Perry02}
 		return allUsers.indexOf(user); // returns specific userID
 	}
 
 	@Override
-	public void removeUser(int userID) {
+	public void removeUser(int userID) { // {Written by Perry02}
 		userIDs.remove(allUsers.get(userID).getName()); // removes cache
 		allUsers.remove(userID); // removes specific user
 	}
 
 	@Override
-	public int addProject(ProjectSaveable project) {
+	public int addProject(ProjectSaveable project) { // {Written by Perry02}
 		if (allProjects.containsValue(project) || projectIDs.containsKey(project.getName())) { // check for duplicates
 			return -1;
 		}
@@ -127,7 +127,7 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	}
 
 	@Override
-	public void addProject(ProjectSaveable project, Integer id) {
+	public void addProject(ProjectSaveable project, Integer id) { // {Written by Perry02}
 		if (allProjects.containsValue(project) || projectIDs.containsKey(project.getName())) { // check for duplicates
 			return;
 		}
@@ -138,17 +138,18 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	}
 
 	@Override
-	public ProjectSaveable getProject(Integer id) {
+	public ProjectSaveable getProject(Integer id) { // {Written by Perry02}
 		return allProjects.get(id); // returns project with the given key
 	}
 
 	@Override
-	public ProjectSaveable getProject(String name) {
+	public ProjectSaveable getProject(String name) { // {Written by Perry02}
 		return allProjects.get(projectIDs.get(name)); // returns project with the given name
 	}
 
+	// returns all projects as an array
 	@Override
-	public ProjectSaveable[] getAllProjects() { // returns all projects as an array
+	public ProjectSaveable[] getAllProjects() { // {Written by Perry02}
 		// a roundabout fix for the toArray() function as it refuses to work with the Projekt class
 		Collection<ProjectSaveable> tempValues = allProjects.values(); // all projects currently saved
 		ProjectSaveable[] array = new ProjectSaveable[tempValues.size()]; // array the size of the amount of projects
@@ -158,18 +159,18 @@ public class DataPersistence implements IProjectRegister, IUserRegister { // {Wr
 	}
 	
 	@Override
-	public int getProjectID(ProjectSaveable project) {
+	public int getProjectID(ProjectSaveable project) { // {Written by Perry02}
 		return projectIDs.get(project.toString()); // get project id based on name
 	}
 
 	@Override
-	public void removeProject(Integer id) {
+	public void removeProject(Integer id) { // {Written by Perry02}
 		projectIDs.remove(allProjects.get(id).toString()); // removes cache
 		allProjects.remove(id); // removes project
 	}
 
 	@Override
-	public ArrayList<ProjectSaveable> getAllProjectsAsList() {
+	public ArrayList<ProjectSaveable> getAllProjectsAsList() { // {Written by Perry02}
 		return new ArrayList<ProjectSaveable>(Arrays.asList(getAllProjects()));
 	}
 }

@@ -11,7 +11,7 @@ public class UserSaveable extends AUser implements IDataSaveable { // {Written b
 	private String password;
 	public String getPassword() {return password;} // for use in tests
 
-	public UserSaveable(String name, String password) {
+	public UserSaveable(String name, String password) { // {Written by Perry02}
 		super();
 		
 		this.name = name;
@@ -19,7 +19,7 @@ public class UserSaveable extends AUser implements IDataSaveable { // {Written b
 		id = ServerCore.users.addUser(this);
 	}
 	
-	public UserSaveable(AUser user) {
+	public UserSaveable(AUser user) { // {Written by Perry02}
 		this.name = user.getName();
 		this.id = user.getId();
 		this.projects = user.getProjects();

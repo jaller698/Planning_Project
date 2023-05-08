@@ -10,20 +10,6 @@ import shared.AUser;
 import shared.WorkTimeUnit;
 
 public class ActivityClient extends AActivity { // {Written by Jaller698, refactored by Perry02 (Original file: Aktivitet.java)}
-
-	/*
-	public ActivityClient(AProject project, String name, int estTime) { // {Written by Jaller698}
-		super(project, name, estTime);
-	}
-	
-	public ActivityClient(ProjectClient project, String name, int estTime) { // {Written by Jaller698}
-		super(project.getBase(), name, estTime);
-	}
-	
-	public ProjectClient getProjectClient() { // {Written by Perry02}
-		return (ProjectClient) project;
-	}
-	*/
 	
 	public ActivityClient(AActivity activity) { // {Written by Jaller698}
 		super(activity.getProject(), activity.getName(), activity.getEstTime());
@@ -32,7 +18,7 @@ public class ActivityClient extends AActivity { // {Written by Jaller698, refact
 	}
 	
 	@Override
-	public void RegisterHours(AUser user, int hours) {
+	public void RegisterHours(AUser user, int hours) { // {Written by Perry02}
 		int time = Application.serverAPI.activityUserAddTime(Application.getCurrentActiveSession(), this, hours);
 		
 		if (time >= 0) {
@@ -71,7 +57,7 @@ public class ActivityClient extends AActivity { // {Written by Jaller698, refact
 	}
 
 	@Override
-	public void editActivity(int hours) {
+	public void editActivity(int hours) { // {Written by Perry02}
 		AActivity activity = Application.serverAPI.activityEditActivity(Application.getCurrentActiveSession(), this, name, hours);
 		if (activity != null) {
 			this.name = activity.getName();

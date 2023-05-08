@@ -12,7 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.collections.FXCollections;
 
-public class StartController {
+public class StartController { // {Written by GaySupremacy, NA33AT0R and Jaller698}
 	Application app = Application.singleton();
 	@FXML
 	private Button begin;
@@ -92,7 +92,7 @@ public class StartController {
 	@FXML
 	private static Alert alert = new Alert(AlertType.NONE);
 	
-	public void createAktivity() throws IOException {
+	public void createAktivity() throws IOException { // {Written by Jaller698}
 		//new ActivityClient(projectPick.getValue(), aktivitetNavn.getText(),Integer.valueOf(estak.getText()));
 		projectPick.getValue().CreateActivity(aktivitetNavn.getText(), Integer.valueOf(estak.getText()));
 		HelloFX.setRoot("ProjectView", ProjectViewController.class);
@@ -103,7 +103,7 @@ public class StartController {
 		
 	}
 	
-	public void goAdd(ActionEvent e) throws IOException {
+	public void goAdd(ActionEvent e) throws IOException { // {Written by NA33AT0R}
 		HelloFX.setRoot("Addlead", StartController.class);
 	}
 	
@@ -112,7 +112,7 @@ public class StartController {
 		HelloFX.setRoot("Mainmenu", StartController.class);
 	}
 
-	public void createProjekt() throws IOException { // {Written by GaySupremacy}
+	public void createProjekt() throws IOException { // {Written by NA33AT0R and Jaller698}
 		int estTid = Integer.valueOf("0"+est.getText());
 		UserClient leaderpick = leaderPick.getValue();
 		
@@ -145,7 +145,7 @@ public class StartController {
 		}
 	}
 
-	public void logOut() throws IOException { // {Written by NA33AT0R, GaySupremacy}
+	public void logOut() throws IOException { // {Written by GaySupremacy}
 		// sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et
 		// tjek for det. Det er mest bare så der ikke sker noget
 		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
