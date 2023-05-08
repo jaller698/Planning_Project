@@ -12,11 +12,11 @@
       <TextField fx:id="projektNavn" layoutX="23.0" layoutY="90.0" />
       <Text layoutX="23.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projekt navn" />
       <Text layoutX="23.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Est. tid (optional)" />
-      <Text layoutX="173.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Måneder" />
+      <Text layoutX="179.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Måneder" />
       <ChoiceBox fx:id="leaderPick" layoutX="23.0" layoutY="271.0" prefWidth="150.0" />
       <Button fx:id="cancel" layoutX="336.0" layoutY="22.0" mnemonicParsing="false" onAction="#goMain" text="Cancel project" />
       <Text layoutX="23.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leader (optional)" />
       <Button fx:id="Leabe" layoutX="436.0" layoutY="22.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
-      <TextField fx:id="est" layoutX="14.0" layoutY="346.0" />
+      <TextField fx:id="est" layoutX="23.0" layoutY="346.0" />
    </children>
 </AnchorPane>

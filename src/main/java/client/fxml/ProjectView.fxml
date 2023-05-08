@@ -108,16 +108,16 @@
                            <children>
                               <Label text="Projektleder" />
                               <Label fx:id="projectLeader" text="Label" GridPane.columnIndex="1" />
-                              <Label text="Label" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.rowIndex="3" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="projID" text="ID" GridPane.rowIndex="1" />
+                              <Label fx:id="thisID" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="projEstT" text="Est. months" GridPane.rowIndex="2" />
+                              <Label fx:id="thisEstT" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label GridPane.rowIndex="3" />
+                              <Label />
                            </children>
                         </GridPane>
                         <Button fx:id="refresh" layoutX="115.0" layoutY="716.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" AnchorPane.bottomAnchor="7.600000000000023" AnchorPane.leftAnchor="115.0" />
-                        <Button fx:id="toAk" layoutX="14.0" layoutY="716.0" mnemonicParsing="false" onAction="#createAk" text="Create Aktivity" AnchorPane.bottomAnchor="7.600000000000023" AnchorPane.leftAnchor="14.0" />
+                        <Button fx:id="toAk" layoutX="14.0" layoutY="716.0" mnemonicParsing="false" onAction="#createAk" text="Create Activity" AnchorPane.bottomAnchor="7.600000000000023" AnchorPane.leftAnchor="14.0" />
                      </children>
                   </AnchorPane>
                </children>
