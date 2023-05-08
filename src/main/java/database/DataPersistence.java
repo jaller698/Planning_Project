@@ -10,6 +10,8 @@ import application.Application;
 import application.Medarbejder;
 import application.Project;
 
+//Skrevet af Martin og KUN Martin
+
 public class DataPersistence implements IProjectRegister, IUserRegister {
 	private static ArrayList<Medarbejder> allWorkers = new ArrayList<Medarbejder>();
 	private static HashMap<Integer, Project> allProjects = new HashMap<Integer, Project>();

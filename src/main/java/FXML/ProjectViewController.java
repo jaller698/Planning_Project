@@ -16,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+// Skrevet af Christian, Gabriel og Natascha
+
 public class ProjectViewController {
 	Application app = Application.singleton();
 	@FXML
@@ -80,28 +82,23 @@ public class ProjectViewController {
 		HelloFX.setRoot("Mainmenu", StartController.class);
 
 	}
-
+	
+	//Christian
 	@FXML
 	public void refresh(ActionEvent e) throws IOException {
-		// projektTable.setItems(data);
 		NameColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		activityColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 		estHourColumn.setCellValueFactory(cellData -> cellData.getValue().getUIEstHours());
 		assignedEmplColumn.setCellValueFactory(cellData -> cellData.getValue().getUIName());
 
 	}
-
+	//Natascha
 	public void logOut() throws IOException {
-		// sættes til -1 da index ikke kan være negativt. Tænker at vi implementerer et
-		// tjek for det. Det er mest bare så der ikke sker noget
-		// fucky wucky shit, men det burde egentlig aldrig blive et problem siden man
-		// ikke kan komme nogen stedet fra login page/signup page uden at logge ind
-		// og dermed skifte index. Bare extra safety.
 		app.setCurrentActiveUser(null);
 		HelloFX.setRoot("Loginpage", StartController.class);
 
 	}
-
+	//Christian
 	public void initialize() {
 		if (!data.isEmpty())
 			currentProject = data.get(0);
@@ -137,11 +134,9 @@ public class ProjectViewController {
 		}
 		return o;
 	}
-
+	//Christian
 	private void showProjectDetails(Project p) {
 		if (p != null) {
-			// ERROR!!
-
 			NameLabel.setText(p.toString());
 			projectLeader.setText(p.Leader.toString());
 			estHoursLabel.setText(Integer.toString(p.estTid));
@@ -167,7 +162,7 @@ public class ProjectViewController {
 
 		}
 	}
-
+	//Christian, Natascha og Gabriel
 	private void showActivityDetails(Activity a) {
 		if (a != null) {
 			activityLabel.setText(a.toString());

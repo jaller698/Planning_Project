@@ -5,6 +5,8 @@ import java.util.*;
 
 import database.*;
 
+//Skrevet af Christian og Martin
+
 public final class Application {
 	private final static Application singleton = new Application();
 

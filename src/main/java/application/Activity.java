@@ -14,17 +14,20 @@ public class Activity {
 	public HashMap<Integer, Integer> timeWorked = new HashMap<Integer, Integer>(); // <>userID, hours>
 	public String navn;
 	public int estTime;
-	
+
+	//Natascha
 	public Activity(String navn, int estTime, Project p) {
-		if(!p.getProjLeader().equals(Application.getCurrentActiveUser())) { /*choice 1 */
-			Application.setConfirmationMSG("Insufficient privileges to create activity  '"+navn+"' under Project '"+p.navn+"'");
+		if (!p.getProjLeader().equals(Application.getCurrentActiveUser())) { /* choice 1 */
+			Application.setConfirmationMSG(
+					"Insufficient privileges to create activity  '" + navn + "' under Project '" + p.navn + "'");
 			return;
 		}
 		this.navn = navn;
 		this.p = p;
 		addToProject(this.p);
 		this.estTime = estTime;
-		Application.setConfirmationMSG("Successfully created activity '"+ navn+"' with "+estTime +" hours under '"+p.navn +"'");
+		Application.setConfirmationMSG(
+				"Successfully created activity '" + navn + "' with " + estTime + " hours under '" + p.navn + "'");
 
 	}
 
@@ -43,48 +46,30 @@ public class Activity {
 	public int getEstHours() {
 		return estTime;
 	}
-	
-	//public void editActivity(String navn) {
-	//	this.navn = navn;
-	//}
-	
+
 	public void editActivity(int estTime) {
 		this.estTime = estTime;
 	}
+
+
 	
-	//public void editActivity(String navn, int estTime) { // edit an activity after the fact
-	//	this.navn = navn;
-	//	this.estTime = estTime;
-	//}
-	
+	//Martin
 	public void addTime(int hours, Medarbejder user) { // add time to an activity
 		// get a userID to associate the time with
-		int userID = Application.workers.getUserID(user); 
-		
+		int userID = Application.workers.getUserID(user);
+
 		// adds the time to the hashmap
-		//timeWorked.getOrDefault(userID, 0)
+		// timeWorked.getOrDefault(userID, 0)
 		timeWorked.put(userID, timeWorked.computeIfAbsent(userID, k -> 0) + hours);
-		
+
 		addMedarbejder(user);
 	}
-	
-	//public int getTimeDone() { //gets the total time done
-	//	int totalTime = 0;
-	//	
-	//	for (Iterator<Integer> iterator = timeWorked.keySet().iterator(); iterator.hasNext();) {
-	//		totalTime += (Integer) iterator.next();
-	//	}
-	//	
-	//	return totalTime;
-	//}
-	
+
 	public int getTimeDoneByUser(Medarbejder user) { // gets the time done by a specific user
-		int userID = Application.workers.getUserID(user); 
-		
+		int userID = Application.workers.getUserID(user);
+
 		return timeWorked.get(userID);
 	}
-	
-	
 
 	// UI method
 	public StringProperty getUIName() {

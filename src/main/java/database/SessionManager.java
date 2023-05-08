@@ -5,6 +5,7 @@ import java.util.HashMap;
 import application.Application;
 import application.Medarbejder;
 
+//Christian
 public class SessionManager implements ISessionsRegister {
 	private static HashMap<Integer, Medarbejder> activeSessions = new HashMap<Integer, Medarbejder>();
 
