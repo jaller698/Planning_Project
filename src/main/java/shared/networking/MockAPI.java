@@ -261,7 +261,7 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 
 	@Override
-	public ActivityClient activityAddNewActivity(String session, String name, Integer estTime, Integer projectID) {
+	public ActivityClient activityAddNewActivity(String session, String name, Integer estTime, Integer projectID) {// {Written by Perry02}
 		System.out.println("API: activityAddNewActivity");
 		if (!ServerCore.sessions.checkSession(session))
 			return null;
@@ -274,7 +274,7 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 
 	@Override
-	public ActivityClient activityAssignUsertoActivity(String session, ActivityClient activity, UserClient user) {
+	public ActivityClient activityAssignUsertoActivity(String session, ActivityClient activity, UserClient user) {// {Written by Perry02}
 		System.out.println("API: activityAssignUsertoActivity");
 		if (!ServerCore.sessions.checkSession(session))
 			return null;
@@ -295,7 +295,7 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 	
 	@Override
-	public ActivityClient activityEditActivity(String session, ActivityClient activity, String name, Integer estTime) {
+	public ActivityClient activityEditActivity(String session, ActivityClient activity, String name, Integer estTime) {// {Written by Perry02}
 		if (!ServerCore.sessions.checkSession(session))
 			return null;
 		
@@ -310,7 +310,7 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 
 	@Override
-	public int activityUserAddTime(String session, ActivityClient activity, Integer time) {
+	public int activityUserAddTime(String session, ActivityClient activity, Integer time) {// {Written by Perry02}
 		System.out.println("API: activityUserAddTime");
 		if (!ServerCore.sessions.checkSession(session))
 			return -1;
@@ -323,7 +323,7 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 	
 	@Override
-	public void activityMoveActivity(String session, ActivityClient activity, ProjectClient destination) {
+	public void activityMoveActivity(String session, ActivityClient activity, ProjectClient destination) {// {Written by Perry02}
 		System.out.println("API: activityMoveActivity");
 		if (!ServerCore.sessions.checkSession(session))
 			return;
@@ -342,7 +342,7 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 
 	@Override
-	public Boolean activityRemoveActivity(String session, ActivityClient activity) {
+	public Boolean activityRemoveActivity(String session, ActivityClient activity) {// {Written by Perry02}
 		System.out.println("API: activityRemoveActivity");
 		if (!ServerCore.sessions.checkSession(session))
 			return false;
