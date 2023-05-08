@@ -50,22 +50,6 @@ public class ActivitySaveable extends AActivity implements IDataSaveable { // {W
 		
 		time.AddTime(hours);
 	}
-	
-	@Override
-	public int GetTotalTime() { // {Written by Perry02}
-		int totalTime = 0;
-		
-		for (WorkTimeUnit timeUnit : timeWorked.values()) {
-			totalTime += timeUnit.GetTotalTime();
-		}
-		
-		return totalTime;
-	}
-	
-	@Override
-	public int GetTotalTime(AUser user) {  // {Written by Perry02}
-		return timeWorked.get(user).GetTotalTime();
-	}
 
 
 

@@ -37,9 +37,19 @@ public abstract class AActivity { // {Written by Jaller698, GaySupremacy and Per
 	
 	public abstract void editActivity(int hours);
 	
-	public abstract int GetTotalTime();
+	public int GetTotalTime() { // {Written by Perry02}
+		int totalTime = 0;
+		
+		for (WorkTimeUnit timeUnit : timeWorked.values()) {
+			totalTime += timeUnit.GetTotalTime();
+		}
+		
+		return totalTime;
+	}
 	
-	public abstract int GetTotalTime(AUser user);	
+	public int GetTotalTime(AUser user) {  // {Written by Perry02}
+		return timeWorked.get(user).GetTotalTime();
+	}
 	
 	// switches the project this is tied to
 	public abstract void SwitchProject(AProject destination);

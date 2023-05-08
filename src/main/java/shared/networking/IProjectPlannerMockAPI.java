@@ -52,11 +52,6 @@ public interface IProjectPlannerMockAPI { // {Written by Perry02}
 	
 	public UserClient projectAddProjectLeader(String session, Integer projectID, Integer userID); // adds the given user ad a leader to the project
 	
-	public Boolean projectAddUserToProject(String session, Integer projectID, Integer[] userIDs); // add all users by id to the project
-	
-	public Boolean projectRemoveProject(String session, ProjectClient project); // removes given project
-	
-	
 	
 	// activities
 	public ActivityClient activityAddNewActivity(String session, String name, Integer estTime, Integer projectID); // adds a new activity for given projectID

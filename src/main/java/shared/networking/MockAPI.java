@@ -260,20 +260,6 @@ public class MockAPI implements IProjectPlannerMockAPI { // {Written by Perry02,
 	}
 
 	@Override
-	public Boolean projectAddUserToProject(String session, Integer projectID, Integer[] userIDs) {
-		System.out.println("API: projectAddUserToProject TODO");
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean projectRemoveProject(String session, ProjectClient project) {
-		System.out.println("API: projectRemoveProject TODO");
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ActivityClient activityAddNewActivity(String session, String name, Integer estTime, Integer projectID) {
 		System.out.println("API: activityAddNewActivity");
 		if (!ServerCore.sessions.checkSession(session))

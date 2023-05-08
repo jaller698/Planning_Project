@@ -97,6 +97,8 @@ public class ProjectViewController {
 	}
 
 	public void initialize() {		
+		data = convertToOL(Application.serverAPI.projectGetAllProjectsAsList(Application.getCurrentActiveSession()));
+		
 		if(!data.isEmpty())
 			currentProject = data.get(0);
 		if(data != null)
@@ -138,7 +140,7 @@ public class ProjectViewController {
 			
 
 			NameLabel.setText(p.toString());
-			UserClient projectleader = (UserClient) p.getProjectLeader();
+			UserClient projectleader = new UserClient(p.getProjectLeader());
 			if (projectleader != null) {
 				projectLeader.setText(projectleader.toString());
 			} else {

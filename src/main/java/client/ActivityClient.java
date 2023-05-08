@@ -51,18 +51,6 @@ public class ActivityClient extends AActivity { // {Written by Jaller698, refact
 	}
 
 	@Override
-	public int GetTotalTime() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int GetTotalTime(AUser user) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void SwitchProject(AProject destination) {
 		// TODO Auto-generated method stub
 		

@@ -91,7 +91,8 @@ public class StartController {
 	private static Alert alert = new Alert(AlertType.NONE);
 	
 	public void createAktivity() throws IOException {
-		new ActivityClient(projectPick.getValue(), aktivitetNavn.getText(),Integer.valueOf(estak.getText()));
+		//new ActivityClient(projectPick.getValue(), aktivitetNavn.getText(),Integer.valueOf(estak.getText()));
+		projectPick.getValue().CreateActivity(aktivitetNavn.getText(), Integer.valueOf(estak.getText()));
 		HelloFX.setRoot("projektview", ProjectViewController.class);
 		
 		//tilføj kode til at initialise med et projekt, samt derefter tilføje aktiviteten til projektet
@@ -113,13 +114,14 @@ public class StartController {
 		int estTid = Integer.valueOf("0"+est.getText());
 		UserClient leaderpick = leaderPick.getValue();
 		
-		if (leaderpick != null) {
+		/*if (leaderpick != null) {
 			ProjectClient proj = new ProjectClient(projektNavn.getText(), estTid, leaderpick);
 			proj.setID();
 		} else {
 			ProjectClient proj = new ProjectClient(projektNavn.getText(), estTid);
 			proj.setID();
-		}
+		}*/
+		Application.serverAPI.projectAddNewProject(Application.getCurrentActiveSession(), projektNavn.getText(), estTid, leaderpick);
 		
 		
 		/*
